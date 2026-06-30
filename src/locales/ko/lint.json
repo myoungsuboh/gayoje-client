@@ -1,0 +1,157 @@
+{
+  "title": "코드 점검",
+  "page": {
+    "subtitle": "설계한 내용이 실제 코드에 빠짐없이 반영됐는지 대조해, 빠진 부분과 고칠 점을 짚어 줘요.",
+    "subtitle_note": "코드 채점이 아니라 '설계대로 만들어졌는지' 확인이에요.",
+    "guide_btn": "사용 가이드",
+    "guide_btn_title": "Lint 페이지 사용 가이드 다시 보기",
+    "rule_compliance": "Rule Compliance"
+  },
+  "error": {
+    "github_url_required": "Code 화면에서 GitHub URL 을 먼저 설정해 주세요.",
+    "project_name_required": "프로젝트명을 입력해주세요.",
+    "run_failed": "Lint 실행 중 오류가 발생했습니다.",
+    "run_failed_toast": "Lint 실패: {error}"
+  },
+  "cache_age": {
+    "just_now": "방금 전",
+    "minutes_ago": "{n}분 전",
+    "hours_ago": "{n}시간 전",
+    "days_ago": "{n}일 전"
+  },
+  "guide": {
+    "headline": "코드 점검",
+    "pill": "LINT GUIDE",
+    "sub": "바이브 코딩 결과를 Plan · Design 명세와 자동 대조해 준수율을 측정하고, Fix Agent 로 위반 사항을 한 번에 수정 spec 으로 만듭니다.",
+    "step1": {
+      "title": "Lint Phase 개요",
+      "subtitle": "Validate Vibe-coded Project",
+      "desc": "AI 에이전트가 작성한 코드가 Plan/Design 단계에서 정한 명세(PRD · SPACK · DDD · Architecture · 코딩 규칙)를 지켰는지 검증합니다. 사람이 직접 코드 리뷰하지 않아도 회귀를 잡아냅니다.",
+      "tip": "바이브 코딩 → Lint → Fix Agent 순환으로 명세 준수를 자동화하세요."
+    },
+    "step2": {
+      "title": "GitHub URL 먼저 설정",
+      "subtitle": "Pre-requisite",
+      "desc": "Code 화면에서 검사 대상 GitHub repo URL 을 등록해 주세요. Public · Private 모두 지원되며 (Private 은 GitHub OAuth 연결 필요), 한 번 설정하면 다음 Lint 실행에 자동 사용됩니다.",
+      "tip": "아직 미설정이면 Lint 화면의 \"CODE 화면으로\" 버튼이 바로 이동시켜 줍니다."
+    },
+    "step3": {
+      "title": "Run Lint — 카테고리별 준수율",
+      "subtitle": "SPACK · DDD · Architecture · Rules · 기획",
+      "desc": "\"RUN LINT\" 한 번이면 5 개 카테고리(SPACK 명세, DDD 모델, Architecture 구조, 코딩 규칙, 기획 항목) 별 준수율을 검사합니다. 기획 항목(Story·화면)은 한국어 제목이라도 AI 가 코드와 의미 단위로 대조해 file:line 근거를 제시합니다. 각 카드의 % 가 통과율이며, 카드 클릭으로 세부 룰 합·불 목록을 볼 수 있습니다.",
+      "tip": "캐시된 결과는 즉시 표시되고, \"force\" 옵션으로 재검사할 수 있어요."
+    },
+    "step4": {
+      "title": "Constraint Fix Agent — 자동 수정 spec",
+      "subtitle": "Auto-fix Workflow",
+      "desc": "실패한 룰들을 모아 AI 에이전트(Claude Code / Cursor 등)가 바로 적용 가능한 수정 spec 을 자동 생성합니다. spec 을 에이전트에 붙여넣으면 코드 수정 → 다시 Run Lint → 통과율 ↑.",
+      "tip": "Run Lint → Fix Agent → 다시 Run Lint 반복으로 100% 준수율을 향해 수렴시킬 수 있습니다."
+    },
+    "illust": {
+      "code_screen": "Code 화면",
+      "public_private": "Public · Private 모두 지원",
+      "etc_n": "...등 N건"
+    }
+  },
+  "stats": {
+    "cache_banner_stale_title": "{age} 전에 분석한 결과예요.",
+    "cache_banner_stale_desc": "그 사이 코드가 변경됐다면 새로 분석하는 게 정확해요.",
+    "analyzing": "분석 중...",
+    "rerun": "새로 실행",
+    "cache_banner_fresh_title": "방금 분석 완료",
+    "cache_banner_fresh_desc": "— 최신 코드 기준입니다.",
+    "meaning_text": "이 점수는 <strong>설계 명세 항목이 코드에 구현된 비율(설계-코드 추적성)</strong>입니다. 코드 품질·정확성·버그 유무를 보장하지 않습니다.",
+    "coverage_text": "전체 <strong>{total}개</strong> 코드 파일 중 <strong>{sampled}개({pct}%)</strong>만 샘플 검사했습니다. 점수는 검사한 파일 기준이며, 검사되지 않은 코드는 반영되지 않았습니다.",
+    "traceability_score": "추적성 점수",
+    "files_sampled": "검사한 파일",
+    "rules_checked": "검사한 규칙",
+    "violations": "위반 사항",
+    "partial_chip": "부분 검사 {pct}%"
+  },
+  "empty": {
+    "error_title": "분석 실패",
+    "checklist": "CHECKLIST",
+    "check_url": "저장소 URL이 정확한지 확인 (현재: {url})",
+    "check_public": "Public 저장소인지 확인 (Private은 인증 토큰 필요)",
+    "check_retry": "잠시 후 다시 시도 (GitHub API rate limit 가능성)",
+    "retry": "다시 시도",
+    "loading_title": "분석 중...",
+    "loading_desc": "Neo4j에서 스펙을 조회하고 GitHub 코드를 검사합니다. 최대 3분 정도 소요됩니다.",
+    "empty_title": "Lint 결과가 없습니다",
+    "empty_desc": "GitHub URL을 입력하고 Run Lint를 실행하면<br/>SPACK / DDD / Architecture / Rules / 기획 항목 준수율을 검사합니다."
+  },
+  "run_panel": {
+    "pill": "VIBE LINTER",
+    "title": "바이브 코딩 결과 검증",
+    "url_placeholder": "Code 화면에서 GitHub URL 을 먼저 설정해 주세요",
+    "url_title_set": "Code 화면에서 설정: {url}",
+    "url_title_unset": "Code 화면에서 URL 을 먼저 설정해 주세요",
+    "goto_code_title": "Code 화면에서 URL 설정",
+    "goto_code": "Code 화면으로",
+    "analyzing": "분석 중...",
+    "run_lint": "Run Lint",
+    "rerun_title": "캐시를 무시하고 새로 분석",
+    "rerun": "다시 분석",
+    "my_library": "MY LIBRARY"
+  },
+  "table": {
+    "method": {
+      "deterministic_label": "결정적",
+      "deterministic_title": "코드에서 정적 분석으로 직접 매칭",
+      "llm_label": "AI 검증",
+      "llm_title": "LLM 이 파일 본문을 보고 검증한 결과",
+      "fallback_label": "미매칭",
+      "fallback_title": "결정적 매칭 / LLM 검증 모두 실패"
+    },
+    "pill": "COMPLIANCE DOC",
+    "title": "제약 준수 리포트",
+    "pass": "통과 {n}",
+    "fail": "실패 {n}",
+    "stat_deterministic": "결정적 {n}",
+    "stat_llm": "AI 검증 {n}",
+    "stat_fallback": "미매칭 {n}",
+    "th_constraint": "제약",
+    "th_description": "설명",
+    "th_method": "검출 방식",
+    "th_status": "상태",
+    "row_aria_label": "{title} — 클릭하면 근거 코드 보기",
+    "evidence_count": "· {n}건",
+    "evidence_count_title": "evidence {n} 건 — 클릭으로 펼치기",
+    "status_pass": "통과",
+    "status_fail": "실패",
+    "evidence_kind_default": "match",
+    "evidence_link_title": "GitHub 에서 {target} 열기",
+    "empty": "검사 항목이 없습니다."
+  },
+  "store": {
+    "enqueue_failed": "Lint 작업 등록 실패 — task_id 누락.",
+    "fix_spec_enqueue_failed": "Fix spec 작업 등록 실패 — task_id 누락.",
+    "run_default": "Lint failed",
+    "no_permission": "'{project}' 프로젝트에 대한 권한이 없습니다. Plan 페이지에서 새 미팅 로그를 업로드해 프로젝트를 먼저 만들어 주세요.",
+    "not_found": "프로젝트 또는 저장소를 찾을 수 없습니다.",
+    "queue_unavailable": "AI 작업 큐가 일시적으로 사용 불가합니다. 1~2분 후 다시 시도해주세요.",
+    "rate_limit": "너무 자주 요청했습니다 (분당 3회 제한). 잠시 후 다시 시도하세요.",
+    "run_timeout": "Lint 분석이 10분 안에 못 끝났어요. 매우 큰 repo 거나 worker 지연일 수 있습니다. 잠시 후 다시 시도하세요.",
+    "fix_spec_missing_input": "프로젝트명과 GitHub URL이 필요합니다.",
+    "fix_spec_no_result": "Lint 결과가 없습니다. 먼저 분석을 실행해주세요.",
+    "fix_spec_default": "Fix spec 생성에 실패했습니다.",
+    "fix_spec_timeout": "수정 지시서 생성이 10분 안에 못 끝났어요. 잠시 후 다시 시도하세요."
+  },
+  "coverage": {
+    "section_title": "기획 항목 구현 현황",
+    "subtitle": "RUN LINT 가 PRD 기획 항목(화면·Story)이 코드에 실제로 구현됐는지 자동 대조한 결과예요. 누락 항목은 한 번에 AI 수정 지시로 내보낼 수 있어요.",
+    "progress": "{total}개 중 {done}개 구현",
+    "done_label": "구현됨",
+    "missing_label": "누락",
+    "group_screen": "화면",
+    "group_story": "Story",
+    "evidence_toggle": "근거 {n}",
+    "evidence_aria": "{label} 의 구현 근거 {n}건 펼치기",
+    "empty": "기획 항목(화면·Story)이 없어요. '01 회의록 정리'에서 PRD 를 먼저 만들어 주세요.",
+    "all_done": "기획 항목이 모두 구현됐어요. 누락 없음 🎉",
+    "copy_missing": "누락 {n}건 AI 수정 지시 복사",
+    "copied": "누락 항목 수정 지시를 복사했어요. Cursor·Claude 등에 붙여넣으세요.",
+    "copy_failed": "복사에 실패했어요. 다시 시도해 주세요.",
+    "fix_prompt_header": "다음 기획 항목이 코드에 아직 구현되지 않았습니다. 각 항목을 코드로 구현해 주세요."
+  }
+}

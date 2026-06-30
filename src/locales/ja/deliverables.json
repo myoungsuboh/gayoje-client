@@ -1,0 +1,390 @@
+{
+  "page": {
+    "title": "成果物のエクスポート",
+    "subtitle": "このプロジェクトで作成したすべての成果物（GitHubリポジトリ）を一か所に集め、引き渡し用のZIPファイルとしてまとめてダウンロードできます。",
+    "guide_btn": "ユーザーガイド",
+    "guide_btn_title": "Deliverablesページのガイドをもう一度表示",
+    "final_artifacts": "Final Artifacts"
+  },
+  "hero": {
+    "pill": "プロジェクト概要",
+    "no_project": "No Project",
+    "stats": "{repoCount}個のRepository · {files} files · {loc} LOC",
+    "last_registered": "最終登録 {date}",
+    "refresh_all": "すべて更新"
+  },
+  "kpi": {
+    "lint_analyzed": "{count} / {total} 分析済み"
+  },
+  "confirm_delete": {
+    "title": "Repositoryを削除",
+    "message": "{url}\n\n登録情報が削除されます（実際のGitHub repoには影響しません）。",
+    "confirm_text": "削除"
+  },
+  "readiness": {
+    "pill": "引き継ぎ準備度",
+    "title": "引き渡し準備度",
+    "desc": "7項目を自動点検 — すべて✅になれば、プロジェクトをそのまま次のチームへ引き渡せます。",
+    "why_label": "なぜ？",
+    "why_collapse": "説明を折りたたむ: ",
+    "why_expand": "なぜ重要かの説明を表示: ",
+    "overall": {
+      "ready": "✅ 引き渡し可能",
+      "almost": "🟡 あと少し",
+      "todo": "🔴 補強が必要"
+    },
+    "msg": {
+      "need_repo": "リポジトリの登録が必要",
+      "ratio_pass": "{have} / {total} 通過"
+    },
+    "checks": {
+      "has_repo": {
+        "label": "リポジトリを登録",
+        "hint_pass": "{count}個登録済み",
+        "hint_fail": "GitHubリポジトリを1つ以上登録してください",
+        "why": "リポジトリがなければ引き渡すコードもありません。まず最初に整えるべき土台です。"
+      },
+      "lint_avg": {
+        "label": "平均コード点検 ≥ 80%",
+        "hint_none": "まだ点検されていません",
+        "hint_value": "平均 {avg}%（{count} / {total} 分析済み）",
+        "why": "80%以上は、コードが一般的な規約に従っているという合図です。それを下回ると、受け取るチームが慣れるのに時間がかかります。"
+      },
+      "lineage_coverage": {
+        "label": "Lineageマッピング ≥ 80%",
+        "hint_none": "まだ分析されていません — 上の成果物Lineageで「分析」を実行してください",
+        "hint_value": "Coverage {pct}%",
+        "why": "「要件 ↔ 設計 ↔ コード」のつながりがしっかりしていれば、次のチームがどこを変更すべきかを素早く見つけられます。"
+      },
+      "readme": {
+        "label": "すべてのリポジトリにREADME",
+        "why": "READMEがなければ、引き渡し初日が「これはどうやって起動するの？」で止まってしまいます。スタートガイドは信頼の第一印象です。"
+      },
+      "license": {
+        "label": "すべてのリポジトリにLICENSE",
+        "why": "ライセンスがなければ、公開や再配布が法的に不透明になります。受け取るチームが安心して使うには、明示的なライセンスが不可欠です。"
+      },
+      "activity": {
+        "label": "直近30日以内のコミット活動",
+        "why": "1か月以上コミットがないと「放置されたコード」という合図になります。引き渡し時点で最新の状態であることは、引き渡し準備度の重要な指標です。"
+      },
+      "prd": {
+        "label": "要件（PRD）が存在",
+        "hint_pass": "作成済み",
+        "hint_fail": "先にPlan画面でPRDを作成してください",
+        "why": "「何を作るべきか」が文書化されていれば、次のチームが同じ方向で作業を続けられます。"
+      }
+    }
+  },
+  "repo_grid": {
+    "pill": "登録済みリポジトリ",
+    "title": "役割別のRepository",
+    "add_btn": "Repoを追加",
+    "loading": "読み込み中…",
+    "empty_title": "登録されたRepositoryがありません",
+    "empty_desc": "Code · Lint 画面でGitHub URLを入力すると自動的に登録されるほか、上のボタンから直接追加することもできます。",
+    "open_aria": "{name} の詳細を表示",
+    "open_github_aria": "GitHubで {url} を開く",
+    "edit_aria": "{name} を編集",
+    "delete_aria": "{name} を削除",
+    "github_title": "GitHub",
+    "edit_title": "編集",
+    "delete_title": "削除",
+    "meta_loading": "GitHubメタを読み込み中…",
+    "meta_error_404": "リポジトリなし/Private",
+    "meta_error_403": "API上限を超過（1h後に再試行）",
+    "meta_error_other": "メタ取得に失敗",
+    "meta_waiting": "待機中…",
+    "files_unit": "files",
+    "loc_unit": "LOC",
+    "lint_pill": "Lint {score}%",
+    "lint_none": "Lint未分析",
+    "lint_loading": "Lint…",
+    "detail_hint": "詳細を表示 →"
+  },
+  "lang_stack": {
+    "pill": "技術スタック",
+    "title": "言語 / 技術スタックの分布",
+    "desc": "登録されたすべてのリポジトリの言語比率を合算します。受け取るチームがどの技術を知っておくべきかが一目でわかります。",
+    "analyzed_label": "分析済みリポジトリ",
+    "empty": "表示できる言語情報がまだありません。GitHub リポジトリを追加すると、使用言語の割合が自動で集計されます。",
+    "others": "その他（{count}個）",
+    "distribution_aria": "言語分布: {list}"
+  },
+  "lineage": {
+    "pill": "実装確認",
+    "title": "私の企画、コードに全部入った？",
+    "desc": "企画した機能（シナリオ）が実際のコードに実装されたかを、AIが一目で確認します。",
+    "import_export_aria": "正解ラベルのインポート/エクスポート",
+    "badge_aria": "Coverageバッジを生成",
+    "diff_aria": "分析履歴を比較",
+    "diff_title": "分析履歴を比較",
+    "graph_aria": "グラフ可視化",
+    "graph_title": "Lineageグラフを表示",
+    "reanalyze": "再分析",
+    "analyze": "分析",
+    "empty": {
+      "value_title": "コードを連携すると、企画どおり作られたかを自動で確認します",
+      "value_desc": "GitHub Repo を連携して点検を押すと、企画した機能が実際のコードファイルに入ったか照合し、足りないものまで指摘します。",
+      "preview_caption": "こんな結果が見られます 👇",
+      "connect_repo": "Repoを連携",
+      "ready_title": "準備完了",
+      "ready_desc": "点検を押すと AI が企画 ↔ コードを照合します（約1~2分）。"
+    },
+    "result": {
+      "headline": "企画したシナリオ {done} / {total} がコードで実装確認",
+      "headline_none": "企画にユーザーシナリオがまだありません — まずPRDを埋めてください。",
+      "missing_head": "🔴 まだコードに見当たらないもの {n}個",
+      "all_done": "企画したシナリオはすべてコードにあります 🎉",
+      "implemented_head": "✅ コードで確認できたシナリオ {n}個",
+      "where": "どこにある",
+      "tech_rollup": "API {ax}/{at} · データ {gx}/{gt} · サービス {sx}/{st} 実装済み",
+      "advanced_toggle": "高度（開発者向け）— 詳細マッピング·品質·履歴",
+      "conf_high": "正確に発見",
+      "conf_medium": "近い場所で発見",
+      "conf_low": "弱い推測",
+      "conf_unverified": "未確認"
+    },
+    "analyzing": {
+      "title": "AIが成果物Lineageを分析中",
+      "desc": "{count}個のRepoファイルツリーとDesign成果物を組み合わせてマッピングします。",
+      "stages_aria": "分析ステージ"
+    },
+    "zero_match": {
+      "title": "分析は完了しましたが、マッチが0件です",
+      "desc_html": "AIがコードを幻覚（ハルシネーション）しないよう、<strong>実際にfileTreeに存在するパスのみを結果に含めて</strong>います。次のいずれかが原因の可能性が高いです:",
+      "reason1_html": "成果物の名前が韓国語、コードが英語 → キーワードのマッチに失敗（例: \"사용자 인증 서비스\" ↔ <code class=\"mono-text\">UserAuthService.ts</code>）",
+      "reason2": "登録されたRepoのfileTreeを取得できませんでした（privateリポジトリまたはGitHub rate limit）",
+      "reason3": "マッチングのキーワードが一般的すぎます（\"Service\"、\"Manager\" など）",
+      "retry": "再分析",
+      "tip": "または各成果物の✏️ボタンから正解ラベルを登録すると、マッチングの精度を測定できます。"
+    },
+    "summary": {
+      "no_summary": "要約なし",
+      "total_mapping": "総マッピング",
+      "missing": "未実装",
+      "aggregate": "Aggregate",
+      "api": "API"
+    },
+    "view_aria": "Lineage表示",
+    "tabs": {
+      "matrix": "すべて",
+      "aggregates": "データバンドル",
+      "apis": "外部エントリーポイント",
+      "services": "サービス",
+      "stories": "ユーザーシナリオ",
+      "missing": "未実装"
+    },
+    "matrix": {
+      "coverage": "COVERAGE",
+      "mapped_ratio": "{mapped} / {total} マッピング済み",
+      "filters": {
+        "all": "すべて",
+        "high": "確実",
+        "medium": "推定",
+        "low": "弱い",
+        "unverified": "未確認",
+        "missing": "未実装"
+      },
+      "th_impl": "実装",
+      "no_name": "—",
+      "open_aria": "{path} を開く",
+      "status_missing": "未実装",
+      "empty_no_missing": "✓ 未実装の項目はありません",
+      "empty_no_match": "フィルター条件に一致する項目がありません"
+    },
+    "missing_tab": {
+      "all_mapped": "✓ すべての成果物がマッピングされています。"
+    },
+    "quality": {
+      "title": "マッチ品質（ラベル {labeled}/{total}）",
+      "empty": "ℹ 正解ラベルが登録された成果物がありません。各項目の✏️ボタンから正解候補のファイルを登録すると、マッチ品質を測定します。"
+    },
+    "filter": {
+      "search_placeholder": "名前/ID/エンドポイント/ファイルパスを検索…",
+      "search_aria": "成果物を検索",
+      "search_clear_aria": "検索をクリア",
+      "confidence_group_aria": "確信度フィルター",
+      "confidence": {
+        "all": "すべて",
+        "high": "確実",
+        "medium": "推定",
+        "low": "弱い",
+        "unverified": "未確認",
+        "none": "未マッピング"
+      },
+      "repo_filter_aria": "Repoフィルター",
+      "all_repos": "すべてのRepo",
+      "clear_btn": "フィルターをリセット",
+      "count": "{shown} / {total} 表示"
+    },
+    "list": {
+      "label_edit_aria": "{name} のラベルを編集",
+      "label_register_aria": "{name} の正解ラベルを登録",
+      "label_edit_title": "ラベルを編集（正解登録済み）",
+      "label_register_title": "正解ラベルを登録",
+      "no_name": "—",
+      "open_aria": "{path} を開く",
+      "open_github_aria": "GitHubで開く: {path}",
+      "no_matched_file": "⚠ マッチしたファイルなし",
+      "tab_empty": "{tab} の項目がありません。"
+    }
+  },
+  "drawer": {
+    "aria_label": "{name} の詳細情報",
+    "refresh_aria": "GitHubメタを更新",
+    "refresh_title": "更新",
+    "open_github_aria": "GitHubでリポジトリを開く",
+    "close_aria": "詳細パネルを閉じる",
+    "close_title": "閉じる",
+    "tab_overview": "概要",
+    "tab_activity": "アクティビティ",
+    "tab_team": "チーム",
+    "loading": "GitHubデータを取得中…",
+    "error": {
+      "not_found": "リポジトリが見つかりません",
+      "rate_limit": "GitHub APIの上限を超過しました",
+      "generic": "GitHubデータの取得に失敗しました",
+      "desc_rate_limit": "非認証の呼び出しは1時間あたり60回までです。1時間後に自動でキャッシュが期限切れになりますので、再試行してください。",
+      "desc_generic": "Publicリポジトリか、URLが正しいかを確認してください。"
+    },
+    "lang_distribution": "言語分布",
+    "no_lang": "言語情報なし",
+    "repo_info": "Repo情報",
+    "fetched_at": "取得時刻",
+    "no_readme": "READMEなし",
+    "commit_heatmap": "コミットヒートマップ（直近90日）",
+    "recent_commits": "最近のコミット（{count}件）",
+    "no_commits": "コミット情報なし",
+    "contributors": "コントリビューター（{count}名）",
+    "no_contributors": "コントリビューター情報なし"
+  },
+  "repo_form": {
+    "dialog_aria": "Repository登録フォーム",
+    "title_add": "Repositoryを追加",
+    "title_edit": "Repositoryを編集",
+    "url_label": "GitHub URL",
+    "library_label": "マイライブラリから選択",
+    "role_label": "役割",
+    "alias_label": "別名（任意）",
+    "alias_placeholder": "例: Account FE"
+  },
+    "obsidian": {
+    "folder_plan": "企画",
+    "folder_api": "API",
+    "folder_data": "データ",
+    "folder_policy": "ポリシー",
+    "folder_domain": "ドメイン",
+    "folder_service": "サービス",
+    "folder_screen": "画面",
+    "home_title": "ホーム",
+    "home_intro": "Harness が生成した企画・設計の vault です。グラフビュー(Ctrl/Cmd+G)を開くと構造が一目でわかります。",
+    "section_related": "関連",
+    "section_attrs": "属性",
+    "attr_field": "フィールド",
+    "attr_type": "型",
+    "attr_required": "必須",
+    "attr_constraint": "制約",
+    "empty_node_warn": "まだ空の項目です — Harness の「AIで埋める」で補完できます。",
+    "readme_intro": "このフォルダは Obsidian でそのまま開ける企画・設計ノートのセットです。",
+    "readme_steps_title": "3分で始める",
+    "readme_step1": "Obsidian をインストール (obsidian.md — 無料)",
+    "readme_step2": "Obsidian で「フォルダを保管庫として開く」からこのフォルダを選択",
+    "readme_step3": "グラフビュー(Ctrl/Cmd+G)を開くと企画の構造が一目でわかります",
+    "readme_note": "この vault はエクスポート時点のスナップショット(一方向)です。ここでの編集は Harness に反映されません。再エクスポート時は新しいフォルダに展開してください。"
+  },
+  "handoff": {
+    "pill": "引き継ぎパッケージ",
+    "title": "引き継ぎパッケージ",
+    "desc": "対象とする役割（開発者・PM・設計者）に合わせて成果物をZIPにまとめてダウンロードします。",
+    "note": "⚠️ ソースコードは含まれません — 実際のコードはrepo URLから直接cloneしてください。このZIPは、設計仕様・レポート・リンクのみを収めた文書パッケージです。",
+    "dev_aria": "開発者向けパッケージをダウンロード: 設計仕様・ERD・コーディング規則・PRD・Lint",
+    "dev_content": "設計仕様 + ERD + コーディング規則（skills） + PRD + Lint",
+    "pm_aria": "PM向けパッケージをダウンロード: PRD・CPS・要件トレーサビリティ・未確定項目・Lint",
+    "pm_content": "PRD + コンテキスト（CPS） + 要件トレーサビリティ + 未確定項目 + Lint",
+    "architect_aria": "アーキテクト向けパッケージをダウンロード: 設計仕様・ERD・設計トレーサビリティ・未確定項目・Lint",
+    "architect_content": "設計仕様 + ERD + 設計トレーサビリティ + 未確定項目 + Lint",
+    "obsidian_aria": "Obsidian Vault をダウンロード: 企画・設計をウィキリンクのノートに",
+    "obsidian_content": "企画・設計全体を [[ウィキリンク]] ノートに — Obsidian グラフビュー対応",
+    "zip": {
+      "obsidian_no_data": "エクスポートできる企画・設計データがまだありません。会議ログ整理(01)とシステム設計(02)を先に進めてください。",
+      "registered_repos": "登録済みRepository（{count}個）",
+      "no_repos": "_登録済みのrepoなし_",
+      "lint_compliance": "平均Lint準拠率",
+      "lint_value": "**{avg}%**（{count}個のrepoを分析済み）",
+      "no_analysis": "_分析結果なし_",
+      "role_title_dev": "DEV 引き継ぎパッケージ",
+      "role_title_pm": "PM 引き継ぎパッケージ",
+      "role_title_architect": "ARCHITECT 引き継ぎパッケージ",
+      "role_for_dev": "対象: 開発者（この仕様どおりにコードを書く人）",
+      "role_for_pm": "対象: プロダクトマネージャー（プロダクトを追跡・管理する人）",
+      "role_for_architect": "対象: システム設計者（設計をレビューする人）",
+      "about_title": "このパッケージは",
+      "about_dev": "開発者がこの仕様どおりにコードを書くためのパッケージです。設計仕様・データモデル（ERD）・従うべきコーディング規則（skills）・現在のコード品質（Lint）を収めています。",
+      "about_pm": "プロダクトマネージャーが「何を作ると決めたか、どこまで進んだか、何が残っているか」を把握するためのパッケージです。PRD・コンテキスト（CPS）・要件トレーサビリティ・未確定項目を収めています。",
+      "about_architect": "システム設計者が設計全体をレビューするためのパッケージです。設計仕様・データモデル（ERD）・設計根拠のトレーサビリティ・未確定項目・現在のコード状態（Lint）を収めています。",
+      "first_title": "まず見るもの",
+      "first_dev": "1) `02_plan/prd.md` で何を作るのかを把握 → 2) `03_design/` の仕様と `erd.xlsx` でデータ・構造を確認 → 3) `skills/` のコーディング規則を守って実装。⚠ 表示と `06_review/open-questions.md` の未確定項目は独断で決めず、必ず確認してください。",
+      "first_pm": "1) `02_plan/prd.md`・`cps.md` でプロダクトの方向性を確認 → 2) `07_traceability/lineage.xlsx` で要件が設計に反映されているか（カバレッジ）を点検 → 3) `06_review/open-questions.md` の未確定項目で次の意思決定を押さえてください。",
+      "first_architect": "1) `03_design/` の SPACK・DDD・Architecture で設計全体を把握 → 2) `erd.xlsx` でデータモデル、`07_traceability/lineage.xlsx` で設計根拠をレビュー → 3) `06_review/open-questions.md` の未確定項目と `05_lint/` の現在のコード状態でリスクを点検してください。",
+      "contents_title": "収録ファイル",
+      "open_questions_title": "⚠️ 未確定項目 {count}件",
+      "open_questions_body": "設計がまだ空白の項目です。コードを書く前に `06_review/open-questions.md` を見て確定してください。",
+      "file_prd": "プロダクト要件 (PRD)",
+      "file_cps": "コンテキスト・課題・解決 (CPS)",
+      "file_spack": "API・データ・ポリシー仕様 (SPACK)",
+      "file_ddd": "ドメインモデル (DDD)",
+      "file_arch": "システム構造・技術スタック (Architecture)",
+      "file_erd": "データモデル ERD — エンティティ・属性・関係 (Excel)",
+      "file_open_questions": "未確定項目リスト — 実装前に確定が必要",
+      "file_lineage": "PRD↔設計トレーサビリティ — カバレッジ・根拠 (Excel)",
+      "file_repo_list": "Repository 一覧",
+      "file_skills": "コーディング規則 {count}件 (skills/)",
+      "file_lint": "コード品質レポート — {count}個のrepo",
+      "note_html": "> ⚠️ **ソースコードはこのパッケージに含まれません。** 実際のコードは上記のRepository URLから\n> 直接cloneしてください。このZIPは、設計仕様・レポート・リンクのみを収めた文書パッケージです。",
+      "generating": "{mode} パッケージを生成中...",
+      "download_done": "✓ {filename} をダウンロードしました",
+      "generate_fail": "ZIPの生成に失敗しました: {error}"
+    },
+    "empty_hint": "まず（上のリポジトリ領域で）GitHub リポジトリを追加すると、下のパッケージを受け取れます。"
+  },
+  "guide": {
+    "pill": "DELIVERABLES GUIDE",
+    "headline": "Final Artifacts & Handoff",
+    "sub": "すべての成果物（Repo · 仕様 · Lint結果 · コーディング規則）を一か所に集めてKPIで確認し、引き継ぎ用のZIP1ファイルにまとめて引き渡します。",
+    "illustration_zip_label": "HANDOFF.ZIP — 一度にすべて受け取る",
+    "step1": {
+      "title": "Deliverablesの概要",
+      "subtitle": "Final Artifacts",
+      "desc": "プロジェクトのすべての成果物（GitHub Repository）を1画面に整理します。Plan → Design → Code → Lint まで完成した結果物をKPIとlineageで示し、最終ステージで引き継ぎ用のZIPにまとめて受け取れます。",
+      "tip": "ここは「完了」のステージ — 外部のステークホルダーや次のチームに引き渡す、最終成果物の窓口です。"
+    },
+    "step2": {
+      "title": "Repositoryを登録",
+      "subtitle": "Frontend · Backend · DB · Mobile · Other",
+      "desc": "「+ Repository」ボタンで、プロジェクトのGitHub repoを役割別に登録します。登録後は自動でメタデータ（star、fork、最近のコミット、言語分布）とlint点数を取得し、KPIカードに合算して表示します。",
+      "tip": "同じプロジェクトに複数のrepo（例: front + back + infra）があっても、すべて一か所に集まります。登録情報を削除しても、GitHubの原本には影響しません。"
+    },
+    "step3": {
+      "title": "Lineage & Quality",
+      "subtitle": "PRD → Design → Code Traceability",
+      "desc": "各コードノードがPRDのどのStory / Designのどの仕様から派生したのか、トレーサビリティ指標を示します。正解ラベルのインポート、coverageバッジ、diff、Lineageグラフ全体の4つの可視化ツールを提供します。",
+      "tip": "AVG LINT % カードは60%未満で赤、80%以上で緑になります — 品質の合図が一目でわかります。"
+    },
+    "step4": {
+      "title": "Handoff ZIP — ワンクリックで引き継ぎ",
+      "subtitle": "One-click Delivery",
+      "desc": "すべてのrepo情報、仕様（SPACK · DDD · Architecture）、lint結果、コーディング規則をZIP1ファイルにまとめて受け取ります。受け取る側はzipを解凍するだけで、すべての成果物に即座にアクセス可能 — 別途の権限設定なしで、すぐに引き渡せます。",
+      "tip": "受け取る方に「0_START_HERE.md から見れば大丈夫です」と一言伝えれば十分です。"
+    }
+  },
+  "quickstart": {
+    "title": "はじめてですか？3ステップで完了",
+    "step1_title": "リポジトリ追加",
+    "step1_desc": "コードのある GitHub リポジトリを役割別に登録します。",
+    "step2_title": "実装チェック",
+    "step2_desc": "企画した機能がコードに入ったかを AI で確認します。",
+    "step3_title": "パッケージ取得",
+    "step3_desc": "設計仕様・レポートを ZIP にまとめて次のチームへ引き継ぎます。"
+  }
+}

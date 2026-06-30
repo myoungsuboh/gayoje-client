@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" role="img" aria-label="Harness 5단계 워크플로우">
+  <defs>
+    <linearGradient id="wfBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCFAEE"/>
+      <stop offset="100%" stop-color="#F7F5EB"/>
+    </linearGradient>
+    <linearGradient id="wfAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8C6239"/>
+      <stop offset="100%" stop-color="#C89B6A"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#8C6239" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="360" fill="url(#wfBg)"/>
+
+  <!-- Title -->
+  <text x="600" y="48" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="22" font-weight="900" fill="#2A2421" letter-spacing="-0.5">전체 워크플로우</text>
+  <text x="600" y="74" text-anchor="middle" font-family="Pretendard, Arial, sans-serif" font-size="13" fill="#8A817C">미팅 로그 한 줄에서 시작해 검증된 코드까지 자동 흐름</text>
+
+  <!-- Connector line -->
+  <line x1="120" y1="200" x2="1080" y2="200" stroke="#C89B6A" stroke-width="2" stroke-dasharray="4 6" stroke-opacity="0.6"/>
+
+  <!-- 5 stage cards -->
+  <g font-family="Outfit, Arial, sans-serif">
+    <!-- 01 Plan -->
+    <g transform="translate(80,140)" filter="url(#cardShadow)">
+      <rect width="180" height="130" rx="18" fill="#FFFFFF" stroke="#8C6239" stroke-opacity="0.18"/>
+      <rect x="14" y="14" width="40" height="40" rx="12" fill="url(#wfAccent)"/>
+      <text x="34" y="40" text-anchor="middle" font-size="16" font-weight="900" fill="#FFFFFF">01</text>
+      <text x="14" y="80" font-size="18" font-weight="900" fill="#2A2421">Plan</text>
+      <text x="14" y="102" font-family="Pretendard, Arial, sans-serif" font-size="11" fill="#8A817C">미팅 로그 → CPS</text>
+      <text x="14" y="118" font-family="Pretendard, Arial, sans-serif" font-size="11" fill="#8A817C">PRD → Rule Gen</text>
+    </g>
+
+    <!-- 02 Design -->
+    <g transform="translate(290,140)" filter="url(#cardShadow)">
+      <rect width="180" height="130" rx="18" fill="#FFFFFF" stroke="#8C6239" stroke-opacity="0.18"/>
+      <rect x="14" y="14" width="40" height="40" rx="12" fill="url(#wfAccent)"/>
+      <text x="34" y="40" text-anchor="middle" font-size="16" font-weight="900" fill="#FFFFFF">02</text>
+      <text x="14" y="80" font-size="18" font-weight="900" fill="#2A2421">Design</text>
+      <text x="14" y="102" font-family="Pretendard, Arial, sans-serif" font-size="11" fill="#8A817C">SPACK · DDD</text>
+      <text x="14" y="118" font-family="Pretendard, Arial, sans-serif" font-size="11" fill="#8A817C">Architecture</text>
+    </g>
+
+    <!-- 03 Code -->
+    <g transform="translate(500,140)" filter="url(#cardShadow)">
+      <rect width="180" height="130" rx="18" fill="#FFFFFF" stroke="#8C6239" stroke-opacity="0.18"/>
+      <rect x="14" y="14" width="40" height="40" rx="12" fill="url(#wfAccent)"/>
+      <text x="34" y="40" text-anchor="middle" font-size="16" font-weight="900" fill="#FFFFFF">03</text>
+      <text x="14" y="80" font-size="18" font-weight="900" fill="#2A2421">Code</text>
+      <text x="14" y="102" font-family="Pretendard, Arial, sans-serif" font-size="11" fill="#8A817C">Vibe Coding</text>
+      <text x="14" y="118" font-family="Pretendard, Arial, sans-serif" font-size="11" fill="#8A817C">MD 가이드 생성</text>
+    </g>
+
+    <!-- 04 Lint -->
+    <g transform="translate(710,140)" filter="url(#cardShadow)">
+      <rect width="180" height="130" rx="18" fill="#FFFFFF" stroke="#8C6239" stroke-opacity="0.18"/>
+      <rect x="14" y="14" width="40" height="40" rx="12" fill="url(#wfAccent)"/>
+      <text x="34" y="40" text-anchor="middle" font-size="16" font-weight="900" fill="#FFFFFF">04</text>
+      <text x="14" y="80" font-size="18" font-weight="900" fill="#2A2421">Lint</text>
+      <text x="14" y="102" font-family="Pretendard, Arial, sans-serif" font-size="11" fill="#8A817C">규칙 준수율 분석</text>
+      <text x="14" y="118" font-family="Pretendard, Arial, sans-serif" font-size="11" fill="#8A817C">위반 사례 진단</text>
+    </g>
+
+    <!-- 05 Deliverables -->
+    <g transform="translate(920,140)" filter="url(#cardShadow)">
+      <rect width="180" height="130" rx="18" fill="#FFFFFF" stroke="#8C6239" stroke-opacity="0.18"/>
+      <rect x="14" y="14" width="40" height="40" rx="12" fill="url(#wfAccent)"/>
+      <text x="34" y="40" text-anchor="middle" font-size="16" font-weight="900" fill="#FFFFFF">05</text>
+      <text x="14" y="80" font-size="18" font-weight="900" fill="#2A2421">Deliverables</text>
+      <text x="14" y="102" font-family="Pretendard, Arial, sans-serif" font-size="11" fill="#8A817C">산출물 모음</text>
+      <text x="14" y="118" font-family="Pretendard, Arial, sans-serif" font-size="11" fill="#8A817C">인수인계 ZIP</text>
+    </g>
+  </g>
+
+  <!-- Arrows between stages (pointing right) -->
+  <g fill="#8C6239">
+    <polygon points="266,194 266,206 280,200"/>
+    <polygon points="476,194 476,206 490,200"/>
+    <polygon points="686,194 686,206 700,200"/>
+    <polygon points="896,194 896,206 910,200"/>
+  </g>
+
+  <!-- Bottom labels -->
+  <g font-family="IBM Plex Mono, monospace" font-size="10" font-weight="700" fill="#8C6239" letter-spacing="1.5">
+    <text x="170" y="306" text-anchor="middle">REQUIREMENTS</text>
+    <text x="380" y="306" text-anchor="middle">DOMAIN MODEL</text>
+    <text x="590" y="306" text-anchor="middle">IMPLEMENTATION</text>
+    <text x="800" y="306" text-anchor="middle">VALIDATION</text>
+    <text x="1010" y="306" text-anchor="middle">FINAL ARTIFACTS</text>
+  </g>
+</svg>

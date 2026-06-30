@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-label="Neo4j 데이터 그래프">
+  <defs>
+    <linearGradient id="dgBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCFAEE"/>
+      <stop offset="100%" stop-color="#F2EAD8"/>
+    </linearGradient>
+    <radialGradient id="dgProject" cx="0.4" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#C89B6A"/>
+      <stop offset="100%" stop-color="#6B4A2A"/>
+    </radialGradient>
+    <radialGradient id="dgLog" cx="0.4" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#E8C49A"/>
+      <stop offset="100%" stop-color="#B8895C"/>
+    </radialGradient>
+    <radialGradient id="dgCps" cx="0.4" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#9FBFE0"/>
+      <stop offset="100%" stop-color="#5085C8"/>
+    </radialGradient>
+    <radialGradient id="dgPrd" cx="0.4" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#A8D4AB"/>
+      <stop offset="100%" stop-color="#5BA160"/>
+    </radialGradient>
+    <radialGradient id="dgSpack" cx="0.4" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#F4B8A5"/>
+      <stop offset="100%" stop-color="#D87A5E"/>
+    </radialGradient>
+    <radialGradient id="dgDdd" cx="0.4" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#D4A8E0"/>
+      <stop offset="100%" stop-color="#9460B8"/>
+    </radialGradient>
+    <radialGradient id="dgArch" cx="0.4" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#F0CC8A"/>
+      <stop offset="100%" stop-color="#C77F4A"/>
+    </radialGradient>
+    <radialGradient id="dgRules" cx="0.4" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#A0D4D0"/>
+      <stop offset="100%" stop-color="#3FA39A"/>
+    </radialGradient>
+    <radialGradient id="dgLint" cx="0.4" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#A8B5D4"/>
+      <stop offset="100%" stop-color="#3056A0"/>
+    </radialGradient>
+    <filter id="dgShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#2A2421" flood-opacity="0.25"/>
+    </filter>
+    <marker id="dgArrowMute" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#8A817C"/>
+    </marker>
+    <marker id="dgArrowAcc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#8C6239"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="640" fill="url(#dgBg)"/>
+
+  <!-- Title -->
+  <text x="60" y="50" font-family="Outfit, Arial, sans-serif" font-size="28" font-weight="900" fill="#2A2421" letter-spacing="-0.8">데이터 그래프</text>
+  <text x="60" y="74" font-family="Pretendard, Arial, sans-serif" font-size="13" fill="#8A817C">Neo4j에 저장되는 노드와 관계 — 모든 산출물이 그래프로 연결됩니다</text>
+
+  <!-- ============== EDGES (drawn first, under nodes) ============== -->
+  <!-- Project (160,320,r64) → MeetingLog v1.0 (420,180,r44), v1.1 (440,320,r44), v1.2 (420,460,r44) -->
+  <g stroke="#8A817C" stroke-width="2" fill="none" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="700">
+    <line x1="216" y1="290" x2="374" y2="205" marker-end="url(#dgArrowMute)"/>
+    <line x1="224" y1="320" x2="388" y2="320" marker-end="url(#dgArrowMute)"/>
+    <line x1="216" y1="350" x2="374" y2="435" marker-end="url(#dgArrowMute)"/>
+    <text x="276" y="240" fill="#8A817C">:HAS_LOG</text>
+    <text x="280" y="312" fill="#8A817C">:HAS_LOG</text>
+    <text x="276" y="406" fill="#8A817C">:HAS_LOG</text>
+  </g>
+
+  <!-- MeetingLog v1.1 → CPS (700,320,r50) -->
+  <g stroke="#8C6239" stroke-width="2.4" fill="none" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="700">
+    <line x1="484" y1="320" x2="642" y2="320" marker-end="url(#dgArrowAcc)"/>
+    <text x="528" y="312" fill="#8C6239">:GENERATES</text>
+  </g>
+
+  <!-- CPS → PRD (950,320,r56) -->
+  <g stroke="#8C6239" stroke-width="2.4" fill="none" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="700">
+    <line x1="750" y1="320" x2="886" y2="320" marker-end="url(#dgArrowAcc)"/>
+    <text x="788" y="312" fill="#8C6239">:DERIVES</text>
+  </g>
+
+  <!-- PRD → SPACK (1100,130,r48), DDD (1100,240,r48), Arch (1100,400,r48), Rules (1100,510,r48) -->
+  <g stroke="#8A817C" stroke-width="2" fill="none" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="700">
+    <line x1="985" y1="276" x2="1065" y2="174" marker-end="url(#dgArrowMute)"/>
+    <line x1="999" y1="294" x2="1051" y2="266" marker-end="url(#dgArrowMute)"/>
+    <line x1="999" y1="346" x2="1051" y2="374" marker-end="url(#dgArrowMute)"/>
+    <line x1="985" y1="364" x2="1065" y2="466" marker-end="url(#dgArrowMute)"/>
+    <text x="1010" y="220" fill="#8A817C">:INFORMS</text>
+    <text x="1010" y="290" fill="#8A817C">:INFORMS</text>
+    <text x="1010" y="356" fill="#8A817C">:INFORMS</text>
+    <text x="1010" y="430" fill="#8A817C">:GENERATES</text>
+  </g>
+
+  <!-- Project → LintResult (versioned output) -->
+  <g stroke="#8A817C" stroke-width="2" fill="none" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="700">
+    <line x1="160" y1="384" x2="160" y2="466" marker-end="url(#dgArrowMute)"/>
+    <text x="170" y="430" fill="#8A817C">:HAS_LINT</text>
+  </g>
+
+  <!-- ============== NODES ============== -->
+  <!-- Project (large, left) -->
+  <g transform="translate(160,320)">
+    <circle cx="0" cy="0" r="64" fill="url(#dgProject)" stroke="#FFFFFF" stroke-width="3" filter="url(#dgShadow)"/>
+    <text x="0" y="-2" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF">Project</text>
+    <text x="0" y="20" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="700" fill="#FCFAEE" fill-opacity="0.85">harness</text>
+  </g>
+
+  <!-- LintResult (versioned output, below Project) -->
+  <g transform="translate(160,510)">
+    <circle cx="0" cy="0" r="42" fill="url(#dgLint)" stroke="#FFFFFF" stroke-width="3" filter="url(#dgShadow)"/>
+    <text x="0" y="-3" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="12" font-weight="900" fill="#FFFFFF">LintResult</text>
+    <text x="0" y="14" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" font-weight="700" fill="#FCFAEE" fill-opacity="0.9">score · 87</text>
+  </g>
+
+  <!-- MeetingLog x3 (versioned) -->
+  <g transform="translate(420,180)">
+    <circle cx="0" cy="0" r="44" fill="url(#dgLog)" stroke="#FFFFFF" stroke-width="3" filter="url(#dgShadow)"/>
+    <text x="0" y="-4" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="11" font-weight="900" fill="#FFFFFF">MeetingLog</text>
+    <text x="0" y="14" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="800" fill="#FCFAEE">v1.0</text>
+  </g>
+  <g transform="translate(440,320)">
+    <circle cx="0" cy="0" r="44" fill="url(#dgLog)" stroke="#FFFFFF" stroke-width="3" filter="url(#dgShadow)"/>
+    <text x="0" y="-4" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="11" font-weight="900" fill="#FFFFFF">MeetingLog</text>
+    <text x="0" y="14" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="800" fill="#FCFAEE">v1.1</text>
+  </g>
+  <g transform="translate(420,460)">
+    <circle cx="0" cy="0" r="44" fill="url(#dgLog)" stroke="#FFFFFF" stroke-width="3" filter="url(#dgShadow)"/>
+    <text x="0" y="-4" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="11" font-weight="900" fill="#FFFFFF">MeetingLog</text>
+    <text x="0" y="14" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="800" fill="#FCFAEE">v1.2</text>
+  </g>
+
+  <!-- CPS -->
+  <g transform="translate(700,320)">
+    <circle cx="0" cy="0" r="50" fill="url(#dgCps)" stroke="#FFFFFF" stroke-width="3" filter="url(#dgShadow)"/>
+    <text x="0" y="3" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="20" font-weight="900" fill="#FFFFFF">CPS</text>
+    <text x="0" y="22" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" font-weight="700" fill="#FCFAEE" fill-opacity="0.9">problem</text>
+  </g>
+
+  <!-- PRD -->
+  <g transform="translate(950,320)">
+    <circle cx="0" cy="0" r="56" fill="url(#dgPrd)" stroke="#FFFFFF" stroke-width="3" filter="url(#dgShadow)"/>
+    <text x="0" y="3" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="22" font-weight="900" fill="#FFFFFF">PRD</text>
+    <text x="0" y="24" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" font-weight="700" fill="#FCFAEE" fill-opacity="0.9">epic · story</text>
+  </g>
+
+  <!-- SPACK (top-right column) -->
+  <g transform="translate(1100,130)">
+    <circle cx="0" cy="0" r="48" fill="url(#dgSpack)" stroke="#FFFFFF" stroke-width="3" filter="url(#dgShadow)"/>
+    <text x="0" y="5" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF">SPACK</text>
+  </g>
+
+  <!-- DDD -->
+  <g transform="translate(1100,240)">
+    <circle cx="0" cy="0" r="48" fill="url(#dgDdd)" stroke="#FFFFFF" stroke-width="3" filter="url(#dgShadow)"/>
+    <text x="0" y="6" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="17" font-weight="900" fill="#FFFFFF">DDD</text>
+  </g>
+
+  <!-- Architecture (now r=48 with proper margin for full label) -->
+  <g transform="translate(1100,400)">
+    <circle cx="0" cy="0" r="48" fill="url(#dgArch)" stroke="#FFFFFF" stroke-width="3" filter="url(#dgShadow)"/>
+    <text x="0" y="4" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="11" font-weight="900" fill="#FFFFFF" letter-spacing="-0.3">Architecture</text>
+  </g>
+
+  <!-- Rules -->
+  <g transform="translate(1100,510)">
+    <circle cx="0" cy="0" r="48" fill="url(#dgRules)" stroke="#FFFFFF" stroke-width="3" filter="url(#dgShadow)"/>
+    <text x="0" y="6" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF">Rules</text>
+  </g>
+
+  <!-- Legend (bottom, comfortable spacing from Rules) -->
+  <g transform="translate(60,584)">
+    <rect width="780" height="36" rx="18" fill="#FFFFFF" stroke="#8C6239" stroke-opacity="0.18"/>
+    <circle cx="22" cy="18" r="6" fill="url(#dgProject)"/>
+    <text x="34" y="22" font-family="Pretendard, Arial, sans-serif" font-size="11" font-weight="700" fill="#2A2421">Project</text>
+    <circle cx="98" cy="18" r="6" fill="url(#dgLog)"/>
+    <text x="110" y="22" font-family="Pretendard, Arial, sans-serif" font-size="11" font-weight="700" fill="#2A2421">MeetingLog</text>
+    <circle cx="206" cy="18" r="6" fill="url(#dgCps)"/>
+    <text x="218" y="22" font-family="Pretendard, Arial, sans-serif" font-size="11" font-weight="700" fill="#2A2421">CPS</text>
+    <circle cx="262" cy="18" r="6" fill="url(#dgPrd)"/>
+    <text x="274" y="22" font-family="Pretendard, Arial, sans-serif" font-size="11" font-weight="700" fill="#2A2421">PRD</text>
+    <circle cx="318" cy="18" r="6" fill="url(#dgSpack)"/>
+    <text x="330" y="22" font-family="Pretendard, Arial, sans-serif" font-size="11" font-weight="700" fill="#2A2421">SPACK</text>
+    <circle cx="394" cy="18" r="6" fill="url(#dgDdd)"/>
+    <text x="406" y="22" font-family="Pretendard, Arial, sans-serif" font-size="11" font-weight="700" fill="#2A2421">DDD</text>
+    <circle cx="448" cy="18" r="6" fill="url(#dgArch)"/>
+    <text x="460" y="22" font-family="Pretendard, Arial, sans-serif" font-size="11" font-weight="700" fill="#2A2421">Architecture</text>
+    <circle cx="554" cy="18" r="6" fill="url(#dgRules)"/>
+    <text x="566" y="22" font-family="Pretendard, Arial, sans-serif" font-size="11" font-weight="700" fill="#2A2421">Rules</text>
+    <circle cx="618" cy="18" r="6" fill="url(#dgLint)"/>
+    <text x="630" y="22" font-family="Pretendard, Arial, sans-serif" font-size="11" font-weight="700" fill="#2A2421">LintResult</text>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+{
+  "tier": {
+    "confirmed": "確定",
+    "review": "要確認",
+    "estimated": "推定"
+  },
+  "confidence": {
+    "direct": "直接の根拠",
+    "inferred": "推論",
+    "none": "根拠なし",
+    "high": "確実",
+    "medium": "推定",
+    "low": "弱い一致",
+    "unverified": "⚠ 未確認",
+    "description": {
+      "direct": "PRD に明示的に記載",
+      "inferred": "PRD のフロー上必要だが記載なし",
+      "none": "PRD に根拠が見つかりません"
+    }
+  },
+  "violation_type": {
+    "missing_aggregate_root": {
+      "chip": "ルートなし",
+      "title": "集約ルートがありません"
+    },
+    "multiple_aggregate_roots": {
+      "chip": "ルート重複",
+      "title": "集約ルートが{count}個"
+    }
+  },
+  "job_status": {
+    "pending": "待機中",
+    "running": "処理中",
+    "done": "完了",
+    "failed": "失敗",
+    "error": "失敗",
+    "cancelled": "中止"
+  },
+  "coverage": {
+    "direct": "直接 {count}",
+    "inferred": "推論 {count}",
+    "none": "根拠なし {count}",
+    "total": "全体 {count}",
+    "no_data": "PRD 連携データなし"
+  },
+  "rel_type": {
+    "IMPLEMENTS": "実装",
+    "DERIVED_FROM": "導出"
+  }
+}

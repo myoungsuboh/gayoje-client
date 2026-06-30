@@ -1,0 +1,191 @@
+{
+  "title": "连接代码",
+  "subtitle": "粘贴 GitHub 仓库地址，即可加载并查看代码。",
+  "explorer": {
+    "title": "Explorer",
+    "loading": "Loading repository...",
+    "empty": "输入 GitHub URL<br />并点击 Load",
+    "aria_folder": "文件夹",
+    "aria_file": "文件",
+    "aria_node": "{kind}: {name}"
+  },
+  "url_input": {
+    "load": "Load",
+    "loading": "Loading...",
+    "retry": "重试",
+    "retry_hint": "或从下方库中选择 ↓",
+    "my_repos_btn": "我的仓库",
+    "my_repos_search": "搜索仓库...",
+    "my_repos_empty": "未找到仓库",
+    "my_repos_loading": "正在加载仓库...",
+    "my_repos_private": "私有",
+    "my_repos_connect_hint": "在个人资料中连接 GitHub 即可直接选择仓库",
+    "invalid_url": "请输入有效的 GitHub URL。(例如：https://github.com/owner/repo)",
+    "truncated": "⚠️ 文件数量过多，仅显示部分。"
+  },
+  "mobile_toggle": {
+    "label": "Files",
+    "aria_open": "打开文件浏览器",
+    "aria_close": "关闭文件浏览器"
+  },
+  "tabs": {
+    "aria_close": "关闭 {name} 标签页"
+  },
+  "body": {
+    "empty": "选择一个文件以查看其内容"
+  },
+  "status": {
+    "lang_none": "—"
+  },
+  "next_step": {
+    "aria_label": "下一步指引",
+    "badge": "现在我该做什么？",
+    "intro": "设计已经完成。这里有 <strong>3 种方式把这份规格变成真正的代码</strong> —— 代码本身的编写通过下面的方法完成，而不是在 Harness 里。",
+    "expand": "展开",
+    "collapse": "收起",
+    "self": {
+      "title": "我自己来构建",
+      "desc": "你可以使用 Cursor 或 Claude Code 等 AI 编码工具",
+      "step1": "在下方下载<strong>项目包</strong>（CLAUDE.md、.cursorrules、规格）。",
+      "step2": "把它解压到新的 Cursor / Claude Code 项目中，并粘贴<em>启动提示词</em>。",
+      "step3": "把生成的 GitHub 仓库粘贴到<strong>下方输入框</strong>进行检查。"
+    },
+    "outsource": {
+      "title": "我交给开发者来做",
+      "desc": "外包公司或团队开发者会编写代码",
+      "step1": "下载 <strong>PM 工具包</strong>（PRD + 摘要）。",
+      "step2": "原样交给开发者或外包公司，它就成了一份工作指令书。",
+      "step3": "拿到完成的仓库后，在<strong>下方输入框</strong>中检查并验收。",
+      "soon": "面向非开发者的<strong>发包单模板</strong>（预算、排期、功能范围）即将推出。",
+      "cta": "去获取 PM 工具包"
+    },
+    "have": {
+      "title": "我已经有代码了",
+      "desc": "只需检查并验收",
+      "body": "把你的 <strong>GitHub 仓库 URL</strong> 粘贴到下方的输入框，即可浏览代码，并在 Lint 步骤检查规格符合情况。"
+    }
+  },
+  "agent_export": {
+    "title": "移交给 AI 编码工具",
+    "desc": "我们会把你的设计规格转换成 Cursor 和 Claude Code 可以直接读取的文件。",
+    "download_btn": "获取项目包 (.zip)",
+    "copy_prompt_btn": "复制启动提示词",
+    "includes": {
+      "rules": "<code>CLAUDE.md</code> · <code>AGENTS.md</code> · <code>.cursorrules</code> · <code>llms.txt</code> —— AI 会自动读取的规则",
+      "plan": "<code>BUILD_PLAN.md</code> —— AI 整理的“如何构建”摘要（技术栈、顺序、验收标准）",
+      "spec": "<code>spec/</code> —— 原始 PRD · Architecture · DDD · SPACK",
+      "prompt": "<code>START_PROMPT.txt</code> —— 可直接粘贴、立即开始的首条指令"
+    },
+    "no_project_warn": "请先选择一个项目，规格才会包含在项目包中。",
+    "default_project_name": "我的项目",
+    "toast": {
+      "copy_ok": "✓ 已复制启动提示词 —— 粘贴到 Cursor 或 Claude 中",
+      "copy_fail": "复制被拦截 —— 请使用项目包内的 START_PROMPT.txt",
+      "no_project": "请先选择一个项目",
+      "bundling": "正在收集规格并构建项目包...",
+      "plan_generating": "正在生成 AI 构建计划...",
+      "download_ok_plan": "✓ 已下载 {filename} —— 包含 AI 构建计划",
+      "download_ok": "✓ 已下载 {filename}",
+      "download_ok_no_spec": "✓ {filename}（无规格 —— 仅含规则模板）",
+      "bundle_fail": "项目包生成失败：{error}"
+    }
+  },
+  "bundle": {
+    "spec_readme_empty": "尚无规格。请先完成 Harness 的 Plan · Design 步骤，此文件夹将填入 PRD · Architecture · DDD · SPACK。",
+    "work_rules": {
+      "r1_source_of_truth": "把 `spec/` 文档作为**单一事实来源（source of truth）**。不要随意添加规格中没有的功能。",
+      "r2_incremental": "一次只实现一个功能，以实际可运行的单元逐步实现。",
+      "r3_summarize_before": "在做较大改动前，先概述你将改什么、怎么改。",
+      "r4_new_lib_consent": "引入新的库或框架时，先连同理由一起提议并获得同意。(优先采用规格中已定的技术栈)",
+      "r5_import_registry": "对于 import 和依赖，**请在官方注册表（pypi、npm 等）确认该包确实存在**。不要凭猜测编造函数或选项。",
+      "r6_undecided_stop": "规格文档中标记为 **⚠️ 미정** 的项（请求/响应规格、数据属性、负责服务等）表示设计尚为空白。**不要擅自填写，要停下来询问用户** —— 凭猜测实现是最常见的事故原因。",
+      "r7_run_verify": "每个功能都要实际运行并确认正常工作后，才视为完成。以运行结果判断，而不是“应该能行”。",
+      "r8_ask_when_ambiguous": "对模糊的部分不要猜测，请询问规格的哪一部分不清楚。",
+      "r9_assumptions_risks": "在开始较大的工作前，先分别写下该计划的**各 2~3 条假设、风险与不确定点**。",
+      "r10_small_commits": "提交要小，一次只包含一件事。"
+    },
+    "role_line": {
+      "with_stack": "你是精通 **{stack}** 的资深开发者。请忠实遵循下面的设计规格。",
+      "no_stack": "你是一名严谨的资深开发者。请忠实遵循下面的设计规格。"
+    },
+    "context": {
+      "reader_agents": "Cursor · Codex · Windsurf 等 AI 编码工具",
+      "reader_claude": "Claude Code",
+      "coder_agents": "你的 AI 编码工具",
+      "coder_claude": "Claude Code",
+      "overview_more": " …(详情见 spec/prd.md)",
+      "overview_empty": "_请参阅下面的 spec/ 文档。_",
+      "doc_status": "- `IMPLEMENTATION_STATUS.md` — 已实现（✅）·未实现（⬜） ★ 最先阅读",
+      "doc_build_plan": "- `BUILD_PLAN.md` — 如何构建（推荐技术栈·实现顺序·完成标准） ★ 先阅读",
+      "doc_prd": "- `spec/prd.md` — 产品规格（PRD）（做什么·为什么）",
+      "doc_architecture": "- `spec/architecture.md` — 系统结构（如何划分）",
+      "doc_ddd": "- `spec/ddd.md` — 领域模型（核心概念·数据）",
+      "doc_spack": "- `spec/spack.md` — 详细规格",
+      "doc_empty": "- (尚无规格 —— 请先完成 Harness 的 Plan·Design)",
+      "enhance_note": "> ⚠️ **本项目是导入的既有代码库（并非空文件夹）。**\n> 不要从头重写，请尊重 `IMPLEMENTATION_STATUS.md` 中的 ✅（已实现），只把 ⬜（未实现）\n> 在既有代码之上进行添加·补全。✅ 也要用实际代码验证一次（映射为自动推断）。",
+      "autoload_note": "本文件是 {reader} 打开项目时自动读取的上下文。",
+      "gen_note": "基于 Harness 设计规格 · 生成时间：{stamp}",
+      "h_role": "角色",
+      "h_what": "要构建什么",
+      "h_specs": "设计文档（单一事实来源）",
+      "specs_lead": "在编写代码之前，先阅读 `spec/` 文件夹中的文档。",
+      "h_rules": "工作规则",
+      "footer": "🤖 Generated by Harness —— 规划由 Harness 负责，编码由 {coder} 负责。"
+    },
+    "cursor": {
+      "header": "# {name} — Cursor Rules (由 Harness 生成)",
+      "spec_hint": "# 详细规格参见 ./spec/ 文件夹。",
+      "spec_first": "本项目的规格在 ./spec/ 文件夹中。编写代码前务必先阅读。"
+    },
+    "plan": {
+      "empty_item": "(无)",
+      "title": "{name} — 构建计划 (Harness AI)",
+      "lead1": "这是 AI 阅读规格后整理的“如何构建”指南。",
+      "lead2": "请与 START_PROMPT.txt 一起使用，让智能体按此顺序·完成标准进行工作。",
+      "h_stack": "推荐技术栈",
+      "stack_infer": "_(需从规格中推断)_",
+      "h_scope_now": "首期范围（现在要做的）",
+      "h_scope_later": "稍后（本轮先不做）",
+      "h_milestones": "实现顺序（里程碑）",
+      "h_acceptance": "完成标准 (Acceptance Criteria)",
+      "h_risks": "棘手之处（注意）",
+      "footer": "🤖 Generated by Harness —— 规划由 Harness 负责，编码由你的 AI 编码工具负责。"
+    },
+    "llms": {
+      "overview_empty": "由 Harness 生成的规划·设计包。",
+      "link_build_plan": "- [BUILD_PLAN.md](BUILD_PLAN.md): 如何构建 — 推荐技术栈·实现顺序·完成标准",
+      "link_claude": "- [CLAUDE.md](CLAUDE.md): 角色·工作规则 (Claude Code 自动加载)",
+      "link_agents": "- [AGENTS.md](AGENTS.md): 角色·工作规则 (Cursor·Codex·Windsurf 自动加载)",
+      "link_prd": "- [PRD](spec/prd.md): 产品规格（PRD）（做什么·为什么）",
+      "link_architecture": "- [Architecture](spec/architecture.md): 系统结构",
+      "link_ddd": "- [DDD](spec/ddd.md): 领域模型（核心概念·数据）",
+      "link_spack": "- [SPACK](spec/spack.md): 详细规格（API·数据·策略）",
+      "h_specs": "设计文档",
+      "h_rules": "工作规则",
+      "rule_source_of_truth": "把 spec/ 文档作为单一事实来源，不要随意添加规格中没有的功能。",
+      "rule_import_registry": "请在官方注册表确认 import 和库确实存在。",
+      "rule_undecided": "对规格文档中标记为 **⚠️ 미정** 的项，不要擅自填写，要停下来询问用户。"
+    },
+    "start": {
+      "greenfield": "我想构建“{name}”项目。设计规格在本项目的 spec/ 文件夹和 CLAUDE.md 中（我已把 Harness 包解压放入）。\n\n1) 先阅读 spec/ 中的所有文档，然后用中文 3~5 行概括要构建什么。\n2) 提议用哪种技术栈来构建，并简要说明理由。(若规格已定技术栈，则优先采用)\n3) 先分别写下该计划的各 2~3 条假设、风险与不确定点。\n4) 从最小可运行单元（MVP）开始制定分步实现计划。\n5) 我确认后，从第 1 步开始编写代码。\n\n规则：\n- 不要随意添加规格中没有的功能。对模糊的部分不要猜测，请向我询问。\n- 对规格文档中标记为 ⚠️ 미정 的项（请求/响应规格、数据属性、负责服务等），不要擅自填写，要停下来问我。\n- 使用前请在官方注册表确认 import 和库确实存在。不要编造函数或选项。\n- 每一步都实际运行并确认可用后，再进入下一步。",
+      "enhance": "我想**在已构建好的既有代码之上，继续改进与扩展“{name}”项目**，而不是从头重做。\n\n本文件夹中有随附的 `IMPLEMENTATION_STATUS.md` —— 它整理了设计规格中哪些是 ✅ 已实现 / ⬜ 尚未实现。详细设计在 `spec/` 文件夹中。\n\n‼️ **本包以在导入它的那个仓库（repo）中工作为前提。** ✅ 项的文件确实存在于该 repo 中。\n\n1) 先阅读 `IMPLEMENTATION_STATUS.md` 和既有代码，用中文 3~5 行概括目前实现了什么。\n2) 在 ⬜（未实现）项中，制定本轮要添加·补全什么的分步计划。✅（已实现）请尊重既有代码，不要随意重写。\n3) 先分别写下该计划的各 2~3 条假设、风险与不确定点。\n4) 我确认后，从 ⬜ 项开始，按既有代码风格进行实现。\n\n规则：\n- **不要从头创建新项目。** 遵循既有代码的结构·命名·技术栈，并在其之上进行添加。\n- 标记为 ✅ 的项也要用实际代码确认一次。若 STATUS 与代码不符，以代码为准，但要告知我。(匹配为自动推断，并非 100%)\n- **STATUS 以最后一次分析时点为准。** 将 `spec/` 中当前的 PRD 与 STATUS 对照，若 PRD 中存在 STATUS 的 ✅/⬜ 都没有的项，也将其视为 ⬜（未实现）并添加。\n- 不要随意删除或更改规格中没有的既有代码（STATUS 中的 drift）。\n- 不要随意添加规格中没有的功能。⚠️ 미정 项请停下来询问。请确认 import 和库确实存在。\n- 每一步都实际运行并确认可用后，再进入下一步。"
+    },
+    "status": {
+      "file_unknown": "(文件未知)",
+      "not_found": "在代码中未找到",
+      "title": "实现状况 (IMPLEMENTATION STATUS)",
+      "lead1": "本项目是**导入的既有代码库**。以下是“设计规格 ↔ 实际代码”的自动映射状况。",
+      "lead2": "‼️ 请在**导入本包的那个仓库（repo）中**工作。✅ 项的文件就在该 repo 中。",
+      "repo": "导入的仓库：{repoUrl}",
+      "lead3": "生成时间：{stamp} · 映射为自动推断，并非 100% —— ✅ 也要用实际代码确认一次。",
+      "lead4": "⚠️ 本状况以**最后一次分析时点为准**。若此后修改过 spec（会议记录/PRD），请重新运行 analyzeLineage（或 Lint）后再重新生成本包。在此之前，请检查 `spec/` 中当前的 PRD 是否有下列清单之外的项，若有也按未实现（⬜）处理。",
+      "sec_done": "✅ 已实现 —— 禁止重写（仅在验证后补全）",
+      "sec_missing": "⬜ 尚未实现 —— 本轮要添加",
+      "sec_weak": "⚠️ 部分/低置信 —— 需用实际代码验证",
+      "sec_drift": "🔎 规格中没有的既有代码（drift） —— 不要随意更改",
+      "empty_none": "无",
+      "empty_missing": "无 —— 添加新需求并重新分析后会在此填充",
+      "footer": "🤖 Generated by Harness —— 请在既有实现之上进行强化（不要从头重做）。"
+    }
+  }
+}

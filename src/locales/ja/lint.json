@@ -1,0 +1,157 @@
+{
+  "title": "コード点検",
+  "page": {
+    "subtitle": "設計した内容が実際のコードに漏れなく反映されているかを照合し、抜けている部分や直すべき点を指摘します。",
+    "subtitle_note": "コードの採点ではなく、「設計どおりに作られたか」の確認です。",
+    "guide_btn": "ユーザーガイド",
+    "guide_btn_title": "Lintページのユーザーガイドをもう一度表示",
+    "rule_compliance": "Rule Compliance"
+  },
+  "error": {
+    "github_url_required": "先にCode画面でGitHub URLを設定してください。",
+    "project_name_required": "プロジェクト名を入力してください。",
+    "run_failed": "Lintの実行中にエラーが発生しました。",
+    "run_failed_toast": "Lintに失敗しました: {error}"
+  },
+  "cache_age": {
+    "just_now": "たった今",
+    "minutes_ago": "{n}分前",
+    "hours_ago": "{n}時間前",
+    "days_ago": "{n}日前"
+  },
+  "guide": {
+    "headline": "コード点検",
+    "pill": "LINT GUIDE",
+    "sub": "バイブコーディングの結果を Plan · Design 仕様と自動で照合して準拠率を測定し、Fix Agent で違反項目を一度に修正specにまとめます。",
+    "step1": {
+      "title": "Lint Phase の概要",
+      "subtitle": "Validate Vibe-coded Project",
+      "desc": "AIエージェントが書いたコードが、Plan/Designステージで定めた仕様（PRD · SPACK · DDD · Architecture · コーディング規則）を守っているかを検証します。人が直接コードレビューしなくても、リグレッションを検出します。",
+      "tip": "バイブコーディング → Lint → Fix Agent のループで仕様準拠を自動化しましょう。"
+    },
+    "step2": {
+      "title": "まずGitHub URLを設定",
+      "subtitle": "Pre-requisite",
+      "desc": "Code画面で検査対象のGitHub repo URLを登録してください。Public · Private のどちらにも対応しており（PrivateはGitHub OAuth連携が必要）、一度設定すれば次回のLint実行に自動で使われます。",
+      "tip": "まだ未設定の場合は、Lint画面の「CODE画面へ」ボタンですぐに移動できます。"
+    },
+    "step3": {
+      "title": "Run Lint — カテゴリ別の準拠率",
+      "subtitle": "SPACK · DDD · Architecture · Rules · 企画",
+      "desc": "「RUN LINT」を一度実行すれば、5つのカテゴリ（SPACK仕様、DDDモデル、Architecture構造、コーディング規則、企画項目）ごとの準拠率を検査します。企画項目（Story・画面）はタイトルが韓国語でも AI がコードと意味単位で照合し、file:line の根拠を提示します。各カードの%が合格率で、カードをクリックすると詳細なルールの合否一覧を確認できます。",
+      "tip": "キャッシュされた結果は即座に表示され、「force」オプションで再検査できます。"
+    },
+    "step4": {
+      "title": "Constraint Fix Agent — 自動修正spec",
+      "subtitle": "Auto-fix Workflow",
+      "desc": "失敗したルールを集め、AIエージェント（Claude Code / Cursor など）がそのまま適用できる修正specを自動生成します。specをエージェントに貼り付けるとコードを修正 → 再びRun Lint → 合格率 ↑。",
+      "tip": "Run Lint → Fix Agent → 再びRun Lint を繰り返すことで、100%の準拠率へ収束させられます。"
+    },
+    "illust": {
+      "code_screen": "Code画面",
+      "public_private": "Public · Private のどちらにも対応",
+      "etc_n": "...ほかN件"
+    }
+  },
+  "stats": {
+    "cache_banner_stale_title": "{age}に分析した結果です。",
+    "cache_banner_stale_desc": "その後にコードが変更されている場合は、新たに分析するほうが正確です。",
+    "analyzing": "分析中...",
+    "rerun": "再実行",
+    "cache_banner_fresh_title": "分析が完了しました",
+    "cache_banner_fresh_desc": "— 最新のコードに基づいています。",
+    "meaning_text": "このスコアは<strong>設計仕様の項目がコードに実装されている割合（設計-コードのトレーサビリティ）</strong>です。コードの品質・正確性・バグの有無を保証するものではありません。",
+    "coverage_text": "全<strong>{total}</strong>個のコードファイルのうち<strong>{sampled}個（{pct}%）</strong>のみをサンプル検査しました。スコアは検査したファイルに基づいており、検査されていないコードは反映されていません。",
+    "traceability_score": "トレーサビリティ スコア",
+    "files_sampled": "検査ファイル数",
+    "rules_checked": "検査ルール数",
+    "violations": "違反項目",
+    "partial_chip": "部分検査 {pct}%"
+  },
+  "empty": {
+    "error_title": "分析に失敗しました",
+    "checklist": "CHECKLIST",
+    "check_url": "リポジトリのURLが正しいか確認してください（現在: {url}）",
+    "check_public": "Publicリポジトリか確認してください（Privateは認証トークンが必要）",
+    "check_retry": "しばらくしてから再試行してください（GitHub APIのrate limitの可能性）",
+    "retry": "再試行",
+    "loading_title": "分析中...",
+    "loading_desc": "Neo4jから仕様を取得し、GitHubのコードを検査します。最大3分ほどかかります。",
+    "empty_title": "Lintの結果がまだありません",
+    "empty_desc": "GitHub URLを入力してRun Lintを実行すると<br/>SPACK / DDD / Architecture / Rules / 企画項目 の準拠率を検査します。"
+  },
+  "run_panel": {
+    "pill": "VIBE LINTER",
+    "title": "バイブコーディング結果の検証",
+    "url_placeholder": "先にCode画面でGitHub URLを設定してください",
+    "url_title_set": "Code画面で設定済み: {url}",
+    "url_title_unset": "先にCode画面でURLを設定してください",
+    "goto_code_title": "Code画面でURLを設定",
+    "goto_code": "Code画面へ",
+    "analyzing": "分析中...",
+    "run_lint": "Run Lint",
+    "rerun_title": "キャッシュを無視して再分析",
+    "rerun": "再分析",
+    "my_library": "MY LIBRARY"
+  },
+  "table": {
+    "method": {
+      "deterministic_label": "決定的",
+      "deterministic_title": "コードの静的解析で直接マッチング",
+      "llm_label": "AI検証",
+      "llm_title": "LLMがファイル本文を読んで検証した結果",
+      "fallback_label": "未マッチ",
+      "fallback_title": "決定的マッチング / LLM検証のどちらも失敗"
+    },
+    "pill": "COMPLIANCE DOC",
+    "title": "制約準拠レポート",
+    "pass": "合格 {n}",
+    "fail": "不合格 {n}",
+    "stat_deterministic": "決定的 {n}",
+    "stat_llm": "AI検証 {n}",
+    "stat_fallback": "未マッチ {n}",
+    "th_constraint": "制約",
+    "th_description": "説明",
+    "th_method": "検出方法",
+    "th_status": "ステータス",
+    "row_aria_label": "{title} — クリックすると根拠コードを表示",
+    "evidence_count": "· {n}件",
+    "evidence_count_title": "evidence {n}件 — クリックで展開",
+    "status_pass": "合格",
+    "status_fail": "不合格",
+    "evidence_kind_default": "match",
+    "evidence_link_title": "GitHubで {target} を開く",
+    "empty": "検査する項目がありません。"
+  },
+  "store": {
+    "enqueue_failed": "Lintジョブの登録に失敗しました — task_idが欠落しています。",
+    "fix_spec_enqueue_failed": "Fix specジョブの登録に失敗しました — task_idが欠落しています。",
+    "run_default": "Lint failed",
+    "no_permission": "'{project}' プロジェクトに対する権限がありません。Planページで新しいミーティングログをアップロードして、先にプロジェクトを作成してください。",
+    "not_found": "プロジェクトまたはリポジトリが見つかりません。",
+    "queue_unavailable": "AIジョブキューが一時的に利用できません。1〜2分後に再試行してください。",
+    "rate_limit": "リクエストが多すぎます（1分あたり3回まで）。しばらくしてから再試行してください。",
+    "run_timeout": "Lint分析が10分以内に終わりませんでした。非常に大きなrepoか、workerの遅延の可能性があります。しばらくしてから再試行してください。",
+    "fix_spec_missing_input": "プロジェクト名とGitHub URLが必要です。",
+    "fix_spec_no_result": "Lintの結果がありません。先に分析を実行してください。",
+    "fix_spec_default": "修正specの生成に失敗しました。",
+    "fix_spec_timeout": "修正specの生成が10分以内に終わりませんでした。しばらくしてから再試行してください。"
+  },
+  "coverage": {
+    "section_title": "企画項目の実装状況",
+    "subtitle": "RUN LINT が PRD 企画項目（画面・Story）がコードに実装されているか自動照合した結果です。未実装の項目はワンクリックで AI 修正指示として書き出せます。",
+    "progress": "{total}件中 {done}件 実装",
+    "done_label": "実装済み",
+    "missing_label": "未実装",
+    "group_screen": "画面",
+    "group_story": "Story",
+    "evidence_toggle": "根拠 {n}",
+    "evidence_aria": "{label} の実装根拠 {n}件を展開",
+    "empty": "企画項目（画面・Story）がありません。「01 会議メモの整理」で PRD を先に作成してください。",
+    "all_done": "企画項目はすべて実装済みです。漏れなし 🎉",
+    "copy_missing": "未実装 {n}件を AI 修正指示としてコピー",
+    "copied": "未実装項目の修正指示をコピーしました。Cursor·Claude などに貼り付けてください。",
+    "copy_failed": "コピーに失敗しました。もう一度お試しください。",
+    "fix_prompt_header": "以下の企画項目がコードにまだ実装されていません。各項目をコードで実装してください。"
+  }
+}

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-label="Harness — AI-Powered System Design Platform">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2A2421"/>
+      <stop offset="50%" stop-color="#3D2E1E"/>
+      <stop offset="100%" stop-color="#1A1208"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#C89B6A" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#C89B6A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#8C6239" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#8C6239" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8C6239"/>
+      <stop offset="100%" stop-color="#C89B6A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <circle cx="1080" cy="80" r="240" fill="url(#orb1)"/>
+  <circle cx="120" cy="340" r="200" fill="url(#orb2)"/>
+
+  <!-- Grid lines -->
+  <g stroke="#C89B6A" stroke-opacity="0.06" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="300" y1="0" x2="300" y2="400"/>
+    <line x1="600" y1="0" x2="600" y2="400"/>
+    <line x1="900" y1="0" x2="900" y2="400"/>
+  </g>
+
+  <!-- Logo mark -->
+  <g transform="translate(80,80)">
+    <rect x="0" y="0" width="56" height="56" rx="16" fill="url(#accentGrad)"/>
+    <path d="M16 14 L28 36 L20 36 L28 50 L40 28 L32 28 L40 14 Z" fill="#FCFAEE"/>
+  </g>
+  <text x="156" y="118" font-family="Outfit, Arial, sans-serif" font-size="36" font-weight="900" fill="#FCFAEE" letter-spacing="-1.2">Harness</text>
+
+  <!-- Headline -->
+  <text x="80" y="210" font-family="Outfit, Arial, sans-serif" font-size="64" font-weight="900" fill="#FFFFFF" letter-spacing="-2.5">AI-Powered</text>
+  <text x="80" y="278" font-family="Outfit, Arial, sans-serif" font-size="64" font-weight="900" fill="#C89B6A" letter-spacing="-2.5">System Design Platform</text>
+  <text x="80" y="332" font-family="Pretendard, Arial, sans-serif" font-size="20" fill="#FFFFFF" fill-opacity="0.7">미팅 로그부터 바이브 코딩까지 — 전 개발 생애주기를 자동화합니다.</text>
+
+  <!-- Step pills on right -->
+  <g font-family="IBM Plex Mono, monospace" font-size="11" font-weight="700" letter-spacing="2">
+    <g transform="translate(880,90)">
+      <rect width="240" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.08" stroke="#C89B6A" stroke-opacity="0.4"/>
+      <circle cx="22" cy="18" r="6" fill="#C89B6A"/>
+      <text x="42" y="23" fill="#FFFFFF">01 · PLAN</text>
+    </g>
+    <g transform="translate(880,138)">
+      <rect width="240" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.08" stroke="#C89B6A" stroke-opacity="0.4"/>
+      <circle cx="22" cy="18" r="6" fill="#C89B6A"/>
+      <text x="42" y="23" fill="#FFFFFF">02 · DESIGN</text>
+    </g>
+    <g transform="translate(880,186)">
+      <rect width="240" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.08" stroke="#C89B6A" stroke-opacity="0.4"/>
+      <circle cx="22" cy="18" r="6" fill="#C89B6A"/>
+      <text x="42" y="23" fill="#FFFFFF">03 · CODE</text>
+    </g>
+    <g transform="translate(880,234)">
+      <rect width="240" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.08" stroke="#C89B6A" stroke-opacity="0.4"/>
+      <circle cx="22" cy="18" r="6" fill="#C89B6A"/>
+      <text x="42" y="23" fill="#FFFFFF">04 · LINT</text>
+    </g>
+    <g transform="translate(880,282)">
+      <rect width="240" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.08" stroke="#C89B6A" stroke-opacity="0.4"/>
+      <circle cx="22" cy="18" r="6" fill="#C89B6A"/>
+      <text x="42" y="23" fill="#FFFFFF">05 · DELIVERABLES</text>
+    </g>
+  </g>
+</svg>

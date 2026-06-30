@@ -1,0 +1,390 @@
+{
+  "page": {
+    "title": "Export Deliverables",
+    "subtitle": "Gather all the deliverables (GitHub repositories) you built in this project in one place and download them bundled as a handoff ZIP file.",
+    "guide_btn": "User Guide",
+    "guide_btn_title": "Show the Deliverables page guide again",
+    "final_artifacts": "Final Artifacts"
+  },
+  "hero": {
+    "pill": "PROJECT SUMMARY",
+    "no_project": "No Project",
+    "stats": "{repoCount} Repositories · {files} files · {loc} LOC",
+    "last_registered": "Last registered {date}",
+    "refresh_all": "Refresh all"
+  },
+  "kpi": {
+    "lint_analyzed": "{count} / {total} analyzed"
+  },
+  "confirm_delete": {
+    "title": "Delete Repository",
+    "message": "{url}\n\nThe registration info will be deleted (the actual GitHub repo is not affected).",
+    "confirm_text": "Delete"
+  },
+  "readiness": {
+    "pill": "HANDOFF READINESS",
+    "title": "Handoff Readiness",
+    "desc": "7 items checked automatically — when all are ✅, you can hand the project off to the next team as-is.",
+    "why_label": "Why?",
+    "why_collapse": "Collapse explanation: ",
+    "why_expand": "Show why this matters: ",
+    "overall": {
+      "ready": "✅ Ready to hand off",
+      "almost": "🟡 Almost there",
+      "todo": "🔴 Needs work"
+    },
+    "msg": {
+      "need_repo": "Repository registration required",
+      "ratio_pass": "{have} / {total} passed"
+    },
+    "checks": {
+      "has_repo": {
+        "label": "Repository registered",
+        "hint_pass": "{count} registered",
+        "hint_fail": "Register at least one GitHub repository",
+        "why": "Without a repository there is no code to hand off. It's the very first foundation you need."
+      },
+      "lint_avg": {
+        "label": "Average code check ≥ 80%",
+        "hint_none": "Not checked yet",
+        "hint_value": "Average {avg}% ({count} / {total} analyzed)",
+        "why": "80% or higher signals the code follows common conventions. Below that, the receiving team needs more time to adapt."
+      },
+      "lineage_coverage": {
+        "label": "Lineage mapping ≥ 80%",
+        "hint_none": "Not analyzed yet — run \"Analyze\" in the deliverable lineage above",
+        "hint_value": "Coverage {pct}%",
+        "why": "Strong \"requirements ↔ design ↔ code\" links let the next team quickly find where to make changes."
+      },
+      "readme": {
+        "label": "README in every repository",
+        "why": "Without a README, day one of handoff stalls at \"how do I even start this?\". A getting-started guide is the first impression of trust."
+      },
+      "license": {
+        "label": "LICENSE in every repository",
+        "why": "Without a license, public release and redistribution are legally unclear. An explicit license is essential for the receiving team to use it with confidence."
+      },
+      "activity": {
+        "label": "Commit activity within the last 30 days",
+        "why": "More than a month without commits signals \"abandoned code.\" Being up to date at handoff is a key indicator of handoff readiness."
+      },
+      "prd": {
+        "label": "Requirements (PRD) exist",
+        "hint_pass": "Written",
+        "hint_fail": "Create a PRD first on the Plan screen",
+        "why": "When \"what to build\" is documented, the next team can continue work in the same direction."
+      }
+    }
+  },
+  "repo_grid": {
+    "pill": "REGISTERED REPOS",
+    "title": "Repositories by Role",
+    "add_btn": "Add Repo",
+    "loading": "Loading…",
+    "empty_title": "No registered repositories",
+    "empty_desc": "Repositories are registered automatically when you enter a GitHub URL on the Code · Lint screens, or you can add them directly with the button above.",
+    "open_aria": "View {name} details",
+    "open_github_aria": "Open {url} on GitHub",
+    "edit_aria": "Edit {name}",
+    "delete_aria": "Delete {name}",
+    "github_title": "GitHub",
+    "edit_title": "Edit",
+    "delete_title": "Delete",
+    "meta_loading": "Loading GitHub meta…",
+    "meta_error_404": "Not found / Private",
+    "meta_error_403": "API rate limit exceeded (retry in 1h)",
+    "meta_error_other": "Meta fetch failed",
+    "meta_waiting": "Waiting…",
+    "files_unit": "files",
+    "loc_unit": "LOC",
+    "lint_pill": "Lint {score}%",
+    "lint_none": "Lint not analyzed",
+    "lint_loading": "Lint…",
+    "detail_hint": "View details →"
+  },
+  "lang_stack": {
+    "pill": "TECH STACK",
+    "title": "Language / Tech Stack Distribution",
+    "desc": "Sums the language ratios across all registered repositories. See at a glance what tech the receiving team needs to know.",
+    "analyzed_label": "Analyzed repos",
+    "empty": "No language data to show yet. Add a GitHub repository and the language breakdown will appear automatically.",
+    "others": "Others ({count})",
+    "distribution_aria": "Language distribution: {list}"
+  },
+  "lineage": {
+    "pill": "LINEAGE",
+    "title": "Did my plan all make it into the code?",
+    "desc": "AI checks at a glance whether the features (scenarios) you planned actually made it into the code.",
+    "import_export_aria": "Import/export ground-truth labels",
+    "badge_aria": "Generate coverage badge",
+    "diff_aria": "Compare analysis history",
+    "diff_title": "Compare analysis history",
+    "graph_aria": "Graph visualization",
+    "graph_title": "View lineage graph",
+    "reanalyze": "Re-analyze",
+    "analyze": "Analyze",
+    "empty": {
+      "value_title": "Connect your code and we'll auto-check whether everything you planned got built",
+      "value_desc": "Connect a GitHub repo and run the check — we compare your planned features against the actual code files and pinpoint what's missing.",
+      "preview_caption": "Here's what you'll see 👇",
+      "connect_repo": "Connect repo",
+      "ready_title": "Ready",
+      "ready_desc": "Press Check and AI compares your plan ↔ code (about 1–2 min)."
+    },
+    "result": {
+      "headline": "{done} / {total} planned scenarios confirmed in code",
+      "headline_none": "No user scenarios in your plan yet — fill in the PRD first.",
+      "missing_head": "🔴 Not found in code yet: {n}",
+      "all_done": "All planned scenarios are in the code 🎉",
+      "implemented_head": "✅ {n} scenarios confirmed in code",
+      "where": "Where is it",
+      "tech_rollup": "API {ax}/{at} · Data {gx}/{gt} · Services {sx}/{st} implemented",
+      "advanced_toggle": "Advanced (for developers) — detailed mapping · quality · history",
+      "conf_high": "Exact match",
+      "conf_medium": "Close match",
+      "conf_low": "Weak guess",
+      "conf_unverified": "Unverified"
+    },
+    "analyzing": {
+      "title": "AI is analyzing deliverable lineage",
+      "desc": "Mapping by combining {count} Repo file trees with Design deliverables.",
+      "stages_aria": "Analysis stages"
+    },
+    "zero_match": {
+      "title": "Analysis completed but matched 0 items",
+      "desc_html": "To keep the AI from hallucinating code, <strong>only paths that actually exist in the fileTree are included</strong> in the results. One of the following is likely the cause:",
+      "reason1_html": "Deliverable names are Korean while code is English → keyword match fails (e.g., \"사용자 인증 서비스\" ↔ <code class=\"mono-text\">UserAuthService.ts</code>)",
+      "reason2": "Could not fetch the registered Repo's fileTree (private repo or GitHub rate limit)",
+      "reason3": "Matching keywords are too generic (\"Service\", \"Manager\", etc.)",
+      "retry": "Re-analyze",
+      "tip": "Or register ground-truth labels via each deliverable's ✏️ button to measure matching accuracy."
+    },
+    "summary": {
+      "no_summary": "No summary",
+      "total_mapping": "Total mappings",
+      "missing": "Not implemented",
+      "aggregate": "Aggregate",
+      "api": "API"
+    },
+    "view_aria": "Lineage view",
+    "tabs": {
+      "matrix": "All",
+      "aggregates": "Data Bundles",
+      "apis": "External Entry Points",
+      "services": "Services",
+      "stories": "User Scenarios",
+      "missing": "Not Implemented"
+    },
+    "matrix": {
+      "coverage": "COVERAGE",
+      "mapped_ratio": "{mapped} / {total} mapped",
+      "filters": {
+        "all": "All",
+        "high": "Certain",
+        "medium": "Estimated",
+        "low": "Weak",
+        "unverified": "Unverified",
+        "missing": "Not Implemented"
+      },
+      "th_impl": "Implementation",
+      "no_name": "—",
+      "open_aria": "Open {path}",
+      "status_missing": "Not Implemented",
+      "empty_no_missing": "✓ No unimplemented items",
+      "empty_no_match": "No items match the filter"
+    },
+    "missing_tab": {
+      "all_mapped": "✓ All deliverables are mapped."
+    },
+    "quality": {
+      "title": "Match quality (labels {labeled}/{total})",
+      "empty": "ℹ No deliverables have ground-truth labels registered. Register candidate files via each item's ✏️ button to measure match quality."
+    },
+    "filter": {
+      "search_placeholder": "Search name/ID/endpoint/file path…",
+      "search_aria": "Search deliverables",
+      "search_clear_aria": "Clear search",
+      "confidence_group_aria": "Confidence filter",
+      "confidence": {
+        "all": "All",
+        "high": "Certain",
+        "medium": "Estimated",
+        "low": "Weak",
+        "unverified": "Unverified",
+        "none": "Unmapped"
+      },
+      "repo_filter_aria": "Repo filter",
+      "all_repos": "All Repos",
+      "clear_btn": "Reset filters",
+      "count": "{shown} / {total} shown"
+    },
+    "list": {
+      "label_edit_aria": "Edit {name} label",
+      "label_register_aria": "Register ground-truth label for {name}",
+      "label_edit_title": "Edit label (ground truth registered)",
+      "label_register_title": "Register ground-truth label",
+      "no_name": "—",
+      "open_aria": "Open {path}",
+      "open_github_aria": "Open on GitHub: {path}",
+      "no_matched_file": "⚠ No matched file",
+      "tab_empty": "No {tab} items."
+    }
+  },
+  "drawer": {
+    "aria_label": "{name} details",
+    "refresh_aria": "Refresh GitHub meta",
+    "refresh_title": "Refresh",
+    "open_github_aria": "Open repository on GitHub",
+    "close_aria": "Close detail panel",
+    "close_title": "Close",
+    "tab_overview": "Overview",
+    "tab_activity": "Activity",
+    "tab_team": "Team",
+    "loading": "Fetching GitHub data…",
+    "error": {
+      "not_found": "Repository not found",
+      "rate_limit": "GitHub API rate limit exceeded",
+      "generic": "Failed to fetch GitHub data",
+      "desc_rate_limit": "Unauthenticated calls are limited to 60 per hour. The cache expires automatically after 1 hour, so please retry.",
+      "desc_generic": "Please check that the repository is public and the URL is correct."
+    },
+    "lang_distribution": "Language distribution",
+    "no_lang": "No language info",
+    "repo_info": "Repo info",
+    "fetched_at": "Fetched at",
+    "no_readme": "No README",
+    "commit_heatmap": "Commit heatmap (last 90 days)",
+    "recent_commits": "Recent commits ({count})",
+    "no_commits": "No commit info",
+    "contributors": "Contributors ({count})",
+    "no_contributors": "No contributor info"
+  },
+  "repo_form": {
+    "dialog_aria": "Repository registration form",
+    "title_add": "Add Repository",
+    "title_edit": "Edit Repository",
+    "url_label": "GitHub URL",
+    "library_label": "Pick from my library",
+    "role_label": "Role",
+    "alias_label": "Alias (optional)",
+    "alias_placeholder": "e.g., Account FE"
+  },
+    "obsidian": {
+    "folder_plan": "Plan",
+    "folder_api": "API",
+    "folder_data": "Data",
+    "folder_policy": "Policies",
+    "folder_domain": "Domain",
+    "folder_service": "Services",
+    "folder_screen": "Screens",
+    "home_title": "Home",
+    "home_intro": "This vault was generated by Harness. Open the graph view (Ctrl/Cmd+G) to see your plan's structure at a glance.",
+    "section_related": "Related",
+    "section_attrs": "Attributes",
+    "attr_field": "Field",
+    "attr_type": "Type",
+    "attr_required": "Required",
+    "attr_constraint": "Constraint",
+    "empty_node_warn": "This item is still empty — you can fill it with Harness's 'Fill with AI'.",
+    "readme_intro": "This folder is a set of plan & design notes you can open directly in Obsidian.",
+    "readme_steps_title": "Start in 3 minutes",
+    "readme_step1": "Install Obsidian (obsidian.md — free)",
+    "readme_step2": "In Obsidian, choose 'Open folder as vault' and select this folder",
+    "readme_step3": "Open the graph view (Ctrl/Cmd+G) to see your plan's structure",
+    "readme_note": "This vault is a one-way snapshot at export time. Edits here do not flow back to Harness. When re-exporting, unzip into a new folder."
+  },
+  "handoff": {
+    "pill": "HANDOFF ZIP",
+    "title": "Handoff Package",
+    "desc": "Bundles the deliverables into a ZIP for download, tailored to the target role (developer · PM · architect).",
+    "note": "⚠️ Source code is not included — clone the actual code directly from the repo URLs. This ZIP is a document package containing only design specs, reports, and links.",
+    "dev_aria": "Download developer package: design specs · ERD · coding rules · PRD · Lint",
+    "dev_content": "Design specs + ERD + coding rules (skills) + PRD + Lint",
+    "pm_aria": "Download PM package: PRD · CPS · requirements traceability · open questions · Lint",
+    "pm_content": "PRD + context (CPS) + requirements traceability + open questions + Lint",
+    "architect_aria": "Download architect package: design specs · ERD · design traceability · open questions · Lint",
+    "architect_content": "Design specs + ERD + design traceability + open questions + Lint",
+    "obsidian_aria": "Download Obsidian Vault: plan & design as wikilinked notes",
+    "obsidian_content": "Your whole plan & design as [[wikilinked]] notes — Obsidian graph view ready",
+    "zip": {
+      "obsidian_no_data": "No plan/design data to export yet. Run Plan (01) and Design (02) first.",
+      "registered_repos": "Registered Repositories ({count})",
+      "no_repos": "_No registered repos_",
+      "lint_compliance": "Average Lint compliance",
+      "lint_value": "**{avg}%** ({count} repos analyzed)",
+      "no_analysis": "_No analysis results_",
+      "note_html": "> ⚠️ **Source code is not included in this package.** Clone the actual code directly from the\n> Repository URLs above. This ZIP is a document package containing only design specs, reports, and links.",
+      "generating": "Generating {mode} package...",
+      "download_done": "✓ {filename} downloaded",
+      "generate_fail": "ZIP generation failed: {error}",
+      "role_title_dev": "DEV Handoff Package",
+      "role_title_pm": "PM Handoff Package",
+      "role_title_architect": "ARCHITECT Handoff Package",
+      "role_for_dev": "For: developers (the people who will write the code from this spec)",
+      "role_for_pm": "For: product managers (the people who will track & manage the product)",
+      "role_for_architect": "For: system architects (the people who will review the design)",
+      "about_title": "About this package",
+      "about_dev": "A package for developers to write code from this spec. It includes the design specs, the data model (ERD), the coding rules (skills) to follow, and the current code quality (Lint).",
+      "about_pm": "A package for product managers to understand what was decided, how far it has progressed, and what is left. It includes the PRD, context (CPS), requirements traceability, and open questions.",
+      "about_architect": "A package for system architects to review the design as a whole. It includes the design specs, the data model (ERD), design rationale traceability, open questions, and the current state of the code (Lint).",
+      "first_title": "Where to start",
+      "first_dev": "1) Read `02_plan/prd.md` to understand what to build → 2) Check the data & structure with the `03_design/` specs and `erd.xlsx` → 3) Implement while following the coding rules in `skills/`. Don't decide ⚠ markers and the open questions in `06_review/open-questions.md` on your own — confirm them first.",
+      "first_pm": "1) Confirm the product direction with `02_plan/prd.md` and `cps.md` → 2) Check whether the requirements made it into the design (coverage) with `07_traceability/lineage.xlsx` → 3) Drive the next decisions using the open questions in `06_review/open-questions.md`.",
+      "first_architect": "1) Get a full view of the design from SPACK · DDD · Architecture in `03_design/` → 2) Review the data model with `erd.xlsx` and the design rationale with `07_traceability/lineage.xlsx` → 3) Check the risks using the open questions in `06_review/open-questions.md` and the current state of the code in `05_lint/`.",
+      "contents_title": "What's inside",
+      "open_questions_title": "⚠️ {count} open questions",
+      "open_questions_body": "These are items the design hasn't decided yet. Read `06_review/open-questions.md` and lock them down before you build the code.",
+      "file_prd": "Product requirements (PRD)",
+      "file_cps": "Context · Problem · Solution (CPS)",
+      "file_spack": "API · data · policy spec (SPACK)",
+      "file_ddd": "Domain model (DDD)",
+      "file_arch": "System structure · tech stack (Architecture)",
+      "file_erd": "Data model ERD — entities · attributes · relationships (Excel)",
+      "file_open_questions": "List of open questions — must be decided before implementation",
+      "file_lineage": "PRD↔design traceability — coverage · rationale (Excel)",
+      "file_repo_list": "Repository list",
+      "file_skills": "{count} coding rules (skills/)",
+      "file_lint": "Code quality report — {count} repos"
+    },
+    "empty_hint": "Add a GitHub repository first (in the repositories area above) to download the packages below."
+  },
+  "guide": {
+    "pill": "DELIVERABLES GUIDE",
+    "headline": "Final Artifacts & Handoff",
+    "sub": "Gather all deliverables (Repo · specs · Lint results · coding rules) in one place, review them via KPIs, and hand them off bundled into a single ZIP.",
+    "illustration_zip_label": "HANDOFF.ZIP — Get everything at once",
+    "step1": {
+      "title": "Deliverables Overview",
+      "subtitle": "Final Artifacts",
+      "desc": "Organizes all of the project's deliverables (GitHub repositories) on one screen. Shows the finished results from Plan → Design → Code → Lint via KPIs and lineage, and in the final stage you can bundle them into a handoff ZIP.",
+      "tip": "This is the \"done\" stage — the final deliverables gateway you hand off to external stakeholders or the next team."
+    },
+    "step2": {
+      "title": "Register Repositories",
+      "subtitle": "Frontend · Backend · DB · Mobile · Other",
+      "desc": "Use the \"+ Repository\" button to register the project's GitHub repos by role. After registration, metadata (stars, forks, recent commits, language distribution) and lint scores are fetched automatically and summed into the KPI cards.",
+      "tip": "Even if one project has multiple repos (e.g., front + back + infra), they all gather in one place. Deleting registration info does not affect the GitHub original."
+    },
+    "step3": {
+      "title": "Lineage & Quality",
+      "subtitle": "PRD → Design → Code Traceability",
+      "desc": "Shows traceability metrics for which PRD Story / Design spec each code node derives from. Provides four visualization tools: ground-truth label import, coverage badge, diff, and the full lineage graph.",
+      "tip": "The AVG LINT % card turns red below 60% and green at 80% or above — a quality signal at a glance."
+    },
+    "step4": {
+      "title": "Handoff ZIP — Hand Off in One Click",
+      "subtitle": "One-click Delivery",
+      "desc": "Bundles all repo info, specs (SPACK · DDD · Architecture), lint results, and coding rules into a single ZIP. The recipient just unzips it to instantly access every deliverable — no extra permission setup, hand off right away.",
+      "tip": "Telling the recipient \"just start with 0_START_HERE.md\" is all the guidance they need."
+    }
+  },
+  "quickstart": {
+    "title": "New here? It only takes 3 steps",
+    "step1_title": "Add a repository",
+    "step1_desc": "Register your GitHub repositories by role.",
+    "step2_title": "Check implementation",
+    "step2_desc": "Use AI to verify your planned features made it into the code.",
+    "step3_title": "Get the package",
+    "step3_desc": "Bundle design specs & reports into a ZIP to hand off to the next team."
+  }
+}

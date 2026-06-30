@@ -1,0 +1,107 @@
+{
+  "title": "チーム",
+  "create": "チームを作成",
+  "empty": "まだチームがありません。作成するか、招待をお待ちください。",
+  "deleteTeam": "チームを削除",
+  "leaveTeam": "チームを退会",
+  "members": "メンバー ({count})",
+  "invite": "招待",
+  "pendingInvites": "保留中の招待 ({count})",
+  "cancelInvite": "招待を取り消す",
+  "createModal": {
+    "title": "新しいチームを作成",
+    "proRequired": "チーム機能には{plan}が必要です。",
+    "proPlan": "Proプラン以上",
+    "namePlaceholder": "チーム名"
+  },
+  "inviteModal": {
+    "title": "チームメンバーを招待",
+    "sentBanner": "招待メールを送信しました。",
+    "linkLabel": "招待リンク (直接共有できます)",
+    "inviteAnother": "別の人を招待",
+    "emailPlaceholder": "メールアドレス",
+    "send": "招待を送信"
+  },
+  "toast": {
+    "loadTeamsFail": "チーム一覧の読み込みに失敗しました。",
+    "loadTeamFail": "チーム情報の読み込みに失敗しました。",
+    "created": "チーム「{name}」を作成しました。",
+    "createProRequired": "チーム機能にはProプラン以上が必要です。",
+    "createFail": "チームの作成に失敗しました。",
+    "deleteConfirm": "チーム「{name}」を削除しますか? チームプロジェクトも一緒に削除されます。",
+    "deleted": "チーム「{name}」を削除しました。",
+    "deleteFail": "チームの削除に失敗しました。",
+    "leaveConfirm": "このチームを退会しますか?",
+    "removeConfirm": "メンバー「{email}」を削除しますか?",
+    "left": "チームを退会しました。",
+    "removed": "メンバーを削除しました。",
+    "removeFail": "メンバーの削除に失敗しました。",
+    "roleChanged": "役割を更新しました。",
+    "roleChangeFail": "役割の更新に失敗しました。",
+    "inviteSent": "{email}に招待を送信しました。",
+    "inviteFail": "招待の送信に失敗しました。",
+    "inviteCancelled": "招待を取り消しました。",
+    "inviteCancelFail": "招待の取り消しに失敗しました。",
+    "copyFail": "コピーに失敗しました"
+  },
+  "accept": {
+    "loading": "招待情報を読み込んでいます...",
+    "joinedTitle": "チームに参加しました!",
+    "joinedBody": "{team} チームのメンバーになりました。",
+    "start": "始める",
+    "declinedTitle": "招待を辞退しました",
+    "goHome": "ホームへ",
+    "errorTitle": "問題が発生しました",
+    "upgrade": "プランをアップグレード",
+    "inviteTitle": "チームへの招待",
+    "inviteBody": "{inviter} さんがあなたを {team} チームに招待しました。",
+    "fieldTeam": "チーム",
+    "fieldRole": "役割",
+    "fieldExpires": "有効期限",
+    "loginRequired": "招待を受け入れるには、まずログインしてください。",
+    "loginAndAccept": "ログインして受け入れる",
+    "proRequired": "チームに参加するには{plan}が必要です。",
+    "proPlan": "Proプラン以上",
+    "upgradePlan": "プランをアップグレードする",
+    "decline": "辞退",
+    "join": "チームに参加"
+  },
+  "error": {
+    "notFound": "この招待が見つからないか、すでに期限切れです。",
+    "loadFail": "招待情報の読み込みに失敗しました。",
+    "acceptProRequired": "チームに参加するにはProプラン以上が必要です。プランをアップグレードして、もう一度お試しください。",
+    "acceptFail": "招待の受け入れに失敗しました。",
+    "declineFail": "辞退の処理に失敗しました。"
+  },
+  "page": {
+    "title": "チーム協業",
+    "subtitle": "チームを作成しメンバーを招待して、プロジェクトを一緒に計画しましょう。",
+    "how": {
+      "step1": {
+        "title": "チーム作成",
+        "body": "チーム名を決めてチームを作成します。"
+      },
+      "step2": {
+        "title": "メンバー招待",
+        "body": "メールでメンバーを招待するか、招待リンクを共有します。"
+      },
+      "step3": {
+        "title": "一緒に計画",
+        "body": "同じプロジェクトをメンバーと一緒に閲覧・編集できます。"
+      }
+    }
+  },
+  "emptyState": {
+    "title": "まだチームがありません",
+    "body": "チームを作成すると、複数人で同じプロジェクトを閲覧・計画できます。",
+    "cta": "最初のチームを作成",
+    "orWait": "またはチームリーダーに招待リンクを依頼してください。"
+  },
+  "profileCard": {
+    "title": "チーム",
+    "description": "チームを作成するか、メンバーとプロジェクトを共有しましょう。",
+    "teamCount": "参加中のチーム {count}個",
+    "noTeam": "参加中のチームはありません。",
+    "manage": "チームを管理"
+  }
+}

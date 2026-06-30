@@ -1,0 +1,50 @@
+{
+  "tier": {
+    "confirmed": "已确认",
+    "review": "待审核",
+    "estimated": "估算"
+  },
+  "confidence": {
+    "direct": "直接依据",
+    "inferred": "推断",
+    "none": "无依据",
+    "high": "高",
+    "medium": "中",
+    "low": "弱匹配",
+    "unverified": "⚠ 未验证",
+    "description": {
+      "direct": "在 PRD 中明确提及",
+      "inferred": "PRD 流程所需但未明确说明",
+      "none": "在 PRD 中未找到依据"
+    }
+  },
+  "violation_type": {
+    "missing_aggregate_root": {
+      "chip": "无根",
+      "title": "缺少聚合根"
+    },
+    "multiple_aggregate_roots": {
+      "chip": "根重复",
+      "title": "{count} 个聚合根"
+    }
+  },
+  "job_status": {
+    "pending": "待处理",
+    "running": "处理中",
+    "done": "已完成",
+    "failed": "失败",
+    "error": "失败",
+    "cancelled": "已取消"
+  },
+  "coverage": {
+    "direct": "直接 {count}",
+    "inferred": "推断 {count}",
+    "none": "无依据 {count}",
+    "total": "总计 {count}",
+    "no_data": "无 PRD 关联数据"
+  },
+  "rel_type": {
+    "IMPLEMENTS": "实现",
+    "DERIVED_FROM": "派生自"
+  }
+}

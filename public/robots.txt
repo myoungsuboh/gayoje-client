@@ -1,0 +1,39 @@
+# Harness — robots.txt
+# 공개 페이지는 크롤 허용, 로그인 뒤 대시보드 영역은 크롤 불필요(차단).
+
+User-agent: *
+Allow: /
+Disallow: /home
+Disallow: /plan
+Disallow: /design
+Disallow: /code
+Disallow: /lint
+Disallow: /deliverables
+Disallow: /admin
+Disallow: /profile
+Disallow: /contact
+Disallow: /billing/
+
+# ===== AI 답변엔진(GEO) — 인용/노출 허용 =====
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://harness-system.com/sitemap.xml

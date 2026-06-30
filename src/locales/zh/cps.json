@@ -1,0 +1,71 @@
+{
+  "toast": {
+    "download_ok": "CPS markdown 已下载",
+    "copy_fail": "复制失败。请检查浏览器权限。",
+    "save_ok": "CPS 保存成功。",
+    "save_fail": "CPS 保存失败。",
+    "node_save_ok": "{label} 节点已更新。",
+    "node_save_fail": "节点更新失败。",
+    "dismiss_ok": "已忽略 CPS markdown 不同步提醒。",
+    "dismiss_fail": "忽略失败。",
+    "resynth_not_found": "未找到可重新合成的目标，或 LLM 输出不符合预期格式。请重试或直接编辑 markdown。",
+    "resynth_rate_limit": "请求过于频繁。请稍后再试。{detail}",
+    "resynth_fail": "CPS 重新合成失败。",
+    "resynth_apply_ok": "CPS markdown 重新合成结果已成功应用。",
+    "resynth_apply_fail": "应用失败。",
+    "save_conflict": "该文档已在其他位置（其他设备或后台处理）被修改。请查看最新内容后重试。",
+    "remote_busy": "该项目正在其他设备或标签页中处理。请等处理结束后重试。"
+  },
+  "err": {
+    "no_project": "未选择项目。",
+    "content_empty": "内容为空。",
+    "content_too_large": "内容过大（最大 500KB）。",
+    "summary_empty": "摘要为空。",
+    "summary_too_large": "摘要过长（最大 2KB）。"
+  },
+  "confirm": {
+    "large_delete": "⚠️ 将删除 CPS 的 {pct}%（{deleted} 个字符）。\n\n累积的 Problem/Solution 数据可能会丢失。\n如果这是有意为之，请点击「确定」。"
+  },
+  "nav": {
+    "context_hint": "请在右侧查看器中查看完整 Context。",
+    "problem_empty": "没有 PRB 项。",
+    "solution_empty": "没有 RES 项。",
+    "pending_empty": "没有 Pending 分组。",
+    "pending_group_empty": "尚无任何项目。"
+  },
+  "graph": {
+    "edit_mode": "审核",
+    "no_nodes": "没有节点。"
+  },
+  "copy_title": "复制 CPS markdown 到剪贴板",
+  "download_title": "下载 CPS markdown（.md）—— 用于 Cursor · Notion · repo",
+  "edit_title": "按区块编辑（审核模式）",
+  "tab_locked": "编辑期间无法切换标签页。请先保存或取消。",
+  "saving": "保存中...",
+  "stale": {
+    "title": "图节点已更新，但 markdown 仍是旧内容。",
+    "sub": "请选择自动重新合成（LLM，5–15 秒）或直接编辑 markdown。"
+  },
+  "resynth_running": "重新合成中...",
+  "resynth_btn": "自动重新合成",
+  "manual_edit_btn": "手动编辑",
+  "dismiss_btn": "忽略",
+  "filter": {
+    "view_only": "仅查看「{label}」",
+    "view_all": "查看全部 ←"
+  },
+  "edit_scope": {
+    "editing": "正在编辑：",
+    "section_label": "#{num} {title}",
+    "section_hint": "保存时其他区块会被保留。",
+    "full_label": "完整 markdown",
+    "full_hint": "区块解析失败 —— 直接编辑完整 markdown。"
+  },
+  "placeholder": {
+    "section": "直接编辑此区块的 markdown...",
+    "full": "直接编辑完整的 CPS markdown..."
+  },
+  "compliance": {
+    "desc": "本规格中的所有需求已 100% 映射。用 Rule Generator 即可立刻转换为工程规则。"
+  }
+}

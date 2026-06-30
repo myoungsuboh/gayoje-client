@@ -1,0 +1,60 @@
+{
+  "page": {
+    "title": "문의하기",
+    "subtitle": "관리자에게 문의를 보내고 답변을 받아보세요. 답변은 등록된 이메일로 알림이 발송됩니다.",
+    "new_inquiry": "새 문의 작성",
+    "category": "카테고리",
+    "subject": "제목",
+    "subject_placeholder": "간단한 한 줄 요약",
+    "subject_hint": "{count} / 200",
+    "body": "본문",
+    "body_placeholder": "자세한 내용 (재현 단계, 기대 동작, 환경 등)",
+    "body_hint": "{count} / 5000",
+    "submitting": "전송 중...",
+    "submit": "문의 보내기",
+    "my_inquiries": "내 문의 이력",
+    "refresh_title": "새로고침",
+    "loading": "불러오는 중...",
+    "empty_title": "아직 문의가 없습니다",
+    "empty_desc": "왼쪽 폼에서 첫 문의를 보내보세요.",
+    "detail_my_inquiry": "내 문의",
+    "detail_admin_reply": "관리자 답변",
+    "detail_pending": "관리자 답변 대기 중입니다. 답변이 등록되면 이메일로 알려드립니다.",
+    "toast_submit_failed": "문의 작성에 실패했습니다.",
+    "toast_rate_limited": "문의 작성 횟수 한도에 도달했습니다 (시간당 10건). 잠시 후 다시 시도해 주세요.",
+    "toast_submitted": "문의가 접수되었습니다. 답변은 등록한 이메일로 알려드립니다.",
+    "toast_list_failed": "문의 목록을 불러오지 못했습니다."
+  },
+  "billing": {
+    "processing_title": "결제 처리 중...",
+    "success_title": "완료",
+    "error_title": "실패",
+    "msg_processing": "카드 등록 처리 중...",
+    "msg_error_cancelled": "카드 등록이 취소되었거나 실패했습니다. {detail}",
+    "msg_missing_params": "필수 정보가 누락되었습니다.",
+    "msg_issue_failed": "카드 등록에 실패했습니다.",
+    "msg_card_only": "카드 등록 완료. 가격 페이지에서 구독을 시작해주세요.",
+    "msg_subscribe_failed": "결제에 실패했습니다.",
+    "msg_subscribe_done": "구독이 시작되었습니다."
+  },
+  "category": {
+    "general": { "label": "일반 문의", "desc": "서비스 사용/계정 관련 일반 질문" },
+    "bug": { "label": "버그 신고", "desc": "동작이 이상하거나 에러 발생" },
+    "feature": { "label": "기능 제안", "desc": "새 기능이나 개선 아이디어" },
+    "billing": { "label": "결제 문의", "desc": "Pro 구독, 환불, 영수증" },
+    "other": { "label": "기타", "desc": "위 항목에 해당하지 않는 문의" }
+  },
+  "status": {
+    "open": "접수됨",
+    "in_progress": "처리 중",
+    "resolved": "답변 완료",
+    "closed": "종료"
+  },
+  "error": {
+    "create": "문의 작성에 실패했습니다.",
+    "fetch_list": "문의 목록을 불러오지 못했습니다.",
+    "fetch_stats": "통계를 불러오지 못했습니다.",
+    "fetch_detail": "문의 상세를 불러오지 못했습니다.",
+    "update": "갱신에 실패했습니다."
+  }
+}

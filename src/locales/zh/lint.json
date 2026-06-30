@@ -1,0 +1,157 @@
+{
+  "title": "代码检查",
+  "page": {
+    "subtitle": "我们会交叉核对你设计的内容是否真正反映在代码中，并指出缺失或需要修正之处。",
+    "subtitle_note": "这不是给你的代码打分 —— 而是确认它是否按设计构建。",
+    "guide_btn": "使用指南",
+    "guide_btn_title": "再次查看 Lint 页面使用指南",
+    "rule_compliance": "Rule Compliance"
+  },
+  "error": {
+    "github_url_required": "请先在 Code 界面设置 GitHub URL。",
+    "project_name_required": "请输入项目名称。",
+    "run_failed": "运行 Lint 时发生错误。",
+    "run_failed_toast": "Lint 失败：{error}"
+  },
+  "cache_age": {
+    "just_now": "刚刚",
+    "minutes_ago": "{n} 分钟前",
+    "hours_ago": "{n} 小时前",
+    "days_ago": "{n} 天前"
+  },
+  "guide": {
+    "headline": "代码检查",
+    "pill": "LINT GUIDE",
+    "sub": "自动将你的氛围编码（vibe coding）结果与 Plan 和 Design 规格交叉核对以测量符合率，并用 Fix Agent 一次性把违规项转化为修复 spec。",
+    "step1": {
+      "title": "Lint 阶段概览",
+      "subtitle": "Validate Vibe-coded Project",
+      "desc": "验证 AI 代理编写的代码是否遵循 Plan/Design 阶段定义的规格（PRD · SPACK · DDD · Architecture · 编码规则）。无需人工代码评审即可捕捉回归问题。",
+      "tip": "用 氛围编码 → Lint → Fix Agent 的循环来自动化规格符合性。"
+    },
+    "step2": {
+      "title": "先设置 GitHub URL",
+      "subtitle": "Pre-requisite",
+      "desc": "在 Code 界面注册目标 GitHub repo 的 URL。Public 和 Private 均受支持（Private 需要连接 GitHub OAuth），一旦设置，下次运行 Lint 时会自动复用。",
+      "tip": "如果尚未设置，Lint 界面上的“前往 CODE”按钮会直接带你过去。"
+    },
+    "step3": {
+      "title": "运行 Lint —— 按类别的符合率",
+      "subtitle": "SPACK · DDD · Architecture · Rules · 规划",
+      "desc": "一次“RUN LINT”即可检查 5 个类别（SPACK 规格、DDD 模型、Architecture 结构、编码规则、规划项）的符合率。规划项（Story·页面）即使标题是韩语，AI 也会与代码进行语义级对照并给出 file:line 依据。每张卡片上的 % 是通过率，点击卡片可查看详细的合格/不合格规则列表。",
+      "tip": "缓存结果会即时显示，你也可以用“force”选项重新检查。"
+    },
+    "step4": {
+      "title": "Constraint Fix Agent —— 自动修复 spec",
+      "subtitle": "Auto-fix Workflow",
+      "desc": "汇总失败的规则，自动生成可供 AI 代理（Claude Code / Cursor 等）直接应用的修复 spec。把 spec 粘贴到代理中修复代码 → 再次运行 Lint → 通过率 ↑。",
+      "tip": "反复执行 Run Lint → Fix Agent → Run Lint，逐步向 100% 符合率收敛。"
+    },
+    "illust": {
+      "code_screen": "Code 界面",
+      "public_private": "Public · Private 均受支持",
+      "etc_n": "...等 N 项"
+    }
+  },
+  "stats": {
+    "cache_banner_stale_title": "于 {age} 分析的结果。",
+    "cache_banner_stale_desc": "如果此后代码有变更，重新分析会更准确。",
+    "analyzing": "分析中...",
+    "rerun": "重新运行",
+    "cache_banner_fresh_title": "刚刚分析完成",
+    "cache_banner_fresh_desc": "—— 基于最新代码。",
+    "meaning_text": "此分数是<strong>设计规格项在代码中实现的比例（设计到代码的可追溯性）</strong>。它不保证代码质量、正确性或不存在 bug。",
+    "coverage_text": "仅对总共 <strong>{total}</strong> 个代码文件中的 <strong>{sampled}（{pct}%）</strong>进行了抽样检查。分数基于已检查的文件，未检查的代码未计入其中。",
+    "traceability_score": "可追溯性得分",
+    "files_sampled": "已检查文件",
+    "rules_checked": "已检查规则",
+    "violations": "违规项",
+    "partial_chip": "部分检查 {pct}%"
+  },
+  "empty": {
+    "error_title": "分析失败",
+    "checklist": "CHECKLIST",
+    "check_url": "确认仓库 URL 是否正确（当前：{url}）",
+    "check_public": "确认是否为 Public 仓库（Private 需要认证令牌）",
+    "check_retry": "请稍后重试（可能触发 GitHub API rate limit）",
+    "retry": "重试",
+    "loading_title": "分析中...",
+    "loading_desc": "正在从 Neo4j 查询规格并检查 GitHub 代码。最长可能需要 3 分钟。",
+    "empty_title": "尚无 Lint 结果",
+    "empty_desc": "输入 GitHub URL 并运行 Run Lint，即可<br/>检查 SPACK / DDD / Architecture / Rules / 规划项 的符合率。"
+  },
+  "run_panel": {
+    "pill": "VIBE LINTER",
+    "title": "验证氛围编码结果",
+    "url_placeholder": "请先在 Code 界面设置 GitHub URL",
+    "url_title_set": "在 Code 界面设置：{url}",
+    "url_title_unset": "请先在 Code 界面设置 URL",
+    "goto_code_title": "在 Code 界面设置 URL",
+    "goto_code": "前往 Code",
+    "analyzing": "分析中...",
+    "run_lint": "Run Lint",
+    "rerun_title": "忽略缓存并重新分析",
+    "rerun": "重新分析",
+    "my_library": "MY LIBRARY"
+  },
+  "table": {
+    "method": {
+      "deterministic_label": "确定性",
+      "deterministic_title": "通过代码静态分析直接匹配",
+      "llm_label": "AI 已验证",
+      "llm_title": "由 LLM 阅读文件正文后验证的结果",
+      "fallback_label": "未匹配",
+      "fallback_title": "确定性匹配与 LLM 验证均失败"
+    },
+    "pill": "COMPLIANCE DOC",
+    "title": "约束符合性报告",
+    "pass": "通过 {n}",
+    "fail": "未通过 {n}",
+    "stat_deterministic": "确定性 {n}",
+    "stat_llm": "AI 已验证 {n}",
+    "stat_fallback": "未匹配 {n}",
+    "th_constraint": "约束",
+    "th_description": "说明",
+    "th_method": "检测方式",
+    "th_status": "状态",
+    "row_aria_label": "{title} —— 点击查看依据代码",
+    "evidence_count": "· {n}",
+    "evidence_count_title": "{n} 项 evidence —— 点击展开",
+    "status_pass": "通过",
+    "status_fail": "未通过",
+    "evidence_kind_default": "match",
+    "evidence_link_title": "在 GitHub 上打开 {target}",
+    "empty": "没有可检查的项目。"
+  },
+  "store": {
+    "enqueue_failed": "Lint 任务入队失败 —— 缺少 task_id。",
+    "fix_spec_enqueue_failed": "Fix spec 任务入队失败 —— 缺少 task_id。",
+    "run_default": "Lint failed",
+    "no_permission": "你没有 '{project}' 项目的权限。请先在 Plan 页面上传新的会议记录以创建项目。",
+    "not_found": "未找到项目或仓库。",
+    "queue_unavailable": "AI 任务队列暂时不可用。请在 1-2 分钟后重试。",
+    "rate_limit": "请求过于频繁（每分钟限 3 次）。请稍后重试。",
+    "run_timeout": "Lint 分析未在 10 分钟内完成。可能是 repo 非常大或 worker 延迟。请稍后重试。",
+    "fix_spec_missing_input": "需要项目名称和 GitHub URL。",
+    "fix_spec_no_result": "没有 Lint 结果。请先运行一次分析。",
+    "fix_spec_default": "生成修复 spec 失败。",
+    "fix_spec_timeout": "修复 spec 生成未在 10 分钟内完成。请稍后重试。"
+  },
+  "coverage": {
+    "section_title": "规划项实现情况",
+    "subtitle": "RUN LINT 自动比对 PRD 规划项（页面·Story）是否已在代码中实现的结果。缺失项可一键导出为 AI 修复指令。",
+    "progress": "{total} 项中已实现 {done} 项",
+    "done_label": "已实现",
+    "missing_label": "缺失",
+    "group_screen": "画面",
+    "group_story": "Story",
+    "evidence_toggle": "依据 {n}",
+    "evidence_aria": "展开 {label} 的 {n} 条实现依据",
+    "empty": "没有规划项（页面·Story）。请先在「01 会议记录整理」中创建 PRD。",
+    "all_done": "规划项已全部实现，无缺失 🎉",
+    "copy_missing": "复制 {n} 项缺失为 AI 修复指令",
+    "copied": "已复制缺失项的修复指令。请粘贴到 Cursor·Claude 等工具。",
+    "copy_failed": "复制失败，请重试。",
+    "fix_prompt_header": "以下规划项尚未在代码中实现。请逐项用代码实现。"
+  }
+}

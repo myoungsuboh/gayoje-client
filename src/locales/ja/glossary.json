@@ -1,0 +1,161 @@
+{
+  "modal": {
+    "headline": "用語集",
+    "sub": "見慣れない用語がありますか？ここでやさしい言葉で調べてみましょう。",
+    "search_placeholder": "用語で検索（例: PRD、トレーサビリティ、コンテキスト）",
+    "search_aria": "用語を検索",
+    "empty": "\"{query}\" に一致する用語がありません。別の言葉でお試しください。",
+    "example_prefix": "例: {example}",
+    "count": "{matched} / {total} 件の用語"
+  },
+  "groups": {
+    "plan": {
+      "label": "① Plan",
+      "hint": "会議ログから何を作るかを整理する段階"
+    },
+    "design": {
+      "label": "② Design",
+      "hint": "何をどう作るか、その設計図を描く段階"
+    },
+    "lint": {
+      "label": "③ Lint",
+      "hint": "コードが設計どおりに作られたかを確認する段階"
+    },
+    "deliver": {
+      "label": "④ Deliverables",
+      "hint": "成果物をまとめて次のチームへ引き継ぐ段階"
+    }
+  },
+  "terms": {
+    "meeting_log": {
+      "name": "Meeting Log",
+      "desc": "すべての出発点。会議で話し合った内容をテキストで書くか録音ファイルをアップロードすると、Harness がそこから要点を抽出します。",
+      "example": "「今週の決定: 決済はカードのみ、返金は7日以内」"
+    },
+    "cps": {
+      "name": "Core Problem & Solution",
+      "desc": "会議ログから「どんな Problem を、どう解くか（Solution）」だけを抽出した1ページの要約。長い会議でも、本当に重要な決定だけを残します。",
+      "example": "Problem: 顧客が返金方法を知らない → Solution: 注文履歴に返金ボタンを追加"
+    },
+    "prd": {
+      "name": "Product Requirements Doc",
+      "desc": "CPS を開発できる単位に分解した要求仕様書。「この製品がどんな機能を備えるべきか」のリストだと考えてください。",
+      "example": "Product Requirements Document"
+    },
+    "epic": {
+      "name": "Feature Group",
+      "desc": "関連する機能をまとめた大きなかたまり。例えば「アカウント管理」グループには、サインアップ・ログイン・退会の機能が含まれます。",
+      "example": ""
+    },
+    "story": {
+      "name": "User Story",
+      "desc": "「ユーザーが何をしたいか」を一文で表したもの。個々の機能の最小単位です。",
+      "example": "「顧客として、注文履歴からそのまま返金を申請したい」"
+    },
+    "acceptance_criteria": {
+      "name": "Acceptance Criteria",
+      "desc": "機能を「完了」と言うために満たすべきチェックリスト。開発者とプランナーが同じ基準で合否を判断します。",
+      "example": ""
+    },
+    "nfr": {
+      "name": "Non-Functional Requirement",
+      "desc": "機能そのものではなく、「どれだけ速く・安全で・堅牢であるべきか」といった品質の条件。例:「決済は3秒以内」「パスワードは8文字以上」。",
+      "example": ""
+    },
+    "rule_generator": {
+      "name": "Coding Rule Generator",
+      "desc": "このプロジェクトに合ったコード作成ルール（命名規則・フォルダ構成・禁止パターンなど）を AI が推奨します。あとでコードの lint 時に自動で適用されます。",
+      "example": ""
+    },
+    "spack": {
+      "name": "Spec Pack",
+      "desc": "「何を作るか」の答え。システムが外部に公開する入口（API）・中核となるデータ（Entity）・守るべきルール（Policy）を一つにまとめたものです。",
+      "example": ""
+    },
+    "api": {
+      "name": "External Entry Point",
+      "desc": "アプリ・ウェブ・他のサービスが、このシステムに何かを要求するための「窓口」。どのアドレスに何を送ると、何が返ってくるかを定めます。",
+      "example": "GET /users/{id} → そのユーザーの情報を取得"
+    },
+    "entity": {
+      "name": "Core Data",
+      "desc": "システムが扱うビジネスの「名詞」。ユーザー・注文・決済のように、保存して管理する必要がある対象です。",
+      "example": ""
+    },
+    "policy": {
+      "name": "Business Rule",
+      "desc": "システムが常に守らなければならない約束。例:「決済の再試行は最大3回」「在庫が0なら注文不可」。",
+      "example": ""
+    },
+    "ddd": {
+      "name": "Domain Model",
+      "desc": "「システムがどう動くか」の答え。業務を領域ごとに分け（Domain-Driven Design）、各領域のデータとイベントをモデルとして描きます。",
+      "example": ""
+    },
+    "bounded_context": {
+      "name": "Bounded Context",
+      "desc": "ビジネスの一つのかたまり。ショッピングモールなら「決済」「会員」「配送」がそれぞれ一つのコンテキストで、各コンテキストは独自の用語とルールを持ちます。",
+      "example": ""
+    },
+    "aggregate": {
+      "name": "Aggregate",
+      "desc": "一つのまとまりとして扱うデータの単位。「注文」には注文商品・決済情報・配送先がすべて含まれており、そのまとまり全体を代表する名前が「注文」です。",
+      "example": ""
+    },
+    "domain_event": {
+      "name": "Domain Event",
+      "desc": "「今、何かが起きた」という記録。例:「決済完了」「注文キャンセル」。他の機能はこれらのイベントを見て、通知や精算といった後続の処理を行います。",
+      "example": ""
+    },
+    "architecture": {
+      "name": "System Architecture",
+      "desc": "システムを実際にデプロイできる単位として描いた設計図。どんなサービスとデータベースがあり、互いにどう連携するかを示します。",
+      "example": ""
+    },
+    "vibe_coding": {
+      "name": "Vibe Coding",
+      "desc": "設計の成果物を AI コーディングツール（Claude Code・Cursor など）にまるごと渡し、コードを自動で書かせる方法。Harness の設計成果物がその入力になります。",
+      "example": ""
+    },
+    "lint": {
+      "name": "Code Lint",
+      "desc": "GitHub にプッシュされたコードが設計仕様に従っているかを自動チェックします。spec・domain・architecture・コーディングルールの4領域の通過率を表で示します。",
+      "example": ""
+    },
+    "traceability": {
+      "name": "Traceability Score",
+      "desc": "設計に書いた項目（API・データ・ルール）が実際のコードに登場する割合（0〜100）。「コードの品質」ではなく「設計どおりに実装されたか」を測ります。",
+      "example": ""
+    },
+    "deterministic": {
+      "name": "Deterministic Check",
+      "desc": "コードを直接読んで「本当にある/ない」を100%確定した結果。AI の推測ではなく、最も信頼できる判定です。",
+      "example": ""
+    },
+    "fix_agent": {
+      "name": "Fix Agent",
+      "desc": "lint で通過しなかったルールを集め、AI コーディングツールがそのまま修正できる仕様に変換します。その仕様をツールに貼り付けると、コードの修正が自動で進みます。",
+      "example": ""
+    },
+    "lineage": {
+      "name": "Code Lineage",
+      "desc": "要求（Story）→ 仕様（API）→ ドメイン → 実際のコードファイルまでがどうつながるかを追跡した地図。「なぜこのコードを書いたか」が一目でわかります。",
+      "example": ""
+    },
+    "coverage": {
+      "name": "Mapping Coverage",
+      "desc": "設計成果物のうち、何%が実際のコードファイルと結びついているか。値が低いと、「仕様には書いたのにコードにない」項目があるということです。",
+      "example": ""
+    },
+    "handoff_zip": {
+      "name": "Handoff Package",
+      "desc": "設計仕様 + リポジトリのアドレス一覧 + lint レポートを一つのファイルにまとめた文書のかたまり。ソースコードそのものは含まれず、コードはリポジトリから取得します。",
+      "example": ""
+    },
+    "repository": {
+      "name": "Repository",
+      "desc": "コードが保管される GitHub のスペース。フロントエンド・バックエンド・DB・モバイルのように、役割ごとに複数登録できます。",
+      "example": ""
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "network": "请检查您的网络连接。",
+  "session_expired": "您的会话已过期。请重新登录。",
+  "rate_limited": "请求过于频繁。请稍后再试{suffix}。",
+  "rate_limited_retry": "（{sec}秒后重试）",
+  "ai": {
+    "quota": "已达到 AI 使用上限。请在 1–2 分钟后再试。",
+    "auth": "AI 服务认证错误。请联系管理员。",
+    "transient": "AI 服务临时错误。请稍后再试。",
+    "unknown": "AI 响应失败。请稍后再试。"
+  },
+  "github": {
+    "connect_required": "需要连接 GitHub。请在个人资料页面连接您的 GitHub 账户后再试。",
+    "not_found": "未找到仓库或文件。可能是您无权访问的 private 仓库（请在个人资料中检查 GitHub 连接）。",
+    "rate_limit": "GitHub API 调用次数超限：{detail}",
+    "forbidden": "GitHub 权限不足：{detail}",
+    "binary": "无法显示二进制文件。",
+    "bad_request": "无效请求。",
+    "proxy_fail": "GitHub 调用失败：{detail}",
+    "unknown": "未知错误"
+  },
+  "job": {
+    "no_task_id": "缺少 task_id。",
+    "not_found": "未找到该任务或已过期。",
+    "forbidden": "这是其他用户的任务。",
+    "timeout": "任务未能及时完成。请稍后再试。"
+  },
+  "concurrency_limit": "已有正在进行的任务，请在完成后重试。"
+}

@@ -1,0 +1,161 @@
+{
+  "modal": {
+    "headline": "术语表",
+    "sub": "看到不认识的词？在这里用通俗的语言查一查。",
+    "search_placeholder": "按术语搜索（例如 PRD、可追溯性、context）",
+    "search_aria": "搜索术语",
+    "empty": "没有与「{query}」匹配的术语。请换个词试试。",
+    "example_prefix": "例如：{example}",
+    "count": "{matched} / {total} 个术语"
+  },
+  "groups": {
+    "plan": {
+      "label": "① Plan",
+      "hint": "从会议记录中梳理出要构建什么的阶段"
+    },
+    "design": {
+      "label": "② Design",
+      "hint": "绘制构建什么、如何构建的蓝图的阶段"
+    },
+    "lint": {
+      "label": "③ Lint",
+      "hint": "检查代码是否按设计构建的阶段"
+    },
+    "deliver": {
+      "label": "④ Deliverables",
+      "hint": "把成果打包交接给下一个团队的阶段"
+    }
+  },
+  "terms": {
+    "meeting_log": {
+      "name": "会议记录",
+      "desc": "一切的起点。把会议上讨论的内容输入成文字或上传录音，Harness 会从中提取要点。",
+      "example": "「本周决定：仅支持银行卡付款，7 天内可退款」"
+    },
+    "cps": {
+      "name": "Core Problem & Solution",
+      "desc": "从会议记录中提炼出来、只保留「要解决什么 Problem 以及如何解决（Solution）」的一页式摘要。会议再长，也只留下真正重要的决策。",
+      "example": "Problem：客户不知道如何退款 → Solution：在订单记录中添加退款按钮"
+    },
+    "prd": {
+      "name": "Product Requirements Doc",
+      "desc": "把 CPS 拆解成可开发单元的需求文档。可以理解为「这个产品必须具备哪些功能」的清单。",
+      "example": "Product Requirements Document"
+    },
+    "epic": {
+      "name": "功能组",
+      "desc": "把相关功能归到一起的大块。例如「账户管理」组中包含注册、登录和注销功能。",
+      "example": ""
+    },
+    "story": {
+      "name": "用户故事",
+      "desc": "用一句话描述「用户想做什么」。它是单个功能的最小单元。",
+      "example": "「作为客户，我希望能直接从订单记录中申请退款」"
+    },
+    "acceptance_criteria": {
+      "name": "验收标准",
+      "desc": "要认定一个功能「已完成」必须满足的检查清单。开发人员和策划人员依据同一标准判断通过/不通过。",
+      "example": ""
+    },
+    "nfr": {
+      "name": "非功能性需求",
+      "desc": "关于「要多快、多安全、多稳健」的质量条件，而非功能本身。例如「3 秒内完成付款」「密码至少 8 位」。",
+      "example": ""
+    },
+    "rule_generator": {
+      "name": "编码规则生成器",
+      "desc": "AI 推荐适合本项目的代码编写规则（命名规范、文件夹结构、禁用模式等）。它们之后会在代码 lint 时自动应用。",
+      "example": ""
+    },
+    "spack": {
+      "name": "Spec Pack",
+      "desc": "「要构建什么」的答案。它把系统对外暴露的入口（API）、核心数据（Entity）以及必须遵守的规则（Policy）打包在一起。",
+      "example": ""
+    },
+    "api": {
+      "name": "外部入口",
+      "desc": "应用、网页或其他服务向本系统发起请求的「窗口」。它定义了向哪个地址发送什么、又会返回什么。",
+      "example": "GET /users/{id} → 获取该用户的信息"
+    },
+    "entity": {
+      "name": "核心数据",
+      "desc": "系统处理的业务「名词」。像用户、订单、付款这类需要存储和管理的对象。",
+      "example": ""
+    },
+    "policy": {
+      "name": "业务规则",
+      "desc": "系统必须始终遵守的约定。例如「付款最多重试 3 次」「库存为 0 时不可下单」。",
+      "example": ""
+    },
+    "ddd": {
+      "name": "领域模型",
+      "desc": "「系统如何运作」的答案。它把业务按区域划分（Domain-Driven Design），并为每个区域的数据和事件建模。",
+      "example": ""
+    },
+    "bounded_context": {
+      "name": "Bounded Context",
+      "desc": "业务的一个组成部分。对一个购物商城而言，「付款」「会员」和「配送」各自是一个 context，且每个都有自己的词汇和规则。",
+      "example": ""
+    },
+    "aggregate": {
+      "name": "Aggregate",
+      "desc": "作为一个整体来处理的数据单元。一个「订单」包含订单商品、付款信息和收货地址 —— 而「订单」就是代表这整个组合的名称。",
+      "example": ""
+    },
+    "domain_event": {
+      "name": "领域事件",
+      "desc": "「刚刚发生了某件事」的记录。例如「付款完成」「订单取消」。其他功能会监听这些事件，去执行通知或结算等后续工作。",
+      "example": ""
+    },
+    "architecture": {
+      "name": "系统架构",
+      "desc": "把系统画成实际可部署单元的蓝图。它展示存在哪些服务和数据库，以及它们之间如何相互连接。",
+      "example": ""
+    },
+    "vibe_coding": {
+      "name": "Vibe Coding",
+      "desc": "把您的设计成果整体交给 AI 编码工具（Claude Code、Cursor 等），让它们自动编写代码。Harness 的设计成果物正是其输入。",
+      "example": ""
+    },
+    "lint": {
+      "name": "代码 Lint",
+      "desc": "自动检查推送到 GitHub 的代码是否遵循设计规范。它以表格形式展示 spec、领域、架构和编码规则 4 个领域的通过率。",
+      "example": ""
+    },
+    "traceability": {
+      "name": "可追溯性评分",
+      "desc": "设计中所写项目（API、数据、规则）实际出现在代码中的比例（0–100）。它衡量的是「是否按设计实现」，而非「代码质量」。",
+      "example": ""
+    },
+    "deterministic": {
+      "name": "确定性检查",
+      "desc": "通过直接阅读代码来 100% 确认某项「是否真的存在」而得出的结果。它是最可信的判定，而非 AI 的猜测。",
+      "example": ""
+    },
+    "fix_agent": {
+      "name": "Fix Agent",
+      "desc": "收集 lint 未通过的规则，并将其转换为 AI 编码工具可直接修复的 spec。把该 spec 粘贴到工具中，代码修复便会自动进行。",
+      "example": ""
+    },
+    "lineage": {
+      "name": "代码谱系",
+      "desc": "追踪需求（Story）→ spec（API）→ 领域 → 实际代码文件如何相互衔接的地图。它让「为什么写了这段代码」一目了然。",
+      "example": ""
+    },
+    "coverage": {
+      "name": "映射覆盖率",
+      "desc": "设计成果物中有多少百分比与实际代码文件相关联。数值偏低意味着存在「spec 里写了但代码里没有」的项目。",
+      "example": ""
+    },
+    "handoff_zip": {
+      "name": "交接包",
+      "desc": "把设计 spec + 仓库地址列表 + lint 报告打包成一个文件的文档集合。其中不包含源代码本身；代码从各仓库拉取。",
+      "example": ""
+    },
+    "repository": {
+      "name": "Repository",
+      "desc": "存放代码的 GitHub 空间。您可以按角色注册多个，例如前端、后端、DB 和移动端。",
+      "example": ""
+    }
+  }
+}

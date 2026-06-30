@@ -1,0 +1,29 @@
+{
+  "network": "Please check your network connection.",
+  "session_expired": "Your session has expired. Please sign in again.",
+  "rate_limited": "Too many requests. Please try again in a moment{suffix}.",
+  "rate_limited_retry": " (retry in {sec}s)",
+  "ai": {
+    "quota": "AI usage limit reached. Please try again in 1–2 minutes.",
+    "auth": "AI service authentication error. Please contact the administrator.",
+    "transient": "Temporary AI service error. Please try again shortly.",
+    "unknown": "AI response failed. Please try again shortly."
+  },
+  "github": {
+    "connect_required": "GitHub connection required. Connect your GitHub account on the Profile page and try again.",
+    "not_found": "Repository or file not found. It may be a private repository you don't have access to (check your GitHub connection in Profile).",
+    "rate_limit": "GitHub API rate limit exceeded: {detail}",
+    "forbidden": "Insufficient GitHub permissions: {detail}",
+    "binary": "Binary files can't be displayed.",
+    "bad_request": "Invalid request.",
+    "proxy_fail": "GitHub request failed: {detail}",
+    "unknown": "Unknown error"
+  },
+  "job": {
+    "no_task_id": "Missing task_id.",
+    "not_found": "The job could not be found or has expired.",
+    "forbidden": "This job belongs to another user.",
+    "timeout": "The job didn't finish in time. Please try again shortly."
+  },
+  "concurrency_limit": "You already have work in progress. Please try again once it finishes."
+}

@@ -1,0 +1,68 @@
+### [Meeting Log V1] - Kickoff: the books keep disappearing
+* **Date:** 2026-04-06 (10:00 ~ 10:50)
+* **Attendees:** Head of General Affairs (hereafter PO), Product Manager (hereafter PM), Engineering Lead (hereafter DEV), Designer (hereafter UX)
+* **PO:** "More than 30 books vanish from the company library every year. There's no record of who took them, so there's no way to track them down. Right now people are supposed to write entries by hand in a notebook at the entrance, but half of them just walk off with the book."
+* **PM:** "To sum up the problems, there are three. 1) Nobody knows which books are available to borrow right now, 2) there's no way to track who borrowed what, and 3) with no return deadline, books never come back."
+* **DEV:** "External library solutions are built for schools and public libraries — overkill and expensive. For a collection of about 2,000 books, we're better off building something lightweight ourselves. But let's leave things like adopting barcode-scanner hardware out of the first phase."
+* **UX:** "The core experience is 'search for a book, borrow it, and return it within the deadline.' Logging in with your employee ID and borrowing right from your phone is flow enough."
+* **PO:** "The goal is simple. See what books we have, borrow them, and get them back on time. We'll lock the feature scope in the next meeting."
+* **[Progress: 10% - Kickoff complete; agreed on the three core problems (visibility, tracking, overdue books) and the goal]**
+
+---
+
+### [Meeting Log V2] - Locking the core scope: search, borrowing, my loans
+* **Date:** 2026-04-09 (14:00 ~ 15:10)
+* **Attendees:** PM, DEV, UX
+* **PM:** "Let me start with the user scenario. The protagonist is 'an employee who needs something to read.' ① Search for a book in the catalog, ② borrow an available book, ③ return it from my loans list. Those three flows are the whole thing."
+* **UX:** "The catalog is searchable by title and author, and each book card clearly shows 'available / on loan.' If it's on loan, we also show the expected return date."
+* **DEV:** "For creating a loan, the only input we need is the book ID. The borrower is determined automatically from the logged-in employee ID. When a loan completes, we return the due date in the response so the user can see it right away."
+* **PM:** "How many books should one person be able to borrow at a time?"
+* **DEV:** "Let's start with three books at a time per person and a 14-day loan period. Let's leave loan renewal out of the first phase and decide later based on the data."
+* **UX:** "The My Loans screen shows borrowed books ordered by due date, with a return button on each item. Overdue books are highlighted in red."
+* **PM:** "To sum up. The first scope is ① book search and catalog, ② borrowing (3 books per person, 14 days), and ③ the My Loans list with returns. Renewals and holds are deferred to the second phase."
+* **[Progress: 30% - Locked the three first-phase features; loan renewal and holds deferred to the second phase]**
+
+---
+
+### [Meeting Log V3] - Screen flow and duplicate-loan prevention rules
+* **Date:** 2026-04-13 (10:00 ~ 11:00)
+* **Attendees:** PM, DEV, UX
+* **UX:** "We start with four screens. ① The catalog (the main screen, /books), ② the book detail and loan modal (opens when you tap a book), ③ My Loans (/my), and ④ admin settings (/admin, for registering and editing books). We won't build a separate home — the catalog is the home."
+* **DEV:** "Let's set access permissions per screen. Anyone who passes internal SSO can use the catalog, borrowing, and My Loans, but only General Affairs accounts with admin rights can enter admin settings. If someone without permission comes to /admin, we show 'no permission' and send them back to the catalog."
+* **PM:** "What if someone tries to borrow a book that's already on loan?"
+* **DEV:** "Preventing duplicate loans is the core. If the same book is already on loan, we reject it and show 'This book is already on loan.' Validation must always happen on the server. Even if it shows as 'available' on screen, if someone borrows it one second earlier, the server rejecting it is the correct outcome."
+* **PM:** "What about trying to borrow beyond the limit?"
+* **DEV:** "If someone who's already borrowed three books tries for a fourth, we reject it and show 'You've exceeded your borrowing limit.' The server takes responsibility for this validation too, at the moment the loan is created."
+* **UX:** "I'll polish the rejection wording so it doesn't sound accusatory. I'll lean toward suggesting a next action, like 'This is already on loan. Want us to let you know when it's returned?'"
+* **PM:** "Four screens, the permission split, and the duplicate-loan and limit rules are all locked. Next is overdue countermeasures."
+* **[Progress: 50% - Locked four screens + permission split (SSO auth / admin) + server-side duplicate-loan blocking + borrowing limit (3 books)]**
+
+---
+
+### [Meeting Log V4] - Overdue countermeasures: return reminders and borrowing restrictions when overdue
+* **Date:** 2026-04-16 (14:00 ~ 14:50)
+* **Attendees:** PO, PM, DEV, UX
+* **PM:** "I propose two overdue countermeasures. ① Send a reminder the day before the due date so people prepare in advance, and ② block new loans if a person has even one overdue book."
+* **PO:** "No penalty points or fines. Given the company culture, that would only fuel pushback. Nudging people with reminders, and blocking further borrowing when there's an overdue book, is about the right level."
+* **DEV:** "If we send reminders as DMs via the internal Slack bot, we won't need separate push infrastructure. We send them twice: the day before the due date and on the due date itself."
+* **UX:** "On the My Loans screen, overdue books are marked in red and show '○ days overdue.' If someone tries a new loan, we guide them with 'Please return your overdue book first.'"
+* **DEV:** "Overdue determination and reminders are handled by a batch job that runs on the server once a day. It finds loans that are 'past the due date + not returned,' marks them overdue, and the same job also gathers the next day's reminder targets. The structure is simple, so there's nowhere for it to break."
+* **PO:** "Confirmed. Slack reminders the day before and on the due date, and a block on new loans if there's even one overdue book. We will not introduce a penalty system."
+* **[Progress: 70% - Overdue policy locked (return reminders + blocking loans when overdue + once-a-day batch); penalty system rejected]**
+
+---
+
+### [Meeting Log V5] - Data model, API, error responses, and MVP launch scope
+* **Date:** 2026-04-20 (10:00 ~ 11:20)
+* **Attendees:** PO, PM, DEV, UX
+* **DEV:** "Three data models are enough. Book has a title (string, max 100 chars), author (string), ISBN (string), and a status, where the status is one of two fixed values: available or on loan. Loan has a book ID, a borrower ID, a loan date, a due date, a return date, and a status, where the status is one of three fixed values: on loan, returned, or overdue. User reuses the internal SSO profile (employee ID, name, email) as-is. There's no separate sign-up."
+* **PM:** "What do the APIs look like?"
+* **DEV:** "We start with five. ① Fetch and search the book catalog (by title/author keyword), ② create a loan — the input is the book ID, and on success it returns a loan number and the due date, ③ process a return, ④ fetch my loans list, and ⑤ the admin book register/edit. The creation API is responsible for the duplicate-loan validation, the limit (3 books), and the overdue-block validation."
+* **PM:** "The failure responses need rules too, so the screen can tell situations apart and guide the user, right?"
+* **DEV:** "Let's bake in error codes. An unauthenticated request is 401; calling book registration without admin rights is 403; if the loan you're trying to return doesn't exist, it's 404; a state conflict like a book already on loan or a new loan blocked by an overdue book is 409; and a validation failure like exceeding the limit is 422. The screen picks the message based on this code alone."
+* **PM:** "Final review. The MVP scope is four screens — catalog, loan modal, My Loans, and admin settings. The policies are 3 books per person on a 14-day loan, server-side duplicate-loan blocking, reminders the day before and on the due date, and blocking new loans when overdue."
+* **PO:** "Let's nail down the quality bar too. If the catalog is slow, everyone will just walk off with the book."
+* **DEV:** "I propose three non-functional targets. 1) Catalog fetch response under 500ms, 2) handle up to 50 concurrent users without lag, and 3) 99.9% availability during business hours (weekdays 9am–7pm). We keep loan and return history for one year to compute the loss and overdue metrics."
+* **PM:** "I propose three success metrics. 1) Eight weeks after launch, cut book losses from 30 a year to 5 or fewer, 2) keep the overdue rate at 10% or below, and 3) an average of under 10 seconds to complete a loan. Losses can be tracked by the proportion of 'loans left unreturned and idle for a long time.'"
+* **PO:** "Great. Let's confirm an internal launch on May 18. Well done, everyone."
+* **[Progress: 100% - Locked three data models (Book, Loan, User), five APIs, error-response rules (401/403/404/409/422), MVP scope (4 screens), three non-functional targets, three success metrics, and launch date (5/18); planning phase complete]**

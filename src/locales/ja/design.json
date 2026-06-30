@@ -1,0 +1,935 @@
+{
+  "node_label": {
+    "Epic": "Epic",
+    "Story": "Story",
+    "API": "API",
+    "Screen": "画面",
+    "Entity": "Entity",
+    "ArchService": "Service",
+    "ArchDatabase": "DB",
+    "fallback": "項目",
+    "etc": "その他"
+  },
+  "impact": {
+    "ddd": "DDD",
+    "arch": "Arch",
+    "events": "イベント",
+    "screens": "画面",
+    "api_chain": "連携API",
+    "none": "連携された設計なし",
+    "expand": "影響を受ける設計の詳細を見る",
+    "design_label": "設計"
+  },
+  "stage": {
+    "spack": {
+      "desc": "API · Entity · Policy の仕様を生成中",
+      "tip": "「何を作るか」：システムが提供する機能の仕様です。"
+    },
+    "ddd": {
+      "desc": "Aggregate · Domain Event をモデリング中",
+      "tip": "「ドメインがどう動くか」：ビジネスルールと流れが集まる場所です。"
+    },
+    "architecture": {
+      "desc": "サービス分割 · DB · 通信を設計中",
+      "tip": "「どう展開するか」：運用可能なシステムの設計図です。"
+    },
+    "preparing": "準備中…",
+    "step_progress": "ステップ {current}/{total}",
+    "title": "システム設計を生成中",
+    "cancel": "停止",
+    "cancelling": "停止中…",
+    "cancel_title": "更新を停止（以前のデータは保持）",
+    "cancelling_title": "停止処理中…"
+  },
+  "loading_guide": {
+    "heading": "完成後、こうしてコードへつながります",
+    "dismiss": "今後表示しない",
+    "dismiss_title": "次回の更新からこの案内を非表示",
+    "step1_title": "「Vibe Coding スターターパック」をダウンロード",
+    "step1_desc": "使う AI ツールを選ぶと、そのツール向けの使い方までまとめて入ります（SPACK · DDD · Architecture の仕様 + コーディングルール + ガイド）。",
+    "step2_title": "zip を解凍して、そのフォルダを AI ツールで開く",
+    "step2_desc": "解凍するとプロジェクトフォルダが一つできます。Claude Code · Cursor · Antigravity などでそのフォルダを開くだけ。",
+    "step3_title": "ツールが自動認識 → 一言で開始",
+    "step3_desc": "フォルダを開くだけでツールが自動で読み込みます。チャットに一言入れれば開始できます。長いプロンプトの貼り付けは不要です。（開始の言葉は受け取ったパッケージ内に案内されています。）",
+    "step4_title": "エージェントが Phase ごとに自動で進めます",
+    "step4_desc": "仕様の理解 → 骨組み → Aggregate → API → 統合 → 検証。各ステップで報告します。"
+  },
+  "headline": {
+    "title": "システム設計",
+    "desc": "AI が PRD をもとに設計図（必要な機能・データ構造・システム構成）を自動で描きます。",
+    "guide_btn": "使い方ガイド"
+  },
+  "tabs": {
+    "spack": "機能仕様",
+    "ddd": "ドメインモデル",
+    "architecture": "システム構造"
+  },
+  "action": {
+    "updating": "更新中...",
+    "update": "最新の更新",
+    "regen": "再生成",
+    "regen_full": "最新の更新で再生成",
+    "close": "閉じる",
+    "ignore": "無視"
+  },
+  "stale": {
+    "prd_changed_title": "PRD が更新されました。",
+    "prd_changed_subtitle_impact": "{changed} 件の PRD 変更が {affected} 個の設計項目に影響します。最新の更新で再生成してください。",
+    "prd_changed_subtitle_generic": "現在の Design は古い PRD に基づいています。最新の更新で再生成してください。",
+    "modal_title": "PRD が変更されました — 設計を再生成しますか？",
+    "modal_body": "PRD を修正されましたね。今ご覧になっている<strong>設計（画面・機能・データ構造）</strong>は<strong>修正前の PRD</strong>に基づいているため、変更内容がまだ反映されていません。最新の PRD で再生成すると、設計とその先のコードまで意図どおりに更新されます。",
+    "modal_note": "再生成には数分かかります。今すぐ行わなくても、上部の黄色い通知からいつでも実行できます。",
+    "modal_later": "あとで",
+    "modal_regen": "今すぐ再生成"
+  },
+  "empty_project": {
+    "title": "先にプロジェクトを選択してください",
+    "desc": "SPACK · DDD · Architecture を設計するには、まず作業するプロジェクトを選択するか新規作成する必要があります。",
+    "hint_header": "画面上部の「マイプロジェクト」ボタンをクリックして素早く選択",
+    "hint_plan": "または Plan ページで会議ログをアップロードし、PRD まで完成させてください"
+  },
+  "ai_draft_label": "システム設計",
+  "erd": {
+    "title_main": "データ構造 (ERD)",
+    "title_sub": "エンティティ · 属性 · 関係を一目で — SPACK · DDD から自動生成",
+    "download_excel": "Excel ダウンロード",
+    "download_excel_aria": "ERD を Excel でダウンロード（エンティティ · 属性 · 関係の3シート）",
+    "loading": "データ構造を読み込み中...",
+    "err_no_project": "先にプロジェクトを選択してください。",
+    "err_no_design": "表示するエンティティがありません。先に設計（SPACK · DDD）を生成してください。",
+    "err_no_container": "グラフ領域を準備できませんでした。もう一度開いてください。",
+    "err_load_failed": "データ構造を読み込めませんでした: {reason}",
+    "intro_title": "このグラフは？",
+    "intro_text": "プロジェクトの<strong>データ構造</strong>を表示します。各ボックスは<strong>エンティティ（データのまとまり）</strong>で、ボックス内の行はその<strong>属性（フィールド）</strong>です。線はエンティティ間の<strong>所属・構成の関係</strong>を表します。",
+    "node_section": "ボックス（エンティティ）",
+    "node_entity": "Entity（機能仕様）",
+    "node_entity_desc": "SPACK で定義したデータのまとまり。画面・API が扱う中核データ。",
+    "node_aggregate": "Aggregate（ドメイン）",
+    "node_aggregate_desc": "DDD の整合性境界。一緒に変わるエンティティのまとまり + 不変条件（ルール）。",
+    "node_domain_entity": "Domain Entity",
+    "node_domain_entity_desc": "Aggregate の中に属する詳細エンティティ。",
+    "edge_section": "線（関係）",
+    "edge_mapped": "所属マッピング",
+    "edge_mapped_desc": "エンティティがどの <strong>Aggregate</strong> に属するか（MAPPED_TO）。",
+    "edge_partof": "構成",
+    "edge_partof_desc": "Domain Entity が Aggregate の<strong>一部</strong>であること（PART_OF）。",
+    "tip_title": "使い方",
+    "tip1": "<strong>ボックスをクリック</strong> → 属性・制約・連携の詳細",
+    "tip2": "<strong>ドラッグ</strong>で配置 · <strong>ホイール</strong>で拡大縮小",
+    "tip3": "属性が空の場合は<strong>属性未定</strong> — 設計の補強が必要です",
+    "insp_name": "名前",
+    "insp_attrs": "属性 ({n})",
+    "insp_no_attrs": "属性はまだ定義されていません。",
+    "insp_invariants": "不変条件（ルール）",
+    "insp_no_invariants": "不変条件はまだ定義されていません。",
+    "insp_show_all": "属性 {n} 件をすべて表示",
+    "insp_collapse": "折りたたむ",
+    "attr_required": "必須",
+    "label_no_attrs": "（属性未定）",
+    "label_no_inv": "不変条件 未定",
+    "label_inv": "不変条件 {n} 件"
+  },
+  "vibe_cta_title": "このファイルで AI エージェントが Vibe Coding を開始できます",
+  "toast": {
+    "update_cancelled": "更新を中止しました — 以前の設計データはそのまま保持されます。",
+    "dismiss_success": "Design 更新通知を非表示にしました。",
+    "dismiss_error": "通知を閉じられませんでした。もう一度お試しください。",
+    "precheck_failed_fallback": "PRD が整理されていないため設計を生成できません。PRD を整理（または良質な会議録で再生成）してから、もう一度お試しください。",
+    "queue_unavailable": "AI ジョブキューが一時的に利用できません。1〜2 分後にもう一度お試しください。",
+    "rate_limited": "リクエストが多すぎます（毎分 3 回まで）。しばらくしてからもう一度お試しください。",
+    "update_failed_fallback": "更新に失敗しました。",
+    "update_timeout": "更新が 20 分以内に完了しませんでした。PRD が非常に大きいか、ワーカーが遅延している可能性があります。しばらくしてからもう一度お試しください。",
+    "update_not_found": "更新ジョブが見つかりません。もう一度お試しください。",
+    "update_failed_msg": "更新に失敗しました: {msg}",
+    "update_unknown_error": "不明なエラーが発生しました。",
+    "update_error": "更新中にエラーが発生しました。",
+    "incomplete_layers": "⚠️ {layers} が生成されませんでした（{counts}）{hint}。PRD の Epic·Story 定義を強化してから再生成してください。",
+    "incomplete_notice_title": "設計の一部が生成されませんでした（{layers}）。",
+    "incomplete_notice_subtitle": "{counts}。Epic·Story の定義が不足しているか、PRD が整理されていない可能性があります{hint}。PRD を強化してから再生成してください。",
+    "has_errors": "⚠️ 設計は生成されましたが、{count} 件の仕様整合性違反が見つかりました{code_hint}。詳細は Architecture タブをご確認ください。Vibe Coding は可能ですが、精度が低下する場合があります。",
+    "cleanup_fail_warning": "⚠️ PRD の自動整理に失敗しました（原本のまま進行）。PRD タブでの手動整理を推奨します。 ",
+    "cleanup_applied_prefix": "📋 PRD 自動整理（{pct}%↓）+ ",
+    "cleanup_hint_applied": " （PRD 自動整理は完了しましたが抽出に失敗 — PRD の強化が必要）",
+    "cleanup_hint_attempted": " （PRD 自動整理に失敗 — 原本の PRD で進行）",
+    "design_complete_with_cleanup_fail": "✅ 設計完了。より正確な結果をご希望の場合は、まず PRD を整理してからお試しください。",
+    "design_complete_with_warnings": "✅ 設計完了（警告 {count} 件）。Vibe Coding スターターパックを入手しましょう。",
+    "design_complete": "✅ 設計完了！ ✨ Vibe Coding スターターパックを入手しましょう。",
+    "no_project": "先にプロジェクトを選択してください。画面上部の「マイプロジェクト」ボタンをご利用ください。",
+    "update_enqueue_failed": "更新ジョブの登録に失敗しました — task_id がありません。しばらくしてからもう一度お試しください。",
+    "md_failed_fallback": "MD ファイルの生成に失敗しました。",
+    "md_timeout": "MD の生成が 10 分以内に完了しませんでした。しばらくしてからもう一度お試しください。",
+    "pdf_failed_fallback": "設計ドキュメントの PDF 生成に失敗しました。",
+    "pdf_timeout": "PDF の生成が 10 分以内に完了しませんでした。しばらくしてからもう一度お試しください。"
+  },
+  "pdf": {
+    "title": "設計ドキュメント",
+    "section_spack": "SPACK — 何を作るか",
+    "section_ddd": "DDD — ドメインモデル",
+    "section_arch": "Architecture — 展開構造"
+  },
+  "fresh_regen_confirm": "企画書（PRD）が変更されていないため、設計はすでに最新です。\n\n再生成には数分と AI 使用量がかかり、結果も今と似たものになる可能性が高いです。それでも再生成しますか？",
+  "cancel_confirm": "更新を中止しますか？\n\n進行中のジョブがキャンセルされ、以前の設計データ（SPACK · DDD · Architecture）はそのまま保持されます。",
+  "arch": {
+    "conn_type": {
+      "sync": "同期呼び出し",
+      "async": "非同期",
+      "event": "イベント",
+      "event_driven": "イベント",
+      "message": "メッセージ",
+      "query": "照会",
+      "command": "コマンド"
+    },
+    "md_stage": {
+      "collecting": {
+        "name": "仕様の収集",
+        "desc": "設計グラフから SPACK · DDD · Architecture の仕様を収集中",
+        "tip": "会議録から導き出した設計内容を整理します。"
+      },
+      "generating": {
+        "name": "AI ドキュメント生成",
+        "desc": "仕様 3 種 + AI エージェント向け統合ガイド（00-ORCHESTRATOR）を同時に作成中",
+        "tip": "SPACK · DDD · Architecture とマスターワークフローガイドを並列で作成します。"
+      },
+      "assembling": {
+        "name": "パッケージ組立",
+        "desc": "生成したドキュメントと実装チェックリストをパッケージにまとめています",
+        "tip": "まもなくダウンロードが始まります。"
+      },
+      "orchestrator": {
+        "name": "統合ガイド",
+        "desc": "AI エージェント向けの統合ガイド（00-ORCHESTRATOR）を作成中",
+        "tip": "エージェントがステップごとに従うマスターワークフローガイドです。"
+      },
+      "long_note": "もうすぐ完了します — プロジェクトが大きいほど統合ガイドの作成に数分余分にかかることがあります。再読み込みは不要です。完了すると自動で閉じます。"
+    },
+    "loading_title": "Vibe Coding パッケージを生成中",
+    "title": "システム構成",
+    "subtitle": "サービス層 · データ層 · 連携",
+    "aggregates_label": "データの集まり",
+    "empty": "アーキテクチャデータがありません。",
+    "service_layer": "サービス一覧",
+    "data_layer": "データストア",
+    "conn_section_title": "サービス連携フロー",
+    "conn_count": "{n} 件の接続",
+    "conn_total": "合計 {n} 件の接続",
+    "conn_empty": "このサービスの接続情報がありません。",
+    "conn_modal_title": "接続フロー",
+    "conn_header_from": "送信元",
+    "conn_header_to": "送信先",
+    "conn_header_type": "通信方式",
+    "conn_header_protocol": "プロトコル",
+    "conn_header_auth": "認証",
+    "conn_header_desc": "説明",
+    "vibe_btn": "Vibe Coding スターターパック",
+    "vibe_modal_title": "Vibe Coding スターターパック",
+    "vibe_modal_sub": "AI エージェントに渡すと自動でコードを生成します",
+    "vibe_checking": "プロジェクト設定を確認中...",
+    "vibe_full_pkg": "✦ コーディングルール（Skills）付きパッケージ — Phase 0〜5",
+    "vibe_lite_pkg": "◇ 基本パッケージ — Phase 1〜5",
+    "vibe_intro": "解凍して、そのフォルダを <strong>Claude Code / Cursor / Antigravity</strong> などの AI ツールで開くだけ。<code>AGENTS.md</code>・<code>CLAUDE.md</code> を<strong>自動認識</strong>し、<code>00-ORCHESTRATOR.md</code> のワークフローに沿って <strong>Phase ごと</strong>に進め、Skills をマッピングします。（貼り付け不要）",
+    "vibe_faq1_title": "🎵 Vibe Coding とは？（初めての方は展開してください）",
+    "vibe_faq1_body": "<strong>Vibe Coding</strong> とは、開発仕様を AI エージェントにまるごと渡し、エージェントがコードを自動で実装する方式です。<br>仕様ファイルを渡すと → AI が読み込み → ステップごとにコードを作成して報告します。各ステップで確認し、修正を依頼しながら仕上げていく<strong>ステップごとの協働</strong>です。",
+    "vibe_faq2_title": "🤔 AI エージェントとは？",
+    "vibe_faq2_body": "<strong>AI エージェント</strong>とは、自然言語で指示するとコードを自動で作成・修正するツールです。",
+    "vibe_tool_claude": "ターミナルで実行する AI。このツールと最も互換性が高い",
+    "vibe_tool_cursor": "VS Code ベースの IDE。チャット欄で指示",
+    "vibe_tool_copilot": "VS Code/JetBrains 拡張機能",
+    "vibe_tool_windsurf": "Codeium の agent IDE",
+    "vibe_pkg_autoload": "自動認識ファイル — フォルダを開くだけで AI ツールが読み込みます（操作不要）",
+    "vibe_pkg_orchestrator": "AI エージェントのエントリーポイント — 動的に生成されるマスターワークフローガイド",
+    "vibe_pkg_skills_label": "必須",
+    "vibe_pkg_skills_desc": "コーディングルール集 — zip 内の <code>skills/</code> フォルダにあります。AI がコード作成前に毎回参照します（Phase 0）",
+    "vibe_pkg_skills_count": "ルール {count}件",
+    "vibe_pkg_spack": "SPACK — API / Entity（データ構造）/ Policy（ビジネスルール）の仕様（Phase 4 参照）",
+    "vibe_pkg_ddd": "DDD — Aggregate（Entity のまとまり）/ Domain Event（状態変化）のモデル（Phase 3 参照）",
+    "vibe_pkg_arch": "Architecture — サービス分割 · 展開構造 · 接続マップ（Phase 2 参照 · 競合時の最終権限）",
+    "vibe_dl_btn": "パッケージをダウンロード",
+    "vibe_dl_pdf": "設計ドキュメント PDF",
+    "vibe_dl_hint": "ダウンロードした zip を解凍するとプロジェクトフォルダが作成されます。そのフォルダを AI エージェントで開いてください。",
+    "next": {
+      "title": "パッケージ受け取り完了 — あと 3 ステップで終わりです",
+      "sub": "次の 3 ステップだけで、AI が自動で作り始めます。",
+      "s1": "<code>{project}_vibe.zip</code> を解凍 → <code>{project}/</code> フォルダができます",
+      "s2_claude": "ターミナルで <code>cd {project}</code> のあと <code>claude</code> を実行 — CLAUDE.md を自動で読み込みます",
+      "s2_cursor": "Cursor で <code>{project}/</code> フォルダを開き <code>Ctrl/Cmd+L</code> でチャットを開く — AGENTS.md が自動適用",
+      "s2_antigravity": "Antigravity で <code>{project}/</code> フォルダを開き、エージェントパネルを開く — AGENTS.md を自動認識",
+      "s2_other": "お使いの AI ツールで <code>{project}/</code> フォルダを開く — ほとんどのツールが AGENTS.md を自動で読みます",
+      "s3": "チャットに以下を貼り付ければ開始：",
+      "full_prompt": "このフォルダの {autoFile} と 0_START_HERE.md を読み、Phase の順に進めてください。各 Phase が終わったら止まって私の確認を取ってください。",
+      "s3_hint": "{autoFile} を自動認識するツール（Claude Code・Cursor など）なら「{start}」の一言でも十分です。",
+      "copy": "コピー",
+      "copied": "コピーしました！",
+      "after": "その後はエージェントが Phase ごとに作って報告します。各ステップで確認するだけ — 最後はチェックリスト 100% 照合まで終えて完了します。",
+      "done": "わかりました"
+    },
+    "inapp_warn": "LINE・Instagram などのアプリ内ブラウザではダウンロードがブロックされることがあります。Chrome や Safari など外部ブラウザで開いてください。",
+    "inapp_open": "外部ブラウザで開く",
+    "inapp_copied": "リンクをコピーしました。ブラウザに貼り付けて開いてください。",
+    "tool_q": "どの AI ツールで作りますか？",
+    "tool_claude": "Claude Code (おすすめ)",
+    "tool_cursor": "Cursor",
+    "tool_antigravity": "Antigravity",
+    "tool_other": "その他 / わからない",
+    "tool_hint": "選んだツールに合わせた使い方をガイドに入れます。どれを選んでも自動認識ファイル(AGENTS.md・CLAUDE.md)が同梱されるので、フォルダを開くだけでエージェントがすぐ把握します。",
+    "vibe_low_completeness_title": "仕様の完成度 {pct}% — 今すぐダウンロードできますが、おすすめしません",
+    "vibe_low_completeness_low": "空の項目が多いため、AI が推測して不正確なコードを生成する可能性があります。まず「最新の更新」で補完してからの入手を推奨します。（それでも今すぐダウンロードできます）",
+    "vibe_low_completeness_mid": "一部の項目がまだ空です。今すぐ進めても構いませんが、完成度を上げると AI の出力がより正確になります。",
+    "toast": {
+      "md_timeout": "MD の生成が 20 分以内に完了しませんでした。プロジェクトが大きい場合があります — しばらくしてからもう一度お試しください。",
+      "md_failed_msg": "MD の生成に失敗しました: {reason}",
+      "md_failed_final": "MD ファイルの生成に失敗しました。しばらくしてからもう一度お試しください。",
+      "md_empty_specs": "仕様ドキュメントが生成されなかったため、パッケージを作成できません。「パッケージをダウンロード」をもう一度押してください。繰り返す場合は、先に「最新の更新」で設計を再生成してください。",
+      "orchestrator_degraded": "設計ドキュメント（SPACK·DDD·Architecture）は正常にダウンロードされました。統合ガイドのみ生成が遅延したため、基本案内ファイル（START_HERE）で代替しました — Vibe Coding の進行に問題はありません。"
+    },
+    "md_docs": {
+      "spack": "SPACK 仕様",
+      "ddd": "DDD 設計",
+      "architecture": "Architecture 構成",
+      "orchestrator": "統合ガイド（ORCHESTRATOR）",
+      "last_doc_hint": "{doc}は最も大きなドキュメントのため最後に完成します — もうすぐです！"
+    },
+    "vibe_no_design_title": "まだ設計がありません",
+    "vibe_no_design_body": "「最新アップデート」で設計を生成すると、パックをダウンロードできます。"
+  },
+  "ddd": {
+    "title": "Domain Map",
+    "subtitle": "Bounded Context · Aggregate · Entity · Domain Event",
+    "aggregate": "Aggregate",
+    "domain_entity": "Entity",
+    "domain_entity_short": "Entity",
+    "domain_event": "Domain Event",
+    "unnamed": "（名称なし）",
+    "refresh_aria": "再読み込み",
+    "refresh_title": "設計データを再読み込み",
+    "intro_toggle": "この画面の読み方",
+    "intro_lead_text": "システムを業務領域ごとに分けて表した <strong>Domain Map</strong> です。",
+    "intro_lead_why": "開発前に、このサービスがどんなデータやイベントで動くのか、全体像を確認する場所です。",
+    "intro_terms": "各領域の中には <strong>Aggregate</strong> · <strong>Entity</strong> · <strong>Domain Event</strong> があります。わからない用語は ⓘ をタップしてください。",
+    "intro_legend_direct": "実線 = PRD の機能と直接連携",
+    "intro_legend_dashed": "破線 = 連携を推定",
+    "intro_legend_dotted": "点線（薄い）= 出典不明 — 要確認",
+    "fixguide_title": "PRD の機能と連携されていない項目があります",
+    "fixguide_desc": "下記の項目は、なぜ作成されたのかの根拠（PRD Story）が見つかりませんでした。<strong>会議録または PRD の Epic &amp; Story タブに関連する機能を追加すると</strong>、自動的に連携されます。",
+    "unlinked_more": "他 {n} 件",
+    "qualguide_title": "ドメインモデルの品質に問題が見つかりました",
+    "qualguide_desc": "次の Aggregate には <strong>aggregate root</strong> が 0 個、または 2 個以上あります。設計を再生成するか PRD を改善すると、自動的に修正されます。",
+    "loading_title": "ドメインモデルを読み込み中...",
+    "empty_title": "ドメインモデルがまだありません",
+    "empty_subtitle": "右上の「最新の更新」をクリックすると、PRD をもとに Bounded Context · Aggregate · Domain Event が生成されます。",
+    "invariants_label": "ビジネスルール",
+    "service_jump": "サービス「{name}」へ移動",
+    "ctx_empty": "このコンテキストにはノードがありません。"
+  },
+  "spack": {
+    "title": "機能コンポーネント",
+    "subtitle": "API · Entity · Policy ノードの状態",
+    "refresh_aria": "再読み込み",
+    "refresh_title": "設計データを再読み込み",
+    "loading_title": "機能仕様を読み込み中...",
+    "empty_title": "機能仕様がまだありません",
+    "empty_subtitle": "右上の「最新の更新」をクリックすると、PRD をもとに API · Entity · Policy が生成されます。",
+    "api_empty": "API なし",
+    "entity_empty": "Entity なし",
+    "policy_empty": "Policy なし",
+    "lineage_basis": "PRD 根拠 {n} 件",
+    "jump_service": "{name}（{'{id}'}）へ移動",
+    "jump_aggregate": "ドメイン Aggregate「{name}」へ移動",
+    "jump_domain_entity": "ドメイン Entity「{name}」へ移動",
+    "jump_service_named": "サービス「{name}」へ移動",
+    "policy_no_content": "内容なし — PRD の NFR/制約の詳細を強化してから「最新の更新」をクリック",
+    "policy_related": "関連 Entity:"
+  },
+  "eval": {
+    "loading": "完成度を計算中…",
+    "empty_msg": "まだデータがありません",
+    "empty_title_attr": "会議ログをアップロードして分析を実行するとスコアが測定されます",
+    "card_main": "PRD 完成度",
+    "card_sub": "AI がこれをもとにどれだけうまくコードを生成できるか",
+    "prd_link": "PRD 完成度",
+    "trigger_title": "PRD 完成度 — クリックで詳細",
+    "cta_complete": "{pct}%",
+    "cta_detail": "詳細",
+    "coach": "クリックしてください — どこが不足しているか、何を埋めればよいかをお見せします",
+    "coach_close": "ヒントを閉じる",
+    "modal_aria": "PRD 完成度の詳細",
+    "modal_title": "📋 PRD 完成度",
+    "modal_subtitle": "AI がこの PRD からどれだけ正確にコードを生成できるかを示します",
+    "close": "閉じる",
+    "minis_label": "領域別スコア",
+    "minis_summary": "基本 · 詳細 · 連携 · エラー",
+    "autofill_dupe": "すでにバックグラウンドで API を補完中です — 完了したらお知らせします。（上部の進行状況をご確認ください）",
+    "autofill_enqueue_fail": "API 補完ジョブの登録に失敗しました — task_id がありません。",
+    "autofill_job_label": "API エラー·認証の AI 補完",
+    "autofill_all_failed": "API の自動補完を完了できませんでした — AI の使用量上限、または一時的なエラーの可能性があります。しばらくしてからもう一度お試しください。",
+    "autofill_none": "補完すべき項目がありません — エラー·認証と PRD 連携はすでに入力済みです。",
+    "autofill_success_n": "API {n}件のエラー・認証仕様を埋めました — 完成度に即時反映されました。",
+    "autofill_success_generic": "API エラー·認証の AI ドラフト生成が完了しました — 確認後に確定してください。",
+    "autofill_partial_tail": "（{n} 件は上限/一時的なエラーで補完できませんでした — しばらくしてからもう一度お試しください）",
+    "autofill_error": "API の自動補完に失敗しました: {reason}",
+    "autofill_start_fail": "API の自動補完の開始に失敗しました: {reason}",
+    "autofill_bg_running": "AI がバックグラウンドで API を補完中です — 引き続き他の作業を進めて構いません。完了したらお知らせします。（上部の進行状況をご確認ください）",
+    "reason_default": "しばらくしてからもう一度お試しください。",
+    "autofill_btn_sending": "バックグラウンドに送信中…",
+    "autofill_btn": "API 仕様·PRD 連携を再補完",
+    "autofill_hint": "<strong>「最新アップデート」（設計の再生成）時、空の API は自動で埋められます。</strong>このボタンは一部が漏れた場合（例: 生成中の AI 上限）の<strong>手動リトライ</strong>用です。未記載の API にエラー応答・認証方式を <strong>AI ドラフト</strong>で埋め、<strong>バックグラウンドで実行</strong>されます（上部に進行表示）。埋められた仕様は完成度に<strong>即時反映</strong>されます。",
+    "top_actions_head": "🎯 まずこれを埋めると完成度が一気に上がります",
+    "top_action_count_title": "{total} 件中 {missing} 件の補強が必要",
+    "target": "対象:",
+    "more_n": "他 {n} 件",
+    "jump_chip_title": "クリックで '{id}' に移動します",
+    "jump_prd": "PRDで補強",
+    "jump_not_found": "該当項目が見つかりません — 更新して再度お試しください",
+    "delta_approx": "約 +{pct}%",
+    "delta_title": "この項目を埋めると完成度が約これだけ上がります（概算）",
+    "assist_head": "✅ 完成度を上げる — この手順で",
+    "assist_progress": "現在の完成度 <strong>{pct}%</strong>。下のボタン一つで API 仕様の項目が満点に反映されます。",
+    "assist_step1": "AI で空の仕様を埋める — エラー応答・認証のドラフトに加え PRD 連携（ストーリー追跡）も自動補完、完成度に即時反映",
+    "assist_rest": "その他の項目は下の<strong>「まずここから」</strong>リストを押して、正確な箇所で補強してください。",
+    "lineage_detail_head": "🔗 {tab} PRD 連携の詳細",
+    "lineage_summary": "{total} 件中 <strong>{none} 件が未連携</strong>",
+    "lineage_unlinked": "未連携:",
+    "lineage_allok": "✓ すべて PRD と連携済み",
+    "lineage_hint": "▶ 未連携のノードは、PRD Story の本文に該当するデータ·機能の手がかりを追加すると連携されます。",
+    "adv_toggle": "領域別スコア · 検証結果の詳細を見る",
+    "detail_tiers_head": "📊 領域別の詳細",
+    "tier_weight": "重み {weight}",
+    "violations_head": "⚠️ 頻発した検証違反",
+    "count_suffix": "{count} 件",
+    "tier_short": {
+      "t1": "基本",
+      "t2": "詳細",
+      "t3": "連携",
+      "t4": "エラー"
+    },
+    "tier_by_num": {
+      "1": "基本項目",
+      "2": "詳細",
+      "3": "PRD 連携",
+      "4": "エラーなし"
+    },
+    "tier_meta": {
+      "t1": {
+        "label": "基本項目",
+        "sub": "必要なノード（API·Entity·サービス）が作成されているか"
+      },
+      "t2": {
+        "label": "詳細",
+        "sub": "各項目の本文が充実しているか（入力·出力·エラー）"
+      },
+      "t3": {
+        "label": "PRD 連携",
+        "sub": "導き出された結果が PRD のどの部分から来たか追跡できるか"
+      },
+      "t4": {
+        "label": "エラーなし",
+        "sub": "自動検証で違反がないか"
+      }
+    },
+    "status": {
+      "none": {
+        "text": "まだ分析前",
+        "hint": "会議ログをアップロードしてシステム設計を実行すると、完成度が算出されます。"
+      },
+      "low": {
+        "text": "かなり不足しています",
+        "hint": "PRD に入力·出力·エラーのような具体的な内容がほとんどありません。まず下記の項目から埋めてください。"
+      },
+      "mid": {
+        "text": "基礎は整っています",
+        "hint": "全体の枠組みはできています。下記の項目を埋めると AI の精度が一気に上がります。"
+      },
+      "high": {
+        "text": "あと少しです",
+        "hint": "もう少しです！ 下記のいくつかを補強すれば、AI が正確にコードを生成できます。"
+      },
+      "done": {
+        "text": "完璧です！",
+        "hint": "AI はこの PRD だけで正確にコードを生成できます。"
+      }
+    },
+    "action_hint": {
+      "not_analyzed": "まだ分析されていません — 会議ログをアップロードしてからシステム設計を実行してください",
+      "low": "PRD の本文が不足しています — Story に入力·出力·エラーの詳細を追加してください",
+      "weak": "{label} の領域が弱いです: {hint}",
+      "fix_t1": "必須項目自体が作成されていません — PRD の Story が空でないか確認してください",
+      "fix_t2": "項目の本文が不十分です — PRD Story に入力/出力/エラーのケースを追加してください",
+      "fix_t3": "PRD ↔ 導出結果の連携が切れています — Story id（例: Story 1.1）の一貫性を確認してください",
+      "fix_t4": "検証違反が多数あります — 下記の違反の説明を参考に該当部分を修正してください",
+      "ready": "充実した仕様 — コード生成の準備が整いました"
+    },
+    "tooltip": {
+      "tiers_header": "─ 領域別スコア ─",
+      "tier_line": "{label}（重み {weight}）: {pct}%",
+      "meaning_header": "スコアの意味:",
+      "m1": "· 80% 以上 → AI が PRD だけでほぼ正確にコードを作成",
+      "m2": "· 50〜80% → 一部のフィールドを AI が推定（間違う可能性あり）",
+      "m3": "· 50% 未満 → PRD の詳細が不足 — さらなる補強が必要",
+      "click": "クリックすると領域別の詳細と、急いで埋めるべき項目が表示されます。"
+    },
+    "metric": {
+      "spack_apis_present": {
+        "label": "バックエンド API の導出",
+        "why": "PRD の Story から API が 1 つ以上作成されたか",
+        "fix": "0% の場合、PRD の Epic & Story タブが空です — まず Story を追加してください"
+      },
+      "spack_entities_present": {
+        "label": "データ項目の導出",
+        "why": "保存するデータの種類（Entity）が 1 つ以上認識されたか",
+        "fix": "0% の場合、PRD に「データ/モデル/保存」のような手がかりが不足しています"
+      },
+      "spack_policies_present": {
+        "label": "非機能ルールの導出",
+        "why": "応答時間·権限のようなポリシーが 1 つ以上導き出されたか",
+        "fix": "PRD の NFR タブに測定可能な数値を追加してください（例: 「応答 500ms 以下」）"
+      },
+      "ddd_contexts_present": {
+        "label": "ドメイン境界の分割",
+        "why": "決済·ユーザーのようなビジネス領域が分離されたか",
+        "fix": "Story がさまざまなドメインを扱っているか確認してください"
+      },
+      "ddd_aggregates_present": {
+        "label": "中核モデルのまとまり",
+        "why": "Entity が意味のある単位（Aggregate）にまとめられたか"
+      },
+      "arch_services_present": {
+        "label": "サービス分割",
+        "why": "システムがどのサービスに分割されるか決定されたか"
+      },
+      "arch_databases_present": {
+        "label": "データベースの決定",
+        "why": "データをどこに保存するか決定されたか"
+      },
+      "entity_attributes_present_ratio": {
+        "label": "データフィールドの明示",
+        "why": "各 Entity がどのフィールドを持つか（例: User={'{name, email}'}）",
+        "fix": "PRD Story の本文に「入力: name, email」のようにフィールドを記載してください"
+      },
+      "attribute_typed_ratio": {
+        "label": "フィールド型の明示",
+        "why": "各フィールドの型（string/number/date）が決定されているか",
+        "fix": "PRD に「name: string 100 文字以下」の形式で記載してください"
+      },
+      "api_request_body_ratio": {
+        "label": "API 入力仕様",
+        "why": "POST/PUT API がどのデータを受け取るか",
+        "fix": "PRD Story の本文に「- 入力: {'{ ... }'}」を追加してください"
+      },
+      "api_response_body_ratio": {
+        "label": "API 出力仕様",
+        "why": "API が何を応答するか",
+        "fix": "PRD Story の本文に「- 出力: {'{ ... }'}」を追加してください"
+      },
+      "api_path_params_consistent_ratio": {
+        "label": "API パス変数の一貫性",
+        "why": "{'{id}'} のようなパス変数が path_params と一致するか"
+      },
+      "api_error_cases_ratio": {
+        "label": "API エラー応答の明示",
+        "why": "権限·検証の失敗時にどの応答（401/403/404 など）を返すか",
+        "fix": "PRD Story の本文に「権限がなければ 401」のように明示してください"
+      },
+      "api_auth_specified_ratio": {
+        "label": "API 認証方式の明示",
+        "why": "この API がログインを必要とするか·どの権限が必要か",
+        "fix": "PRD の NFR または Story に「OAuth ログイン」「管理者のみ」のように明示してください"
+      },
+      "api_validation_422_ratio": {
+        "label": "API 入力検証（422）",
+        "why": "不正な入力（例: メール形式の崩れ）に対する応答が明示されているか",
+        "fix": "PRD Story に「メール形式でなければ 422」のように明示してください"
+      },
+      "aggregate_invariants_ratio": {
+        "label": "モデル整合性ルール",
+        "why": "ドメインモデルの不変条件（例: 「決済後は数量を変更できない」）"
+      },
+      "domain_entity_attributes_ratio": {
+        "label": "ドメインモデルのフィールド",
+        "why": "ドメイン Entity が十分なフィールドを持つか"
+      },
+      "domain_event_payload_ratio": {
+        "label": "イベントデータの明示",
+        "why": "ドメインイベントが発生時にどのデータを伴うか"
+      },
+      "service_deployment_ratio": {
+        "label": "サービス展開仕様",
+        "why": "各サービスがどのように展開されるか（例: Lambda/Container）"
+      },
+      "connection_auth_ratio": {
+        "label": "サービス間認証",
+        "why": "サービス同士が通信する際にどう認証するか"
+      },
+      "screen_coverage_ratio": {
+        "label": "画面定義",
+        "why": "必要な画面が PRD に明示されているか",
+        "fix": "PRD の Screens タブに「#### 🖥️ [Screen: 名前]」セクションを追加してください"
+      },
+      "screen_api_coverage_ratio": {
+        "label": "画面 ↔ API 連携",
+        "why": "各画面が呼び出す API にマッピングされているか"
+      },
+      "screen_story_mapped_ratio": {
+        "label": "画面 ↔ 機能（Story）連携",
+        "why": "画面がどの機能のためのものかマッピングされているか",
+        "fix": "PRD の Screens タブの各画面に「`[Story 1.1]`」の参照を追加してください"
+      },
+      "api_story_mapped_ratio": {
+        "label": "API ↔ Story 追跡",
+        "why": "各 API がどの PRD Story から来たか明示されているか",
+        "fix": "PRD Story id（Story 1.1 形式）の一貫性を確認してください"
+      },
+      "entity_lineage_direct_ratio": {
+        "label": "Entity ↔ Story 直接追跡",
+        "why": "Entity がどの Story から直接引用·導出されたか",
+        "fix": "PRD Story の本文でデータモデルの手がかりを明確にしてください"
+      },
+      "entity_story_mapped_ratio": {
+        "label": "Entity ↔ Story マッピング",
+        "why": "Entity と Story の連携比率"
+      },
+      "aggregate_lineage_mapped_ratio": {
+        "label": "Aggregate ↔ Story マッピング",
+        "why": "ドメインモデルが PRD に根拠を持つか"
+      },
+      "error_score": {
+        "label": "重大な違反",
+        "why": "コード生成に致命的なエラー（低いほど違反が少ない）"
+      },
+      "warning_score": {
+        "label": "警告レベルの違反",
+        "why": "推奨事項が満たされていない（低いほど少ない）"
+      },
+      "errors": {
+        "label": "エラー件数"
+      },
+      "warnings": {
+        "label": "警告件数"
+      },
+      "infos": {
+        "label": "情報件数"
+      }
+    },
+    "violation": {
+      "API_MISSING_STORY_REF": {
+        "label": "API がどの機能（Story）から来たか記載されていない",
+        "fix": "PRD の Story と API の導出結果を再マッピングしてください"
+      },
+      "API_ERROR_CASES_MISSING": {
+        "label": "API がどのエラーを返すか定義されていない",
+        "fix": "PRD Story の本文に「権限がなければ 401」などを追加してください"
+      },
+      "API_AUTH_ERROR_CASE_MISSING": {
+        "label": "API の認証失敗時の応答が抜けている",
+        "fix": "PRD Story の本文に「トークン失効時に 401」などを追加してください"
+      },
+      "API_AUTH_SPECIFIED_MISSING": {
+        "label": "API がどの認証を使うか記載されていない",
+        "fix": "PRD の NFR タブに「OAuth/JWT」のような認証方式を明示してください"
+      },
+      "API_REQUEST_BODY_MISSING": {
+        "label": "API が受け取る入力データが記載されていない",
+        "fix": "PRD Story の本文に「- 入力: {'{ ... }'}」を追加してください"
+      },
+      "API_RESPONSE_BODY_MISSING": {
+        "label": "API が返す応答が記載されていない",
+        "fix": "PRD Story の本文に「- 出力: {'{ ... }'}」を追加してください"
+      },
+      "ARCH_API_UNMAPPED": {
+        "label": "システムアーキテクチャに API が配置されていない",
+        "fix": "システム設計 → Architecture ステージを再実行してください"
+      },
+      "LINEAGE_MISSING": {
+        "label": "導出項目の PRD 出典（追跡性）が抜けている",
+        "fix": "PRD Story id 形式の一貫性（Story 1.1）を確認してください"
+      },
+      "ENTITY_ATTRIBUTES_MISSING": {
+        "label": "Entity のフィールド定義が抜けている",
+        "fix": "PRD Story の本文に「- 入力: name, email」のようにフィールドを記載してください"
+      },
+      "ENTITY_NAME_NOT_PASCAL_CASE": {
+        "label": "Entity 名が PascalCase 形式ではない",
+        "fix": "「user_account」→「UserAccount」の形式。再実行時に自動で正規化されます"
+      },
+      "POLICY_CATEGORY_MISSING": {
+        "label": "Policy の種類（Security/Performance など）が抜けている",
+        "fix": "PRD の NFR タブでポリシーの種類を明確にしてください"
+      },
+      "POLICY_STUB_DROPPED": {
+        "label": "意味のない空の Policy が自動削除された",
+        "fix": "PRD の NFR の詳細を強化してから再実行してください"
+      },
+      "SCREEN_INVALID": {
+        "label": "画面定義が不完全（名前/パスが抜けている）",
+        "fix": "PRD の Screens タブに画面の名前·パスを明示してください"
+      }
+    },
+    "autofill_linked_only": "PRD 連携を {n} 件補完しました — 完成度に即時反映されます。",
+    "autofill_linked_tail": " · PRD 連携も {n} 件補完しました。"
+  },
+  "lgraph": {
+    "err_no_project": "プロジェクトが選択されていません。",
+    "err_focus_no_nodes": "{id} と連携された design ノードがありません。design を再実行してからもう一度ご確認ください。",
+    "err_no_design": "Design がまだ生成されていません。SPACK/DDD/Architecture を生成してからもう一度お試しください。",
+    "err_no_lineage": "Design はありますが、PRD ↔ Design 連携（lineage）データがありません。新しいグラフコードのデプロイ前に作成された design です — design の再実行を推奨します。",
+    "err_no_lineage_generic": "まだ lineage データがありません。Design を再実行して lineage を生成してください。",
+    "err_no_container": "グラフコンテナが見つかりませんでした。",
+    "err_load_failed": "Lineage グラフの読み込みに失敗しました: {reason}",
+    "title_sub": "PRD の要件が実際の設計（Entity · Service など）へどうつながるかを追跡する地図",
+    "download_excel": "Excel ダウンロード",
+    "download_excel_aria": "Lineage（PRD→設計トレーサビリティ）を Excel でダウンロード — 要素 · 追跡関係の2シート",
+    "loading": "グラフデータを読み込み中...",
+    "intro_title": "📍 このグラフは何ですか？",
+    "intro_text": "会議録 → <strong>PRD（要件）</strong> → 実際の<strong>設計（Entity · Service · DB など）</strong>へとつながる流れを可視化した<strong>追跡マップ</strong>です。<br><br>「この Service はなぜ作られたのか？」のような疑問の答えを、PRD まで一気にたどることができます。",
+    "node_section": "Node — 構成要素",
+    "node_entity_desc": "User · Order · Payment のように、システムが扱う<strong>データオブジェクト</strong>。",
+    "node_aggregate_desc": "関連する Entity の<strong>まとまり</strong> — 一緒に変化するビジネス整合性の単位。",
+    "node_service_desc": "実行単位（マイクロサービス）。ビジネスロジックと API を担当。",
+    "node_api_desc": "Story を<strong>実装する REST エンドポイント</strong> — 画面・サービスが呼び出す。",
+    "node_db_desc": "サービスがデータを保存する<strong>データベース</strong>（例: RDBMS・キャッシュ）。",
+    "node_story_desc": "「〜できる」形式の<strong>ユーザー要件 1 件</strong>。PRD の最小単位。",
+    "node_epic_desc": "関連する Story の<strong>まとまり</strong> — 大きな機能単位（例: 「会員管理」）。",
+    "edge_section": "Edge — 接続線",
+    "badge_high": "信頼度が高い",
+    "badge_review": "確認推奨",
+    "edge_direct_desc": "PRD に<strong>明示的に記載された</strong>連携 — 人が直接作成。",
+    "edge_inferred_desc": "AI が<strong>文脈から推論した</strong>連携 — 正確性の確認を推奨。",
+    "edge_contains_desc": "Epic がどの Story を<strong>含む</strong>か — PRD の内部構造。",
+    "tip_title": "💡 ヒント",
+    "tip1": "ノードを<strong>クリック</strong>すると、左下に詳細情報が表示されます。",
+    "tip2": "ノードを<strong>ドラッグ</strong>して自由に配置できます。",
+    "tip3": "破線（<strong>inferred</strong>）が多い場合は、PRD をより具体的に記載してみてください。",
+    "tip4": "孤立したノードは、どの要件とも連携されていない設計です — 本当に必要か確認してください。",
+    "insp_node": "選択されたノード",
+    "insp_prd_basis": "PRD 根拠:",
+    "insp_story_linked": "{n} 件の Story と連携",
+    "insp_all_props": "すべてのプロパティ（{n}）",
+    "insp_lineage_edge": "選択された lineage エッジ",
+    "insp_prd_quote": "PRD quote:",
+    "insp_edge": "選択されたエッジ"
+  },
+  "lpanel": {
+    "node_fallback": "項目",
+    "prd_basis": "PRD 根拠",
+    "no_story": "連携された PRD Story がありません。",
+    "detail_pending": "{n} 件の PRD 根拠と連携されています。詳細項目（Story ID / 原文の引用）は近日提供予定です。",
+    "view_in_prd": "PRD で見る",
+    "quote_empty": "PRD 原文の引用なし（AI 推論リンク）"
+  },
+  "empty_state": {
+    "default_subtitle": "右上の「最新の更新」をクリックして分析を開始してください。"
+  },
+  "coverage_badge": {
+    "label": "{label} PRD 連携"
+  },
+  "guide_modal": {
+    "headline": "システム設計",
+    "sub": "1 件の PRD が SPACK · DDD · Architecture の 3 段階に自動分解され、Vibe Coding スターターパックまでつながります。",
+    "step1_title": "Design Phase の概要",
+    "step1_desc": "Plan ページで作成した 1 件の PRD が、SPACK（仕様）→ DDD（ドメインモデル）→ Architecture（システム構成）の 3 段階に自動分解されます。右上の「最新の更新」を 1 回押すだけで、3 つの成果物が同時に更新されます。",
+    "step1_tip": "各段階は前の段階の結果を入力として受け取るため、順番に実行されます（約 4〜6 分）。処理中に「中止」が可能です — 以前のデータは保持されます。",
+    "step2_title": "SPACK — 何を作るか",
+    "step2_desc": "PRD の User Story を機能仕様に整理します。システムが提供する API、扱う Entity（データ）、守るべき Policy（非機能要件）を導き出します。",
+    "step2_tip": "各項目は PRD の Story と lineage で連携され、追跡可能です（左側の点の色で表示）。",
+    "step3_title": "DDD — ドメインがどう動くか",
+    "step3_desc": "SPACK の Entity をドメインモデルにまとめます。Bounded Context で境界を引き、Aggregate で整合性の単位を定義し、Domain Event でビジネスの流れを表現します。",
+    "step3_tip": "ドメインが複雑なほど DDD が活きます — マイクロサービスの分割基準はここで決まります。",
+    "step4_title": "Architecture — どう展開するか",
+    "step4_desc": "DDD の Aggregate を基準にサービスを分割し、DB · 外部通信を設計します。運用可能なシステムの設計図ができあがります。",
+    "step4_tip": "完成したら「✨ Vibe Coding スターターパック」をダウンロード — AI エージェント（Claude Code/Cursor）がこのパッケージ 1 つでコーディングを開始できます。",
+    "svg_resp": "応答 200ms",
+    "svg_concurrent": "10K 同時",
+    "svg_privacy": "個人情報"
+  },
+    "spec_md": {
+      "title": {
+        "spack": "SPACK — 詳細仕様",
+        "ddd": "DDD — ドメインモデル",
+        "arch": "Architecture — システム構造"
+      },
+      "sec": {
+        "entity": "データ (Entity)",
+        "policy": "ポリシー (Policy)",
+        "connection": "Connection (接続)"
+      },
+      "related": "関連",
+      "stack": "スタック",
+      "gap": {
+        "request_spec": "リクエスト仕様",
+        "response_spec": "レスポンス仕様",
+        "owner_service": "担当サービス",
+        "attributes": "属性"
+      },
+      "dont_guess": "推測せず質問",
+      "gap_header": "⚠️ **未定 {n}件** — 以下の ⚠️ 表示項目は設計がまだ空です。**勝手に実装せず**、止まってユーザーに確認してください。",
+      "snapshot_footer": "この文書は Harness 設計グラフのスナップショットです。より詳しい設計文書は Harness の設計(Design)段階で受け取れます。",
+      "unnamed": "(名称未定)",
+      "undecided_label": "未定",
+      "oq": {
+        "title": "未定項目 (Open Questions)",
+        "lead": "設計がまだ空の項目が **{n}件** あります。コードを書く前に下記を確定してください。**勝手に実装せず** ユーザーに確認するのが原則です。",
+        "footer": "🤖 Harness — 設計グラフの空項目を自動集計した一覧です。"
+      },
+      "vault_gap_header": "⚠️ **未定 {n}件** — ⚠️ 表示のノートは設計がまだ空です。勝手に実装せず、ユーザーに確認してください。"
+    },
+  "vibe": {
+    "start_line": "始めて",
+    "tools": {
+      "claude": {
+        "label": "Claude Code",
+        "open": "ターミナルで `cd \"{p}_vibe\"` を実行してフォルダに入り、`claude` を実行してください。Claude Code が **CLAUDE.md を自動的に読み込みます。**"
+      },
+      "cursor": {
+        "label": "Cursor",
+        "open": "Cursor で `{p}_vibe/` フォルダを開き、`Cmd/Ctrl + L` でチャットを開いてください。Cursor が **AGENTS.md を自動的に適用します。**"
+      },
+      "antigravity": {
+        "label": "Antigravity (Google)",
+        "open": "Antigravity で `{p}_vibe/` フォルダを開き、エージェントパネルを開いてください。**AGENTS.md を自動的に認識します。**"
+      },
+      "other": {
+        "label": "その他 / よくわからない",
+        "open": "お使いの AI コーディングツールで `{p}_vibe/` フォルダを開いてください。ほとんど（Codex · Windsurf · Antigravity など）は **AGENTS.md を自動的に読み込みます。** まだツールがなければ、ターミナルの **Claude Code** またはエディタ型の **Cursor** をおすすめします。"
+      }
+    },
+    "bootstrap": {
+      "title": "AI エージェント指示書 — {project}",
+      "intro": "あなたはこのフォルダ内で作業する AI コーディングエージェントです。これは Harness が生成した **vibe コーディング仕様パッケージ**です — あなたが実装するための構造化された設計です。このファイルはツールが自動的に読み込みます（Claude Code は `CLAUDE.md`、Cursor / Codex / Antigravity / Windsurf は `AGENTS.md`）。そのためユーザーが長い指示を貼り付ける必要はありません。",
+      "entry_orchestrator": "**`00-ORCHESTRATOR.md`** を読み、その通りに実行してください — それがあなたの権威ある、Phase ごとのマスターワークフローです。",
+      "entry_start_here": "**`0_START_HERE.md`** の **\"INSTRUCTIONS FOR AI AGENT\"** セクションを読み、その Phase を順番に実行してください。",
+      "enhance_banner": "> ⚠️ **このプロジェクトは既存（EXISTING）のコードベースからインポートされました — 空のフォルダから始めるのではありません。**\n> まず **`IMPLEMENTATION_STATUS.md` を最初に（FIRST）** 読んでください: すでに実装済み（✅）かまだ（⬜）かが記載されています。\n> ✅ のコードは尊重し（書き換えない）、既存コードの上に ⬜ の項目だけを実装し、\n> 既存の構造 / 命名 / Tech Stack に従ってください。spec↔code のマッピングは自動推定です — ✅ は実際のコードと照合して検証してください。\n> STATUS は最後（LAST）の分析を反映しています; 現在の spec と照合してください — STATUS に記載されていない spec 項目は ⬜（未実装）として扱ってください。",
+      "h_master_plan": "▶ マスタープラン",
+      "master_plan_note": "**一度に 1 つの Phase ずつ進め、各 Phase の後はユーザーの確認のために STOP してください。** 先走らないでください。",
+      "h_spec_files": "📂 仕様ファイル",
+      "spec_status": "- `IMPLEMENTATION_STATUS.md` — すでに実装済み（✅）かまだ（⬜）か。**最初に読んでください（READ FIRST）。**",
+      "spec_spack": "- `1_spack.md` — APIs / Entities / Policies（何を作るか）",
+      "spec_ddd": "- `2_ddd.md` — ドメインモデル: Aggregates / Domain Events / Services（どう動くか）",
+      "spec_architecture": "- `3_architecture.md` — services / databases / connections と **Tech Stack**（どうデプロイするか; spec が衝突する場合の最終権威）",
+      "spec_skills": "- `skills/` — コーディング規則。コードを書く前に（BEFORE）関連規則を読み、決して違反しないでください。",
+      "spec_checklist": "- `IMPLEMENTATION-CHECKLIST.md` — 作るべきすべての機械生成の全数リスト（そこから漏れはありません）。すべての項目がチェックされるまで、あなたの作業は終わりません。",
+      "h_hard_rules": "✅ 厳守ルール",
+      "rule_enhance": "0. **既存コードの上にビルドしてください — プロジェクトを最初から作り直さないでください。** `IMPLEMENTATION_STATUS.md` の ⬜（未実装）項目だけを実装し、ユーザーが別途要求しない限り ✅ 項目はそのままにしてください。",
+      "rule_stack": "1. **Tech stack は `3_architecture.md` から取得します。** そこで指定された Tech Stack を使ってください。指定されていない場合のみユーザーに選択を求め — 決して黙ってデフォルトにしないでください。",
+      "rule_stop": "2. **各 Phase の後で停止し（Stop after every phase）**、続行する前にユーザーの OK を待ってください。",
+      "rule_no_invent": "3. **要件を決して捏造しないでください（Never invent requirements）。** 不明確な点があればユーザーに尋ねてください。",
+      "rule_skills": "4. すべてのコーディング行為について **`skills/` 規則に従ってください（Follow `skills/` rules）。** 違反を修正するときは、どの（WHICH）`skills/` ファイルのどの（WHICH）規則に違反したかを明示してください（cite）。",
+      "rule_checklist": "{num}. **完了 = `IMPLEMENTATION-CHECKLIST.md` のすべての項目が実際のファイルパスとともに `[x]` でチェック済み。** 完了を報告する前にチェックリストを項目ごとにコードと照合監査し; 欠けているものを実装してから **すべて通るまで繰り返して（loop）** ください。",
+      "h_human_guide": "🙋 ユーザー向けスタートガイド",
+      "human_guide": "ユーザー向けの「どう始めるか」ガイドは `0_START_HERE.md` にあります。"
+    },
+    "guide": {
+      "title": "🎯 {project} — バイブコーディング スタートガイド",
+      "lead": "このファイルは **ユーザー（あなた）** と **AI コーディングエージェント** の両方のための案内です。",
+      "h_what_is_this": "🙋 これは何ですか？",
+      "what_is_this_1": "**バイブコーディング（Vibe Coding）** とは、開発仕様を AI エージェントにまるごと渡し、\nエージェントがコードを自動的に実装する方式です。",
+      "what_is_this_2": "あなたは今 `{project}_vibe.zip` を 1 つ受け取りました。解凍すると `{project}_vibe/` フォルダの中に\n**「私たちのプロジェクトがどんなシステムか」** を体系的に整理した仕様書の束が入っています。",
+      "what_is_this_3": "これらの仕様書を **AI コーディングエージェント**（例: Claude Code, Cursor, Codex, Windsurf など）\nにまるごと渡すと、エージェントが **自動でコードを書いて** くれます。",
+      "h_what_to_do": "✅ 今、何をすればいいですか？（3 ステップで完了！）",
+      "step1_title": "ステップ 1 — 解凍",
+      "step1_body": "受け取った `{project}_vibe.zip` を解凍すると `{project}_vibe/` フォルダができます。",
+      "skill_step1_note": "（コーディング規則は `skills/` フォルダにすでに入っています — AI エージェントが自動的に参照します。）",
+      "step2_title": "ステップ 2 — {tool} でフォルダを開く",
+      "step2_note": "まだツールがなければ: **Claude Code**（`https://claude.com/code`、ターミナル）または **Cursor**（`https://cursor.com`、エディタ）をインストールしてください。",
+      "step3_title": "ステップ 3 —「{start}」のひとこと",
+      "step3_body": "フォルダを開くと、エージェントが `{autoFile}` を **自動的に読み込み**、何をすべきかをすでに把握しています。チャットにこう入力するだけです:",
+      "step3_fallback_lead": "もし自動で読み込まないツールなら、下の 1 行を貼り付けてください:",
+      "step3_fallback_prompt": "このフォルダの {autoFile} と 0_START_HERE.md を読んで、{phase} から進めて。各ステップが終わったら確認を取って。",
+      "phase_hint_with_skills": "Phase 0（規則の内在化）",
+      "phase_hint_no_skills": "Phase 1（仕様の理解）",
+      "skill_prompt_line": "`skills/` フォルダのすべての .md ファイルをコーディング規則の参照集として活用して — コードを書く前に関連規則をまず確認して適用して。",
+      "step3_after": "その後、エージェントが **Phase ごとにコードを作り報告** します。各ステップで結果を確認し、気に入らなければ自然言語で修正を依頼してください。\n完全に自動で一度に作るのではなく、**ステップごとの協働** です。",
+      "h_agent_instructions": "⚙️ AI エージェントへの作業指示",
+      "agent_intro": "あなたは AI コーディングエージェントです。以下のすべてがあなたの指示です。いかなる行動の前にもすべて読んでください。",
+      "agent_authority": "**⚠️ Authority check — これを最初に（FIRST）行ってください:** このフォルダに `00-ORCHESTRATOR.md` があれば、**それを権威あるマスタープランとして従い**、以下の Phase は背景としてのみ扱ってください。`00-ORCHESTRATOR.md` がない場合は以下の Phase が完全な指示です。",
+      "agent_env_check": "**Environment check — これを最初に行ってください:**",
+      "agent_env_fs": "ファイルシステムアクセスがある場合（Claude Code、Cursor agent など）: 指示通りにファイルを直接読んでください。",
+      "agent_env_chat": "ファイルアクセスが一切ないチャット専用（chat-only）モデルの場合: ↺ と記された各 Phase の前に、関連 spec ファイルの内容をチャットに貼り付けるようユーザーに依頼してください。アクセスできないファイルを読んだふりをしないでください。",
+      "phase0_heading": "### PHASE 0 — 規則の内在化（必須の最初のステップ）",
+      "phase0_list_index": "- `skills/` 内のすべての（EVERY）`.md` ファイルを列挙し、各ファイルの **frontmatter のみ（frontmatter only）** を読んでください（name + description / 適用条件）— コンパクトな規則インデックスを作成してください",
+      "phase0_list_reread": "- 今すべての規則本文を読まないでください（Do NOT read every rule body now）: 数十の規則本文はコンテキストを溢れさせ、Phase 4 までに忘れられます。代わりに、後の phase で **各コーディングタスクの直前に（RIGHT BEFORE each coding task）** 関連規則ファイルを全文読み直してください — 規則を毎回再確認する常時オンのツールのように扱ってください",
+      "phase0_list_no_access": "- ファイルアクセスが一切ない場合: 続行する前にユーザーに skills ファイル一覧を貼り付けるよう依頼してください",
+      "phase0_output_lead": "OUTPUT (REQUIRED — 要約したり省略したりしないでください):",
+      "phase0_output_1": "規則インデックス: すべての（EVERY）正確なファイルパス（例: `skills/backEnd/auth.md`）+ いつ適用されるかを 1 行で",
+      "phase0_output_2": "このプロジェクトで最も適用されると予想される規則 3~5 個と、その理由",
+      "phase0_warn": "⚠️ 実際のファイルパスを列挙できないなら、フォルダをスキャンしていません。まずスキャンしてください。",
+      "phase0_stop": "**STOP してユーザーの確認を待ってください**",
+      "phase1_heading": "### PHASE 1 — 仕様の理解",
+      "phase1_lead": "3 つの spec ファイルを正確にこの順序で（IN THIS EXACT ORDER）読んでください:",
+      "phase1_file_spack": "`1_spack.md` — 何を作るか (APIs, Entities, Policies)",
+      "phase1_file_ddd": "`2_ddd.md` — ドメインがどう動くか (Aggregates, Domain Events, Services)",
+      "phase1_file_architecture": "`3_architecture.md` — どうデプロイするか (spec が衝突する場合の **最終権威（FINAL AUTHORITY）**)",
+      "phase1_no_access": "ファイルアクセスが一切ない場合: 今、各ファイルの内容を貼り付けるようユーザーに依頼してください。",
+      "phase1_output_lead": "OUTPUT (次のすべて（ALL）を報告しなければなりません — どの項目も省略しないでください):",
+      "phase1_output_1": "システム概要 (2~3 文)",
+      "phase1_output_2": "サービス一覧と、サービスごとの 1 行の役割説明",
+      "phase1_output_3": "中核ドメインとその責務",
+      "phase1_output_4": "**Tech stack** — まず `3_architecture.md` の各 Service/Database の **Tech Stack** フィールドを読んでください。そこにスタックが指定されていれば、何を使うかを正確に述べて進めてください — 再度尋ねないで（do NOT re-ask）ください。アーキテクチャが未指定の場合のみ（ONLY if）、トレードオフ付きの具体的な 2~3 個のオプション（バックエンド言語/フレームワーク · 該当すればフロントエンド · データベース）を提案し、ユーザーに選ばせてください。決して黙ってデフォルトにせず、スタックが決まる前にコーディングを始めないでください。",
+      "phase1_stop": "**STOP してユーザーの確認を待ってください。**（`3_architecture.md` に Tech stack が指定されていない場合に限り、ユーザーの明示的なスタック選択も待ってください。）",
+      "phase2_heading": "### PHASE 2 — プロジェクト骨格",
+      "phase2_reread": "↺ 今 `3_architecture.md` を読み直してください（ファイルアクセスがなければユーザーに貼り付けを依頼）",
+      "phase2_do": "`3_architecture.md` を基にディレクトリ構造とモジュールのスキャフォールディングを作成してください",
+      "phase2_output": "OUTPUT → フォルダツリー + エントリポイントファイル一覧 → **STOP してユーザーの確認を待ってください**",
+      "phase3_heading": "### PHASE 3 — ドメイン実装",
+      "phase3_reread": "↺ 今 `2_ddd.md` を読み直してください（ファイルアクセスがなければユーザーに貼り付けを依頼）",
+      "phase3_do": "`2_ddd.md` を基に Entity, Aggregate, Domain Service を実装してください",
+      "phase3_skill": "各クラスを書く前に `skills/` 規則を確認してください",
+      "phase3_output": "OUTPUT → ドメインクラス一覧 + 適用した主要なビジネス規則 → **STOP してユーザーの確認を待ってください**",
+      "phase4_heading": "### PHASE 4 — API 実装",
+      "phase4_reread": "↺ 今 `1_spack.md` を読み直してください（ファイルアクセスがなければユーザーに貼り付けを依頼）",
+      "phase4_do": "`1_spack.md` を基に API エンドポイントを実装してください",
+      "phase4_skill": "各エンドポイントを書く前に `skills/` 規則を確認してください",
+      "phase4_output": "OUTPUT → API ルート一覧 → **STOP してユーザーの確認を待ってください**",
+      "phase5_heading": "### PHASE 5 — 統合と検証",
+      "phase5_reread": "↺ 今 `3_architecture.md` の connection map セクションを読み直してください（ファイルアクセスがなければユーザーに貼り付けを依頼）",
+      "phase5_do": "connection map に従ってサービスを接続し、基本的な build/run を検証してください",
+      "phase5_output": "OUTPUT → ビルド状態 + 未実装項目の一覧 → **STOP してユーザーの確認を待ってください**",
+      "phase6_heading": "### PHASE 6 — 全件突合監査ループ（完了保証 — 最後の関門）",
+      "phase6_checklist_open": "`IMPLEMENTATION-CHECKLIST.md` を開いてください — それは **設計グラフから機械生成（machine-generated）** されているので、漏れはありません",
+      "phase6_checklist_verify": "すべての（EVERY）項目について: コードに実際に存在するか検証してください。存在すれば `- [x]` と記し、`← 実装箇所:` の後に実際のファイルパスを書いてください",
+      "phase6_inventory_build": "まず自分でインベントリを作成してください（Build your own inventory first）: `1_spack.md` のすべての（EVERY）API / Entity / Policy / Screen を未チェックのチェックリストとして列挙してください",
+      "phase6_inventory_verify": "すべての（EVERY）項目について: コードに実際に存在するか検証してください。存在すれば `- [x]` と記し、実際のファイルパスを書き留めてください",
+      "phase6_opened": "あなたが書くすべてのパスは、確認のために実際に **開いた（OPENED）** ファイルでなければなりません — 開けないパスは偽のチェックです（a path you cannot open is a false check）",
+      "phase6_not_impl": "実際のファイルを指し示せない項目 = **未実装（NOT implemented）** → それを実装してから、この監査を最初からやり直してください",
+      "phase6_repeat": "**項目の 100% がチェックされるまでこのループを繰り返してください（Repeat this loop until 100% of items are checked）。** その前にプロジェクトが完了したと宣言しないでください。",
+      "phase6_output": "OUTPUT → 完全にチェックされたリスト + カバレッジ数（例: `27/27 ✅`）→ **STOP してユーザーの確認を待ってください**",
+      "h_mandatory_rules": "### 必須遵守ルール",
+      "mr_stop": "**各 Phase の後で停止してください（STOP after every Phase）。** 上に列挙した出力を報告してください。ユーザーの明示的な OK なしに次の Phase を始めないでください。",
+      "mr_stack": "**Tech stack は `3_architecture.md` からまず取得します。** そこで指定されたスタックを使ってください。指定されていない場合のみ Phase 1 でオプションを提案し、ユーザーの明示的な選択を待ってください — 決して黙ってデフォルトにしないでください。",
+      "mr_no_assume": "**要件を決して推測しないでください（NEVER assume requirements）。** 不明確なものは何でも → 尋ねてください。推測して進めないでください。",
+      "mr_skills_lead": "**すべてのコーディング行為の前に skills 規則を確認してください。**",
+      "mr_skills_yes": "コードを書く前に、関連する `skills/` 規則が適用されるか再確認してください。skills 規則の違反は許されません。",
+      "mr_skills_no": "（このパッケージには skills 規則はありません。）",
+      "mr_authority": "**`3_architecture.md` が最終権威です。** 仕様が衝突する場合はアーキテクチャが勝ちます。",
+      "mr_reread": "**各 Phase の開始時に関連 spec ファイルを読み直してください**（↺）。長い会話はコンテキストドリフトを起こします — 常に原典から更新してください。ファイルアクセスがなければユーザーに貼り付けを依頼してください。",
+      "mr_completion_lead": "**完了 = Phase 6 監査 100%。**",
+      "mr_completion_checklist": "すべての `IMPLEMENTATION-CHECKLIST.md` 項目が実際のファイルパスとともに `[x]` でチェック済み。",
+      "mr_completion_inventory": "インベントリに含めたすべての spec 項目が実際のコードと照合検証済み。",
+      "mr_completion_tail": "「たぶん動く」は完了ではありません — 監査が通るまで繰り返してください。",
+      "mr_resume_lead": "**中断後に再開しますか（Resuming after an interruption）？** ",
+      "mr_resume_checklist": "`IMPLEMENTATION-CHECKLIST.md`",
+      "mr_resume_inventory": "あなたの Phase 6 インベントリ",
+      "mr_resume_tail": "とすべての `_workspace/` ノートを最初に（FIRST）読んで、すでに完了したものを確認してから、最初の未チェック項目から続けてください — 最初からやり直さないで（do not start over）ください。",
+      "h_files": "📂 受け取ったファイル — それぞれ何ですか？",
+      "file_agents_title": "🤖 `AGENTS.md` · `CLAUDE.md`（自動認識ファイル — 触る必要はありません）",
+      "file_agents_desc": "AI ツールがフォルダを開くときに **自動的に読み込む** 指示文です。おかげで長いプロンプトを貼り付けなくてもエージェントは何をすべきかを把握します。(Claude Code → `CLAUDE.md`, Cursor·Codex·Antigravity·Windsurf → `AGENTS.md`)",
+      "file_start_here_title": "📖 `0_START_HERE.md`（今見ているこのファイル）",
+      "file_start_here_desc": "**人間向けスタートガイド + AI エージェント作業指示**。上の 3 ステップの使い方と Phase の順序・作業規則が含まれています。",
+      "skill_section": "### 📦 `skills/` — コーディング規則集\nプロジェクトで守るべき **コーディング規約** です。カテゴリ別のサブフォルダに `.md` 規則があり、AI エージェントはコードを書くときこの規則に必ず従います。",
+      "file_spack_title": "📋 `1_spack.md` — SPACK（何を作るか）",
+      "file_spack_desc": "システムが提供する **API, Entity（データ構造）, Policy（ビジネス規則）** の仕様です。\nPhase 4 API 実装の基準になります。",
+      "file_ddd_title": "🧩 `2_ddd.md` — DDD（どう動くか — ドメイン）",
+      "file_ddd_desc": "ビジネスドメインの **Aggregate（関連 Entity のまとまり）, Domain Event（状態変化イベント）, Service** モデルです。\nPhase 3 ドメイン実装の基準になります。",
+      "file_arch_title": "🏗️ `3_architecture.md` — Architecture（どうデプロイするか）",
+      "file_arch_desc": "コードをどの **サービス / ストア** に分割してデプロイするかの設計図。\nPhase 2 骨格生成の基準になります。",
+      "file_checklist_title": "✅ `IMPLEMENTATION-CHECKLIST.md` — 全数照合チェックリスト",
+      "file_checklist_desc": "設計グラフから **機械的に生成** された実装リスト（要約過程での漏れなし）。\n最後の Phase 6 で AI エージェントがこのリストの **すべての項目をコードと照合** し、すべて ✅ になって作業が終わります。",
+      "final_start_phase0": "これから **Phase 0 — 規則の内在化** から始めてください。",
+      "final_start_phase1": "これから **Phase 1 — 仕様の理解** を始めてください。"
+    },
+    "skill_md": {
+      "instructions": "指示事項 (Instructions)",
+      "scope": "スコープ(Scope):",
+      "priority": "優先度:",
+      "applies_when": "適用条件:",
+      "tags": "タグ"
+    }
+  }
+}

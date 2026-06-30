@@ -1,0 +1,191 @@
+{
+  "title": "Connect Code",
+  "subtitle": "Paste a GitHub repository URL to load and explore the code.",
+  "explorer": {
+    "title": "Explorer",
+    "loading": "Loading repository...",
+    "empty": "Enter a GitHub URL<br />and press Load",
+    "aria_folder": "Folder",
+    "aria_file": "File",
+    "aria_node": "{kind}: {name}"
+  },
+  "url_input": {
+    "load": "Load",
+    "loading": "Loading...",
+    "retry": "Retry",
+    "retry_hint": "or pick from the library below ↓",
+    "my_repos_btn": "My repos",
+    "my_repos_search": "Search repos...",
+    "my_repos_empty": "No repos found",
+    "my_repos_loading": "Loading repos...",
+    "my_repos_private": "Private",
+    "my_repos_connect_hint": "Connect GitHub in your profile to pick a repo directly",
+    "invalid_url": "Please enter a valid GitHub URL. (e.g. https://github.com/owner/repo)",
+    "truncated": "⚠️ Too many files — only some are shown."
+  },
+  "mobile_toggle": {
+    "label": "Files",
+    "aria_open": "Open file explorer",
+    "aria_close": "Close file explorer"
+  },
+  "tabs": {
+    "aria_close": "Close {name} tab"
+  },
+  "body": {
+    "empty": "Select a file to view its contents"
+  },
+  "status": {
+    "lang_none": "—"
+  },
+  "next_step": {
+    "aria_label": "Next step guide",
+    "badge": "What should I do now?",
+    "intro": "Your design is done. Here are <strong>3 ways to turn this spec into real code</strong> — writing the code itself happens through the methods below, not in Harness.",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "self": {
+      "title": "I'll build it myself",
+      "desc": "You can use AI coding tools like Cursor or Claude Code",
+      "step1": "Download the <strong>project bundle</strong> (CLAUDE.md, .cursorrules, spec) below.",
+      "step2": "Unpack it into a new Cursor / Claude Code project and paste the <em>start prompt</em>.",
+      "step3": "Paste the resulting GitHub repository into the <strong>input below</strong> to review it."
+    },
+    "outsource": {
+      "title": "I'll hand it to a developer",
+      "desc": "An agency or team developer will write the code",
+      "step1": "Download the <strong>PM package</strong> (PRD + summary).",
+      "step2": "Hand it to a developer or agency as-is and it becomes a work order.",
+      "step3": "Receive the finished repository and review/accept it in the <strong>input below</strong>.",
+      "soon": "A <strong>work order template</strong> for non-developers (budget, schedule, feature scope) is coming soon.",
+      "cta": "Go get the PM package"
+    },
+    "have": {
+      "title": "I already have code",
+      "desc": "Just need to review and accept it",
+      "body": "Paste your <strong>GitHub repository URL</strong> into the input just below to explore the code and check spec compliance in the Lint step."
+    }
+  },
+  "agent_export": {
+    "title": "Hand off to AI coding tools",
+    "desc": "We'll turn your design spec into files that Cursor and Claude Code can read directly.",
+    "download_btn": "Get project bundle (.zip)",
+    "copy_prompt_btn": "Copy start prompt",
+    "includes": {
+      "rules": "<code>CLAUDE.md</code> · <code>AGENTS.md</code> · <code>.cursorrules</code> · <code>llms.txt</code> — rules the AI reads automatically",
+      "plan": "<code>BUILD_PLAN.md</code> — the AI's “how to build it” summary (stack, order, acceptance criteria)",
+      "spec": "<code>spec/</code> — original PRD · Architecture · DDD · SPACK",
+      "prompt": "<code>START_PROMPT.txt</code> — a first instruction you can paste to start right away"
+    },
+    "no_project_warn": "Select a project first and the spec will be included in the bundle.",
+    "default_project_name": "My Project",
+    "toast": {
+      "copy_ok": "✓ Start prompt copied — paste it into Cursor or Claude",
+      "copy_fail": "Copy was blocked — use START_PROMPT.txt inside the bundle",
+      "no_project": "Select a project first",
+      "bundling": "Gathering specs and building the bundle...",
+      "plan_generating": "Generating AI build plan...",
+      "download_ok_plan": "✓ {filename} downloaded — includes AI build plan",
+      "download_ok": "✓ {filename} downloaded",
+      "download_ok_no_spec": "✓ {filename} (no spec — rule templates only)",
+      "bundle_fail": "Bundle generation failed: {error}"
+    }
+  },
+  "bundle": {
+    "spec_readme_empty": "No specs yet. Complete Harness's Plan and Design steps first, and this folder will be filled with PRD · Architecture · DDD · SPACK.",
+    "work_rules": {
+      "r1_source_of_truth": "Treat the `spec/` documents as the **single source of truth**. Do not add features that are not in the spec.",
+      "r2_incremental": "Implement one feature at a time, incrementally, in actually-working units.",
+      "r3_summarize_before": "Before any large change, first summarize what you will change and how.",
+      "r4_new_lib_consent": "Before adopting a new library or framework, propose it with a reason and get consent first. (Prefer the stack defined in the spec.)",
+      "r5_import_registry": "For imports and dependencies, **verify the package actually exists in the official registry (pypi, npm, etc.)**. Do not invent functions or options by guessing.",
+      "r6_undecided_stop": "Items marked **⚠️ 미정** in the spec (request/response shapes, data attributes, owning service, etc.) mean the design is still empty. **Do not fill them in on your own — stop and ask the user.** Guessing is the most common cause of failure.",
+      "r7_run_verify": "Consider a feature done only after you have actually run it and confirmed it works. Judge by the run result, not by \"it should work.\"",
+      "r8_ask_when_ambiguous": "Do not guess at ambiguous parts — ask which part of the spec is unclear.",
+      "r9_assumptions_risks": "Before starting a large task, first write down **2–3 assumptions, risks, and uncertainties each** for the plan.",
+      "r10_small_commits": "Keep commits small — one thing per commit."
+    },
+    "role_line": {
+      "with_stack": "You are a senior developer fluent in **{stack}**. Follow the design spec below faithfully.",
+      "no_stack": "You are a careful senior developer. Follow the design spec below faithfully."
+    },
+    "context": {
+      "reader_agents": "AI coding tools such as Cursor · Codex · Windsurf",
+      "reader_claude": "Claude Code",
+      "coder_agents": "your AI coding tool",
+      "coder_claude": "Claude Code",
+      "overview_more": " …(see spec/prd.md for details)",
+      "overview_empty": "_See the spec/ documents below._",
+      "doc_status": "- `IMPLEMENTATION_STATUS.md` — what is already built (✅) / not built (⬜) ★ read this first",
+      "doc_build_plan": "- `BUILD_PLAN.md` — how to build it (recommended stack · build order · acceptance criteria) ★ read first",
+      "doc_prd": "- `spec/prd.md` — product spec (PRD) (what & why)",
+      "doc_architecture": "- `spec/architecture.md` — system structure (how to split it)",
+      "doc_ddd": "- `spec/ddd.md` — domain model (core concepts · data)",
+      "doc_spack": "- `spec/spack.md` — detailed spec",
+      "doc_empty": "- (No spec yet — complete Harness's Plan and Design first)",
+      "enhance_note": "> ⚠️ **This project was imported from an existing codebase (not an empty folder).**\n> Do not rebuild from scratch — respect the ✅ (already built) items in `IMPLEMENTATION_STATUS.md` and add or improve only the ⬜ (not built)\n> items on top of the existing code. Verify even the ✅ items once against the real code (the mapping is auto-estimated).",
+      "autoload_note": "This file is the context that {reader} reads automatically when opening the project.",
+      "gen_note": "Based on the Harness design spec · Generated: {stamp}",
+      "h_role": "Role",
+      "h_what": "What we're building",
+      "h_specs": "Design documents (single source of truth)",
+      "specs_lead": "Before writing any code, read the documents in the `spec/` folder first.",
+      "h_rules": "Working rules",
+      "footer": "🤖 Generated by Harness — planning by Harness, coding by {coder}."
+    },
+    "cursor": {
+      "header": "# {name} — Cursor Rules (generated by Harness)",
+      "spec_hint": "# See the ./spec/ folder for the detailed spec.",
+      "spec_first": "The spec for this project is in the ./spec/ folder. Always read it first before writing code."
+    },
+    "plan": {
+      "empty_item": "(none)",
+      "title": "{name} — Build Plan (Harness AI)",
+      "lead1": "A \"how to build it\" guide the AI produced after reading the spec.",
+      "lead2": "Use it together with START_PROMPT.txt so the agent works in this order and to these acceptance criteria.",
+      "h_stack": "Recommended stack",
+      "stack_infer": "_(needs to be inferred from the spec)_",
+      "h_scope_now": "Initial scope (build now)",
+      "h_scope_later": "Later (skip this round)",
+      "h_milestones": "Build order (milestones)",
+      "h_acceptance": "Acceptance Criteria",
+      "h_risks": "Tricky parts (watch out)",
+      "footer": "🤖 Generated by Harness — planning by Harness, coding by your AI coding tool."
+    },
+    "llms": {
+      "overview_empty": "A planning and design bundle generated with Harness.",
+      "link_build_plan": "- [BUILD_PLAN.md](BUILD_PLAN.md): how to build it — recommended stack · build order · acceptance criteria",
+      "link_claude": "- [CLAUDE.md](CLAUDE.md): role · working rules (auto-loaded by Claude Code)",
+      "link_agents": "- [AGENTS.md](AGENTS.md): role · working rules (auto-loaded by Cursor · Codex · Windsurf)",
+      "link_prd": "- [PRD](spec/prd.md): product spec (PRD) (what & why)",
+      "link_architecture": "- [Architecture](spec/architecture.md): system structure",
+      "link_ddd": "- [DDD](spec/ddd.md): domain model (core concepts · data)",
+      "link_spack": "- [SPACK](spec/spack.md): detailed spec (API · data · policy)",
+      "h_specs": "Design documents",
+      "h_rules": "Working rules",
+      "rule_source_of_truth": "Treat the spec/ documents as the single source of truth, and do not add features that are not in the spec.",
+      "rule_import_registry": "Verify that imports and libraries actually exist in the official registry.",
+      "rule_undecided": "For items marked **⚠️ 미정** in the spec, do not fill them in on your own — stop and ask the user."
+    },
+    "start": {
+      "greenfield": "I want to build the \"{name}\" project. The design spec is in this project's spec/ folder and CLAUDE.md (I unpacked the Harness bundle into it).\n\n1) First read all the documents in spec/, then summarize what we're building in 3–5 lines.\n2) Propose which tech stack to use and briefly explain why. (If the spec already fixes a stack, prefer that.)\n3) First write down 2–3 assumptions, risks, and uncertainties each for this plan.\n4) Lay out a step-by-step build plan starting from the smallest working unit (MVP).\n5) Once I confirm, start writing code from step 1.\n\nRules:\n- Do not add features that are not in the spec. Do not guess at ambiguous parts — ask me.\n- For items marked ⚠️ 미정 in the spec (request/response shapes, data attributes, owning service, etc.), do not fill them in on your own — stop and ask me.\n- Verify that imports and libraries actually exist in the official registry before using them. Do not invent functions or options.\n- Run each step and confirm it works before moving to the next.",
+      "enhance": "I want to **continue improving and extending the \"{name}\" project on top of existing, already-built code**, not build it from scratch.\n\nThis folder includes an `IMPLEMENTATION_STATUS.md` that came with it — it lists which design-spec items are ✅ already built / ⬜ not yet built. The detailed design is in the `spec/` folder.\n\n‼️ **This bundle assumes you are working inside the repository it was imported from.** The files for ✅ items actually exist in that repo.\n\n1) First read `IMPLEMENTATION_STATUS.md` and the existing code, then summarize what is currently implemented in 3–5 lines.\n2) Make a step-by-step plan for which ⬜ (not built) items to add or improve this round. Respect the existing code for ✅ (already built) items and do not rewrite them carelessly.\n3) First write down 2–3 assumptions, risks, and uncertainties each for this plan.\n4) Once I confirm, implement the ⬜ items first, matching the existing code style.\n\nRules:\n- **Do not start a new project from scratch.** Follow the existing code's structure, naming, and tech stack, and build on top of it.\n- Check even the ✅ items against the real code once. If STATUS and the code differ, trust the code but let me know. (The matching is auto-estimated, so it's not 100%.)\n- **STATUS reflects the last analysis point in time.** Compare the current PRD in `spec/` against STATUS; if an item exists in the PRD but is in neither the ✅ nor ⬜ lists of STATUS, treat it as ⬜ (not built) and add it.\n- Do not carelessly delete or change existing code that is not in the spec (the drift in STATUS).\n- Do not add features that are not in the spec. For ⚠️ 미정 items, stop and ask. Verify that imports and libraries actually exist.\n- Run each step and confirm it works before moving to the next."
+    },
+    "status": {
+      "file_unknown": "(file unknown)",
+      "not_found": "not found in the code",
+      "title": "Implementation Status (IMPLEMENTATION STATUS)",
+      "lead1": "This project was **imported from an existing codebase**. Below is the auto-mapped status of \"design spec ↔ actual code.\"",
+      "lead2": "‼️ Work **inside the repository this bundle was imported from**. The files for ✅ items are in that repo.",
+      "repo": "Imported repository: {repoUrl}",
+      "lead3": "Generated: {stamp} · The mapping is auto-estimated, so it's not 100% — verify even the ✅ items against the real code once.",
+      "lead4": "⚠️ This status reflects the **last analysis point in time**. If you have since edited the spec (meeting notes / PRD), re-run analyzeLineage (or Lint) and regenerate the bundle. Until then, check whether the current PRD in `spec/` has items not in the lists below, and if so treat them as not built (⬜).",
+      "sec_done": "✅ Already built — do not rewrite (verify and refine only)",
+      "sec_missing": "⬜ Not built yet — add this round",
+      "sec_weak": "⚠️ Partial / low-confidence — verify against the real code",
+      "sec_drift": "🔎 Existing code not in the spec (drift) — do not change carelessly",
+      "empty_none": "none",
+      "empty_missing": "none — add new requirements and re-analyze to fill this in",
+      "footer": "🤖 Generated by Harness — build on top of the existing implementation (do not start over from scratch)."
+    }
+  }
+}

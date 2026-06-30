@@ -1,0 +1,390 @@
+{
+  "page": {
+    "title": "导出交付物",
+    "subtitle": "把你在本项目中构建的所有交付物（GitHub 仓库）集中到一处，打包成用于交接的 ZIP 文件下载。",
+    "guide_btn": "使用指南",
+    "guide_btn_title": "再次查看 Deliverables 页面指南",
+    "final_artifacts": "Final Artifacts"
+  },
+  "hero": {
+    "pill": "项目摘要",
+    "no_project": "No Project",
+    "stats": "{repoCount} 个 Repository · {files} files · {loc} LOC",
+    "last_registered": "最后注册于 {date}",
+    "refresh_all": "全部刷新"
+  },
+  "kpi": {
+    "lint_analyzed": "{count} / {total} 已分析"
+  },
+  "confirm_delete": {
+    "title": "删除 Repository",
+    "message": "{url}\n\n将删除注册信息（不影响实际的 GitHub repo）。",
+    "confirm_text": "删除"
+  },
+  "readiness": {
+    "pill": "交接准备度",
+    "title": "交接就绪度",
+    "desc": "自动检查 7 个项目 —— 当全部为 ✅ 时，即可将项目原样交接给下一个团队。",
+    "why_label": "为什么？",
+    "why_collapse": "收起说明：",
+    "why_expand": "查看为什么这很重要：",
+    "overall": {
+      "ready": "✅ 可以交接",
+      "almost": "🟡 即将完成",
+      "todo": "🔴 需要完善"
+    },
+    "msg": {
+      "need_repo": "需要注册仓库",
+      "ratio_pass": "{have} / {total} 通过"
+    },
+    "checks": {
+      "has_repo": {
+        "label": "已注册仓库",
+        "hint_pass": "已注册 {count} 个",
+        "hint_fail": "请至少注册一个 GitHub 仓库",
+        "why": "没有仓库就没有可交接的代码。这是你最先需要的基础。"
+      },
+      "lint_avg": {
+        "label": "平均代码检查 ≥ 80%",
+        "hint_none": "尚未检查",
+        "hint_value": "平均 {avg}%（{count} / {total} 已分析）",
+        "why": "80% 或以上意味着代码遵循通用约定。低于此值，接手团队需要更多时间来适应。"
+      },
+      "lineage_coverage": {
+        "label": "Lineage 映射率 ≥ 80%",
+        "hint_none": "尚未分析 —— 请在上方交付物 lineage 中运行“Analyze”",
+        "hint_value": "Coverage {pct}%",
+        "why": "牢固的“需求 ↔ 设计 ↔ 代码”链接，能让下一个团队快速找到该在哪里改动。"
+      },
+      "readme": {
+        "label": "每个仓库都有 README",
+        "why": "没有 README，交接第一天就会卡在“这东西到底怎么启动？”。入门指南是信任的第一印象。"
+      },
+      "license": {
+        "label": "每个仓库都有 LICENSE",
+        "why": "没有许可证，公开发布和再分发在法律上就不明确。明确的许可证对接手团队放心使用至关重要。"
+      },
+      "activity": {
+        "label": "最近 30 天内有提交活动",
+        "why": "超过一个月没有提交，意味着“被遗弃的代码”。交接时是否为最新状态，是交接就绪度的关键指标。"
+      },
+      "prd": {
+        "label": "存在需求文档（PRD）",
+        "hint_pass": "已编写",
+        "hint_fail": "请先在 Plan 界面创建 PRD",
+        "why": "当“要构建什么”被记录下来后，下一个团队就能沿同一方向继续工作。"
+      }
+    }
+  },
+  "repo_grid": {
+    "pill": "已注册仓库",
+    "title": "按角色划分的 Repository",
+    "add_btn": "添加 Repo",
+    "loading": "加载中…",
+    "empty_title": "没有已注册的 Repository",
+    "empty_desc": "在 Code · Lint 界面输入 GitHub URL 时会自动注册仓库，或者你可以用上方的按钮直接添加。",
+    "open_aria": "查看 {name} 详情",
+    "open_github_aria": "在 GitHub 上打开 {url}",
+    "edit_aria": "编辑 {name}",
+    "delete_aria": "删除 {name}",
+    "github_title": "GitHub",
+    "edit_title": "编辑",
+    "delete_title": "删除",
+    "meta_loading": "正在加载 GitHub 元数据…",
+    "meta_error_404": "未找到 / Private",
+    "meta_error_403": "API rate limit 超限（1h 后重试）",
+    "meta_error_other": "元数据获取失败",
+    "meta_waiting": "等待中…",
+    "files_unit": "files",
+    "loc_unit": "LOC",
+    "lint_pill": "Lint {score}%",
+    "lint_none": "Lint 未分析",
+    "lint_loading": "Lint…",
+    "detail_hint": "查看详情 →"
+  },
+  "lang_stack": {
+    "pill": "技术栈",
+    "title": "语言 / 技术栈分布",
+    "desc": "汇总所有已注册仓库的语言占比。一眼看清接手团队需要掌握哪些技术。",
+    "analyzed_label": "已分析的仓库",
+    "empty": "暂无可显示的语言信息。添加 GitHub 仓库后，语言占比会自动汇总。",
+    "others": "其他（{count} 个）",
+    "distribution_aria": "语言分布：{list}"
+  },
+  "lineage": {
+    "pill": "实现确认",
+    "title": "我的规划，都进代码了吗？",
+    "desc": "AI 一眼帮你确认：规划的功能（场景）是否都已在实际代码中实现。",
+    "import_export_aria": "导入/导出基准标签",
+    "badge_aria": "生成 coverage 徽章",
+    "diff_aria": "比较分析历史",
+    "diff_title": "比较分析历史",
+    "graph_aria": "图形可视化",
+    "graph_title": "查看 lineage 图",
+    "reanalyze": "重新分析",
+    "analyze": "分析",
+    "empty": {
+      "value_title": "连接代码后，自动帮你确认是否都按规划做好了",
+      "value_desc": "连接 GitHub Repo 并运行检查，我们会把规划的功能与实际代码文件对照，并精确指出缺失项。",
+      "preview_caption": "你会看到这样的结果 👇",
+      "connect_repo": "连接 Repo",
+      "ready_title": "准备就绪",
+      "ready_desc": "点击检查，AI 会对照你的规划 ↔ 代码（约 1~2 分钟）。"
+    },
+    "result": {
+      "headline": "规划的场景 {done} / {total} 已在代码中确认",
+      "headline_none": "规划中还没有用户场景 — 请先填写 PRD。",
+      "missing_head": "🔴 代码中还未发现 {n} 个",
+      "all_done": "规划的场景都已在代码中 🎉",
+      "implemented_head": "✅ 代码中已确认 {n} 个场景",
+      "where": "在哪里",
+      "tech_rollup": "API {ax}/{at} · 数据 {gx}/{gt} · 服务 {sx}/{st} 已实现",
+      "advanced_toggle": "高级（开发者）— 详细映射·质量·历史",
+      "conf_high": "精确找到",
+      "conf_medium": "找到相近处",
+      "conf_low": "弱推测",
+      "conf_unverified": "未验证"
+    },
+    "analyzing": {
+      "title": "AI 正在分析交付物 lineage",
+      "desc": "结合 {count} 个 Repo 文件树与 Design 交付物进行映射。",
+      "stages_aria": "分析阶段"
+    },
+    "zero_match": {
+      "title": "分析已完成，但匹配项为 0",
+      "desc_html": "为防止 AI 凭空臆造代码，<strong>结果中只包含 fileTree 中实际存在的路径</strong>。原因很可能是以下之一：",
+      "reason1_html": "交付物名称为韩文而代码为英文 → 关键词匹配失败（例如：\"사용자 인증 서비스\" ↔ <code class=\"mono-text\">UserAuthService.ts</code>）",
+      "reason2": "无法获取已注册 Repo 的 fileTree（private repo 或 GitHub rate limit）",
+      "reason3": "匹配关键词过于通用（\"Service\"、\"Manager\" 等）",
+      "retry": "重新分析",
+      "tip": "或者通过每个交付物的 ✏️ 按钮注册基准标签，以测量匹配准确率。"
+    },
+    "summary": {
+      "no_summary": "无摘要",
+      "total_mapping": "总映射数",
+      "missing": "未实现",
+      "aggregate": "Aggregate",
+      "api": "API"
+    },
+    "view_aria": "Lineage 视图",
+    "tabs": {
+      "matrix": "全部",
+      "aggregates": "数据捆绑",
+      "apis": "外部入口点",
+      "services": "服务",
+      "stories": "用户场景",
+      "missing": "未实现"
+    },
+    "matrix": {
+      "coverage": "COVERAGE",
+      "mapped_ratio": "{mapped} / {total} 已映射",
+      "filters": {
+        "all": "全部",
+        "high": "确定",
+        "medium": "推测",
+        "low": "较弱",
+        "unverified": "未确认",
+        "missing": "未实现"
+      },
+      "th_impl": "实现位置",
+      "no_name": "—",
+      "open_aria": "打开 {path}",
+      "status_missing": "未实现",
+      "empty_no_missing": "✓ 没有未实现的项目",
+      "empty_no_match": "没有符合筛选条件的项目"
+    },
+    "missing_tab": {
+      "all_mapped": "✓ 所有交付物均已映射。"
+    },
+    "quality": {
+      "title": "匹配质量（标签 {labeled}/{total}）",
+      "empty": "ℹ 没有交付物注册了基准标签。通过每个项目的 ✏️ 按钮注册候选文件，即可测量匹配质量。"
+    },
+    "filter": {
+      "search_placeholder": "搜索名称/ID/端点/文件路径…",
+      "search_aria": "搜索交付物",
+      "search_clear_aria": "清除搜索",
+      "confidence_group_aria": "置信度筛选",
+      "confidence": {
+        "all": "全部",
+        "high": "确定",
+        "medium": "推测",
+        "low": "较弱",
+        "unverified": "未确认",
+        "none": "未映射"
+      },
+      "repo_filter_aria": "Repo 筛选",
+      "all_repos": "所有 Repo",
+      "clear_btn": "重置筛选",
+      "count": "已显示 {shown} / {total}"
+    },
+    "list": {
+      "label_edit_aria": "编辑 {name} 标签",
+      "label_register_aria": "为 {name} 注册基准标签",
+      "label_edit_title": "编辑标签（基准已注册）",
+      "label_register_title": "注册基准标签",
+      "no_name": "—",
+      "open_aria": "打开 {path}",
+      "open_github_aria": "在 GitHub 上打开：{path}",
+      "no_matched_file": "⚠ 无匹配文件",
+      "tab_empty": "没有 {tab} 项目。"
+    }
+  },
+  "drawer": {
+    "aria_label": "{name} 详情",
+    "refresh_aria": "刷新 GitHub 元数据",
+    "refresh_title": "刷新",
+    "open_github_aria": "在 GitHub 上打开仓库",
+    "close_aria": "关闭详情面板",
+    "close_title": "关闭",
+    "tab_overview": "概览",
+    "tab_activity": "活动",
+    "tab_team": "团队",
+    "loading": "正在获取 GitHub 数据…",
+    "error": {
+      "not_found": "未找到仓库",
+      "rate_limit": "GitHub API rate limit 超限",
+      "generic": "获取 GitHub 数据失败",
+      "desc_rate_limit": "未认证的调用每小时限 60 次。缓存会在 1 小时后自动过期，请稍后重试。",
+      "desc_generic": "请确认仓库为公开状态且 URL 正确。"
+    },
+    "lang_distribution": "语言分布",
+    "no_lang": "无语言信息",
+    "repo_info": "Repo 信息",
+    "fetched_at": "获取时间",
+    "no_readme": "无 README",
+    "commit_heatmap": "提交热力图（最近 90 天）",
+    "recent_commits": "最近提交（{count}）",
+    "no_commits": "无提交信息",
+    "contributors": "贡献者（{count}）",
+    "no_contributors": "无贡献者信息"
+  },
+  "repo_form": {
+    "dialog_aria": "Repository 注册表单",
+    "title_add": "添加 Repository",
+    "title_edit": "编辑 Repository",
+    "url_label": "GitHub URL",
+    "library_label": "从我的库中选择",
+    "role_label": "角色",
+    "alias_label": "别名（可选）",
+    "alias_placeholder": "例如：Account FE"
+  },
+    "obsidian": {
+    "folder_plan": "规划",
+    "folder_api": "API",
+    "folder_data": "数据",
+    "folder_policy": "策略",
+    "folder_domain": "领域",
+    "folder_service": "服务",
+    "folder_screen": "页面",
+    "home_title": "首页",
+    "home_intro": "这是 Harness 生成的规划·设计 vault。打开图谱视图(Ctrl/Cmd+G)即可一览结构。",
+    "section_related": "相关",
+    "section_attrs": "属性",
+    "attr_field": "字段",
+    "attr_type": "类型",
+    "attr_required": "必填",
+    "attr_constraint": "约束",
+    "empty_node_warn": "该条目尚为空 — 可用 Harness 的'AI 填充'来补全。",
+    "readme_intro": "此文件夹是可直接在 Obsidian 中打开的规划·设计笔记集。",
+    "readme_steps_title": "3 分钟上手",
+    "readme_step1": "安装 Obsidian (obsidian.md — 免费)",
+    "readme_step2": "在 Obsidian 中选择'将文件夹作为仓库打开'，选中此文件夹",
+    "readme_step3": "打开图谱视图(Ctrl/Cmd+G)即可一览规划结构",
+    "readme_note": "此 vault 为导出时点的单向快照。在此处的编辑不会同步回 Harness。再次导出时建议解压到新文件夹。"
+  },
+  "handoff": {
+    "pill": "交接包",
+    "title": "交接包",
+    "desc": "根据目标角色（开发者·PM·设计者）将交付物打包成 ZIP 下载。",
+    "note": "⚠️ 不包含源代码 —— 请直接从 repo URL 克隆实际代码。此 ZIP 是仅含设计规格、报告和链接的文档包。",
+    "dev_aria": "下载开发者工具包：设计规格·ERD·编码规则·PRD·Lint",
+    "dev_content": "设计规格 + ERD + 编码规则(skills) + PRD + Lint",
+    "pm_aria": "下载 PM 工具包：PRD·CPS·需求可追溯性·未定项·Lint",
+    "pm_content": "PRD + 背景(CPS) + 需求可追溯性 + 未定项 + Lint",
+    "architect_aria": "下载架构师工具包：设计规格·ERD·设计可追溯性·未定项·Lint",
+    "architect_content": "设计规格 + ERD + 设计可追溯性 + 未定项 + Lint",
+    "obsidian_aria": "下载 Obsidian Vault: 把规划与设计变成维基链接笔记",
+    "obsidian_content": "整套规划·设计化为 [[维基链接]] 笔记 — 兼容 Obsidian 图谱视图",
+    "zip": {
+      "obsidian_no_data": "还没有可导出的规划/设计数据。请先完成会议记录整理(01)和系统设计(02)。",
+      "registered_repos": "已注册的 Repository（{count}）",
+      "no_repos": "_没有已注册的 repo_",
+      "lint_compliance": "平均 Lint 符合率",
+      "lint_value": "**{avg}%**（已分析 {count} 个 repo）",
+      "no_analysis": "_没有分析结果_",
+      "note_html": "> ⚠️ **此包中不包含源代码。** 请直接从上方的\n> Repository URL 克隆实际代码。此 ZIP 是仅含设计规格、报告和链接的文档包。",
+      "generating": "正在生成 {mode} 工具包...",
+      "download_done": "✓ 已下载 {filename}",
+      "generate_fail": "ZIP 生成失败：{error}",
+      "role_title_dev": "DEV 交接包",
+      "role_title_pm": "PM 交接包",
+      "role_title_architect": "ARCHITECT 交接包",
+      "role_for_dev": "对象：开发者（按此规格编写代码的人）",
+      "role_for_pm": "对象：产品经理（追踪·管理产品的人）",
+      "role_for_architect": "对象：系统设计者（审查设计的人）",
+      "about_title": "本包用途",
+      "about_dev": "供开发者按此规格编写代码的工具包。包含设计规格·数据模型(ERD)·需遵循的编码规则(skills)·当前代码质量(Lint)。",
+      "about_pm": "供产品经理掌握『决定做什么、做到哪一步、还剩什么』的工具包。包含 PRD·背景(CPS)·需求可追溯性·未定项。",
+      "about_architect": "供系统设计者审查整体设计的工具包。包含设计规格·数据模型(ERD)·设计依据可追溯性·未定项·当前代码状态(Lint)。",
+      "first_title": "先看这些",
+      "first_dev": "1) 通过 `02_plan/prd.md` 了解要做什么 → 2) 通过 `03_design/` 规格和 `erd.xlsx` 确认数据·结构 → 3) 遵循 `skills/` 的编码规则进行实现。⚠ 标记和 `06_review/open-questions.md` 中的未定项请勿擅自决定，务必确认。",
+      "first_pm": "1) 通过 `02_plan/prd.md`·`cps.md` 确认产品方向 → 2) 通过 `07_traceability/lineage.xlsx` 检查需求是否已反映到设计中（覆盖率）→ 3) 根据 `06_review/open-questions.md` 中的未定项推进后续决策。",
+      "first_architect": "1) 通过 `03_design/` 的 SPACK·DDD·Architecture 掌握整体设计 → 2) 通过 `erd.xlsx` 审查数据模型、通过 `07_traceability/lineage.xlsx` 审查设计依据 → 3) 根据 `06_review/open-questions.md` 中的未定项和 `05_lint/` 的当前代码状态排查风险。",
+      "contents_title": "包含的文件",
+      "open_questions_title": "⚠️ 未定项 {count} 件",
+      "open_questions_body": "这些是设计尚未填写的项目。编写代码前请查看 `06_review/open-questions.md` 并确定。",
+      "file_prd": "产品需求 (PRD)",
+      "file_cps": "背景·问题·解决方案 (CPS)",
+      "file_spack": "API·数据·策略规格 (SPACK)",
+      "file_ddd": "领域模型 (DDD)",
+      "file_arch": "系统结构·技术栈 (Architecture)",
+      "file_erd": "数据模型 ERD —— 实体·属性·关系 (Excel)",
+      "file_open_questions": "未定项清单 —— 实现前需确定",
+      "file_lineage": "PRD↔设计可追溯性 —— 覆盖率·依据 (Excel)",
+      "file_repo_list": "Repository 列表",
+      "file_skills": "编码规则 {count} 件 (skills/)",
+      "file_lint": "代码质量报告 —— {count} 个 repo"
+    },
+    "empty_hint": "请先添加 GitHub 仓库（在上方仓库区域），然后即可下载下面的打包。"
+  },
+  "guide": {
+    "pill": "DELIVERABLES GUIDE",
+    "headline": "Final Artifacts & Handoff",
+    "sub": "把所有交付物（Repo · 规格 · Lint 结果 · 编码规则）集中到一处，通过 KPI 进行查看，并打包成单个 ZIP 一次性交接。",
+    "illustration_zip_label": "HANDOFF.ZIP —— 一次性获取全部",
+    "step1": {
+      "title": "Deliverables 概览",
+      "subtitle": "Final Artifacts",
+      "desc": "在一个界面整理项目的所有交付物（GitHub 仓库）。通过 KPI 和 lineage 展示 Plan → Design → Code → Lint 的完成成果，并在最后阶段把它们打包成交接 ZIP。",
+      "tip": "这里是“完成”阶段 —— 交接给外部利益相关方或下一个团队的最终交付物门户。"
+    },
+    "step2": {
+      "title": "注册仓库",
+      "subtitle": "Frontend · Backend · DB · Mobile · Other",
+      "desc": "用“+ Repository”按钮按角色注册项目的 GitHub repo。注册后会自动获取元数据（stars、forks、最近提交、语言分布）和 lint 分数，并汇总到 KPI 卡片中。",
+      "tip": "即使一个项目有多个 repo（例如 front + back + infra），它们也会全部集中到一处。删除注册信息不会影响 GitHub 原始仓库。"
+    },
+    "step3": {
+      "title": "Lineage & Quality",
+      "subtitle": "PRD → Design → Code Traceability",
+      "desc": "展示每个代码节点派生自哪个 PRD Story / Design 规格的可追溯性指标。提供四种可视化工具：基准标签导入、coverage 徽章、diff，以及完整的 lineage 图。",
+      "tip": "AVG LINT % 卡片在低于 60% 时变红、达到 80% 或以上时变绿 —— 一眼看清质量信号。"
+    },
+    "step4": {
+      "title": "Handoff ZIP —— 一键交接",
+      "subtitle": "One-click Delivery",
+      "desc": "把所有 repo 信息、规格（SPACK · DDD · Architecture）、lint 结果和编码规则打包成单个 ZIP。接收方只需解压即可即时访问每一项交付物 —— 无需额外的权限设置，立即交接。",
+      "tip": "只需告诉接收方“从 0_START_HERE.md 开始就行”，指引就足够了。"
+    }
+  },
+  "quickstart": {
+    "title": "第一次使用？只需 3 步",
+    "step1_title": "添加仓库",
+    "step1_desc": "按角色注册你的 GitHub 仓库。",
+    "step2_title": "实现检查",
+    "step2_desc": "用 AI 确认规划的功能是否都已进入代码。",
+    "step3_title": "获取打包",
+    "step3_desc": "将设计规格与报告打包成 ZIP，交接给下一个团队。"
+  }
+}

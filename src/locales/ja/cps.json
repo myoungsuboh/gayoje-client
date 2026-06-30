@@ -1,0 +1,71 @@
+{
+  "toast": {
+    "download_ok": "CPS markdown をダウンロードしました",
+    "copy_fail": "コピーに失敗しました。ブラウザの権限をご確認ください。",
+    "save_ok": "CPS を保存しました。",
+    "save_fail": "CPS の保存に失敗しました。",
+    "node_save_ok": "{label} ノードを更新しました。",
+    "node_save_fail": "ノードの更新に失敗しました。",
+    "dismiss_ok": "CPS markdown の非同期通知を非表示にしました。",
+    "dismiss_fail": "非表示にできませんでした。",
+    "resynth_not_found": "再合成の対象が見つからないか、LLM の出力が想定の形式に合いませんでした。もう一度お試しいただくか、markdown を直接編集してください。",
+    "resynth_rate_limit": "リクエストが多すぎます。しばらくしてからもう一度お試しください。{detail}",
+    "resynth_fail": "CPS の再合成に失敗しました。",
+    "resynth_apply_ok": "CPS markdown の再合成結果を適用しました。",
+    "resynth_apply_fail": "適用に失敗しました。",
+    "save_conflict": "他の場所（別のデバイス・バックグラウンド処理）でこのドキュメントが先に変更されました。最新の内容を確認してから、もう一度お試しください。",
+    "remote_busy": "このプロジェクトは他のデバイスまたはタブで処理中です。処理が終わってからもう一度お試しください。"
+  },
+  "err": {
+    "no_project": "プロジェクトが選択されていません。",
+    "content_empty": "内容が空です。",
+    "content_too_large": "内容が大きすぎます（最大 500KB）。",
+    "summary_empty": "summary が空です。",
+    "summary_too_large": "summary が長すぎます（最大 2KB）。"
+  },
+  "confirm": {
+    "large_delete": "⚠️ CPS の {pct}%（{deleted} 文字）が削除されます。\n\n蓄積された Problem/Solution データが失われる可能性があります。\n意図的な操作であれば「OK」を押してください。"
+  },
+  "nav": {
+    "context_hint": "右側のビューアーで Context の全文をご確認ください。",
+    "problem_empty": "PRB 項目がありません。",
+    "solution_empty": "RES 項目がありません。",
+    "pending_empty": "Pending グループがありません。",
+    "pending_group_empty": "まだ記載された項目がありません。"
+  },
+  "graph": {
+    "edit_mode": "レビュー",
+    "no_nodes": "ノードがありません。"
+  },
+  "copy_title": "CPS markdown をクリップボードにコピー",
+  "download_title": "CPS markdown（.md）をダウンロード — Cursor · Notion · repo 用",
+  "edit_title": "セクション単位で編集（レビューモード）",
+  "tab_locked": "編集中はタブを切り替えられません。先に保存またはキャンセルしてください。",
+  "saving": "保存中...",
+  "stale": {
+    "title": "グラフノードは更新されましたが、markdown はまだ古い内容です。",
+    "sub": "自動再合成（LLM、5〜15秒）または markdown の直接編集をお選びください。"
+  },
+  "resynth_running": "再合成中...",
+  "resynth_btn": "自動再合成",
+  "manual_edit_btn": "手動で編集",
+  "dismiss_btn": "非表示",
+  "filter": {
+    "view_only": "「{label}」のみ表示",
+    "view_all": "すべて表示 ←"
+  },
+  "edit_scope": {
+    "editing": "編集中:",
+    "section_label": "#{num} {title}",
+    "section_hint": "保存時に他のセクションはそのまま保持されます。",
+    "full_label": "markdown 全体",
+    "full_hint": "セクションの解析に失敗しました — 全体を直接編集します。"
+  },
+  "placeholder": {
+    "section": "このセクションの markdown を直接編集...",
+    "full": "CPS markdown 全体を直接編集..."
+  },
+  "compliance": {
+    "desc": "現在の仕様書に含まれるすべての要件が 100% マッピングされました。Rule Generator で即座にエンジニアリングルールへ変換できます。"
+  }
+}

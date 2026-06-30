@@ -1,0 +1,47 @@
+{
+  "perk": {
+    "meeting_logs": "{count} meeting logs per month",
+    "tokens": "{amount} AI tokens",
+    "lite_bonus": "Never get blocked\nLite mode adds {amount}/week after you run out",
+    "free_wait": "When tokens run out, wait until monthly reset",
+    "skills": "{count} skill library slots",
+    "projects": "{count} concurrent projects",
+    "discount": "{pct}% unit discount (vs Pro)",
+    "beta_access": "Priority beta access to new features"
+  },
+  "upgrade": {
+    "title_exceeded": "You've reached your usage limit",
+    "title_max": "Pro Max limit notice",
+    "title_default": "Upgrade your tier",
+    "subtitle_exceeded_type": "You've used up your {label} limit.",
+    "subtitle_exceeded": "You've used up your current tier's limit.",
+    "subtitle_max": "You're on the highest tier.",
+    "subtitle_default": "Need more meeting registrations and AI analysis?",
+    "stat_current": "Current",
+    "stat_limit": "Limit",
+    "stat_tier": "Tier",
+    "selffix": "✂️ Trim the meeting log to <strong>{limit} characters or fewer</strong> to save it on your current tier right away. Upgrade to process longer meeting logs at once.",
+    "reset_days": "💡 Usage auto-resets in <strong>{days} days</strong>, restoring your limit. Upgrade below if you need it sooner.",
+    "reset_today": "💡 Resetting today — your usage will be cleared shortly.",
+    "recommended": "Recommended",
+    "per_month": "/ mo",
+    "cta_start": "Start {label}",
+    "note": "Your subscription begins immediately after registering a card. When upgrading, only the prorated difference for the remaining days is charged.",
+    "later": "Later",
+    "contact_admin": "Contact admin"
+  },
+  "limit_type": {
+    "meeting_logs": "Meeting log registration",
+    "summary_chars": "Per-meeting input characters",
+    "total_tokens": "AI token usage",
+    "library_skills": "Skill library storage",
+    "max_projects": "Concurrent projects"
+  },
+  "pro_max_notice": "You've reached the Pro Max limit. If you need more capacity, please contact an administrator.",
+  "mailto": {
+    "upgrade_subject": "[Harness] {label} upgrade inquiry",
+    "upgrade_body": "Hello,\n\nI'd like to upgrade to Harness {label} ({price}).\n- Email: (your account email)\n- Current tier: {current}\n- Reason: \n\nThank you.",
+    "contact_subject": "[Harness] Additional capacity inquiry",
+    "contact_body": "Hello,\n\nI've reached the Harness Pro Max limit and would like to inquire about additional capacity.\n- Email: (your account email)\n- Reason: \n\nThank you."
+  }
+}

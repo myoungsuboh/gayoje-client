@@ -1,0 +1,48 @@
+# PR / push 시 vitest 자동 실행 (안전망).
+#
+# 목적:
+#   master 직접 푸시 → Vercel 자동 배포 → 부서진 채로 운영 반영되는 사고 차단.
+#   PR 시점에 빨간 X 표시 → 머지/배포 막힘.
+#
+# 트리거:
+#   - push: main 브랜치 직접 푸시 (Vercel 자동 배포와 동시에 검증)
+#   - pull_request: PR 생성/업데이트 (머지 전 검증)
+#
+# 테스트 셋업 (vitest.config.js):
+#   - jsdom 환경, src/**/*.{test,spec}.{js,ts} + tests/**/*.{test,spec}.{js,ts}
+#   - 현재 20+ 테스트 (utils, composables, integration, store)
+name: Test (FE)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 9.0.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Install dependencies (frozen-lockfile)
+        # pnpm-lock.yaml 과 package.json 정합성 검증을 겸함.
+        # mdi-icons 잔재 같은 drift 가 또 생기면 여기서 즉시 fail.
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests
+        run: pnpm test

@@ -1,0 +1,98 @@
+{
+  "title": "Teams",
+  "create": "Create team",
+  "page": {
+    "title": "Team collaboration",
+    "subtitle": "Create a team, invite members, and plan projects together.",
+    "how": {
+      "step1": { "title": "Create a team", "body": "Choose a team name and create your team." },
+      "step2": { "title": "Invite members", "body": "Invite teammates by email or share an invite link." },
+      "step3": { "title": "Plan together", "body": "View and edit the same projects as a team." }
+    }
+  },
+  "emptyState": {
+    "title": "You don't have a team yet",
+    "body": "Create a team so multiple people can view and plan projects together.",
+    "cta": "Create your first team",
+    "orWait": "Or ask your team lead to share an invite link."
+  },
+  "profileCard": {
+    "title": "Teams",
+    "description": "Create a team or share projects with teammates.",
+    "teamCount": "{count} team(s) joined",
+    "noTeam": "Not a member of any team.",
+    "manage": "Manage teams"
+  },
+  "empty": "You don't have any teams yet. Create one or wait for an invite.",
+  "deleteTeam": "Delete team",
+  "leaveTeam": "Leave team",
+  "members": "Members ({count})",
+  "invite": "Invite",
+  "pendingInvites": "Pending invites ({count})",
+  "cancelInvite": "Cancel invite",
+  "createModal": {
+    "title": "Create a new team",
+    "proRequired": "Teams require {plan}.",
+    "proPlan": "the Pro plan or higher",
+    "namePlaceholder": "Team name"
+  },
+  "inviteModal": {
+    "title": "Invite a teammate",
+    "sentBanner": "The invite email has been sent.",
+    "linkLabel": "Invite link (share directly)",
+    "inviteAnother": "Invite someone else",
+    "emailPlaceholder": "Email address",
+    "send": "Send invite"
+  },
+  "toast": {
+    "loadTeamsFail": "Failed to load your teams.",
+    "loadTeamFail": "Failed to load team information.",
+    "created": "Team '{name}' created.",
+    "createProRequired": "Teams require the Pro plan or higher.",
+    "createFail": "Failed to create the team.",
+    "deleteConfirm": "Delete team '{name}'? Its team projects will also be deleted.",
+    "deleted": "Team '{name}' deleted.",
+    "deleteFail": "Failed to delete the team.",
+    "leaveConfirm": "Leave this team?",
+    "removeConfirm": "Remove member '{email}'?",
+    "left": "You left the team.",
+    "removed": "Member removed.",
+    "removeFail": "Failed to remove the member.",
+    "roleChanged": "Role updated.",
+    "roleChangeFail": "Failed to update the role.",
+    "inviteSent": "Invite sent to {email}.",
+    "inviteFail": "Failed to send the invite.",
+    "inviteCancelled": "Invite cancelled.",
+    "inviteCancelFail": "Failed to cancel the invite.",
+    "copyFail": "Copy failed"
+  },
+  "accept": {
+    "loading": "Loading invite information...",
+    "joinedTitle": "You've joined the team!",
+    "joinedBody": "You are now a member of {team}.",
+    "start": "Get started",
+    "declinedTitle": "Invite declined",
+    "goHome": "Go home",
+    "errorTitle": "Something went wrong",
+    "upgrade": "Upgrade plan",
+    "inviteTitle": "Team invite",
+    "inviteBody": "{inviter} invited you to join {team}.",
+    "fieldTeam": "Team",
+    "fieldRole": "Role",
+    "fieldExpires": "Expires",
+    "loginRequired": "Log in first to accept the invite.",
+    "loginAndAccept": "Log in and accept",
+    "proRequired": "Joining a team requires {plan}.",
+    "proPlan": "the Pro plan or higher",
+    "upgradePlan": "Upgrade your plan",
+    "decline": "Decline",
+    "join": "Join team"
+  },
+  "error": {
+    "notFound": "This invite could not be found or has already expired.",
+    "loadFail": "Failed to load invite information.",
+    "acceptProRequired": "Joining a team requires the Pro plan or higher. Upgrade your plan and try again.",
+    "acceptFail": "Failed to accept the invite.",
+    "declineFail": "Failed to process the decline."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "header": {
+    "title_supplement": "AIで足りない部分を補う",
+    "title_new": "AIとの対話で始める",
+    "title_project": "補強中: {name}",
+    "sub_project": "このプロジェクトの企画は把握済みです。足りない部分だけお尋ねします。",
+    "sub_supplement": "ご記入いただいた内容を読み、足りない部分だけお尋ねします。",
+    "sub_new": "会議メモがなくても大丈夫です。いくつかの質問にお答えいただければ、整理いたします。",
+    "close_aria": "閉じる",
+    "restart": "最初からやり直す",
+    "restart_aria": "会話を最初からやり直す",
+    "restart_confirm": "これまでの会話をすべて消して最初からやり直しますか？"
+  },
+  "agenda": {
+    "label": "埋める項目 {count}件",
+    "pick": "「{topic}」から埋めたいです"
+  },
+  "restored": { "notice": "前回の会話を続けています。" },
+  "progress": { "label": "準備度" },
+  "coverage": { "label": "把握済み" },
+  "focus": { "prefix": "現在お尋ねしている項目" },
+  "dim": {
+    "goal": "目標",
+    "features": "コア機能",
+    "data": "データ",
+    "users": "ユーザー",
+    "constraints": "制約（ログイン・決済など）",
+    "usage": "用途"
+  },
+  "typing": {
+    "thinking": "考え中…",
+    "finalizing": "会議メモにまとめています…",
+    "tool": "プロジェクト資料を確認しています…"
+  },
+  "input": { "placeholder": "回答を入力してください…（Enterで送信、Shift+Enterで改行）" },
+  "error": { "generic": "AIインタビュー中にエラーが発生しました。しばらくしてからもう一度お試しください。" },
+  "entry": {
+    "title_fill": "AIが現在記入された内容を読み、足りない部分だけ質問して補います",
+    "title_start": "会議メモがなくてもOK — AIがいくつかの質問で要点を引き出し、会議メモにまとめます",
+    "btn_fill": "AIで足りない部分を補う",
+    "btn_start": "AIとの対話で始める",
+    "undo_title": "インタビューを統合する前の内容に戻します",
+    "undo_btn": "インタビュー前に戻す",
+    "merged_with_draft": "既存の内容に、対話で補った部分を統合してまとめました。確認後に保存してください。（必要であれば元に戻せます）",
+    "merged_no_draft": "対話の内容を会議メモにまとめました。確認後に保存してください。",
+    "reverted": "インタビュー前の内容に戻しました。"
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "greeting": {
+    "late_night": "Working late tonight",
+    "morning": "Good morning",
+    "afternoon": "Good afternoon",
+    "evening": "Great work today"
+  },
+  "relative": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "days_ago": "{n} days ago"
+  },
+  "header": {
+    "current_project": "Current project:",
+    "no_project": "No project yet. Start with a new one."
+  },
+  "next_action": {
+    "create": "Create a new project",
+    "meeting": "Write a meeting log",
+    "cps": "Continue defining the problem",
+    "prd": "Continue with PRD",
+    "design": "Go to System Design",
+    "lint": "Go to Code Review"
+  },
+  "loading": {
+    "text": "Finding your last project...",
+    "sub": "While you wait, explore the <strong>5-step workflow</strong> or <strong>tips</strong> below.",
+    "skip": "Start a new project"
+  },
+  "empty": {
+    "title": "Start a new project",
+    "desc": "Just add your meeting notes, and AI picks them up like a senior developer would.<br />Spec · design · code · review — all 5 steps flow without a break.",
+    "cta": "Start from a meeting log",
+    "sample": "Try a 1-minute sample"
+  },
+  "projects": {
+    "title": "My Projects",
+    "add": "New project",
+    "current": "Current",
+    "switch_aria": "Switch to project {name}"
+  },
+  "team": {
+    "add": "New team project",
+    "switch_aria": "Switch to team project {name}",
+    "empty_text": "No team projects yet. Create your first team project.",
+    "empty_cta": "Create the first {name} project"
+  },
+  "steps": {
+    "title": "5-Step Shortcuts",
+    "desc_plan": "Drop in a meeting log and get planning docs automatically",
+    "desc_design": "Turn needed screens, features and structure into a design",
+    "desc_code": "Connect AI coding tools + your GitHub repo",
+    "desc_lint": "Auto-check whether the code matches the design",
+    "desc_deliverables": "Bundle everything and export at once",
+    "foot_locked": "Finish earlier steps first →",
+    "foot_done": "Done · View →",
+    "foot_start": "Start →"
+  },
+  "strengths": {
+    "title": "You can also do this",
+    "sub": "Hidden strengths inside the 5 steps — tap to try them now.",
+    "graph_title": "See your design as a graph",
+    "graph_desc": "Lay out your system like a map — see what connects to what at a glance.",
+    "lint_title": "Auto-check what's missing",
+    "lint_desc": "AI compares the result against your original plan and flags what's missing.",
+    "obsidian_title": "Grow your plan in Obsidian",
+    "obsidian_desc": "Export your plan as a linked wiki and keep building it — view it as a graph too.",
+    "rule_title": "Make AI coding rules",
+    "rule_desc": "Auto-generate rules so AI coding tools build things your way.",
+    "act_view": "View now",
+    "act_check": "Check now",
+    "act_export": "Export",
+    "act_make": "Create",
+    "lock_after_design": "After design",
+    "lock_after_design_done": "After design is done",
+    "lock_after_prd": "After planning"
+  },
+  "sample_confirm": {
+    "title": "Try the sample?",
+    "body": "You already have <strong>{count}</strong> project(s). The sample runs in a separate space called <strong>'Sample Project'</strong> — your current work stays safe and untouched.",
+    "note": "Creating the sample uses a small amount of AI tokens.",
+    "go": "Start the sample"
+  },
+  "team_dialog": {
+    "title": "New team project",
+    "sub": "Creating a new project in the <strong>{name}</strong> team.",
+    "placeholder": "Project name",
+    "err_empty": "Please enter a project name.",
+    "err_invalid_char": "'::' is not an allowed character.",
+    "note": "Once you save a meeting log, it's officially registered as a team project. It stays separate from any personal project with the same name.",
+    "go": "Create & write log"
+  },
+  "onboarding": {
+    "aria": "Getting started",
+    "close_aria": "Close guide",
+    "badge": "First time here?",
+    "title": "Just upload a meeting log — we handle planning, design, and code for you",
+    "sub": "Nothing complicated to prepare. The 5 steps below flow in order. Take a look around and get started.",
+    "step1_t": "Upload a meeting log",
+    "step1_d": "Drop in your meeting as text or audio, as-is.",
+    "step2_t": "Auto-generate planning docs",
+    "step2_d": "We build a planning doc (PRD) capturing the core problems and requirements.",
+    "step3_t": "Auto-generate the design",
+    "step3_d": "We draw out which screens, features, and structure you need.",
+    "step4_t": "Code-building guide",
+    "step4_d": "Get a guide you can drop straight into an AI coding tool.",
+    "step5_t": "Review & export",
+    "step5_d": "Check that the code matches the design, then bundle it into deliverables.",
+    "cta": "Start with a new project",
+    "ghost": "Try a 1-minute sample"
+  },
+  "empty_project": {
+    "title": "Pick a project first",
+    "desc": "From organizing ideas to dev-ready specs and coding rules,<br/>choose a project to work on or create a new one first.",
+    "hint1": "Click the <strong>\"My Projects\"</strong> button at the top to pick one quickly",
+    "hint2": "Or type a name in the search box and click <strong>\"+ New\"</strong>"
+  },
+  "landing": {
+    "cta": {
+      "dashboard": "Go to dashboard",
+      "start": "Get started now"
+    },
+    "hero": {
+      "headline_1": "Turn your raw ideas into",
+      "headline_2": "specs AI actually understands",
+      "tagline": "No coding required. Just jot down what's on your mind, and we'll shape it into <strong>a spec AI gets right away</strong>.<br />Hand it to <strong>Cursor · Claude</strong> as-is, and you get what you wanted — not something off the mark."
+    },
+    "compare": {
+      "headline_1": "Scattered notes",
+      "headline_2": "become a plan",
+      "sub": "Messy thoughts turn into a <strong>structured spec & design</strong> — the notes on the left become the plan on the right.",
+      "tag_before": "BEFORE · messy notes",
+      "tag_after": "AFTER · AI-organized spec",
+      "arrow_label": "AI organizes",
+      "handle_aria": "Compare slider position {pct}%",
+      "hint": "← drag · keyboard ←/→ →",
+      "raw": {
+        "line1": "want to build an app to track my workout habit",
+        "line2": "just check off whether I worked out each day",
+        "line3": "I keep forgetting, so an evening reminder would help",
+        "line4": "showing my streak would feel rewarding",
+        "line5": "adding friends to see each other might be motivating",
+        "line6": "hmm, login… just use Kakao maybe?",
+        "line7": "would be nice to upload workout photos too",
+        "line8": "stats too? how many times a week",
+        "line9": "keep the design clean and simple",
+        "line10": "that's about all I can think of for now…"
+      },
+      "chip": {
+        "plan": "Plan",
+        "feature": "Feature",
+        "noti": "Notify",
+        "login": "Login",
+        "data": "Data",
+        "screen": "Screen"
+      },
+      "trail": {
+        "must": "Must-have",
+        "later": "Later",
+        "draft": "Draft"
+      },
+      "spec": {
+        "name_epic": "Workout habit tracker app",
+        "name_check": "Daily workout check-in",
+        "name_streak": "Show day streak (days running)",
+        "name_noti": "One reminder every evening",
+        "name_login": "Easy login with Kakao",
+        "name_data": "Store workout records · photos",
+        "name_share": "Share records with friends",
+        "name_stats": "View weekly stats"
+      }
+    },
+    "results": {
+      "headline_1": "Start with a spec, and",
+      "headline_2": "everything changes",
+      "item1": {
+        "tag": "Prep time",
+        "title": "A spec in minutes",
+        "desc": "Jot down what's on your mind, and a polished spec lands in your hands in minutes — no agonizing over it."
+      },
+      "item2": {
+        "tag": "Your part",
+        "title": "You write zero code",
+        "desc": "You never write a single line. Harness handles the planning and design; AI coding tools handle the code."
+      },
+      "item3": {
+        "tag": "AI tools",
+        "title": "Keep the AI you use",
+        "desc": "Keep using Cursor · Claude · GitHub Copilot just as you do. Nothing new to learn — just hand it over."
+      },
+      "item4": {
+        "tag": "Starting cost",
+        "title": "Start at $0",
+        "desc": "Start free with no pressure. Upgrade only when you need more — no hidden costs."
+      },
+      "unit_min": "min",
+      "unit_line": "lines",
+      "unit_won": "₩"
+    },
+    "flow": {
+      "headline_1": "Flows without",
+      "headline_2": "a break — 5 steps",
+      "sub": "From the moment you jot an idea to handing it off to Cursor, it all flows without a snag.",
+      "desc_plan": "Drop in a stray thought or a meeting note — AI pulls out what matters and tidies it up. Not sure what to write? Start by just talking with the AI.",
+      "desc_design": "From what you wrote, it auto-draws a 'blueprint' of the screens, features, and data you'll need.",
+      "desc_code": "Take the plan and design as one bundle to Cursor · Claude, and they build the code you want.",
+      "desc_lint": "It auto-checks the finished code against your original plan, flagging gaps and fixes.",
+      "desc_deliverables": "Gather everything your project produced into one handoff-ready ZIP file. You can also export it to a notes app (Obsidian)."
+    },
+    "faq": {
+      "headline": "Still on the fence?",
+      "sub": "Answers to the questions we hear most.",
+      "q1": "I don't know any coding at all — can I still use it?",
+      "a1": "Yes, that's exactly who we built it for. You don't write code; you jot down what's on your mind, and Harness turns it into a spec AI understands. No jargon needed.",
+      "q2": "So does it write the code here automatically too?",
+      "a2": "No — that's where the roles split. Harness handles the planning and design; the actual code is built by AI coding tools like Cursor · Claude. Hand them what Harness organized, and you get what you wanted, not something off the mark.",
+      "q3": "How long does it take to get a spec?",
+      "a3": "It depends on how much you write, but usually just a few minutes. A short page of notes gets you an organized spec in 4–6 minutes.",
+      "q4": "Which AI coding tools can I use it with?",
+      "a4": "It works great with most tools like Cursor, Claude, and GitHub Copilot. Just copy the plan and design Harness organized as one bundle and hand it over.",
+      "q5": "Can I use it on a project I've already started?",
+      "a5": "Yes. Connect your existing GitHub repo and you can jump in right at the code-review step. No need to start over.",
+      "q6": "Is what I write kept safe?",
+      "a6": "What you write is used only within your own account, and never for AI training.",
+      "q8": "Where do I keep working on my exported plan?",
+      "a8": "The default is a ZIP you hand to your AI coding tool, and you can also export everything as Obsidian notes with wikilinks. Open the graph view in Obsidian to see your plan's structure at a glance and keep growing it.",
+      "q7": "How does billing work?",
+      "a7": "It's a monthly subscription. Start on the free plan and upgrade when you need more. Your usage so far is always visible at the top of the screen, and on paid plans, even after you hit your limit it switches to Lite mode — a slower but always-available mode — so you never stop."
+    },
+    "finale": {
+      "headline_1": "That idea living",
+      "headline_2": "only in your head —",
+      "headline_3": "ready to bring it out?",
+      "sub": "No coding required. Just write it down, and a spec AI understands is ready in minutes."
+    },
+    "pain": {
+      "headline_1": "Sound",
+      "headline_2": "familiar?",
+      "sub": "If you've felt stuck on your own, it's not a lack of talent — it's a lack of flow.",
+      "p1_title": "Plenty of ideas, no structure",
+      "p1_desc": "Your head is full of ideas, but turning them into a spec leaves you unsure where to even start.",
+      "p2_title": "Explain it, get something off",
+      "p2_desc": "Describe it loosely to a developer or AI, and what comes back is nothing like what you wanted.",
+      "p3_title": "No clear path on your own",
+      "p3_desc": "Plan, design, code — deciding what to do in what order is hard to figure out alone."
+    },
+    "manifesto": {
+      "headline_1": "Great output comes",
+      "headline_2": "from a great plan",
+      "body": "Most \"the AI made something weird\" moments are really the result of giving instructions before the plan was sorted out. Harness isn't about piling on more features — it's the one step that turns what's in your head into a structure AI can understand. That one step makes all the difference."
+    },
+    "vs": {
+      "headline_1": "Same AI,",
+      "headline_2": "different result",
+      "sub": "Whether you sort out the plan first or not — that's what decides the outcome.",
+      "bad_title": "Just winging it",
+      "bad_1": "Loose verbal brief → off-target result",
+      "bad_2": "Moving on without knowing what's missing",
+      "bad_3": "Re-explaining from scratch on every fix",
+      "bad_4": "Giving up: \"AI just doesn't get it\"",
+      "good_title": "Planning with Harness",
+      "good_1": "Delivered precisely as a structured spec & design",
+      "good_2": "Screens, features, data — all at a glance",
+      "good_3": "Auto-checked against the plan, catching gaps",
+      "good_4": "What you wanted, in one go"
+    }
+  }
+}

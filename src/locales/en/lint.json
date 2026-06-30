@@ -1,0 +1,157 @@
+{
+  "title": "Code Lint",
+  "page": {
+    "subtitle": "We cross-check whether everything you designed is actually reflected in the code, and point out what's missing or needs fixing.",
+    "subtitle_note": "This isn't grading your code — it's confirming it was built as designed.",
+    "guide_btn": "User Guide",
+    "guide_btn_title": "Show the Lint page user guide again",
+    "rule_compliance": "Rule Compliance"
+  },
+  "error": {
+    "github_url_required": "Please set the GitHub URL on the Code screen first.",
+    "project_name_required": "Please enter a project name.",
+    "run_failed": "An error occurred while running Lint.",
+    "run_failed_toast": "Lint failed: {error}"
+  },
+  "cache_age": {
+    "just_now": "just now",
+    "minutes_ago": "{n} min ago",
+    "hours_ago": "{n} hr ago",
+    "days_ago": "{n} day(s) ago"
+  },
+  "guide": {
+    "headline": "Code Lint",
+    "pill": "LINT GUIDE",
+    "sub": "Automatically cross-checks your vibe-coded result against the Plan and Design specs to measure compliance, and turns violations into a fix spec all at once with the Fix Agent.",
+    "step1": {
+      "title": "Lint Phase Overview",
+      "subtitle": "Validate Vibe-coded Project",
+      "desc": "Verifies whether the code written by the AI agent follows the specs defined in the Plan/Design stage (PRD · SPACK · DDD · Architecture · coding rules). It catches regressions without manual code review.",
+      "tip": "Automate spec compliance with the vibe-coding → Lint → Fix Agent loop."
+    },
+    "step2": {
+      "title": "Set the GitHub URL First",
+      "subtitle": "Pre-requisite",
+      "desc": "Register the target GitHub repo URL on the Code screen. Both Public and Private are supported (Private requires a GitHub OAuth connection), and once set it is reused automatically on the next Lint run.",
+      "tip": "If it's not set yet, the \"Go to CODE\" button on the Lint screen takes you straight there."
+    },
+    "step3": {
+      "title": "Run Lint — Compliance by Category",
+      "subtitle": "SPACK · DDD · Architecture · Rules · Plan",
+      "desc": "One \"RUN LINT\" checks compliance across 5 categories (SPACK spec, DDD model, Architecture structure, coding rules, plan items). Plan items (stories·screens) are semantically matched against the code by AI — with file:line evidence — even when titles are in Korean. The % on each card is the pass rate, and clicking a card shows the detailed pass/fail rule list.",
+      "tip": "Cached results show instantly, and you can re-check with the \"force\" option."
+    },
+    "step4": {
+      "title": "Constraint Fix Agent — Auto-fix spec",
+      "subtitle": "Auto-fix Workflow",
+      "desc": "Gathers the failed rules and automatically generates a fix spec that AI agents (Claude Code / Cursor, etc.) can apply directly. Paste the spec into the agent to fix the code → Run Lint again → pass rate ↑.",
+      "tip": "Repeat Run Lint → Fix Agent → Run Lint to converge toward 100% compliance."
+    },
+    "illust": {
+      "code_screen": "Code screen",
+      "public_private": "Both Public · Private supported",
+      "etc_n": "...and N more"
+    }
+  },
+  "stats": {
+    "cache_banner_stale_title": "Analyzed {age}.",
+    "cache_banner_stale_desc": "If the code has changed since then, a fresh analysis is more accurate.",
+    "analyzing": "Analyzing...",
+    "rerun": "Run again",
+    "cache_banner_fresh_title": "Analysis just completed",
+    "cache_banner_fresh_desc": "— based on the latest code.",
+    "meaning_text": "This score is <strong>the ratio of design spec items implemented in code (design-to-code traceability)</strong>. It does not guarantee code quality, correctness, or absence of bugs.",
+    "coverage_text": "Sampled only <strong>{sampled} ({pct}%)</strong> of <strong>{total}</strong> total code files. The score is based on the inspected files; uninspected code is not reflected.",
+    "traceability_score": "Traceability Score",
+    "files_sampled": "Files Sampled",
+    "rules_checked": "Rules Checked",
+    "violations": "Violations",
+    "partial_chip": "Partial scan {pct}%"
+  },
+  "empty": {
+    "error_title": "Analysis Failed",
+    "checklist": "CHECKLIST",
+    "check_url": "Verify the repository URL is correct (current: {url})",
+    "check_public": "Verify it's a Public repository (Private requires an auth token)",
+    "check_retry": "Try again shortly (possible GitHub API rate limit)",
+    "retry": "Try again",
+    "loading_title": "Analyzing...",
+    "loading_desc": "Querying the spec from Neo4j and inspecting GitHub code. This can take up to 3 minutes.",
+    "empty_title": "No Lint results yet",
+    "empty_desc": "Enter a GitHub URL and run Run Lint to<br/>check SPACK / DDD / Architecture / Rules / Plan compliance."
+  },
+  "run_panel": {
+    "pill": "VIBE LINTER",
+    "title": "Validate Vibe-coded Project",
+    "url_placeholder": "Please set the GitHub URL on the Code screen first",
+    "url_title_set": "Set on the Code screen: {url}",
+    "url_title_unset": "Please set the URL on the Code screen first",
+    "goto_code_title": "Set the URL on the Code screen",
+    "goto_code": "Go to Code",
+    "analyzing": "Analyzing...",
+    "run_lint": "Run Lint",
+    "rerun_title": "Ignore cache and re-analyze",
+    "rerun": "Re-analyze",
+    "my_library": "MY LIBRARY"
+  },
+  "table": {
+    "method": {
+      "deterministic_label": "Deterministic",
+      "deterministic_title": "Directly matched via static analysis of the code",
+      "llm_label": "AI Verified",
+      "llm_title": "Result verified by the LLM reading the file body",
+      "fallback_label": "Unmatched",
+      "fallback_title": "Both deterministic matching and LLM verification failed"
+    },
+    "pill": "COMPLIANCE DOC",
+    "title": "Constraint Compliance Report",
+    "pass": "{n} Pass",
+    "fail": "{n} Fail",
+    "stat_deterministic": "Deterministic {n}",
+    "stat_llm": "AI Verified {n}",
+    "stat_fallback": "Unmatched {n}",
+    "th_constraint": "Constraint",
+    "th_description": "Description",
+    "th_method": "Method",
+    "th_status": "Status",
+    "row_aria_label": "{title} — click to view evidence code",
+    "evidence_count": "· {n}",
+    "evidence_count_title": "{n} evidence — click to expand",
+    "status_pass": "PASS",
+    "status_fail": "FAIL",
+    "evidence_kind_default": "match",
+    "evidence_link_title": "Open {target} on GitHub",
+    "empty": "No items to inspect."
+  },
+  "store": {
+    "enqueue_failed": "Failed to enqueue Lint job — task_id missing.",
+    "fix_spec_enqueue_failed": "Failed to enqueue Fix spec job — task_id missing.",
+    "run_default": "Lint failed",
+    "no_permission": "You don't have permission for the '{project}' project. Upload a new meeting log on the Plan page to create the project first.",
+    "not_found": "Project or repository not found.",
+    "queue_unavailable": "The AI job queue is temporarily unavailable. Please try again in 1-2 minutes.",
+    "rate_limit": "Too many requests (limit of 3 per minute). Please try again shortly.",
+    "run_timeout": "The Lint analysis didn't finish within 10 minutes. The repo may be very large or workers may be delayed. Please try again shortly.",
+    "fix_spec_missing_input": "A project name and GitHub URL are required.",
+    "fix_spec_no_result": "No Lint results. Please run an analysis first.",
+    "fix_spec_default": "Failed to generate the fix spec.",
+    "fix_spec_timeout": "Fix spec generation didn't finish within 10 minutes. Please try again shortly."
+  },
+  "coverage": {
+    "section_title": "Plan item coverage",
+    "subtitle": "How RUN LINT matched your PRD plan items (screens·stories) against the code. Missing items can be exported as an AI fix instruction in one click.",
+    "progress": "{done} of {total} implemented",
+    "done_label": "Implemented",
+    "missing_label": "Missing",
+    "group_screen": "Screens",
+    "group_story": "Story",
+    "evidence_toggle": "Evidence {n}",
+    "evidence_aria": "Expand {n} implementation evidence for {label}",
+    "empty": "No plan items (screens·stories) found. Create a PRD first in '01 Meeting Log'.",
+    "all_done": "All plan items implemented. Nothing missing 🎉",
+    "copy_missing": "Copy {n} missing as AI fix instruction",
+    "copied": "Fix instruction for missing items copied. Paste it into Cursor·Claude.",
+    "copy_failed": "Copy failed. Please try again.",
+    "fix_prompt_header": "The following plan items are not yet implemented in the code. Please implement each one."
+  }
+}

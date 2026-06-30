@@ -1,0 +1,935 @@
+{
+  "node_label": {
+    "Epic": "Epic",
+    "Story": "Story",
+    "API": "API",
+    "Screen": "Screen",
+    "Entity": "Entity",
+    "ArchService": "Service",
+    "ArchDatabase": "DB",
+    "fallback": "Item",
+    "etc": "Other"
+  },
+  "impact": {
+    "ddd": "DDD",
+    "arch": "Arch",
+    "events": "Events",
+    "screens": "Screens",
+    "api_chain": "Linked APIs",
+    "none": "No linked design",
+    "expand": "View affected design details",
+    "design_label": "Design"
+  },
+  "stage": {
+    "spack": {
+      "desc": "Generating API · Entity · Policy specs",
+      "tip": "\"What to build\": the spec of features the system will provide."
+    },
+    "ddd": {
+      "desc": "Modeling Aggregate · Domain Event",
+      "tip": "\"How the domain behaves\": where business rules and flows converge."
+    },
+    "architecture": {
+      "desc": "Designing service split · DB · communication",
+      "tip": "\"How to deploy\": the blueprint of an operable system."
+    },
+    "preparing": "Preparing…",
+    "step_progress": "Step {current}/{total}",
+    "title": "Generating system design",
+    "cancel": "Stop",
+    "cancelling": "Stopping…",
+    "cancel_title": "Stop update (keep previous data)",
+    "cancelling_title": "Stopping…"
+  },
+  "loading_guide": {
+    "heading": "When it's done, here's how it flows into code",
+    "dismiss": "Don't show again",
+    "dismiss_title": "Hide this guide from the next update",
+    "step1_title": "Download the \"Vibe Coding Starter Pack\"",
+    "step1_desc": "Pick the AI tool you'll use and the guide is tailored to it (SPACK · DDD · Architecture specs + coding rules + guide).",
+    "step2_title": "Unzip it and open that folder in your AI tool",
+    "step2_desc": "Unzipping gives you a single project folder. Just open it in Claude Code · Cursor · Antigravity, etc.",
+    "step3_title": "The tool auto-detects it → start with one word",
+    "step3_desc": "Just open the folder and the tool reads it automatically. One word in the chat starts it. No long prompt to paste. (The exact phrase is included in the downloaded package.)",
+    "step4_title": "The agent proceeds phase by phase automatically",
+    "step4_desc": "Understand specs → Scaffold → Aggregate → API → Integration → Verify. Reports at each step."
+  },
+  "headline": {
+    "title": "System Design",
+    "desc": "AI automatically draws the design (features, data structure, system architecture) based on your PRD.",
+    "guide_btn": "Usage Guide"
+  },
+  "tabs": {
+    "spack": "Feature Spec",
+    "ddd": "Domain Model",
+    "architecture": "System Structure"
+  },
+  "action": {
+    "updating": "Updating...",
+    "update": "Latest Update",
+    "regen": "Regenerate",
+    "regen_full": "Regenerate with Latest Update",
+    "close": "Close",
+    "ignore": "Ignore"
+  },
+  "stale": {
+    "prd_changed_title": "PRD has been updated.",
+    "prd_changed_subtitle_impact": "{changed} PRD changes affect {affected} design items. Regenerate with the latest update.",
+    "prd_changed_subtitle_generic": "The current Design is based on an old PRD. Regenerate with the latest update.",
+    "modal_title": "Your PRD has changed — regenerate the design?",
+    "modal_body": "You've updated your PRD. The <strong>design (screens · features · data structure)</strong> you're viewing is based on the <strong>previous PRD</strong>, so changes aren't reflected yet. Regenerating with the latest PRD will update the design and the code downstream.",
+    "modal_note": "Regeneration takes a few minutes. You can always do it later from the yellow notice at the top.",
+    "modal_later": "Later",
+    "modal_regen": "Regenerate Now"
+  },
+  "empty_project": {
+    "title": "Please select a project first",
+    "desc": "To design with SPACK · DDD · Architecture, you need to select or create a project first.",
+    "hint_header": "Click the \"My Projects\" button at the top to quickly select",
+    "hint_plan": "Or go to the Plan page, upload a meeting log, and complete the PRD"
+  },
+  "ai_draft_label": "System Design",
+  "erd": {
+    "title_main": "Data Structure (ERD)",
+    "title_sub": "Entities · attributes · relationships at a glance — auto-generated from SPACK · DDD",
+    "download_excel": "Download Excel",
+    "download_excel_aria": "Download ERD as Excel (Entities · Attributes · Relations, 3 sheets)",
+    "loading": "Loading data structure...",
+    "err_no_project": "Please select a project first.",
+    "err_no_design": "No entities to display. Generate the design (SPACK · DDD) first.",
+    "err_no_container": "Could not prepare the graph area. Please reopen.",
+    "err_load_failed": "Failed to load data structure: {reason}",
+    "intro_title": "What is this graph?",
+    "intro_text": "Shows your project's <strong>data structure</strong>. Each box is an <strong>entity (data group)</strong>, and the lines inside are its <strong>attributes (fields)</strong>. Connectors are <strong>membership / composition relationships</strong> between entities.",
+    "node_section": "Boxes (entities)",
+    "node_entity": "Entity (feature spec)",
+    "node_entity_desc": "A data group defined in SPACK. Core data handled by screens & APIs.",
+    "node_aggregate": "Aggregate (domain)",
+    "node_aggregate_desc": "A DDD consistency boundary — entities that change together + invariants (rules).",
+    "node_domain_entity": "Domain Entity",
+    "node_domain_entity_desc": "A detailed entity belonging inside an Aggregate.",
+    "edge_section": "Lines (relationships)",
+    "edge_mapped": "Membership",
+    "edge_mapped_desc": "Which <strong>Aggregate</strong> an entity belongs to (MAPPED_TO).",
+    "edge_partof": "Composition",
+    "edge_partof_desc": "A Domain Entity is <strong>part of</strong> an Aggregate (PART_OF).",
+    "tip_title": "How to use",
+    "tip1": "<strong>Click a box</strong> → attribute / constraint / link details",
+    "tip2": "<strong>Drag</strong> to arrange · <strong>scroll</strong> to zoom",
+    "tip3": "Empty attributes show <strong>attributes undefined</strong> — design needs enhancement",
+    "insp_name": "Name",
+    "insp_attrs": "Attributes ({n})",
+    "insp_no_attrs": "No attributes defined yet.",
+    "insp_invariants": "Invariants (rules)",
+    "insp_no_invariants": "No invariants defined yet.",
+    "insp_show_all": "Show all {n} attributes",
+    "insp_collapse": "Collapse",
+    "attr_required": "Required",
+    "label_no_attrs": "(attributes undefined)",
+    "label_no_inv": "invariants undefined",
+    "label_inv": "{n} invariants"
+  },
+  "vibe_cta_title": "Your AI agent can start vibe coding with these files",
+  "toast": {
+    "update_cancelled": "Update cancelled — your previous design data remains intact.",
+    "dismiss_success": "Design update notice dismissed.",
+    "dismiss_error": "Failed to dismiss notice. Please try again.",
+    "precheck_failed_fallback": "Unable to generate design because the PRD is not organized. Please clean up the PRD (or regenerate with quality meeting notes) and try again.",
+    "queue_unavailable": "AI job queue is temporarily unavailable. Please try again in 1–2 minutes.",
+    "rate_limited": "Too many requests (limit: 3/min). Please try again shortly.",
+    "update_failed_fallback": "Update failed.",
+    "update_timeout": "Update didn't finish within 20 minutes. The PRD may be very large or the worker may be delayed. Please try again shortly.",
+    "update_not_found": "Update job not found. Please try again.",
+    "update_failed_msg": "Update failed: {msg}",
+    "update_unknown_error": "An unknown error occurred.",
+    "update_error": "An error occurred during the update.",
+    "incomplete_layers": "⚠️ {layers} was not generated ({counts}){hint}. Please enhance the Epic·Story definitions in your PRD and regenerate.",
+    "incomplete_notice_title": "Some design was not generated ({layers}).",
+    "incomplete_notice_subtitle": "{counts}. Epic·Story definitions may be insufficient or the PRD may not be organized{hint}. Please enhance the PRD and regenerate.",
+    "has_errors": "⚠️ Design generated but {count} spec integrity violations found{code_hint}. Details in the Architecture tab. Vibe coding is possible but accuracy may be lower.",
+    "cleanup_fail_warning": "⚠️ PRD auto-cleanup failed (proceeding with original). Manual cleanup in PRD tab recommended. ",
+    "cleanup_applied_prefix": "📋 PRD auto-cleanup ({pct}%↓) + ",
+    "cleanup_hint_applied": " (PRD auto-cleanup complete but extraction failed — PRD enhancement needed)",
+    "cleanup_hint_attempted": " (PRD auto-cleanup failed — proceeding with original PRD)",
+    "design_complete_with_cleanup_fail": "✅ Design complete. For more accurate results, try cleaning up the PRD first.",
+    "design_complete_with_warnings": "✅ Design complete ({count} warnings). Get the Vibe Coding Starter Pack.",
+    "design_complete": "✅ Design complete! Get the ✨ Vibe Coding Starter Pack.",
+    "no_project": "Please select a project first. Use the \"My Projects\" button at the top.",
+    "update_enqueue_failed": "Update job registration failed — task_id missing. Please try again shortly.",
+    "md_failed_fallback": "Failed to generate MD files.",
+    "md_timeout": "MD generation didn't finish within 10 minutes. Please try again shortly.",
+    "pdf_failed_fallback": "Failed to generate design document PDF.",
+    "pdf_timeout": "PDF generation didn't finish within 10 minutes. Please try again shortly."
+  },
+  "pdf": {
+    "title": "Design Document",
+    "section_spack": "SPACK — What to Build",
+    "section_ddd": "DDD — Domain Model",
+    "section_arch": "Architecture — Deployment Structure"
+  },
+  "fresh_regen_confirm": "The PRD has not changed, so your design is already up to date.\n\nRegenerating takes a few minutes and AI usage, and the result will likely be similar. Regenerate anyway?",
+  "cancel_confirm": "Stop the update?\n\nThe ongoing job will be cancelled. Your previous design data (SPACK · DDD · Architecture) will be preserved.",
+  "arch": {
+    "conn_type": {
+      "sync": "Sync call",
+      "async": "Async",
+      "event": "Event",
+      "event_driven": "Event",
+      "message": "Message",
+      "query": "Query",
+      "command": "Command"
+    },
+    "md_stage": {
+      "collecting": {
+        "name": "Collecting specs",
+        "desc": "Gathering SPACK · DDD · Architecture specs from the design graph",
+        "tip": "Organizing the design content derived from meeting notes."
+      },
+      "generating": {
+        "name": "AI doc generation",
+        "desc": "AI is simultaneously writing the 3 spec docs + the agent integration guide (00-ORCHESTRATOR)",
+        "tip": "SPACK · DDD · Architecture and the master workflow guide are generated in parallel."
+      },
+      "assembling": {
+        "name": "Packaging",
+        "desc": "Bundling the generated docs and implementation checklist into the package",
+        "tip": "Download will start shortly."
+      },
+      "orchestrator": {
+        "name": "Integration guide",
+        "desc": "Writing the integration guide (00-ORCHESTRATOR) for AI agents",
+        "tip": "The master workflow guide that agents follow step by step."
+      },
+      "long_note": "Almost there — for larger projects the integration guide can take a few extra minutes. No need to refresh; this closes automatically when done."
+    },
+    "loading_title": "Generating Vibe Coding Package",
+    "title": "System Architecture",
+    "subtitle": "Service Layer · Data Layer · Connections",
+    "aggregates_label": "Aggregates",
+    "empty": "No architecture data available.",
+    "service_layer": "Service List",
+    "data_layer": "Data Stores",
+    "conn_section_title": "Service Connection Flow",
+    "conn_count": "{n} connections",
+    "conn_total": "Total {n} connections",
+    "conn_empty": "No connection info for this service.",
+    "conn_modal_title": "Connection Flow",
+    "conn_header_from": "From",
+    "conn_header_to": "To",
+    "conn_header_type": "Communication",
+    "conn_header_protocol": "Protocol",
+    "conn_header_auth": "Auth",
+    "conn_header_desc": "Description",
+    "vibe_btn": "Vibe Coding Starter Pack",
+    "vibe_modal_title": "Vibe Coding Starter Pack",
+    "vibe_modal_sub": "Hand it to an AI agent and it generates code automatically",
+    "vibe_checking": "Checking project settings...",
+    "vibe_full_pkg": "✦ With Coding Rules (Skills) — Phase 0–5",
+    "vibe_lite_pkg": "◇ Basic Package — Phase 1–5",
+    "vibe_intro": "Just unzip and open that folder in an AI tool like <strong>Claude Code / Cursor / Antigravity</strong>. It <strong>auto-detects</strong> <code>AGENTS.md</code> · <code>CLAUDE.md</code> and follows the <code>00-ORCHESTRATOR.md</code> workflow <strong>phase by phase</strong>, mapping skills along the way. (No pasting needed.)",
+    "vibe_faq1_title": "🎵 What is Vibe Coding? (expand if you're new)",
+    "vibe_faq1_body": "<strong>Vibe Coding</strong> means handing your development specs to an AI agent and letting it implement the code automatically.<br>Drop the spec files → AI reads them → reports code step by step. You review and request changes at each step — it's <strong>step-by-step collaboration</strong>.",
+    "vibe_faq2_title": "🤔 What is an AI agent?",
+    "vibe_faq2_body": "<strong>AI agents</strong> are tools that automatically write and modify code based on natural language instructions.",
+    "vibe_tool_claude": "Terminal-based AI. Most compatible with this tool",
+    "vibe_tool_cursor": "VS Code-based IDE. Use the chat window",
+    "vibe_tool_copilot": "VS Code/JetBrains extension",
+    "vibe_tool_windsurf": "Codeium's agent IDE",
+    "vibe_pkg_autoload": "Auto-recognized files — your AI tool reads them on folder open (nothing to do)",
+    "vibe_pkg_orchestrator": "AI agent entry point — dynamically generated master workflow guide",
+    "vibe_pkg_skills_label": "Required",
+    "vibe_pkg_skills_desc": "Coding rules — inside the <code>skills/</code> folder in the zip. AI references this before writing code (Phase 0)",
+    "vibe_pkg_skills_count": "{count} rules",
+    "vibe_pkg_spack": "SPACK — API / Entity (data structure) / Policy (business rules) spec (Phase 4 reference)",
+    "vibe_pkg_ddd": "DDD — Aggregate (entity group) / Domain Event (state change) model (Phase 3 reference)",
+    "vibe_pkg_arch": "Architecture — service split · deployment structure · connection map (Phase 2 reference · final authority on conflicts)",
+    "vibe_dl_btn": "Download Package",
+    "vibe_dl_pdf": "Design Document PDF",
+    "vibe_dl_hint": "Unzip the single downloaded file to get your project folder, then open that folder in your AI agent.",
+    "next": {
+      "title": "Package downloaded — 3 quick steps and you're done",
+      "sub": "Do these 3 steps and the AI starts building on its own.",
+      "s1": "Unzip <code>{project}_vibe.zip</code> → you'll get a <code>{project}/</code> folder",
+      "s2_claude": "In a terminal, run <code>cd {project}</code> then <code>claude</code> — it auto-reads CLAUDE.md",
+      "s2_cursor": "Open the <code>{project}/</code> folder in Cursor and press <code>Ctrl/Cmd+L</code> — AGENTS.md is applied automatically",
+      "s2_antigravity": "Open the <code>{project}/</code> folder in Antigravity and open the agent panel — AGENTS.md is auto-detected",
+      "s2_other": "Open the <code>{project}/</code> folder in your AI tool — most tools auto-read AGENTS.md",
+      "s3": "Paste this into the chat to start:",
+      "full_prompt": "Read {autoFile} and 0_START_HERE.md in this folder, then proceed phase by phase. Stop for my confirmation after each phase.",
+      "s3_hint": "If your tool auto-detects {autoFile} (Claude Code, Cursor, etc.), just typing \"{start}\" also works.",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "after": "From there the agent builds and reports phase by phase. Just confirm each step — it finishes only after the 100% checklist audit.",
+      "done": "Got it"
+    },
+    "inapp_warn": "Downloads may be blocked in in-app browsers (KakaoTalk, Instagram, etc.). Please open this page in an external browser like Chrome or Safari.",
+    "inapp_open": "Open in browser",
+    "inapp_copied": "Link copied. Paste it into your browser to continue.",
+    "tool_q": "Which AI tool will you use?",
+    "tool_claude": "Claude Code (recommended)",
+    "tool_cursor": "Cursor",
+    "tool_antigravity": "Antigravity",
+    "tool_other": "Other / not sure",
+    "tool_hint": "We tailor the how-to-start guide to your tool. Whichever you pick, auto-recognized files (AGENTS.md, CLAUDE.md) are always included — just open the folder and the agent knows what to do.",
+    "vibe_low_completeness_title": "Spec completeness {pct}% — you can download now, but it's not recommended",
+    "vibe_low_completeness_low": "Many fields are empty, so the AI may guess and generate inaccurate code. We recommend running 'Latest Update' first. (You can still download now.)",
+    "vibe_low_completeness_mid": "Some fields are still empty. You can proceed now, but raising completeness makes the AI output more accurate.",
+    "toast": {
+      "md_timeout": "MD generation didn't finish within 20 minutes. The project may be large — please try again shortly.",
+      "md_failed_msg": "MD generation failed: {reason}",
+      "md_failed_final": "Failed to generate MD files. Please try again shortly.",
+      "md_empty_specs": "The spec documents weren't generated, so the package can't be built. Please press 'Download Package' again. If it keeps happening, regenerate the design with 'Latest Update' first.",
+      "orchestrator_degraded": "Your design docs (SPACK·DDD·Architecture) downloaded fine. Only the integration guide was delayed, so we substituted a basic START_HERE file — vibe coding will work without issues."
+    },
+    "md_docs": {
+      "spack": "SPACK spec",
+      "ddd": "DDD design",
+      "architecture": "Architecture",
+      "orchestrator": "Integration guide (ORCHESTRATOR)",
+      "last_doc_hint": "{doc} is the largest document, so it finishes last — almost there!"
+    },
+    "vibe_no_design_title": "No design yet",
+    "vibe_no_design_body": "Run 'Update' to generate the design first, then download the pack."
+  },
+  "ddd": {
+    "title": "Domain Map",
+    "subtitle": "Bounded Context · Aggregate · Entity · Domain Event",
+    "aggregate": "Aggregate",
+    "domain_entity": "Entity",
+    "domain_entity_short": "Entity",
+    "domain_event": "Domain Event",
+    "unnamed": "(unnamed)",
+    "refresh_aria": "Refresh",
+    "refresh_title": "Refresh design data",
+    "intro_toggle": "How to read this view",
+    "intro_lead_text": "A <strong>domain map</strong> showing your system divided into business areas.",
+    "intro_lead_why": "Before development, this is where you see the big picture of what data and events drive your service.",
+    "intro_terms": "Inside each area you'll find <strong>Aggregates</strong> · <strong>Entities</strong> · <strong>Domain Events</strong>. Tap ⓘ for any term you don't know.",
+    "intro_legend_direct": "Solid = directly linked to a PRD feature",
+    "intro_legend_dashed": "Dashed = inferred link",
+    "intro_legend_dotted": "Dotted (faint) = source unknown — needs review",
+    "fixguide_title": "Some items aren't linked to PRD features",
+    "fixguide_desc": "The items below have no found basis (PRD Story) for why they were created. <strong>Add the relevant features to your meeting notes or PRD Epic &amp; Story tab</strong> and they'll be linked automatically.",
+    "unlinked_more": "+{n} more",
+    "qualguide_title": "Domain model quality issues found",
+    "qualguide_desc": "The following Aggregates have 0 or more than 1 <strong>aggregate root</strong>. Regenerate the design or improve the PRD and it will be fixed automatically.",
+    "loading_title": "Loading domain model...",
+    "empty_title": "No domain model yet",
+    "empty_subtitle": "Click 'Latest Update' in the top right to generate bounded contexts, aggregates, and domain events from your PRD.",
+    "invariants_label": "Business Rules",
+    "service_jump": "Go to service '{name}'",
+    "ctx_empty": "No nodes in this context."
+  },
+  "spack": {
+    "title": "SPACK Components",
+    "subtitle": "API · Entity · Policy node status",
+    "refresh_aria": "Refresh",
+    "refresh_title": "Refresh design data",
+    "loading_title": "Loading feature spec...",
+    "empty_title": "No feature spec yet",
+    "empty_subtitle": "Click 'Latest Update' in the top right to generate API · Entity · Policy from your PRD.",
+    "api_empty": "No APIs",
+    "entity_empty": "No Entities",
+    "policy_empty": "No Policies",
+    "lineage_basis": "{n} PRD basis",
+    "jump_service": "Go to {name} ({'{id}'})",
+    "jump_aggregate": "Go to domain Aggregate '{name}'",
+    "jump_domain_entity": "Go to domain Entity '{name}'",
+    "jump_service_named": "Go to service '{name}'",
+    "policy_no_content": "No content — enhance NFR/constraint details in your PRD, then click 'Latest Update'",
+    "policy_related": "Related Entity:"
+  },
+  "eval": {
+    "loading": "Calculating completeness…",
+    "empty_msg": "No data yet",
+    "empty_title_attr": "Score is measured after uploading a meeting log and running analysis",
+    "card_main": "PRD Completeness",
+    "card_sub": "How well AI can generate code from this",
+    "prd_link": "PRD Completeness",
+    "trigger_title": "PRD completeness — click for details",
+    "cta_complete": "{pct}%",
+    "cta_detail": "Details",
+    "coach": "Click here — we'll show what's missing and what to fill in",
+    "coach_close": "Close hint",
+    "modal_aria": "PRD completeness details",
+    "modal_title": "📋 PRD Completeness",
+    "modal_subtitle": "Shows how accurately AI can generate code from this PRD",
+    "close": "Close",
+    "minis_label": "Scores by area",
+    "minis_summary": "Basic · Detail · Links · Errors",
+    "autofill_dupe": "API autofill is already running in the background — we'll let you know when it's done. (See the progress indicator at the top)",
+    "autofill_enqueue_fail": "API autofill enqueue failed — task_id missing.",
+    "autofill_job_label": "API error·auth AI autofill",
+    "autofill_all_failed": "Couldn't complete API autofill — it may be an AI usage limit or a temporary error. Please try again shortly.",
+    "autofill_none": "Nothing to fill — errors·auth and PRD links are already in place.",
+    "autofill_success_n": "Filled error & auth specs for {n} APIs — reflected in completeness immediately.",
+    "autofill_success_generic": "API error·auth AI draft complete — confirm after review.",
+    "autofill_partial_tail": " ({n} couldn't be filled due to limit/temporary errors — try again shortly)",
+    "autofill_error": "API autofill failed: {reason}",
+    "autofill_start_fail": "Failed to start API autofill: {reason}",
+    "autofill_bg_running": "AI is filling APIs in the background — feel free to keep working. We'll let you know when it's done. (See the progress indicator at the top)",
+    "reason_default": "Please try again shortly.",
+    "autofill_btn_sending": "Sending to background…",
+    "autofill_btn": "Refill API specs · PRD links",
+    "autofill_hint": "<strong>Empty APIs are filled automatically on 'Latest Update' (design regeneration).</strong> This button is a <strong>manual retry</strong> for when some were missed (e.g., AI limit during generation). It fills unspecified APIs with <strong>AI drafts</strong> for error responses & auth, and <strong>runs in the background</strong> (progress shown at top). Filled specs count toward completeness <strong>immediately</strong>.",
+    "top_actions_head": "🎯 Fill these first to boost completeness fast",
+    "top_action_count_title": "{missing} of {total} need work",
+    "target": "Targets:",
+    "more_n": "+{n} more",
+    "jump_chip_title": "Click to jump to '{id}'",
+    "jump_prd": "Fix in PRD",
+    "jump_not_found": "Couldn't locate that item — please refresh and try again",
+    "delta_approx": "≈ +{pct}%",
+    "delta_title": "Filling this in raises completeness by about this much (approx.)",
+    "assist_head": "✅ Boost completeness — here's how",
+    "assist_progress": "Current completeness <strong>{pct}%</strong>. One button below brings the API spec items to full credit.",
+    "assist_step1": "Fill empty specs with AI — error/auth drafts plus PRD links (story tracing), reflected in the score immediately",
+    "assist_rest": "For everything else, click an item in the <strong>“Start here”</strong> list below to fix it at the exact spot.",
+    "lineage_detail_head": "🔗 {tab} PRD link details",
+    "lineage_summary": "<strong>{none}</strong> of {total} unlinked",
+    "lineage_unlinked": "Unlinked:",
+    "lineage_allok": "✓ All linked to PRD",
+    "lineage_hint": "▶ Unlinked nodes get linked once you add the relevant data·feature cues to the PRD Story body.",
+    "adv_toggle": "View scores by area · validation details",
+    "detail_tiers_head": "📊 Details by area",
+    "tier_weight": "Weight {weight}",
+    "violations_head": "⚠️ Frequent validation violations",
+    "count_suffix": "{count}",
+    "tier_short": {
+      "t1": "Basic",
+      "t2": "Detail",
+      "t3": "Links",
+      "t4": "Errors"
+    },
+    "tier_by_num": {
+      "1": "Basic items",
+      "2": "Detail",
+      "3": "PRD links",
+      "4": "No errors"
+    },
+    "tier_meta": {
+      "t1": {
+        "label": "Basic items",
+        "sub": "Are the needed nodes (API·Entity·service) created"
+      },
+      "t2": {
+        "label": "Detail",
+        "sub": "Is each item's body complete (input·output·errors)"
+      },
+      "t3": {
+        "label": "PRD links",
+        "sub": "Is each derived item traced back to part of the PRD"
+      },
+      "t4": {
+        "label": "No errors",
+        "sub": "Are there no violations in automatic validation"
+      }
+    },
+    "status": {
+      "none": {
+        "text": "Not analyzed yet",
+        "hint": "Upload a meeting log and run System Design to get a completeness score."
+      },
+      "low": {
+        "text": "Quite lacking",
+        "hint": "The PRD has almost no concrete content like inputs·outputs·errors. Start by filling the items below."
+      },
+      "mid": {
+        "text": "Basics are in place",
+        "hint": "The overall structure is there. Filling the items below sharply improves AI accuracy."
+      },
+      "high": {
+        "text": "Almost there",
+        "hint": "Just a bit more! Enhance a few items below and AI can generate code accurately."
+      },
+      "done": {
+        "text": "Perfect!",
+        "hint": "AI can generate code accurately from this PRD alone."
+      }
+    },
+    "action_hint": {
+      "not_analyzed": "Not analyzed yet — upload a meeting log, then run System Design",
+      "low": "The PRD body is thin — add input·output·error detail to your Stories",
+      "weak": "The {label} area is weak: {hint}",
+      "fix_t1": "Required items aren't created — check whether your PRD Stories are empty",
+      "fix_t2": "Item bodies are thin — add input/output/error cases to PRD Stories",
+      "fix_t3": "PRD↔derived links are broken — check Story id (e.g. Story 1.1) consistency",
+      "fix_t4": "Many validation violations — fix the relevant parts using the violation explanations below",
+      "ready": "Complete spec — ready for code generation"
+    },
+    "tooltip": {
+      "tiers_header": "─ Scores by area ─",
+      "tier_line": "{label} (weight {weight}): {pct}%",
+      "meaning_header": "Score meaning:",
+      "m1": "· 80%+ → AI writes code almost accurately from the PRD alone",
+      "m2": "· 50–80% → AI infers some fields (may be wrong)",
+      "m3": "· under 50% → PRD detail insufficient — needs more work",
+      "click": "Click for per-area details and urgent items to fill."
+    },
+    "metric": {
+      "spack_apis_present": {
+        "label": "Backend APIs derived",
+        "why": "Whether at least one API was created from PRD Stories",
+        "fix": "If 0%, the PRD Epic & Story tab is empty — add Stories first"
+      },
+      "spack_entities_present": {
+        "label": "Data items derived",
+        "why": "Whether at least one data type (Entity) was recognized",
+        "fix": "If 0%, the PRD lacks cues like \"data/model/storage\""
+      },
+      "spack_policies_present": {
+        "label": "Non-functional rules derived",
+        "why": "Whether at least one policy (response time·permissions) was derived",
+        "fix": "Add measurable numbers to the PRD NFR tab (e.g. \"response under 500ms\")"
+      },
+      "ddd_contexts_present": {
+        "label": "Domain boundaries split",
+        "why": "Whether business areas like payment·user were separated",
+        "fix": "Check whether Stories cover diverse domains"
+      },
+      "ddd_aggregates_present": {
+        "label": "Core model grouping",
+        "why": "Whether Entities were grouped into meaningful units (Aggregates)"
+      },
+      "arch_services_present": {
+        "label": "Service split",
+        "why": "Whether it was decided which services the system splits into"
+      },
+      "arch_databases_present": {
+        "label": "Database decided",
+        "why": "Whether it was decided where data is stored"
+      },
+      "entity_attributes_present_ratio": {
+        "label": "Data fields specified",
+        "why": "What fields each Entity has (e.g. User={'{name, email}'})",
+        "fix": "Write fields like \"input: name, email\" in the PRD Story body"
+      },
+      "attribute_typed_ratio": {
+        "label": "Field types specified",
+        "why": "Whether each field's type (string/number/date) is decided",
+        "fix": "Write as \"name: string up to 100 chars\" in the PRD"
+      },
+      "api_request_body_ratio": {
+        "label": "API input spec",
+        "why": "What data POST/PUT APIs accept",
+        "fix": "Add \"- input: {'{ ... }'}\" to the PRD Story body"
+      },
+      "api_response_body_ratio": {
+        "label": "API output spec",
+        "why": "What the API responds with",
+        "fix": "Add \"- output: {'{ ... }'}\" to the PRD Story body"
+      },
+      "api_path_params_consistent_ratio": {
+        "label": "API path variable consistency",
+        "why": "Whether path variables like {'{id}'} match path_params"
+      },
+      "api_error_cases_ratio": {
+        "label": "API error responses specified",
+        "why": "What response (401/403/404 etc.) on permission·validation failure",
+        "fix": "Specify in the PRD Story body like \"401 if unauthorized\""
+      },
+      "api_auth_specified_ratio": {
+        "label": "API auth method specified",
+        "why": "Whether this API needs login·what permission it needs",
+        "fix": "Specify in PRD NFR or Story like \"OAuth login\", \"admins only\""
+      },
+      "api_validation_422_ratio": {
+        "label": "API input validation (422)",
+        "why": "Response specified for invalid input (e.g. malformed email)",
+        "fix": "Specify in the PRD Story like \"422 if not email format\""
+      },
+      "aggregate_invariants_ratio": {
+        "label": "Model integrity rules",
+        "why": "Immutable conditions of the domain model (e.g. \"quantity can't change after payment\")"
+      },
+      "domain_entity_attributes_ratio": {
+        "label": "Domain model fields",
+        "why": "Whether domain Entities have enough fields"
+      },
+      "domain_event_payload_ratio": {
+        "label": "Event data specified",
+        "why": "What data a domain event carries when it fires"
+      },
+      "service_deployment_ratio": {
+        "label": "Service deployment spec",
+        "why": "How each service is deployed (e.g. Lambda/Container)"
+      },
+      "connection_auth_ratio": {
+        "label": "Inter-service auth",
+        "why": "How services authenticate when communicating"
+      },
+      "screen_coverage_ratio": {
+        "label": "Screen definitions",
+        "why": "Whether the needed screens are specified in the PRD",
+        "fix": "Add a \"#### 🖥️ [Screen: name]\" section to the PRD Screens tab"
+      },
+      "screen_api_coverage_ratio": {
+        "label": "Screen ↔ API links",
+        "why": "Whether each screen is mapped to the APIs it calls"
+      },
+      "screen_story_mapped_ratio": {
+        "label": "Screen ↔ feature(Story) links",
+        "why": "Whether screens are mapped to the feature they serve",
+        "fix": "Add a \"`[Story 1.1]`\" reference to each screen in the PRD Screens tab"
+      },
+      "api_story_mapped_ratio": {
+        "label": "API ↔ Story tracing",
+        "why": "Whether each API states which PRD Story it came from",
+        "fix": "Check PRD Story id (Story 1.1 format) consistency"
+      },
+      "entity_lineage_direct_ratio": {
+        "label": "Entity ↔ Story direct tracing",
+        "why": "Which Story an Entity was directly quoted/derived from",
+        "fix": "Make data-model cues explicit in the PRD Story body"
+      },
+      "entity_story_mapped_ratio": {
+        "label": "Entity ↔ Story mapping",
+        "why": "The link ratio between Entities and Stories"
+      },
+      "aggregate_lineage_mapped_ratio": {
+        "label": "Aggregate ↔ Story mapping",
+        "why": "Whether the domain model is grounded in the PRD"
+      },
+      "error_score": {
+        "label": "Critical violations",
+        "why": "Errors fatal to code generation (lower = fewer violations)"
+      },
+      "warning_score": {
+        "label": "Warning-level violations",
+        "why": "Recommendations not met (lower = fewer)"
+      },
+      "errors": {
+        "label": "Error count"
+      },
+      "warnings": {
+        "label": "Warning count"
+      },
+      "infos": {
+        "label": "Info count"
+      }
+    },
+    "violation": {
+      "API_MISSING_STORY_REF": {
+        "label": "API doesn't state which feature(Story) it came from",
+        "fix": "Re-map PRD Stories to the derived APIs"
+      },
+      "API_ERROR_CASES_MISSING": {
+        "label": "API doesn't define what errors it returns",
+        "fix": "Add things like \"401 if unauthorized\" to the PRD Story body"
+      },
+      "API_AUTH_ERROR_CASE_MISSING": {
+        "label": "API auth-failure response is missing",
+        "fix": "Add things like \"401 on token expiry\" to the PRD Story body"
+      },
+      "API_AUTH_SPECIFIED_MISSING": {
+        "label": "API doesn't state which auth it uses",
+        "fix": "Specify an auth method like \"OAuth/JWT\" in the PRD NFR tab"
+      },
+      "API_REQUEST_BODY_MISSING": {
+        "label": "API input data isn't specified",
+        "fix": "Add \"- input: {'{ ... }'}\" to the PRD Story body"
+      },
+      "API_RESPONSE_BODY_MISSING": {
+        "label": "API response isn't specified",
+        "fix": "Add \"- output: {'{ ... }'}\" to the PRD Story body"
+      },
+      "ARCH_API_UNMAPPED": {
+        "label": "API isn't placed in the system architecture",
+        "fix": "Re-run System Design → Architecture stage"
+      },
+      "LINEAGE_MISSING": {
+        "label": "Derived item's PRD source (traceability) is missing",
+        "fix": "Check PRD Story id format consistency (Story 1.1)"
+      },
+      "ENTITY_ATTRIBUTES_MISSING": {
+        "label": "Entity field definitions are missing",
+        "fix": "Write fields like \"- input: name, email\" in the PRD Story body"
+      },
+      "ENTITY_NAME_NOT_PASCAL_CASE": {
+        "label": "Entity name isn't PascalCase",
+        "fix": "\"user_account\" → \"UserAccount\". Auto-normalized on re-run"
+      },
+      "POLICY_CATEGORY_MISSING": {
+        "label": "Policy's category (Security/Performance etc.) is missing",
+        "fix": "Clarify the policy category in the PRD NFR tab"
+      },
+      "POLICY_STUB_DROPPED": {
+        "label": "Meaningless empty Policy was auto-removed",
+        "fix": "Enhance PRD NFR detail and re-run"
+      },
+      "SCREEN_INVALID": {
+        "label": "Screen definition is incomplete (name/path missing)",
+        "fix": "Specify screen name·path in the PRD Screens tab"
+      }
+    },
+    "autofill_linked_only": "Filled {n} PRD links — reflected in the score immediately.",
+    "autofill_linked_tail": " · Also filled {n} PRD links."
+  },
+  "lgraph": {
+    "err_no_project": "No project selected.",
+    "err_focus_no_nodes": "No design nodes linked to {id}. Re-run design and check again.",
+    "err_no_design": "Design hasn't been generated yet. Generate SPACK/DDD/Architecture and try again.",
+    "err_no_lineage": "Design exists but there's no PRD ↔ Design (lineage) data. This design was created before the new graph code was deployed — re-running design is recommended.",
+    "err_no_lineage_generic": "No lineage data yet. Re-run Design to generate lineage.",
+    "err_no_container": "Couldn't find the graph container.",
+    "err_load_failed": "Failed to load lineage graph: {reason}",
+    "title_sub": "A map tracing how PRD requirements flow into the actual design (Entity · Service, etc.)",
+    "download_excel": "Download Excel",
+    "download_excel_aria": "Download lineage (PRD→design traceability) as Excel — Elements · Traceability, 2 sheets",
+    "loading": "Loading graph data...",
+    "intro_title": "📍 What is this graph?",
+    "intro_text": "It visualizes the flow from meeting notes → <strong>PRD (requirements)</strong> → actual <strong>design (Entity · Service · DB, etc.)</strong> as a <strong>traceability map</strong>.<br><br>You can follow questions like \"why was this Service created?\" all the way back to the PRD.",
+    "node_section": "Node — components",
+    "node_entity_desc": "<strong>Data objects</strong> the system handles, like User · Order · Payment.",
+    "node_aggregate_desc": "A <strong>group</strong> of related Entities — a business consistency unit that changes together.",
+    "node_service_desc": "An execution unit (microservice). Handles business logic and APIs.",
+    "node_api_desc": "A <strong>REST endpoint</strong> that implements a Story — called by screens/services.",
+    "node_db_desc": "A <strong>database</strong> where services persist data (e.g. RDBMS, cache).",
+    "node_story_desc": "A <strong>single user requirement</strong> in \"can do ~\" form. The smallest PRD unit.",
+    "node_epic_desc": "A <strong>group</strong> of related Stories — a large feature unit (e.g. \"member management\").",
+    "edge_section": "Edge — connections",
+    "badge_high": "High confidence",
+    "badge_review": "Review recommended",
+    "edge_direct_desc": "A link <strong>explicitly written</strong> in the PRD — authored by a human.",
+    "edge_inferred_desc": "A link <strong>inferred from context</strong> by AI — accuracy review recommended.",
+    "edge_contains_desc": "Which Story an Epic <strong>contains</strong> — internal PRD structure.",
+    "tip_title": "💡 Tips",
+    "tip1": "<strong>Click</strong> a node to see details at the bottom left.",
+    "tip2": "<strong>Drag</strong> nodes to arrange them freely.",
+    "tip3": "If there are many dashed (<strong>inferred</strong>) links, try writing the PRD more concretely.",
+    "tip4": "Isolated nodes are design not linked to any requirement — review whether they're really needed.",
+    "insp_node": "Selected node",
+    "insp_prd_basis": "PRD basis:",
+    "insp_story_linked": "linked to {n} Stories",
+    "insp_all_props": "All properties ({n})",
+    "insp_lineage_edge": "Selected lineage edge",
+    "insp_prd_quote": "PRD quote:",
+    "insp_edge": "Selected edge"
+  },
+  "lpanel": {
+    "node_fallback": "Item",
+    "prd_basis": "PRD basis",
+    "no_story": "No linked PRD Story.",
+    "detail_pending": "Linked to {n} PRD basis. Details (Story ID / source quote) are coming soon.",
+    "view_in_prd": "View in PRD",
+    "quote_empty": "No PRD quote (AI-inferred link)"
+  },
+  "empty_state": {
+    "default_subtitle": "Click 'Latest Update' at the top right to start the analysis."
+  },
+  "coverage_badge": {
+    "label": "{label} PRD links"
+  },
+  "guide_modal": {
+    "headline": "System Design",
+    "sub": "A single PRD is automatically broken down into SPACK · DDD · Architecture (3 stages), all the way to the Vibe Coding Starter Pack.",
+    "step1_title": "Design Phase Overview",
+    "step1_desc": "A single PRD from the Plan page is automatically decomposed into SPACK (spec) → DDD (domain model) → Architecture (system structure). One click of \"Latest Update\" at the top right refreshes all three outputs at once.",
+    "step1_tip": "Each stage takes the previous stage's output as input, so they run sequentially (≈ 4–6 min). You can \"Stop\" mid-process — previous data is preserved.",
+    "step2_title": "SPACK — What to Build",
+    "step2_desc": "Organizes PRD User Stories into a feature spec. Derives the APIs the system provides, the Entities (data) it handles, and the Policies (non-functional requirements) it must follow.",
+    "step2_tip": "Each item is linked to a PRD Story via lineage for traceability (shown by the dot color on the left).",
+    "step3_title": "DDD — How the Domain Behaves",
+    "step3_desc": "Groups SPACK Entities into a domain model. Sets boundaries with Bounded Contexts, defines consistency units with Aggregates, and expresses business flows with Domain Events.",
+    "step3_tip": "The more complex the domain, the more DDD shines — microservice boundaries are decided here.",
+    "step4_title": "Architecture — How to Deploy",
+    "step4_desc": "Splits services based on DDD Aggregates and designs the DB and external communication. Produces an operable system blueprint.",
+    "step4_tip": "When complete, download the \"✨ Vibe Coding Starter Pack\" — an AI agent (Claude Code/Cursor) can start coding from this single package.",
+    "svg_resp": "200ms response",
+    "svg_concurrent": "10K concurrent",
+    "svg_privacy": "Privacy"
+  },
+    "spec_md": {
+      "title": {
+        "spack": "SPACK — Detailed Spec",
+        "ddd": "DDD — Domain Model",
+        "arch": "Architecture — System Structure"
+      },
+      "sec": {
+        "entity": "Data (Entity)",
+        "policy": "Policy",
+        "connection": "Connection"
+      },
+      "related": "related",
+      "stack": "stack",
+      "gap": {
+        "request_spec": "request spec",
+        "response_spec": "response spec",
+        "owner_service": "owning service",
+        "attributes": "attributes"
+      },
+      "dont_guess": "don't guess — ask",
+      "gap_header": "⚠️ **{n} undecided** — the items marked ⚠️ below have an empty design. **Do not implement them on your own** — stop and confirm with the user.",
+      "snapshot_footer": "This document is a snapshot of the Harness design graph. You can get richer design docs from Harness's Design stage.",
+      "unnamed": "(unnamed)",
+      "undecided_label": "undecided",
+      "oq": {
+        "title": "Open Questions",
+        "lead": "**{n}** items still have an empty design. Settle them before writing code. The rule is **do not implement on your own** — confirm with the user.",
+        "footer": "🤖 Harness — an auto-collected list of empty items in the design graph."
+      },
+      "vault_gap_header": "⚠️ **{n} undecided** — notes marked ⚠️ have an empty design. Do not implement them on your own — confirm with the user."
+    },
+  "vibe": {
+    "start_line": "Get started",
+    "tools": {
+      "claude": {
+        "label": "Claude Code",
+        "open": "In a terminal, run `cd \"{p}_vibe\"` to enter the folder, then run `claude`. Claude Code **reads CLAUDE.md automatically.**"
+      },
+      "cursor": {
+        "label": "Cursor",
+        "open": "Open the `{p}_vibe/` folder in Cursor and press `Cmd/Ctrl + L` to open chat. Cursor **applies AGENTS.md automatically.**"
+      },
+      "antigravity": {
+        "label": "Antigravity (Google)",
+        "open": "Open the `{p}_vibe/` folder in Antigravity and open the agent panel. **AGENTS.md is detected automatically.**"
+      },
+      "other": {
+        "label": "Other / not sure",
+        "open": "Open the `{p}_vibe/` folder in your AI coding tool. Most (Codex · Windsurf · Antigravity, etc.) **read AGENTS.md automatically.** If you do not have a tool yet, we recommend **Claude Code** in the terminal or the editor-style **Cursor**."
+      }
+    },
+    "bootstrap": {
+      "title": "AI Agent Instructions — {project}",
+      "intro": "You are an AI coding agent working inside this folder. This is a **vibe-coding spec package** generated by Harness: a structured design for you to implement. This file is auto-loaded by your tool (Claude Code reads `CLAUDE.md`; Cursor / Codex / Antigravity / Windsurf read `AGENTS.md`), so the user does not need to paste long instructions.",
+      "entry_orchestrator": "Read **`00-ORCHESTRATOR.md`** and execute it exactly — it is your authoritative, phase-by-phase master workflow.",
+      "entry_start_here": "Read the **\"INSTRUCTIONS FOR AI AGENT\"** section of **`0_START_HERE.md`** and execute its phases in order.",
+      "enhance_banner": "> ⚠️ **This project was imported from an EXISTING codebase — you are NOT starting from an empty folder.**\n> Read **`IMPLEMENTATION_STATUS.md` FIRST**: it lists what is already built (✅) vs not-yet (⬜).\n> Respect ✅ code (do not rewrite it), implement only ⬜ items on top of the existing code, and follow the\n> existing structure / naming / tech stack. The spec↔code mapping is auto-estimated — verify ✅ against real code.\n> STATUS reflects the LAST analysis; cross-check the current spec — any spec item NOT listed in STATUS should be treated as ⬜ (unbuilt).",
+      "h_master_plan": "▶ Your master plan",
+      "master_plan_note": "Work through it **one phase at a time, and STOP for the user's confirmation after each phase.** Do not run ahead.",
+      "h_spec_files": "📂 Spec files",
+      "spec_status": "- `IMPLEMENTATION_STATUS.md` — what is already built (✅) vs not-yet (⬜). **READ FIRST.**",
+      "spec_spack": "- `1_spack.md` — APIs / Entities / Policies (what to build)",
+      "spec_ddd": "- `2_ddd.md` — domain model: Aggregates / Domain Events / Services (how it works)",
+      "spec_architecture": "- `3_architecture.md` — services / databases / connections and the **Tech Stack** (how to deploy; final authority when specs conflict)",
+      "spec_skills": "- `skills/` — coding rules. Read the relevant rule BEFORE writing code, and never violate it.",
+      "spec_checklist": "- `IMPLEMENTATION-CHECKLIST.md` — machine-generated full inventory of everything to build (nothing is missing from it). Your work is NOT finished until every item is checked.",
+      "h_hard_rules": "✅ Hard rules",
+      "rule_enhance": "0. **Build on the existing code — do NOT recreate the project from scratch.** Implement only ⬜ (unbuilt) items from `IMPLEMENTATION_STATUS.md`; leave ✅ items intact unless the user asks otherwise.",
+      "rule_stack": "1. **Tech stack comes from `3_architecture.md`.** Use the Tech Stack it specifies. Only if it is unspecified, ask the user to choose — never silently default.",
+      "rule_stop": "2. **Stop after every phase** and wait for the user's OK before continuing.",
+      "rule_no_invent": "3. **Never invent requirements.** If something is unclear, ask the user.",
+      "rule_skills": "4. **Follow `skills/` rules** for every coding action. When you fix a violation, cite WHICH `skills/` file and WHICH rule was violated.",
+      "rule_checklist": "{num}. **Done = every item in `IMPLEMENTATION-CHECKLIST.md` checked `[x]` with a real file path.** Before reporting completion, audit the checklist item-by-item against the code; implement what is missing and **loop until all pass**.",
+      "h_human_guide": "🙋 Human setup guide",
+      "human_guide": "The user-facing \"how to start\" guide is in `0_START_HERE.md`."
+    },
+    "guide": {
+      "title": "🎯 {project} — Vibe Coding Start Guide",
+      "lead": "This file is a guide for **both you (the user)** and the **AI coding agent**.",
+      "h_what_is_this": "🙋 What is this?",
+      "what_is_this_1": "**Vibe Coding** means handing your development spec wholesale to an AI agent,\nand letting the agent implement the code automatically.",
+      "what_is_this_2": "You just received a single `{project}_vibe.zip`. When you unzip it, the `{project}_vibe/` folder\ncontains a bundle of spec documents that systematically describe **\"what kind of system our project is.\"**",
+      "what_is_this_3": "Hand these specs wholesale to an **AI coding agent** (e.g. Claude Code, Cursor, Codex, Windsurf, etc.)\nand the agent will **write the code on its own.**",
+      "h_what_to_do": "✅ What should I do now? (3 steps and you are done!)",
+      "step1_title": "Step 1 — Unzip",
+      "step1_body": "Unzip the `{project}_vibe.zip` you received and a `{project}_vibe/` folder appears.",
+      "skill_step1_note": " (The coding rules are already inside the `skills/` folder — the AI agent references them automatically.)",
+      "step2_title": "Step 2 — Open the folder in {tool}",
+      "step2_note": "If you do not have a tool yet: install **Claude Code** (`https://claude.com/code`, terminal) or **Cursor** (`https://cursor.com`, editor).",
+      "step3_title": "Step 3 — Just say \"{start}\"",
+      "step3_body": "Once you open the folder, the agent **reads `{autoFile}` automatically** and already knows what to do. Just type this into the chat:",
+      "step3_fallback_lead": "If your tool does not read it automatically, paste the line below:",
+      "step3_fallback_prompt": "Read {autoFile} and 0_START_HERE.md in this folder and proceed from {phase}. Stop for my confirmation after each step.",
+      "phase_hint_with_skills": "Phase 0 (Rule Internalization)",
+      "phase_hint_no_skills": "Phase 1 (Specification Understanding)",
+      "skill_prompt_line": "Use every .md file in the `skills/` folder as your coding-rule reference — before writing code, check the relevant rule first and apply it.",
+      "step3_after": "From there, the agent **builds and reports phase by phase**. Check the result at each step, and if you do not like it, request changes in natural language.\nIt is not a fully automatic one-shot build but a **step-by-step collaboration**.",
+      "h_agent_instructions": "⚙️ INSTRUCTIONS FOR AI AGENT",
+      "agent_intro": "You are an AI coding agent. Everything below is your directive. Read all of it before taking any action.",
+      "agent_authority": "**⚠️ Authority check — do this FIRST:** If `00-ORCHESTRATOR.md` exists in this folder, **follow it as the authoritative master plan** and treat the phases below only as background. The phases below are the full directive when `00-ORCHESTRATOR.md` is absent.",
+      "agent_env_check": "**Environment check — do this first:**",
+      "agent_env_fs": "If you have file system access (Claude Code, Cursor agent, etc.): read files directly as instructed.",
+      "agent_env_chat": "If you are a chat-only model with NO file access: before each Phase marked ↺, ask the user to paste the contents of the relevant spec file into the chat. Do not pretend to read files you cannot access.",
+      "phase0_heading": "### PHASE 0 — Rule Internalization (REQUIRED FIRST STEP)",
+      "phase0_list_index": "- List EVERY `.md` file inside `skills/` and read each file's **frontmatter only** (name + description / applies-when) — build a compact rule index",
+      "phase0_list_reread": "- Do NOT read every rule body now: dozens of rule bodies flood your context and get forgotten by Phase 4. Instead, **RE-READ the relevant rule file in full RIGHT BEFORE each coding task** in later phases — treat rules like always-on tools you re-check every time",
+      "phase0_list_no_access": "- If you have NO file access: ask the user to paste the skills file list before continuing",
+      "phase0_output_lead": "OUTPUT (REQUIRED — do not summarize or skip):",
+      "phase0_output_1": "The rule index: EVERY exact file path (e.g. `skills/backEnd/auth.md`) + one line on when it applies",
+      "phase0_output_2": "The 3~5 rules you expect to apply most in this project, and why",
+      "phase0_warn": "⚠️ If you cannot list actual file paths, you have NOT scanned the folder. Scan it first.",
+      "phase0_stop": "**STOP and wait for user confirmation**",
+      "phase1_heading": "### PHASE 1 — Specification Understanding",
+      "phase1_lead": "Read all three spec files IN THIS EXACT ORDER:",
+      "phase1_file_spack": "`1_spack.md` — What to build (APIs, Entities, Policies)",
+      "phase1_file_ddd": "`2_ddd.md` — How the domain works (Aggregates, Domain Events, Services)",
+      "phase1_file_architecture": "`3_architecture.md` — How to deploy (**FINAL AUTHORITY** when specs conflict)",
+      "phase1_no_access": "If you have NO file access: ask the user to paste each file's content now.",
+      "phase1_output_lead": "OUTPUT (you MUST report ALL of the following — do not skip any item):",
+      "phase1_output_1": "System overview (2~3 sentences)",
+      "phase1_output_2": "Service list with a one-line role description per service",
+      "phase1_output_3": "Core domains and their responsibilities",
+      "phase1_output_4": "**Tech stack** — First read the **Tech Stack** field of each Service/Database in `3_architecture.md`. If a stack is specified there, state exactly what you will use and proceed — do NOT re-ask. ONLY if the architecture leaves it unspecified, propose 2~3 concrete options with trade-offs (backend language/framework · frontend if applicable · database) and ask the user to pick. Never default silently, and never start coding before the stack is settled.",
+      "phase1_stop": "**STOP and wait for user confirmation.** (If — and only if — the tech stack was NOT specified in `3_architecture.md`, also wait for the user's explicit stack choice.)",
+      "phase2_heading": "### PHASE 2 — Project Skeleton",
+      "phase2_reread": "↺ Re-read `3_architecture.md` now (or ask user to paste it if no file access)",
+      "phase2_do": "Create directory structure and module scaffolding based on `3_architecture.md`",
+      "phase2_output": "OUTPUT → Folder tree + entry point file list → **STOP and wait for user confirmation**",
+      "phase3_heading": "### PHASE 3 — Domain Implementation",
+      "phase3_reread": "↺ Re-read `2_ddd.md` now (or ask user to paste it if no file access)",
+      "phase3_do": "Implement Entity, Aggregate, Domain Service based on `2_ddd.md`",
+      "phase3_skill": "Check `skills/` rules before writing each class",
+      "phase3_output": "OUTPUT → Domain class list + key business rules applied → **STOP and wait for user confirmation**",
+      "phase4_heading": "### PHASE 4 — API Implementation",
+      "phase4_reread": "↺ Re-read `1_spack.md` now (or ask user to paste it if no file access)",
+      "phase4_do": "Implement API endpoints based on `1_spack.md`",
+      "phase4_skill": "Check `skills/` rules before writing each endpoint",
+      "phase4_output": "OUTPUT → API route list → **STOP and wait for user confirmation**",
+      "phase5_heading": "### PHASE 5 — Integration & Validation",
+      "phase5_reread": "↺ Re-read `3_architecture.md` connection map section now (or ask user to paste it if no file access)",
+      "phase5_do": "Connect services following the connection map, verify basic build/run",
+      "phase5_output": "OUTPUT → Build status + list of unimplemented items → **STOP and wait for user confirmation**",
+      "phase6_heading": "### PHASE 6 — Full-Coverage Audit Loop (Completion Guarantee — the final gate)",
+      "phase6_checklist_open": "Open `IMPLEMENTATION-CHECKLIST.md` — it is **machine-generated from the design graph**, so nothing is missing from it",
+      "phase6_checklist_verify": "For EVERY item: verify it actually exists in the code. If it does, mark `- [x]` and write the real file path after `← impl:`",
+      "phase6_inventory_build": "Build your own inventory first: list EVERY API / Entity / Policy / Screen from `1_spack.md` as an unchecked checklist",
+      "phase6_inventory_verify": "For EVERY item: verify it actually exists in the code. If it does, mark `- [x]` and note the real file path",
+      "phase6_opened": "Every path you write must be a file you actually **OPENED** to confirm — a path you cannot open is a false check",
+      "phase6_not_impl": "An item you cannot point to a real file = **NOT implemented** → implement it, then re-run this audit from the top",
+      "phase6_repeat": "**Repeat this loop until 100% of items are checked.** Do not declare the project complete before that.",
+      "phase6_output": "OUTPUT → the fully checked list + coverage count (e.g. `27/27 ✅`) → **STOP and wait for user confirmation**",
+      "h_mandatory_rules": "### MANDATORY RULES",
+      "mr_stop": "**STOP after every Phase.** Report the outputs listed above. Do NOT start the next Phase without the user's explicit OK.",
+      "mr_stack": "**Tech stack comes from `3_architecture.md` first.** Use the stack it specifies. Only if it is unspecified, propose options at Phase 1 and wait for the user's explicit choice — never silently default.",
+      "mr_no_assume": "**NEVER assume requirements.** Anything unclear → ask. Do not guess and proceed.",
+      "mr_skills_lead": "**Check skills rules before every coding action.**",
+      "mr_skills_yes": "Before writing code, re-check if a relevant `skills/` rule applies. Violating a skills rule is not acceptable.",
+      "mr_skills_no": "(No skills rules in this package.)",
+      "mr_authority": "**`3_architecture.md` is the final authority.** When specifications conflict, architecture wins.",
+      "mr_reread": "**Re-read the relevant spec file at the start of each Phase** (↺). Long conversations cause context drift — always refresh from the source. If you have no file access, ask the user to paste it.",
+      "mr_completion_lead": "**Completion = Phase 6 audit at 100%.**",
+      "mr_completion_checklist": "Every `IMPLEMENTATION-CHECKLIST.md` item checked `[x]` with a real file path.",
+      "mr_completion_inventory": "Every inventoried spec item verified against real code.",
+      "mr_completion_tail": "\"It probably works\" is not completion — loop until the audit passes.",
+      "mr_resume_lead": "**Resuming after an interruption?** Read",
+      "mr_resume_checklist": "`IMPLEMENTATION-CHECKLIST.md`",
+      "mr_resume_inventory": "your Phase 6 inventory",
+      "mr_resume_tail": "and any `_workspace/` notes FIRST to see what is already done, then continue from the first unchecked item — do not start over.",
+      "h_files": "📂 The files you received — what is each?",
+      "file_agents_title": "🤖 `AGENTS.md` · `CLAUDE.md` (auto-detected files — no need to touch them)",
+      "file_agents_desc": "Instructions that the AI tool **reads automatically** when it opens the folder. Thanks to this, the agent knows what to do without you pasting a long prompt. (Claude Code → `CLAUDE.md`, Cursor·Codex·Antigravity·Windsurf → `AGENTS.md`)",
+      "file_start_here_title": "📖 `0_START_HERE.md` (the file you are reading now)",
+      "file_start_here_desc": "**Human start guide + AI agent work instructions**. It contains the 3-step usage above plus the Phase order and working rules.",
+      "skill_section": "### 📦 `skills/` — collection of coding rules\nThese are the **coding conventions** to follow in the project. There are `.md` rules in per-category subfolders, and the AI agent must follow these rules when writing code.",
+      "file_spack_title": "📋 `1_spack.md` — SPACK (what to build)",
+      "file_spack_desc": "The spec for the **API, Entity (data structure), Policy (business rules)** the system provides.\nIt is the basis for Phase 4 API implementation.",
+      "file_ddd_title": "🧩 `2_ddd.md` — DDD (how it works — domain)",
+      "file_ddd_desc": "The model of the business domain's **Aggregate (a bundle of related Entities), Domain Event (a state-change event), Service**.\nIt is the basis for Phase 3 domain implementation.",
+      "file_arch_title": "🏗️ `3_architecture.md` — Architecture (how to deploy)",
+      "file_arch_desc": "The blueprint for which **services / stores** to split the code into for deployment.\nIt is the basis for Phase 2 skeleton creation.",
+      "file_checklist_title": "✅ `IMPLEMENTATION-CHECKLIST.md` — full-coverage audit checklist",
+      "file_checklist_desc": "An implementation list **generated mechanically** from the design graph (nothing missed in the summarization).\nIn the final Phase 6, the AI agent must **check every item against the code** until all are ✅ for the work to be done.",
+      "final_start_phase0": "Start now from **Phase 0 — Rule Internalization**.",
+      "final_start_phase1": "Start now from **Phase 1 — Specification Understanding**."
+    },
+    "skill_md": {
+      "instructions": "Instructions",
+      "scope": "Scope:",
+      "priority": "Priority:",
+      "applies_when": "Applies when:",
+      "tags": "Tags"
+    }
+  }
+}

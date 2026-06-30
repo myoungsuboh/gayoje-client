@@ -1,0 +1,48 @@
+{
+  "header": {
+    "title_supplement": "用 AI 填补空缺",
+    "title_new": "从 AI 对话开始",
+    "title_project": "补全中：{name}",
+    "sub_project": "我已了解这个项目的规划，只会针对缺失的部分提问。",
+    "sub_supplement": "我会阅读你写的内容，只针对缺失的部分提问。",
+    "sub_new": "没有会议记录？没关系。回答几个问题，我就帮你整理好。",
+    "close_aria": "关闭",
+    "restart": "重新开始",
+    "restart_aria": "从头重新开始对话",
+    "restart_confirm": "清除目前的所有对话并重新开始吗？"
+  },
+  "agenda": {
+    "label": "待补全 {count} 项",
+    "pick": "先从“{topic}”开始吧"
+  },
+  "restored": { "notice": "正在继续上次的对话。" },
+  "progress": { "label": "完备度" },
+  "coverage": { "label": "已掌握" },
+  "focus": { "prefix": "当前正在询问" },
+  "dim": {
+    "goal": "目标",
+    "features": "核心功能",
+    "data": "数据",
+    "users": "用户",
+    "constraints": "约束（登录、支付等）",
+    "usage": "使用场景"
+  },
+  "typing": {
+    "thinking": "思考中…",
+    "finalizing": "正在整理成会议记录…",
+    "tool": "正在查看项目资料…"
+  },
+  "input": { "placeholder": "输入你的回答…（Enter 发送，Shift+Enter 换行）" },
+  "error": { "generic": "AI 访谈过程中出现问题。请稍后再试。" },
+  "entry": {
+    "title_fill": "AI 会阅读你刚写的内容，只针对缺失的部分提问并补全",
+    "title_start": "没有会议记录也没关系 —— AI 会用几个问题引出要点，并整理成会议记录",
+    "btn_fill": "用 AI 填补空缺",
+    "btn_start": "从 AI 对话开始",
+    "undo_title": "恢复到合并访谈内容之前的状态",
+    "undo_btn": "恢复到访谈前",
+    "merged_with_draft": "已将对话中补充的内容合并到你现有的内容中。请检查后保存。（如需要可以撤销）",
+    "merged_no_draft": "已将对话内容整理成会议记录。请检查后保存。",
+    "reverted": "已恢复到访谈前的内容。"
+  }
+}

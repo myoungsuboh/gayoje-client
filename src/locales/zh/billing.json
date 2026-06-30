@@ -1,0 +1,47 @@
+{
+  "perk": {
+    "meeting_logs": "每月整理会议记录 {count} 份",
+    "tokens": "AI 工作量 {amount} 令牌",
+    "lite_bonus": "用完也不中断\nLite 模式每周追加 {amount}",
+    "free_wait": "令牌用尽后需等待下月重置",
+    "skills": "{count} 个技能库槽位",
+    "projects": "{count} 个并发项目",
+    "discount": "{pct}% 单价折扣（相比 Pro）",
+    "beta_access": "新功能 Beta 优先体验"
+  },
+  "upgrade": {
+    "title_exceeded": "您已达到使用上限",
+    "title_max": "Pro Max 上限提示",
+    "title_default": "升级您的等级",
+    "subtitle_exceeded_type": "您的 {label} 额度已用完。",
+    "subtitle_exceeded": "您当前等级的额度已用完。",
+    "subtitle_max": "您正在使用最高等级。",
+    "subtitle_default": "需要更多会议登记和 AI 分析吗？",
+    "stat_current": "当前",
+    "stat_limit": "上限",
+    "stat_tier": "等级",
+    "selffix": "✂️ 将会议记录精简到 <strong>{limit} 字以内</strong>，即可在当前等级立即保存。升级后可一次性处理更长的会议记录。",
+    "reset_days": "💡 使用量将在 <strong>{days} 天后</strong>自动重置，额度随之恢复。如需更早使用，请在下方升级。",
+    "reset_today": "💡 今天将重置 — 稍后您的使用量将被清零。",
+    "recommended": "推荐",
+    "per_month": "/ 月",
+    "cta_start": "开始 {label}",
+    "note": "注册卡片后订阅立即开始。升级时仅按剩余天数收取差额。",
+    "later": "稍后",
+    "contact_admin": "联系管理员"
+  },
+  "limit_type": {
+    "meeting_logs": "会议记录登记",
+    "summary_chars": "单次会议输入字数",
+    "total_tokens": "AI 令牌使用量",
+    "library_skills": "技能库存储",
+    "max_projects": "并发项目"
+  },
+  "pro_max_notice": "您已达到 Pro Max 上限。如需更多容量，请联系管理员。",
+  "mailto": {
+    "upgrade_subject": "[Harness] {label} 升级咨询",
+    "upgrade_body": "您好，\n\n我想升级到 Harness {label}（{price}）。\n- 邮箱：（您的账号邮箱）\n- 当前等级：{current}\n- 原因：\n\n谢谢。",
+    "contact_subject": "[Harness] 额外容量咨询",
+    "contact_body": "您好，\n\n我已达到 Harness Pro Max 上限，想咨询额外容量。\n- 邮箱：（您的账号邮箱）\n- 原因：\n\n谢谢。"
+  }
+}

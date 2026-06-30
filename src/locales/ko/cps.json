@@ -1,0 +1,71 @@
+{
+  "toast": {
+    "download_ok": "CPS markdown 다운로드",
+    "copy_fail": "복사에 실패했습니다. 브라우저 권한을 확인해 주세요.",
+    "save_ok": "CPS 수정 저장 완료.",
+    "save_fail": "CPS 저장에 실패했습니다.",
+    "node_save_ok": "{label} 노드 수정 완료.",
+    "node_save_fail": "노드 수정에 실패했습니다.",
+    "dismiss_ok": "CPS markdown desync 알림 무시.",
+    "dismiss_fail": "dismiss 실패했습니다.",
+    "resynth_not_found": "재합성 대상이 없거나 LLM 출력이 형식을 못 지켰습니다. 재시도하거나 markdown 직접 편집을 사용하세요.",
+    "resynth_rate_limit": "너무 자주 요청했습니다. 잠시 후 다시 시도하세요. {detail}",
+    "resynth_fail": "CPS 재합성에 실패했습니다.",
+    "resynth_apply_ok": "CPS markdown 재합성 결과 적용 완료.",
+    "resynth_apply_fail": "적용에 실패했습니다.",
+    "save_conflict": "다른 곳(다른 기기·백그라운드 처리)에서 이 문서가 먼저 변경됐어요. 최신 내용을 확인한 뒤 다시 시도해 주세요.",
+    "remote_busy": "다른 기기 또는 탭에서 이 프로젝트를 처리 중이에요. 작업이 끝난 뒤 다시 시도해 주세요."
+  },
+  "err": {
+    "no_project": "프로젝트가 선택되지 않았습니다.",
+    "content_empty": "내용이 비어 있습니다.",
+    "content_too_large": "내용이 너무 큽니다 (최대 500KB).",
+    "summary_empty": "summary 가 비어 있습니다.",
+    "summary_too_large": "summary 가 너무 깁니다 (최대 2KB)."
+  },
+  "confirm": {
+    "large_delete": "⚠️ CPS 의 {pct}% ({deleted}자) 가 삭제됩니다.\n\n누적된 Problem/Solution 데이터가 손실될 수 있습니다.\n실수가 아니라면 [확인]을 누르세요."
+  },
+  "nav": {
+    "context_hint": "Context 전문을 우측에서 확인하세요.",
+    "problem_empty": "PRB 항목이 없습니다.",
+    "solution_empty": "RES 항목이 없습니다.",
+    "pending_empty": "Pending 그룹이 없습니다.",
+    "pending_group_empty": "아직 기재된 항목이 없습니다."
+  },
+  "graph": {
+    "edit_mode": "검수",
+    "no_nodes": "노드가 없습니다."
+  },
+  "copy_title": "CPS markdown 클립보드 복사",
+  "download_title": "CPS markdown(.md) 다운로드 — Cursor·Notion·repo 용",
+  "edit_title": "섹션 단위 편집 (검수 모드)",
+  "tab_locked": "편집 중에는 탭을 이동할 수 없습니다. 먼저 저장하거나 취소하세요.",
+  "saving": "저장 중...",
+  "stale": {
+    "title": "그래프 노드가 수정되었지만 markdown 은 아직 옛 내용입니다.",
+    "sub": "자동 재합성 (LLM, 5~15초) 또는 markdown 직접 편집을 선택하세요."
+  },
+  "resynth_running": "재합성 중...",
+  "resynth_btn": "자동 재합성",
+  "manual_edit_btn": "수동 편집",
+  "dismiss_btn": "무시",
+  "filter": {
+    "view_only": "\"{label}\" 만 보기",
+    "view_all": "전체 보기 ←"
+  },
+  "edit_scope": {
+    "editing": "편집 중:",
+    "section_label": "#{num} {title}",
+    "section_hint": "저장 시 다른 섹션은 그대로 보존됩니다.",
+    "full_label": "전체 markdown",
+    "full_hint": "섹션 파싱 실패 — 전체를 직접 편집합니다."
+  },
+  "placeholder": {
+    "section": "이 섹션 markdown 을 직접 편집...",
+    "full": "CPS markdown 전체를 직접 편집..."
+  },
+  "compliance": {
+    "desc": "현재 명세서에 포함된 모든 요구사항이 100% 매핑되었습니다. Rule Generator 로 즉시 엔지니어링 규칙 전환."
+  }
+}

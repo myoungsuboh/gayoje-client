@@ -1,0 +1,309 @@
+<title>Harness 랜딩 컨셉 — 공감/문제 앵글</title>
+<style>
+  :root{
+    --bg:#FCFAEE; --card:#FFFFFF; --line:rgba(140,98,57,.12); --line-strong:rgba(140,98,57,.24);
+    --text:#2A2421; --muted:#6F665F; --dim:#A89B91;
+    --brand:#8C6239; --brand-dim:#6E4E2E; --brand-soft:rgba(140,98,57,.07);
+    --gold:rgba(233,193,92,.62); --moss:#2E4036; --cream:#FCFAEE;
+    --r:22px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.6;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  .hl{background:linear-gradient(transparent 68%,var(--gold) 68%);color:var(--brand-dim);font-weight:800;padding:0 .04em;
+    box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+  .eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:.72rem;font-weight:700;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--brand);}
+  .eyebrow i{display:inline-block;width:24px;height:2px;background:var(--brand);border-radius:2px;}
+  .btn{display:inline-flex;align-items:center;gap:9px;border:1.5px solid transparent;border-radius:999px;
+    padding:15px 30px;font-size:.95rem;font-weight:800;cursor:pointer;text-decoration:none;
+    background:var(--brand);color:var(--cream);box-shadow:0 12px 32px -8px rgba(140,98,57,.4);transition:.2s;}
+  .btn:hover{background:var(--brand-dim);transform:translateY(-2px);}
+  .btn--ghost{background:transparent;color:var(--brand-dim);border-color:var(--line-strong);box-shadow:none;}
+  .arrow{font-size:1.1em;line-height:0;}
+
+  /* ============ HERO ============ */
+  .hero{position:relative;overflow:hidden;padding:84px 0 70px;}
+  .hero-aura{position:absolute;width:1100px;height:900px;top:-160px;left:50%;transform:translateX(-50%);
+    background:radial-gradient(circle,rgba(140,98,57,.16) 0%,transparent 62%);pointer-events:none;}
+  .hero-grid-bg{position:absolute;inset:0;background-image:
+    linear-gradient(rgba(140,98,57,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(140,98,57,.05) 1px,transparent 1px);background-size:60px 60px;
+    -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 25%,transparent 78%);
+    mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 25%,transparent 78%);}
+  .hero-inner{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center;}
+  .hero-h1{font-size:clamp(2.5rem,4.6vw,4rem);font-weight:800;line-height:1.18;letter-spacing:-.025em;margin:22px 0 22px;}
+  .hero-quote{display:block;color:var(--muted);font-size:clamp(1.1rem,1.6vw,1.35rem);font-weight:600;
+    margin-bottom:8px;letter-spacing:-.01em;}
+  .hero-quote .q{color:var(--brand);font-weight:800;}
+  .hero-tag{font-size:1.05rem;line-height:1.8;color:var(--muted);max-width:480px;margin:0 0 30px;}
+  .hero-tag b{color:var(--text);font-weight:700;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+  .hero-note{margin-top:16px;font-size:.84rem;color:var(--dim);display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-note span{display:inline-flex;align-items:center;gap:6px;}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);opacity:.7;}
+
+  /* ---- Hero visual: thought-cloud chips -> AI -> tidy plan ---- */
+  .hv{position:relative;background:var(--card);border:1px solid var(--line);border-radius:26px;
+    padding:24px 24px 22px;box-shadow:0 30px 70px -28px rgba(140,98,57,.3);}
+  .hv-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+  .hv-tag{font-size:.62rem;font-weight:800;letter-spacing:.04em;padding:5px 11px;border-radius:999px;}
+  .hv-tag--in{background:var(--brand-soft);color:var(--brand);border:1px solid var(--line-strong);}
+  .hv-tag--out{background:var(--brand);color:var(--cream);}
+  .hv-split{display:grid;grid-template-columns:1fr 44px 1fr;gap:8px;align-items:center;}
+  .messy{display:flex;flex-wrap:wrap;gap:7px;align-content:flex-start;padding:6px 4px;}
+  .chip{font-size:.72rem;background:rgba(140,98,57,.06);border:1px dashed rgba(140,98,57,.22);
+    color:var(--muted);border-radius:9px;padding:6px 9px;transform:rotate(var(--rot,0deg));}
+  .chip:nth-child(2){--rot:-2deg} .chip:nth-child(3){--rot:1.5deg}
+  .chip:nth-child(5){--rot:-1.5deg} .chip:nth-child(7){--rot:2deg}
+  .conv{display:flex;flex-direction:column;align-items:center;gap:5px;}
+  .conv-c{width:42px;height:42px;border-radius:50%;background:var(--brand);color:var(--cream);
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+    box-shadow:0 10px 22px -6px rgba(140,98,57,.5);}
+  .conv-l{font-size:.55rem;font-weight:800;letter-spacing:.04em;color:var(--brand);}
+  .tidy{display:flex;flex-direction:column;gap:6px;}
+  .trow{display:flex;align-items:center;gap:8px;background:rgba(140,98,57,.045);
+    border:1px solid rgba(140,98,57,.08);border-radius:9px;padding:7px 9px;font-size:.74rem;}
+  .trow.lead{background:rgba(140,98,57,.1);border-color:var(--line-strong);}
+  .tchip{font-size:.58rem;font-weight:800;padding:3px 7px;border-radius:5px;flex-shrink:0;}
+  .tc-plan{background:var(--brand);color:var(--cream)} .tc-feat{background:rgba(140,98,57,.18);color:var(--brand)}
+  .tc-noti{background:rgba(140,98,57,.12);color:var(--brand)} .tc-data{background:rgba(46,64,54,.14);color:var(--moss)}
+  .tname{flex:1;color:var(--text);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .tname b{font-weight:800;}
+  .ttrail{font-size:.55rem;font-weight:800;letter-spacing:.04em;background:rgba(140,98,57,.1);color:var(--brand);
+    padding:2px 7px;border-radius:4px;flex-shrink:0;}
+  .hv-foot{margin-top:14px;display:flex;align-items:center;gap:8px;justify-content:center;
+    font-size:.68rem;color:var(--muted);font-weight:700;}
+  .tool{font-size:.62rem;font-weight:800;padding:4px 9px;border-radius:6px;background:#F6F0E0;
+    border:1px solid var(--line);color:var(--brand-dim);}
+
+  /* ============ PAIN (mirror) ============ */
+  .sec{padding:96px 0;}
+  .sec--alt{background:#F6F0E0;}
+  .sec-head{text-align:center;max-width:760px;margin:0 auto 50px;}
+  .sec-head h2{font-size:clamp(2.1rem,4.2vw,3.3rem);font-weight:800;letter-spacing:-.02em;line-height:1.18;margin:14px 0 14px;}
+  .sec-head p{color:var(--muted);font-size:1.02rem;margin:0;}
+  .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .pain{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px 28px;
+    box-shadow:0 8px 24px -12px rgba(140,98,57,.16);}
+  .pain .ic{width:52px;height:52px;border-radius:15px;background:var(--brand-soft);border:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;}
+  .pain .said{font-size:.86rem;color:var(--brand-dim);font-style:italic;font-weight:600;margin:0 0 8px;}
+  .pain h3{font-size:1.16rem;font-weight:800;letter-spacing:-.015em;margin:0 0 9px;}
+  .pain p{font-size:.9rem;line-height:1.7;color:var(--muted);margin:0;}
+
+  /* ============ VS ============ */
+  .vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:940px;margin:0 auto;}
+  .vs{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;}
+  .vs--bad{background:rgba(111,102,95,.045);}
+  .vs--good{border:2px solid var(--brand);background:rgba(140,98,57,.05);box-shadow:0 20px 48px -24px rgba(140,98,57,.35);}
+  .vs h3{display:flex;align-items:center;gap:9px;font-size:1.15rem;font-weight:800;margin:0 0 18px;letter-spacing:-.02em;}
+  .vs--bad h3{color:var(--muted)} .vs--good h3{color:var(--brand-dim)}
+  .vs ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .vs li{position:relative;padding-left:18px;font-size:.94rem;line-height:1.55;}
+  .vs li::before{content:'';position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;}
+  .vs--bad li{color:var(--muted)} .vs--bad li::before{background:var(--dim)}
+  .vs--good li{color:var(--text);font-weight:500} .vs--good li::before{background:var(--brand)}
+
+  /* ============ FLOW ============ */
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 20px;position:relative;}
+  .step .no{position:absolute;top:14px;right:16px;font-size:.7rem;font-weight:800;color:var(--brand);opacity:.7;}
+  .step .ic{width:46px;height:46px;border-radius:13px;background:var(--brand-soft);border:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:16px;}
+  .step h4{font-size:1rem;font-weight:800;margin:0 0 7px;letter-spacing:-.015em;}
+  .step p{font-size:.8rem;line-height:1.62;color:var(--muted);margin:0;}
+
+  /* ============ FINALE ============ */
+  .manifesto{background:var(--brand);color:var(--cream);padding:96px 0;text-align:center;}
+  .manifesto .q{font-size:2.6rem;color:#E9C15C;line-height:0;}
+  .manifesto h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:800;letter-spacing:-.02em;line-height:1.25;margin:18px auto 20px;max-width:780px;}
+  .manifesto .hl{background:linear-gradient(transparent 68%,rgba(233,193,92,.7) 68%);color:var(--cream);}
+  .manifesto p{color:rgba(252,250,238,.86);font-size:1.05rem;line-height:1.85;max-width:660px;margin:0 auto;}
+  .finale{padding:120px 0 130px;text-align:center;position:relative;overflow:hidden;}
+  .finale::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(ellipse 50% 50% at 30% 50%,rgba(140,98,57,.1),transparent 60%),
+    radial-gradient(ellipse 45% 50% at 78% 50%,rgba(46,64,54,.08),transparent 60%);}
+  .finale-in{position:relative;}
+  .finale h2{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin:0 0 18px;}
+  .finale p{color:var(--muted);font-size:1.05rem;margin:0 0 30px;}
+
+  .note{background:#FFFDF5;border:1px dashed var(--line-strong);border-radius:14px;
+    padding:13px 18px;font-size:.82rem;color:var(--muted);max-width:1180px;margin:0 auto;}
+  .note b{color:var(--brand-dim);font-weight:800;}
+  .secnum{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.1em;color:var(--brand);
+    background:var(--brand-soft);border:1px solid var(--line);border-radius:999px;padding:4px 11px;margin-bottom:6px;}
+
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr;gap:34px;}
+    .pain-grid{grid-template-columns:1fr;}
+    .vs-grid{grid-template-columns:1fr;}
+    .flow{grid-template-columns:1fr 1fr;}
+  }
+</style>
+
+<div class="note wrap" style="margin-top:18px;margin-bottom:6px;padding:13px 18px;">
+  <b>컨셉 시안</b> — 공감/문제 앵글. 실제 브랜드 토큰(크림 #FCFAEE · 브라운 #8C6239 · 골드 형광펜)으로 렌더한 목업입니다. 카피는 모두 쉬운 한국어, 개발 용어 없음.
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-aura"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow"><i></i> 비개발자를 위한 기획 도우미</span>
+      <h1 class="hero-h1">
+        <span class="hero-quote">“아이디어는 있는데, <span class="q">AI한테 시키면 자꾸 산으로 가요.”</span></span>
+        그 마음, <span class="hl">여기서 끝내요.</span>
+      </h1>
+      <p class="hero-tag">
+        개발 못 해도 괜찮아요. 머릿속 생각을 적기만 하면,
+        <b>AI가 그대로 알아듣는 기획서</b>로 정리해 드려요.
+        그대로 Cursor·Claude에 넘기면 <b>원하던 게</b> 만들어집니다.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="#">무료로 내 아이디어 정리해보기 <span class="arrow">→</span></a>
+        <a class="btn btn--ghost" href="#">1분 샘플 먼저 보기</a>
+      </div>
+      <div class="hero-note">
+        <span><span class="dot"></span> 카드 등록 없이 시작</span>
+        <span><span class="dot"></span> 코딩 한 줄도 안 짜요</span>
+        <span><span class="dot"></span> 몇 분이면 완성</span>
+      </div>
+    </div>
+
+    <div class="hv">
+      <div class="hv-head">
+        <span class="hv-tag hv-tag--in">내가 적은 메모 (뒤죽박죽)</span>
+        <span class="hv-tag hv-tag--out">AI가 정리한 기획</span>
+      </div>
+      <div class="hv-split">
+        <div class="messy">
+          <span class="chip">운동 기록 앱 만들고 싶다</span>
+          <span class="chip">매일 체크만 하는 거</span>
+          <span class="chip">저녁에 알림 왔으면</span>
+          <span class="chip">며칠 연속했나 보여주기</span>
+          <span class="chip">카카오로 로그인?</span>
+          <span class="chip">사진도 올리고</span>
+          <span class="chip">주간 통계도…</span>
+        </div>
+        <div class="conv">
+          <span class="conv-c">✦</span>
+          <span class="conv-l">AI 정리</span>
+        </div>
+        <div class="tidy">
+          <div class="trow lead"><span class="tchip tc-plan">기획</span><span class="tname"><b>운동 습관 기록 앱</b></span><span class="ttrail">초안</span></div>
+          <div class="trow"><span class="tchip tc-feat">기능</span><span class="tname">매일 운동 체크</span><span class="ttrail">필수</span></div>
+          <div class="trow"><span class="tchip tc-noti">알림</span><span class="tname">저녁마다 알림 1번</span><span class="ttrail">필수</span></div>
+          <div class="trow"><span class="tchip tc-feat">기능</span><span class="tname">연속 일수 표시</span><span class="ttrail">나중에</span></div>
+          <div class="trow"><span class="tchip tc-data">데이터</span><span class="tname">기록·사진 저장</span><span class="ttrail">필수</span></div>
+        </div>
+      </div>
+      <div class="hv-foot">
+        <span>이 묶음 그대로 →</span>
+        <span class="tool">Cursor</span><span class="tool">Claude Code</span><span class="tool">GitHub</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN MIRROR -->
+<section class="sec sec--alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="secnum">왜 필요할까</span>
+      <h2>혹시, <span class="hl">이런 적 있으셨나요?</span></h2>
+      <p>혼자 막막했다면 재능이 없어서가 아니라, 흐름이 없었기 때문이에요.</p>
+    </div>
+    <div class="pain-grid">
+      <article class="pain">
+        <div class="ic">💭</div>
+        <p class="said">“머릿속엔 가득한데…”</p>
+        <h3>생각은 많은데 정리가 안 돼요</h3>
+        <p>막상 기획서로 옮기려니 어디서부터 써야 할지 막막합니다. 메모만 쌓이고요.</p>
+      </article>
+      <article class="pain">
+        <div class="ic">🌀</div>
+        <p class="said">“이게 아닌데…”</p>
+        <h3>설명하면 엉뚱한 게 나와요</h3>
+        <p>AI한테 대충 설명하면, 원하던 것과 전혀 다른 결과물이 만들어집니다.</p>
+      </article>
+      <article class="pain">
+        <div class="ic">🧭</div>
+        <p class="said">“다음은 뭘 하지?”</p>
+        <h3>혼자선 길이 안 보여요</h3>
+        <p>무엇을 어떤 순서로 해야 할지, 혼자 정하기란 늘 어렵습니다.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- VS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="secnum">무엇이 다를까</span>
+      <h2>같은 AI, <span class="hl">다른 결과</span></h2>
+      <p>기획부터 정리하느냐 아니냐 — 그 차이가 결과물을 가릅니다.</p>
+    </div>
+    <div class="vs-grid">
+      <article class="vs vs--bad">
+        <h3><span>✕</span> 그냥 시키면</h3>
+        <ul>
+          <li>말로 대충 설명 → 의도와 다른 결과</li>
+          <li>뭘 빠뜨렸는지도 모른 채 진행</li>
+          <li>고칠 때마다 처음부터 다시 설명</li>
+          <li>결국 “역시 AI는 안 되네” 하고 포기</li>
+        </ul>
+      </article>
+      <article class="vs vs--good">
+        <h3><span>✓</span> Harness로 정리하면</h3>
+        <ul>
+          <li>정리된 기획·설계로 정확히 전달</li>
+          <li>필요한 화면·기능·데이터가 한눈에</li>
+          <li>기획 대비 자동 점검으로 빠진 것까지</li>
+          <li>원하던 결과물이 한 번에</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="sec sec--alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="secnum">어떻게 흐를까</span>
+      <h2>적기만 하면, <span class="hl">알아서 흘러가요</span></h2>
+      <p>아이디어를 적는 순간부터 코딩 도구에 넘길 준비까지, 막히는 데 없이.</p>
+    </div>
+    <div class="flow">
+      <div class="step"><span class="no">01</span><div class="ic">✍️</div><h4>적기</h4><p>떠오른 생각·회의 메모를 그냥 적어 넣어요.</p></div>
+      <div class="step"><span class="no">02</span><div class="ic">✦</div><h4>정리</h4><p>AI가 핵심만 추려 기획서로 정돈해요.</p></div>
+      <div class="step"><span class="no">03</span><div class="ic">🗺️</div><h4>설계</h4><p>필요한 화면·기능·데이터를 그려줘요.</p></div>
+      <div class="step"><span class="no">04</span><div class="ic">📦</div><h4>넘기기</h4><p>한 묶음으로 Cursor·Claude에 넘겨요.</p></div>
+      <div class="step"><span class="no">05</span><div class="ic">✅</div><h4>점검</h4><p>기획대로 됐는지 자동으로 확인해요.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="wrap">
+    <div class="q">“</div>
+    <h2>“AI가 만든 게 이상해요”는 사실,<br><span class="hl">기획이 정리되지 않은 채 시킨 결과예요.</span></h2>
+    <p>Harness는 화려한 기능을 더 얹는 도구가 아니라, 머릿속 생각을 AI가 알아들을 수 있는 구조로 바꿔 주는 한 단계입니다. 그 한 단계가 결과물의 차이를 만듭니다.</p>
+  </div>
+</section>
+
+<!-- FINALE -->
+<section class="finale">
+  <div class="wrap finale-in">
+    <h2>머릿속에만 있는 그 아이디어,<br><span class="hl">지금 꺼내 볼까요?</span></h2>
+    <p>개발 못 해도 괜찮아요. 적어 넣기만 하면, 몇 분이면 나와요.</p>
+    <a class="btn" href="#" style="padding:18px 38px;font-size:1.02rem;">무료로 시작하기 <span class="arrow">→</span></a>
+  </div>
+</section>

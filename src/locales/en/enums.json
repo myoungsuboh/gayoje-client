@@ -1,0 +1,50 @@
+{
+  "tier": {
+    "confirmed": "Confirmed",
+    "review": "Review",
+    "estimated": "Estimated"
+  },
+  "confidence": {
+    "direct": "Direct basis",
+    "inferred": "Inferred",
+    "none": "No basis",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Weak match",
+    "unverified": "⚠ Unverified",
+    "description": {
+      "direct": "Explicitly mentioned in the PRD",
+      "inferred": "Required by the PRD flow but not stated",
+      "none": "No basis found in the PRD"
+    }
+  },
+  "violation_type": {
+    "missing_aggregate_root": {
+      "chip": "No root",
+      "title": "Missing aggregate root"
+    },
+    "multiple_aggregate_roots": {
+      "chip": "Duplicate roots",
+      "title": "{count} aggregate roots"
+    }
+  },
+  "job_status": {
+    "pending": "Pending",
+    "running": "Processing",
+    "done": "Done",
+    "failed": "Failed",
+    "error": "Failed",
+    "cancelled": "Cancelled"
+  },
+  "coverage": {
+    "direct": "Direct {count}",
+    "inferred": "Inferred {count}",
+    "none": "No basis {count}",
+    "total": "Total {count}",
+    "no_data": "No PRD link data"
+  },
+  "rel_type": {
+    "IMPLEMENTS": "Implements",
+    "DERIVED_FROM": "Derived from"
+  }
+}

@@ -1,0 +1,89 @@
+### [Meeting Log V1] - Kickoff: the meeting-room turf war ends here
+* **Date:** 2026-03-02 (10:00 ~ 11:00)
+* **Attendees:** Head of Operations (hereafter PO), Product Manager (hereafter PM), Engineering Lead (hereafter DEV), Designer (hereafter UX), General Affairs representative (hereafter General Affairs)
+* **PO:** "We have eight meeting rooms at headquarters, and every morning Slack is full of messages like 'Anyone planning to use Room B at 3pm?' In last month's employee survey, 42% said booking a meeting room was their single biggest source of work stress. The current method of scribbling on a whiteboard has hit its limit."
+* **General Affairs:** "To describe what manual booking really looks like: no-shows feel like one in every three reservations. The room sits empty, but since a name is written on the whiteboard, nobody dares walk in. The opposite happens too — every week someone uses a room without writing it down, runs into the person who booked it, and there's an awkward standoff."
+* **PM:** "So we have three problems. 1) Nobody knows which room is free right now, 2) there are lots of no-shows where people book and don't use the room, and 3) there's no standard for mediating when bookings collide."
+* **DEV:** "I looked into adopting an external SaaS, but it's priced per head — over ten million won a year — and it won't integrate with our internal SSO. For just eight rooms, we're better off building something lightweight ourselves. But we have to scope it tightly. Let's not put in things like video-conference integration from the start."
+* **UX:** "Agreed. The core is 'pull out your phone in the hallway, find a free room, and finish booking in ten seconds.' If we nail that one experience, that's all we need."
+* **PO:** "Good. Let's keep the goal simple. See free rooms at a glance, book instantly, and cut no-shows. Those three things. We'll lock the feature scope in the next meeting."
+* **[Progress: 10% - Kickoff complete; agreed on the three core problems (visibility, no-shows, conflicts) and the goal]**
+
+---
+
+### [Meeting Log V2] - Locking the core scope: status board, booking, my reservations
+* **Date:** 2026-03-05 (14:00 ~ 15:30)
+* **Attendees:** PM, DEV, UX, General Affairs
+* **PM:** "Let me start with the user scenario. The protagonist is 'an employee who needs a room right now.' ① Check the status board for a free room, ② pick a time slot and book it, ③ review or cancel my reservations. Those three flows are the whole thing."
+* **UX:** "For the status board, I sketched a layout that lays out the eight rooms as cards, each card showing 'in use / available' plus a bar of today's occupancy by time slot. We use only two colors: green for available, gray for booked."
+* **DEV:** "For creating a booking, let's only take a start time, an end time, and the meeting title as input. The moment we start collecting an attendee list, the form gets long and nobody uses it. When a booking succeeds, we return a reservation number so the user can find it right away under My Reservations."
+* **General Affairs:** "Please make the meeting title required. Even in the whiteboard days, when only a name was written down, we couldn't tell which team's meeting it was, so we couldn't coordinate. With just a title and the booker, the parties can sort out conflicts directly."
+* **PM:** "How should we handle changing a booking? Building an edit feature makes the time-overlap validation complicated."
+* **DEV:** "For the first version, let's go with cancel-and-rebook. We can decide on editing later once we've seen usage data — it won't be too late. In exchange, let's make canceling lightweight, done in two taps."
+* **UX:** "The My Reservations screen shows upcoming bookings in chronological order, with a cancel button on each item. Past bookings are collapsed and hidden."
+* **PM:** "To sum up. The first scope is ① the room status board, ② booking creation (title, start, end all required), and ③ the My Reservations list with cancellation. Booking edits and statistics are deferred to the second phase."
+* **[Progress: 30% - Locked the three first-phase features; booking edits deferred to the second phase]**
+
+---
+
+### [Meeting Log V3] - Screen flow and double-booking prevention rules
+* **Date:** 2026-03-09 (10:00 ~ 11:30)
+* **Attendees:** PM, DEV, UX
+* **UX:** "I'd like to start with four screens. ① The status board (the main screen, /board), ② the booking-creation modal (opens when you tap a time slot on the board), ③ My Reservations (/my), and ④ admin settings (/admin, for registering and editing rooms). We won't build a separate home screen — the board is the home."
+* **DEV:** "Let's set access permissions per screen too. Anyone who passes internal SSO can use the board, booking, and My Reservations, but only General Affairs accounts with admin rights can enter admin settings. If someone without permission goes to /admin, we show a 'no permission' notice and send them back to the board."
+* **PM:** "In the booking-creation modal, how do you pick the time? If it's free input, you'll get bookings like 9:13."
+* **UX:** "We restrict it to 30-minute slots. When you tap a free slot on the board, the modal opens with that time pre-filled, and you just pick the end time. The only input field left is the meeting title."
+* **DEV:** "Double-booking prevention is the lifeblood of this system. Let's define the rule precisely. If a time range overlaps by even one minute in the same room, we reject the booking and show 'This time is already booked.' Validation must always happen on the server. Even if a slot looks free on screen, if someone hits the button one second earlier, the server rejecting it is the correct outcome."
+* **PM:** "What about monopolizing with back-to-back bookings? Cases where one team books a room all day."
+* **DEV:** "Let's cap it at a maximum of three bookings per person per day, two hours per booking. The 'large workshops are an exception' point General Affairs raised, we'll handle by having an admin register those directly from the admin screen."
+* **UX:** "I'll polish the wording for things like booking rejections so they don't sound accusatory. I'll lean toward offering an alternative, like 'This time is already booked. The very next slot is free.'"
+* **PM:** "Four screens, the permission split, and the double-booking and cap rules are all locked. Next is no-show countermeasures."
+* **[Progress: 50% - Locked four screens + permission split (SSO auth / admin) + 30-minute slots + server-side double-booking blocking + booking caps (3/day, 2h each)]**
+
+---
+
+### [Meeting Log V4] - No-show countermeasures: QR check-in and 10-minute auto-release
+* **Date:** 2026-03-12 (14:00 ~ 15:00)
+* **Attendees:** PO, PM, DEV, UX, General Affairs
+* **PM:** "I've prepared two options for no-show countermeasures. Option A auto-releases the booking if you don't check in within ten minutes of the start time, returning the room to 'available.' Option B assigns penalty points for no-shows and restricts a person's bookings for a week once they hit three."
+* **General Affairs:** "A penalty system will draw a lot of pushback. We tried a tardiness-penalty system last year and scrapped it within a month. Rather than punishment, Option A's 'it auto-releases if you don't use it' feels more natural."
+* **PO:** "Let's go with Option A. How does check-in work?"
+* **DEV:** "We put a QR code on the door of each room. You scan it with your phone as you enter, the check-in screen (/checkin) opens, and one tap of the 'check in' button is all it takes. That makes five screens. Since each room has a unique QR, you can't cheat by scanning from another room, and if you scan at a time when you have no booking, it shows 'No reservation found for this time.'"
+* **UX:** "Plenty of people will forget to check in, so let's send a 'please check in' reminder five minutes before the booking starts. If we send it as a DM via the internal Slack bot, we won't need separate push infrastructure."
+* **PM:** "An auto-released room has to show as 'available' on the board immediately, or it's pointless. The board updating in real time at the moment of release is part of the same package."
+* **DEV:** "Polling the board every 30 seconds is enough for that. This isn't a scale that warrants websockets."
+* **PO:** "Confirmed. QR check-in (plus a check-in screen), 10-minute auto-release for no check-in, and a Slack reminder five minutes before the start. We will not introduce a penalty system."
+* **[Progress: 70% - No-show policy locked (QR check-in + check-in screen (/checkin) + 10-minute auto-release + 5-minute reminder); penalty system rejected]**
+
+---
+
+### [Meeting Log V5] - Data model, API, and error-response rules
+* **Date:** 2026-03-16 (10:00 ~ 11:30)
+* **Attendees:** PM, DEV
+* **DEV:** "Three data models are enough. Room has a name (string, max 30 chars), floor (integer), capacity (integer, 1 or more), and a QR code value (string). Reservation has a room ID, a booker ID, a meeting title (string, max 50 chars), start/end times (date + time), and a status. The status is a fixed value that can only be one of four: booked, checked in, auto-released, or canceled. User reuses the internal SSO profile (employee ID, name, email) as-is. There's no separate sign-up."
+* **PM:** "What do the APIs look like?"
+* **DEV:** "We start with six. ① Fetch the room list and today's occupancy (the board calls this every 30 seconds), ② create a booking — the input is room ID, meeting title, and start/end times, and on success it returns a reservation number and status, ③ cancel a booking, ④ fetch my reservation list, ⑤ QR check-in, and ⑥ the admin room register/edit. The creation API is responsible for both the double-booking validation and the cap validation (3/day, 2 hours each)."
+* **PM:** "For the screen to tell situations apart and guide the user when something fails, the failure responses need rules too, right?"
+* **DEV:** "Let's bake in error codes. An unauthenticated request is 401; trying to cancel someone else's booking, or calling room registration without admin rights, is 403; if the booking you're trying to cancel doesn't exist, it's 404; an overlapping double-booking is 409; and validation failures like a misaligned slot, exceeding a cap, or an end time earlier than the start are 422. The screen picks the message based on this code alone."
+* **PM:** "Calendar integration keeps coming up — what should we do? There's a request to have events automatically added to Outlook."
+* **DEV:** "I'd like to defer it in the first phase. Just applying for calendar API permissions and handling sync conflicts is a month's work. As a compromise, putting an 'Add to calendar' button on the booking-confirmation screen that downloads a standard calendar file (.ics) would take a day to build."
+* **PM:** "That compromise is nice. How does auto-release work? Who counts the ten minutes?"
+* **DEV:** "A batch job that runs on the server every minute finds bookings that are 'past 10 minutes from start + not checked in' and switches them to the auto-released status. The same job also handles the 5-minute reminders. The structure is simple, so there's nowhere for it to break."
+* **PM:** "To sum up: three models (Room, Reservation, User), six APIs, five error codes (401/403/404/409/422), calendar via the .ics compromise, and auto-release as a one-minute batch. Let's nail down the launch scope in the next meeting."
+* **[Progress: 85% - Locked three data models (including attributes and types) + six APIs (including inputs/responses) + error-response rules (401/403/404/409/422) + auto-release batch structure]**
+
+---
+
+### [Meeting Log V6] - MVP launch scope, quality targets, and success metrics locked
+* **Date:** 2026-03-19 (15:00 ~ 16:00)
+* **Attendees:** PO, PM, DEV, UX, General Affairs
+* **PM:** "Final review. The MVP scope is five screens — status board, booking modal, My Reservations, check-in, and admin settings. The policies are 30-minute slots, caps of 3/day and 2 hours per booking, server-side double-booking blocking, QR check-in, 10-minute auto-release for no check-in, and a Slack reminder five minutes before the start."
+* **PO:** "Let's nail down the quality bar too. If the board is slow, everyone will go back to the whiteboard."
+* **DEV:** "I propose three non-functional targets. 1) Status-board fetch response time under 500ms, 2) handle up to 100 concurrent users without lag during the post-lunch peak, and 3) 99.9% availability during business hours (weekdays 9am–7pm). And we keep booking, cancellation, and auto-release history for 90 days to compute the no-show rate metric."
+* **PO:** "How do we measure success? It can't end at 'we built it.'"
+* **PM:** "I propose three metrics. 1) Four weeks after launch, at least 80% of weekly bookings go through the system, 2) bring the no-show rate from an estimated 30% today down to 10% or below, and 3) an average of under 10 seconds to complete a booking. The no-show rate can be measured by the proportion of auto-releases."
+* **General Affairs:** "For the first week we'll run the whiteboard in parallel, then put it away in the second week. We'll post a notice on the room doors alongside the QR saying 'Book this room on the board.'"
+* **UX:** "We won't get greedy with the admin screen — just two things: registering a room's name, floor, and capacity, and reissuing the QR. Exception bookings like workshops are also registered directly by an admin here."
+* **DEV:** "For the schedule, I'm setting three weeks of development and one week of internal beta. The beta starts with just two teams — the dev team and the operations team. Double-booking blocking and auto-release must pass concurrent-request testing before they ship."
+* **PO:** "Great. Let's confirm a company-wide launch on April 20. Well done, everyone — see you at the beta feedback meeting."
+* **[Progress: 100% - Locked MVP scope (5 screens), three non-functional targets (500ms / 100 users / 99.9%), three success metrics, and launch date (4/20); planning phase complete]**

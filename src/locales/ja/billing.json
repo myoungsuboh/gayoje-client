@@ -1,0 +1,47 @@
+{
+  "perk": {
+    "meeting_logs": "議事録の整理 月{count}件",
+    "tokens": "AI 作業量 {amount} トークン",
+    "lite_bonus": "使い切っても止まりません\nLite モードで週 {amount} 継続",
+    "free_wait": "トークン消費後は翌月のリセットまで待機",
+    "skills": "スキルライブラリ {count}枠",
+    "projects": "同時プロジェクト {count}件",
+    "discount": "{pct}% 単価割引（Pro比）",
+    "beta_access": "新機能のベータ優先アクセス"
+  },
+  "upgrade": {
+    "title_exceeded": "ご利用上限に達しました",
+    "title_max": "Pro Max の上限についてのご案内",
+    "title_default": "プランをアップグレード",
+    "subtitle_exceeded_type": "{label} の上限をすべて使い切りました。",
+    "subtitle_exceeded": "現在のプランのご利用上限をすべて使い切りました。",
+    "subtitle_max": "最上位のプランをご利用中です。",
+    "subtitle_default": "より多くの会議登録とAI分析が必要ですか？",
+    "stat_current": "現在",
+    "stat_limit": "上限",
+    "stat_tier": "プラン",
+    "selffix": "✂️ 会議ログを <strong>{limit}文字以下</strong> に減らせば、現在のプランでもすぐに保存できます。アップグレードすると、より長い会議ログも一度に処理できます。",
+    "reset_days": "💡 <strong>{days}日後</strong>に使用量が自動でリセットされ、上限が回復します。もっと早く使いたい場合は下のプランにアップグレードしてください。",
+    "reset_today": "💡 本日リセット予定 — まもなく使用量が初期化されます。",
+    "recommended": "おすすめ",
+    "per_month": "/ 月",
+    "cta_start": "{label} を開始",
+    "note": "カード登録後、ただちにサブスクリプションが開始されます。アップグレード時は残り日数分の差額のみ請求されます。",
+    "later": "あとで",
+    "contact_admin": "管理者に問い合わせ"
+  },
+  "limit_type": {
+    "meeting_logs": "会議ログの登録",
+    "summary_chars": "会議ログ1回あたりの入力文字数",
+    "total_tokens": "AIトークン使用量",
+    "library_skills": "スキルライブラリの保存",
+    "max_projects": "同時プロジェクト数"
+  },
+  "pro_max_notice": "Pro Max の上限に達しました。さらに容量が必要な場合は、管理者にお問い合わせください。",
+  "mailto": {
+    "upgrade_subject": "[Harness] {label} アップグレードのお問い合わせ",
+    "upgrade_body": "こんにちは。\n\nHarness {label}（{price}）へのアップグレードを希望します。\n- メールアドレス: （ご登録のメールアドレス）\n- 現在のプラン: {current}\n- 理由: \n\nよろしくお願いいたします。",
+    "contact_subject": "[Harness] 追加容量のお問い合わせ",
+    "contact_body": "こんにちは。\n\nHarness Pro Max の上限に達したため、追加容量についてお問い合わせします。\n- メールアドレス: （ご登録のメールアドレス）\n- 理由: \n\nよろしくお願いいたします。"
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "meeting-log-new": {
+    "title": "New meeting log",
+    "desc": "Add a new meeting log by typing out what was discussed or uploading an audio file."
+  },
+  "meeting-log-template": {
+    "title": "Insert a template",
+    "desc": "Drops a standard \"Date / Attendees / Decisions / Action Items\" template into the body. Just fill in the blanks."
+  },
+  "meeting-log-audio": {
+    "title": "Upload an audio file",
+    "desc": "Upload a meeting recording (mp3 / m4a / mp4 / wav, under 30MB) and AI transcribes it as-is (in the spoken language). Summarizing and planning happen automatically after you save."
+  },
+  "meeting-log-notion": {
+    "title": "Import from Notion",
+    "desc": "Pick a page from your own Notion account to import as a meeting log. Connect once and it's automatic from then on (Notion access required)."
+  },
+  "meeting-log-batch": {
+    "title": "Process logs in bulk",
+    "desc": "Process several meeting logs in order, all at once. From the first meeting to the last, your core summary (CPS) and requirements (PRD) update cumulatively."
+  },
+  "meeting-log-batch-stop": {
+    "title": "Stop bulk processing",
+    "desc": "Stops the running bulk job immediately. The item currently in progress finishes up in the background."
+  },
+  "auto-mode-toggle": {
+    "title": "Auto mode / Review mode",
+    "desc": "Auto mode ON: meeting log → core summary (CPS) → requirements (PRD) all generated in one go. OFF (Review mode): builds the CPS first, then you review it and press the generate-PRD button yourself."
+  },
+  "cps-tab": {
+    "title": "Core summary (CPS)",
+    "desc": "A summary pulled from the meeting of \"what Problem to solve and how (Solution)\". When a meeting is updated, only the affected parts are re-summarized automatically."
+  },
+  "prd-tab": {
+    "title": "Requirements (PRD)",
+    "desc": "The doc that breaks your plan into developable units. A tree of big groups (Epic) → user scenarios (Story) → done conditions (Acceptance Criteria)."
+  },
+  "rule-generator-tab": {
+    "title": "Coding rule generator",
+    "desc": "AI suggests code-check rules that fit this project (naming, structure, forbidden patterns, and more). Applied automatically in your next code check."
+  },
+  "design-latest-update": {
+    "title": "Latest update",
+    "desc": "From your requirements (PRD), generates/updates the feature spec (SPACK), domain model (DDD), and system architecture all at once. Takes about 4–6 min."
+  },
+  "design-cancel": {
+    "title": "Stop the update",
+    "desc": "Stops the design generation in progress. Your existing data is kept just as it was."
+  },
+  "design-notion": {
+    "title": "Export to Notion",
+    "desc": "Sends your generated design docs (feature spec · domain model · architecture) to a Notion page — handy for sharing with your team or keeping as documentation."
+  },
+  "spack-tab": {
+    "title": "Feature spec (SPACK)",
+    "desc": "The spec for the entry points the system exposes (API), its core data (Entity), and its business rules (Policy). The answer to \"what are we building\"."
+  },
+  "spack-api": {
+    "title": "API — external entry point",
+    "desc": "The address clients (app, web, outside services) call. Which path takes which method (GET/POST, etc.) and what it returns. e.g. GET /users/{id} → look up a user."
+  },
+  "spack-entity": {
+    "title": "Entity — core data",
+    "desc": "The business objects the system handles. Nouns like \"user\", \"order\", \"payment\". Each is stored as its own database table and lands as a domain model in the code. Click a card to trace which PRD Story it came from."
+  },
+  "spack-policy": {
+    "title": "Policy — business rule",
+    "desc": "Constraints and policies the system must always keep. e.g. \"retry payment up to 3 times\", \"password 8+ characters\". In code, this becomes validation logic or a non-functional requirement (performance, security, compatibility)."
+  },
+  "ddd-domain-map": {
+    "title": "Domain Map — work map",
+    "desc": "A one-screen map of \"which work areas exist, and what data and events live inside them\". It's the blueprint you use to decide how to split the code into modules."
+  },
+  "ddd-bounded-context": {
+    "title": "Context — work area",
+    "desc": "One chunk of the business. For a shopping mall, big areas like \"payment\", \"membership\", and \"shipping\" are each a Context. Each area has its own words and rules — \"order\" in payment and \"order\" in shipping mean different things."
+  },
+  "ddd-aggregate": {
+    "title": "Aggregate — the bundle lead",
+    "desc": "A big unit of data handled together as one. An \"order\" holds order items, payment info, and shipping address — and \"order\" is the name representing that whole bundle. Saved in one go, loaded in one go. On screen it's a white card with a box (📦) icon."
+  },
+  "ddd-entity": {
+    "title": "Entity — data in the bundle",
+    "desc": "The small data items inside an Aggregate bundle. e.g. \"order item 1, 2, 3\" inside the \"order\" bundle — each told apart by its own unique number. On screen it's a small blue-bordered chip."
+  },
+  "ddd-event": {
+    "title": "Event — something happened",
+    "desc": "A record that \"something just happened\". e.g. facts like \"payment completed\", \"sign-up\", \"order cancelled\". Other systems watch these to do follow-up work like notifications, settlement, or stats. On screen it's a card with a lightning (⚡) icon and a yellow border."
+  },
+  "ddd-context-stats": {
+    "title": "Item count per area",
+    "desc": "The number of Aggregate / Entity / Event inside this work area. 0 means it's still empty — write your meeting log in more detail or flesh it out yourself in Review mode."
+  },
+  "ddd-lineage-badge": {
+    "title": "PRD link coverage",
+    "desc": "The share of domain objects drawn here that were auto-traced back to a PRD feature (Story) they came from. At 100%, every object has a reason for \"why it was built\". The lower it is, the more objects with unknown origins are mixed in."
+  },
+  "ddd-tab": {
+    "title": "Domain model (DDD)",
+    "desc": "Models core data bundles (Aggregate), individual data (Entity), and things that happened (Event) for each work area (Context). The answer to \"how the system works\"."
+  },
+  "architecture-tab": {
+    "title": "System architecture",
+    "desc": "A blueprint drawing the system as actually deployable units. The services (Service), databases (Database), and the connections between them."
+  },
+  "vibe-coding-package": {
+    "title": "Vibe coding starter kit",
+    "desc": "Design output (feature spec · domain · architecture) + coding rules + an AI guide, all in one ZIP. Just unzip and open the folder in an AI tool (Claude Code · Cursor · Antigravity, etc.) — it auto-detects AGENTS.md/CLAUDE.md and the code writes itself."
+  },
+  "lineage-graph": {
+    "title": "Lineage graph",
+    "desc": "Visualizes how requirements (PRD Story) → feature spec (API) → domain object (Aggregate) → actual code file connect together. Trace \"why this code was written\" at a glance."
+  },
+  "wv-lcp": {
+    "title": "Largest content shown (LCP)",
+    "desc": "How long it takes for the main content (the largest image or text block) to appear on screen. The moment a user feels \"this page has loaded\". Under 2.5s is on the fast side."
+  },
+  "wv-fcp": {
+    "title": "First text shown (FCP)",
+    "desc": "How long it takes for any content at all to first appear on screen. The moment the blank page goes away. Under 1.8s is good."
+  },
+  "wv-cls": {
+    "title": "Screen jumpiness (CLS)",
+    "desc": "How much the text/images suddenly shift around while the page loads. That annoyance when the button you were about to tap suddenly jumps down — under 0.1 means almost no shifting."
+  },
+  "wv-inp": {
+    "title": "Response speed (INP)",
+    "desc": "How long it takes the screen to react after you tap a button or link. Measures that \"I clicked but it's frozen\" feeling. Under 200ms feels smooth."
+  },
+  "wv-ttfb": {
+    "title": "Server response (TTFB)",
+    "desc": "How long it takes to receive the first byte after the browser sends a request to the server. How quickly the server starts answering. Under 800ms is good."
+  },
+  "wv-recent": {
+    "title": "Most recent reading",
+    "desc": "The single most recent measurement. A quick check of how things stand right now."
+  },
+  "wv-p50": {
+    "title": "Half are at least this fast",
+    "desc": "Sort the measurements and take the middle one (50%). The speed an average user feels."
+  },
+  "wv-p75": {
+    "title": "3 in 4 are this fast",
+    "desc": "The speed the bottom 75% of users feel. The benchmark Google Search uses to grade Core Web Vitals."
+  },
+  "wv-p95": {
+    "title": "Fast except slowest 5%",
+    "desc": "The value looking all the way out to the tail (the slowest users). How bad the worst case gets — if this is too high, some users are having a very rough time."
+  },
+  "wv-good-threshold": {
+    "title": "\"Good\" baseline",
+    "desc": "The cutoff for the \"good\" grade set by Google. At or under this value, the page counts as fast. (Differs per metric.)"
+  },
+  "wv-status": {
+    "title": "Current status",
+    "desc": "The grade auto-assigned from the most recent reading. 🟢 Good / 🟡 Needs improvement / 🔴 Poor."
+  },
+  "run-lint": {
+    "title": "Run code check",
+    "desc": "Checks whether your GitHub code followed the design spec. See the pass rate across 4 areas (feature spec SPACK · domain DDD · system architecture · coding rules) in a table."
+  },
+  "fix-agent": {
+    "title": "Generate Auto-fix guide",
+    "desc": "Gathers the failed rules and turns them into a spec an AI agent (Claude Code · Cursor, etc.) can fix right away. Paste the spec into the agent and the code fixes proceed automatically."
+  },
+  "lint-analysis-score": {
+    "title": "Traceability score",
+    "desc": "A score (0–100) averaging across 4 areas how often design spec items (API · Entity · domain model · rules) show up in the code. It measures \"was it built to spec\", not \"code quality\". Because it relies on name/path matching and LLM citations, even 100% doesn't guarantee the implementation is correct."
+  },
+  "lint-scanned-files": {
+    "title": "Files sampled in the check",
+    "desc": "M / N = (files actually read and analyzed) / (all code files in the repo). For large repos, only a sample is checked — mainly files whose paths match spec tokens. If M is smaller than N, some code went unchecked, so read the score that much more conservatively."
+  },
+  "lint-rules-checked": {
+    "title": "Rules checked",
+    "desc": "The total number of check items pulled from the spec. e.g. 12 API + 8 Entity + 5 coding rules = 25 rules. The richer your spec, the more there are."
+  },
+  "lint-violations": {
+    "title": "Rules violated",
+    "desc": "The number of rules that didn't pass the check (🔴 FAIL). Items written in the spec but missing or wrongly built in the code. You can generate an auto-fix spec with the Fix Agent."
+  },
+  "lint-category-cards": {
+    "title": "Pass rate by category",
+    "desc": "The pass rate across all 5 areas (SPACK·DDD·Architecture·Rules·Plan items) at a glance. Click a card to expand that area's detailed rule table and see which rules are PASS / FAIL."
+  },
+  "lint-compliance-report": {
+    "title": "Results by rule",
+    "desc": "Every checked rule in one table. Shows whether each rule is PASS (🟢) / FAIL (🔴), and which method (deterministic / AI verified / unmatched) decided it. Click a row to expand the supporting code."
+  },
+  "lint-method-deterministic": {
+    "title": "Deterministic check",
+    "desc": "A verdict reached by reading the code structure directly to confirm a pattern match for certain. Not an AI guess — it's 100% settled whether it \"really exists in the code or not\". The most trustworthy result."
+  },
+  "lint-method-llm": {
+    "title": "AI verified",
+    "desc": "A verdict where AI read the file body and judged it by meaning. It can make flexible calls like \"different function name, but does the same thing\" — but AI can also guess wrong, so it's weaker than a deterministic check."
+  },
+  "lint-method-fallback": {
+    "title": "Unmatched",
+    "desc": "Both the deterministic check and the AI check failed — meaning no code satisfying the rule was found. It might be genuinely missing, or the search method just didn't fit and missed it."
+  },
+  "lint-pass-fail": {
+    "title": "PASS / FAIL",
+    "desc": "🟢 PASS = rule satisfied (built into the code). 🔴 FAIL = rule not met — build a fix spec with the Fix Agent and hand it to an AI agent for automatic fixing."
+  },
+  "lineage-section": {
+    "title": "Deliverable ↔ code mapping",
+    "desc": "AI auto-traces which file in your GitHub code each spec deliverable (Aggregate · API · Service · Story) is built in. See at a glance whether every spec landed in code."
+  },
+  "lineage-rerun": {
+    "title": "Re-analyze",
+    "desc": "Re-analyze after you push new code or the spec changes. Takes 1–3 min. Results are cached, so the same input isn't analyzed again."
+  },
+  "lineage-coverage": {
+    "title": "Coverage — mapping rate",
+    "desc": "What % of spec deliverables are linked to an actual code file. At 100%, every spec is built somewhere. Low means there are items \"written in the PRD but missing in the code\"."
+  },
+  "lineage-tab-matrix": {
+    "title": "Matrix — one-table view",
+    "desc": "Every spec deliverable in one big table. See which file each item maps to · its confidence (certain/estimated/weak) · and whether it's unbuilt, all at a glance."
+  },
+  "lineage-tab-missing": {
+    "title": "Unbuilt — missing specs",
+    "desc": "Items written in the spec but with no implementation found in the code. They might be genuinely missing, or the code filenames may differ so much from the spec that nothing matched."
+  },
+  "lineage-confidence": {
+    "title": "Confidence — how certain",
+    "desc": "🟢 Certain: name/ID matched exactly. 🟡 Estimated: AI judged it the same by meaning (a human check is recommended). 🟠 Weak: only some keywords matched (verify it yourself). ⚪ Unverified: no ground-truth label. 🔴 Unmatched: no code found."
+  },
+  "lineage-impl-count": {
+    "title": "Files mapped",
+    "desc": "How many code files this spec is linked to. 0 means unbuilt; several means it's spread across files. Click to expand and check those files."
+  },
+  "lineage-summary-stats": {
+    "title": "Total mapped / unbuilt",
+    "desc": "Total mapped = spec deliverables linked to a code file. Unbuilt = items in the spec that weren't found in the code. The goal is to narrow it down until unbuilt hits 0."
+  },
+  "add-repo": {
+    "title": "Register a repo",
+    "desc": "Register a GitHub repository address by role (frontend / backend / DB / mobile). The KPIs and code-check scores of the registered repos are totaled up automatically."
+  },
+  "handoff-zip": {
+    "title": "Handoff ZIP",
+    "desc": "Bundles the design spec (SPACK · DDD · Architecture) + the list of repo URLs + the Lint report into one file. The source code isn't included; clone the actual code from the repo URLs. It's a document package of specs, links, and check results."
+  },
+  "deliv-kpi-repos": {
+    "title": "Registered repos",
+    "desc": "The total number of GitHub repositories registered to this project. You can register several by role — frontend · backend · DB · mobile, and more."
+  },
+  "deliv-kpi-files": {
+    "title": "Total files",
+    "desc": "The total file count across all registered repos. Counted automatically from the GitHub tree. If it's too low, the repo connection may have failed."
+  },
+  "deliv-kpi-loc": {
+    "title": "Total lines of code",
+    "desc": "\"Lines of Code\" — an estimate of total code lines across all registered repos. Based on GitHub language stats, so comments and blank lines may be included."
+  },
+  "deliv-kpi-lint": {
+    "title": "Average check score",
+    "desc": "The average of each repo's code-check (Lint) score. 80% or higher means spec compliance is going well. Repos not yet checked are left out of the average."
+  },
+  "deliv-role-group": {
+    "title": "Groups by role",
+    "desc": "Shows your repos grouped by role (frontend / backend / DB / mobile). Gathering the same roles together makes it easy to see what's where at a glance."
+  },
+  "deliv-repo-lint-chip": {
+    "title": "Repo check score",
+    "desc": "The pass rate this repo got in its code check (Lint). \"—\" means it hasn't been analyzed yet — click the card to run the check from the detail panel."
+  },
+  "deliv-hero-refresh": {
+    "title": "Refresh all",
+    "desc": "Reloads every repo's GitHub metadata (file count · language · latest commit) and check scores. If the GitHub cache (60s) hasn't expired, the cached value is used as is."
+  },
+  "deliv-readiness": {
+    "title": "Handoff readiness checklist",
+    "desc": "Automatically rates whether this project is ready to hand off to the next team as is, across 7 items. ✅ Pass / 🟡 Partial / 🔴 Not met. When all are ✅, you can hand it off to the next stage."
+  },
+  "deliv-tech-stack": {
+    "title": "Language / tech stack mix",
+    "desc": "Across all registered repos, the % share of each language at a glance. Based on byte counts from the GitHub Languages API. Instantly see which tech the receiving team needs to know."
+  },
+  "deliv-handoff-dev": {
+    "title": "Developer package",
+    "desc": "Design output (feature spec SPACK · domain DDD · architecture) + all repo URLs + the code-check report (JSON), the whole lot. Everything a newly joined developer needs to understand the codebase."
+  },
+  "deliv-handoff-pm": {
+    "title": "PM package",
+    "desc": "Requirements (PRD) + a per-repo summary of code-check scores. Used when a project manager tracks progress and quality metrics."
+  },
+  "deliv-handoff-architect": {
+    "title": "Architect package",
+    "desc": "Just the feature spec (SPACK) + domain model (DDD) + system architecture MD, hand-picked. A spec set for whoever reviews and extends the system design."
+  },
+  "project-picker": {
+    "title": "My projects",
+    "desc": "You can manage several projects. Creating a new project, switching to an existing one, and deleting — all from here."
+  },
+  "usage-quota": {
+    "title": "Usage",
+    "desc": "Shows the number of meeting logs used this month and your AI call cost (tokens). The color changes as you near your limit, and it blinks to alert you when you hit 100%."
+  }
+}

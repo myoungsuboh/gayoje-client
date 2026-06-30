@@ -1,0 +1,352 @@
+{
+  "back": "Back",
+  "updated": "Last updated: {date}",
+  "note": "This document is a courtesy translation provided for convenience. In case of any discrepancy, the Korean original prevails.",
+  "effective": "These terms take effect as of {date}.",
+  "addendum": "Addendum",
+  "history_title": "Change history",
+  "company_title": "Company information",
+  "contact_title": "Contact",
+  "company": {
+    "name_l": "Company name", "name_v": "Harness",
+    "ceo_l": "Representative", "ceo_v": "Oh Hae-geum",
+    "biz_l": "Business registration no.", "biz_v": "786-04-03787",
+    "addr_l": "Address", "addr_v": "75 Hwasan-ro, Buk-gu, Ulsan, Republic of Korea",
+    "tel_l": "Phone", "tel_v": "+82 10-7573-1723",
+    "support_l": "Customer support",
+    "hours_l": "Support hours", "hours_v": "Weekdays 10:00–18:00 KST (closed weekends/holidays)",
+    "mor_l": "Merchant of Record", "mor_v": "Paddle.com Market Ltd."
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "sections": [
+      {
+        "title": "Article 1 (Purpose)",
+        "body": "These Terms govern the rights, obligations, and responsibilities between Harness (the \"Company\") and users in relation to the use of the Harness service (the \"Service\")."
+      },
+      {
+        "title": "Article 2 (Definitions)",
+        "items": [
+          "\"Service\" means the AI-based software development assistant provided by the Company.",
+          "\"User\" means any member or non-member who uses the Service under these Terms.",
+          "\"Paid subscription\" means a recurring-billing plan such as Pro / Pro+ / Pro Max."
+        ]
+      },
+      {
+        "title": "Article 3 (Effect and amendment of the Terms)",
+        "items": [
+          "These Terms take effect upon being posted on the Service.",
+          "The Company may amend these Terms when necessary. Amended Terms take effect 7 days after being announced on the Service. However, changes that are unfavorable or material to users will be announced at least <strong>30 days</strong> in advance.",
+          "If a user does not agree to the amended Terms, the user may withdraw membership or cancel their subscription."
+        ]
+      },
+      {
+        "title": "Article 4 (Membership registration)",
+        "items": [
+          "Users apply for membership by agreeing to these Terms and completing the registration form provided by the Company.",
+          "The Company may refuse registration or subsequently suspend or revoke membership in the following cases:<ul><li>Using another person's identity</li><li>Providing false information</li><li>Risk of disrupting the normal operation of the Service</li></ul>"
+        ]
+      },
+      {
+        "title": "Article 5 (Paid subscriptions and payment)",
+        "items": [
+          "Paid subscriptions are provided as recurring billing per the plan tiers set by the Company.",
+          "Payments are processed by <strong>Paddle.com</strong> as the Merchant of Record, and are automatically charged to the registered payment method each billing cycle. Prices are in USD and may be displayed in your local currency depending on region.",
+          "Users may cancel at any time before the next billing date (via \"Manage subscription\" on the pricing page); upon cancellation, the Service remains available until the end of the current billing period.",
+          "If a payment fails, Paddle automatically retries for a period of time (dunning); if all retries fail, the account is automatically downgraded to the free tier.",
+          "When upgrading tiers, the difference for the remaining period is charged per Paddle's proration policy."
+        ]
+      },
+      {
+        "title": "Article 6 (Restrictions on use)",
+        "body": "Users must not engage in the following:",
+        "bullets": [
+          "Acts that violate laws, these Terms, or public order and morals",
+          "Acts that disrupt the normal operation of the Service",
+          "Collecting or using others' personal information without authorization",
+          "Misusing AI outputs to harm others",
+          "Attempting to circumvent daily/monthly usage limits"
+        ]
+      },
+      {
+        "title": "Article 7 (Service interruption)",
+        "items": [
+          "The Company may temporarily suspend the Service for system maintenance, replacement, failures, or similar reasons.",
+          "Extended interruptions will be announced in advance; in urgent cases, notice may be given afterwards."
+        ]
+      },
+      {
+        "title": "Article 8 (Limitation of liability)",
+        "items": [
+          "The Company is exempt from liability when the Service cannot be provided due to force majeure such as natural disasters, war, or power outages.",
+          "The Company does not guarantee the accuracy or legality of AI outputs generated through the Service; the user is responsible for any consequences arising from the use of such outputs."
+        ]
+      },
+      {
+        "title": "Article 9 (Dispute resolution)",
+        "items": [
+          "Disputes between the Company and users shall be resolved through mutual consultation.",
+          "If consultation fails, a lawsuit may be filed with the competent court under the Korean Civil Procedure Act."
+        ]
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "sections": [
+      {
+        "title": "1. Personal data collected and purposes",
+        "body": "The Company collects the following items.",
+        "table": {
+          "head": ["Category", "Items collected", "Purpose"],
+          "rows": [
+            ["Required", "Email, password (hashed), name", "Member identification, login, service provision"],
+            ["Optional", "GitHub account / Google account / Notion workspace", "OAuth login, external integrations"],
+            ["Payment", "Paddle customer ID, subscription ID, subscription status", "Displaying subscription status, customer portal access, refunds"],
+            ["Service usage", "Uploaded meeting logs, generated CPS/PRD/Design documents, AI token usage", "Core service features"],
+            ["Automatic", "IP, access logs, cookies, User-Agent", "Security, fraud prevention, analytics"]
+          ]
+        },
+        "note": "※ Actual card numbers / card passwords / CVC are never stored on the Company's servers. Payment details are kept only in the secure systems of Paddle, the Merchant of Record; the Company keeps only subscription identifiers (customer ID / subscription ID)."
+      },
+      {
+        "title": "2. Retention periods",
+        "bullets": [
+          "Member data: destroyed immediately upon account deletion (except items retained by law below)",
+          "E-commerce records (payments, refunds): <strong>5 years</strong> (Korean E-Commerce Act)",
+          "Consumer complaint / dispute records: <strong>3 years</strong>",
+          "Access logs: <strong>3 months</strong> (Korean Communications Privacy Act)"
+        ]
+      },
+      {
+        "title": "3. Provision to third parties",
+        "body": "The Company does not provide personal data to third parties except in the following cases:",
+        "bullets": [
+          "When the user has given prior consent",
+          "When required by law (e.g., warrants from investigative agencies)",
+          "Information provided to the payment processor (Paddle.com — Merchant of Record) for payment processing (email, payment amount)"
+        ]
+      },
+      {
+        "title": "4. Outsourcing and cross-border transfers",
+        "body": "The following tasks are outsourced to provide the Service; where the contractor is located overseas, personal data is transferred abroad (Article 28-8 of the Korean Personal Information Protection Act).",
+        "table": {
+          "head": ["Contractor (recipient)", "Country", "Task / items transferred", "Retention"],
+          "rows": [
+            ["Paddle.com Market Ltd. (Merchant of Record)", "United Kingdom", "Payment processing, tax collection/remittance, invoicing, refunds (email, payment details)", "Until account deletion or end of contract (statutory retention separate)"],
+            ["Google Cloud Platform (Google LLC)", "United States", "AI (Gemini) model calls (meeting logs, document content)", "Discarded immediately after real-time processing (Google policy)"],
+            ["Vercel Inc.", "United States", "Web hosting (access records)", "Until end of contract"],
+            ["Resend (Plus Five Five, Inc.)", "United States", "Email delivery — password reset etc. (email address)", "Discarded within 30 days of sending"]
+          ]
+        },
+        "note": "※ Time/method of transfer: transmitted over encrypted connections (HTTPS/TLS) at the time of service use. Users may object to cross-border transfers by contacting the privacy officer (Section 9); in that case, features such as payments and AI analysis will be limited."
+      },
+      {
+        "title": "5. AI data processing and training exclusion",
+        "body": "The Company sends user-uploaded meeting logs and generated documents to an AI model (Google Gemini) to produce CPS·PRD·Design outputs. In doing so, the Company guarantees the following:",
+        "bullets": [
+          "<strong>No training</strong>: user inputs and AI outputs are not used to train AI models.",
+          "<strong>Discarded after real-time processing</strong>: AI calls are processed via the paid Google Gemini API; transmitted data is used only to generate the real-time response and is discarded per Google policy (not used for model training or human review).",
+          "<strong>Purpose limitation</strong>: input data is not used by the Company for any purpose other than providing outputs to the user.",
+          "<strong>User control</strong>: upon account deletion, meeting logs and outputs of projects solely owned by the user are destroyed immediately."
+        ],
+        "note": "※ AI outputs are for reference only; their accuracy and legality are not guaranteed. Always have a human review before important decisions. (See Article 8 of the Terms of Service.)"
+      },
+      {
+        "title": "6. User rights",
+        "body": "Users may exercise the following rights:",
+        "bullets": [
+          "Request access / correction / deletion of personal data (profile page or customer support)",
+          "Request suspension of processing",
+          "Delete account (directly from the profile page)"
+        ]
+      },
+      {
+        "title": "7. Security measures",
+        "bullets": [
+          "Passwords stored as bcrypt hashes (never in plain text)",
+          "OAuth access tokens encrypted with Fernet (AES-128-CBC + HMAC-SHA256); payment details kept only in Paddle's secure systems — not stored by the Company",
+          "HTTPS (TLS) across all connections",
+          "Least-privilege access control (RBAC)",
+          "Quarterly security reviews and vulnerability remediation"
+        ]
+      },
+      {
+        "title": "8. Cookies",
+        "body": "The Company uses cookies to improve the Service and user convenience. Users may refuse cookies in their browser settings, though some features may be limited as a result."
+      },
+      {
+        "title": "9. Privacy officer",
+        "officer": true
+      },
+      {
+        "title": "10. Remedies for privacy violations",
+        "body": "If a privacy violation occurs, you may report it to the following Korean authorities:",
+        "bullets": [
+          "Personal Information Dispute Mediation Committee: 1833-6972 (privacy.go.kr)",
+          "KISA Privacy Violation Report Center: 118 (privacy.kisa.or.kr)",
+          "Supreme Prosecutors' Office Cybercrime Division: 1301 (spo.go.kr)",
+          "National Police Agency Cyber Bureau: 182 (ecrm.cyber.go.kr)"
+        ]
+      }
+    ],
+    "officer": {
+      "name_l": "Privacy officer", "name_v": "Oh Hae-geum (Representative)",
+      "email_l": "Email",
+      "tel_l": "Phone", "tel_v": "+82 10-7573-1723"
+    },
+    "history": [
+      "2026-06-12: Added privacy officer details and cross-border transfer notice",
+      "2026-06-10: Revised payment-related sections for Paddle (Merchant of Record)",
+      "2026-05-18: First effective date"
+    ]
+  },
+  "refund": {
+    "title": "Refund Policy",
+    "sections": [
+      {
+        "title": "1. Payment structure — Paddle (Merchant of Record)",
+        "body": "Paid transactions for this Service are processed by <strong>Paddle.com</strong>. As the Merchant of Record, Paddle handles payment processing, tax (VAT/sales tax) collection and remittance, and invoicing.",
+        "bullets": [
+          "Prices are in <strong>USD</strong> and may be displayed and charged in your local currency depending on region.",
+          "Receipts, invoices, and payment-method changes are available under <strong>\"Manage subscription\" (Paddle customer portal)</strong> on the pricing page.",
+          "In addition to this policy, the <a href=\"https://www.paddle.com/legal/checkout-buyer-terms\" target=\"_blank\" rel=\"noreferrer noopener\">Paddle Buyer Terms</a> also apply."
+        ]
+      },
+      {
+        "title": "2. Withdrawal (Article 17, Korean E-Commerce Act)",
+        "body": "Users may request withdrawal within <strong>7 days</strong> of payment. However, withdrawal is limited in the following cases:",
+        "bullets": [
+          "The Service has been substantially used after payment (e.g., significant use of the paid quota such as running AI analyses)",
+          "More than 7 days have passed since payment"
+        ]
+      },
+      {
+        "title": "3. Partial refunds",
+        "body": "Even after the withdrawal period, partial refunds are available in the following cases:",
+        "bullets": [
+          "A service outage lasting 24 hours or more made the Service unusable",
+          "Service interruption attributable to the Company",
+          "Other cases the Company reasonably accepts"
+        ],
+        "note": "※ Partial refunds are prorated by remaining days and processed via Paddle within 3–5 business days after review."
+      },
+      {
+        "title": "4. Proration on upgrades",
+        "body": "When upgrading to a higher tier, the difference for the remaining period is automatically calculated and charged per Paddle's <strong>proration</strong> policy. The exact amount is shown on the checkout confirmation screen before payment."
+      },
+      {
+        "title": "5. Downgrades",
+        "body": "Downgrades do not take effect immediately; the new tier's price is charged <strong>from the next billing date</strong>. The current period you have already paid for remains on the existing tier until it ends."
+      },
+      {
+        "title": "6. Cancellation",
+        "body": "You can cancel directly under <strong>\"Manage subscription\" (Paddle customer portal)</strong> on the pricing page. After cancellation, the paid tier remains active until <strong>the end of the current billing period</strong>, after which the account automatically switches to the free tier. No prorated refund is issued for the time between cancellation and period end unless separately requested."
+      },
+      {
+        "title": "7. Automatic downgrade on payment failure",
+        "body": "If a recurring payment fails, the following applies:",
+        "items": [
+          "Paddle automatically retries the payment for a period of time (<strong>dunning</strong>).",
+          "Your paid tier remains active during the retry period.",
+          "If all retries fail, the subscription is paused and the account is automatically downgraded to the free tier.",
+          "Your data (projects, meeting logs, etc.) is preserved after downgrade, and your tier is restored immediately upon repayment."
+        ]
+      },
+      {
+        "title": "8. How to request a refund",
+        "body": "To request a refund, contact us via:",
+        "bullets": [
+          "<strong>Email</strong>: <a href=\"mailto:kaki3010{'@'}naver.com\">kaki3010{'@'}naver.com</a>",
+          "<strong>Website</strong>: the <a href=\"/contact\" target=\"_blank\">/contact</a> form",
+          "<strong>Paddle</strong>: you may also contact Paddle directly via the link at the bottom of your payment receipt (email)."
+        ],
+        "note": "※ Please include: your account email, payment date, and reason for the refund.<br />Requests are processed within 3–5 business days after review, and the result is sent by email."
+      },
+      {
+        "title": "9. Refund route",
+        "body": "Refunds are issued via Paddle to the same payment method used for the purchase. Depending on your card issuer or payment method, it may take 3–10 business days to appear."
+      }
+    ]
+  },
+  "autobill": {
+    "title": "Recurring Billing Terms",
+    "sections": [
+      {
+        "title": "Article 1 (Purpose and definitions)",
+        "items": [
+          "These terms govern the rights, obligations, and responsibilities between Harness (the \"Company\") and users regarding recurring billing (\"auto-billing\") for paid tiers of Harness.",
+          "\"Auto-billing\" means a payment method in which the registered payment method is charged automatically each cycle set by the Company, without a separate payment action.",
+          "Payments are processed by <strong>Paddle.com</strong> as the Merchant of Record. Payment details (card numbers, etc.) are kept only in Paddle's secure systems; the Company keeps only subscription identifiers (customer ID / subscription ID)."
+        ]
+      },
+      {
+        "title": "Article 2 (Billing cycle, amount, and methods)",
+        "items": [
+          "Auto-billing occurs <strong>once per month</strong>, on the same day of each month based on your first payment date. (E.g., first payment on May 15 → auto-charged on June 15.)",
+          "The amount is the recurring fee of your chosen tier (Pro / Pro+ / Pro Max) as listed on the website and pricing page. Prices are in USD and may be displayed and charged in your local currency.",
+          "Accepted payment methods follow what Paddle supports (credit/debit cards and regional methods). Change your payment method under \"Manage subscription\" (Paddle customer portal).",
+          "Auto-billing is processed by Paddle.com; the Company does not store payment details."
+        ]
+      },
+      {
+        "title": "Article 3 (When charges occur)",
+        "items": [
+          "Auto-billing is processed by Paddle's systems on the billing date. The exact charge time may vary by a few hours.",
+          "Upon successful payment, Paddle sends a receipt to your registered email.",
+          "You can always check your next billing date on the pricing page and in \"Manage subscription\" (Paddle customer portal)."
+        ]
+      },
+      {
+        "title": "Article 4 (Failed payments)",
+        "items": [
+          "If auto-billing fails due to card limits, suspension, insufficient funds, etc., Paddle notifies you by email.",
+          "Paddle automatically retries failed payments for a period of time (<strong>dunning</strong>). You keep paid-tier access during the retry period.",
+          "You can update your payment method in \"Manage subscription\" (Paddle customer portal) so a retry succeeds.",
+          "If all retries fail, the subscription is paused, the account is automatically downgraded to Free, and paid features are limited. To resubscribe after downgrade, subscribe again on the pricing page."
+        ]
+      },
+      {
+        "title": "Article 5 (Cancelling auto-billing)",
+        "items": [
+          "You may cancel auto-billing at any time via \"Manage subscription\" (Paddle customer portal) on the pricing page.",
+          "Upon cancellation, your current tier remains active until the end of the current billing period, and no charge occurs on the next billing date.",
+          "While cancellation is scheduled, you can undo (resume) it in the customer portal before the period ends.",
+          "Payment details are managed by Paddle under its own policies and are never stored on the Company's servers."
+        ]
+      },
+      {
+        "title": "Article 6 (Tier changes and price changes)",
+        "items": [
+          "When upgrading, the difference for the remaining period (proration) is automatically calculated and charged per Paddle's policy. The exact amount is shown before payment on the checkout confirmation screen.",
+          "After an upgrade, your next billing date is unchanged, and the new tier's price applies from that point.",
+          "Downgrades apply from the next billing date; your current tier remains until then.",
+          "The Company announces price changes at least <strong>30 days</strong> in advance via the Service and email; new prices apply from the first billing date after the notice. If you do not agree, you may cancel before the change takes effect."
+        ]
+      },
+      {
+        "title": "Article 7 (Refunds)",
+        "items": [
+          "Refunds for auto-billing follow the Company's <a href=\"/legal/refund-policy\" target=\"_blank\">Refund Policy</a>.",
+          "A full refund by withdrawal is available within 7 days of payment if the Service has not been substantially used.",
+          "Incidents attributable to the Company (e.g., tier-change or refund failures) are refunded automatically by the Company, with the result notified by email."
+        ]
+      },
+      {
+        "title": "Article 8 (Personal and payment data)",
+        "items": [
+          "For payment processing, the Company stores your email and Paddle subscription identifiers (customer ID / subscription ID, subscription status). Full card numbers and CVC are not stored by the Company.",
+          "See the Company's <a href=\"/legal/privacy-policy\" target=\"_blank\">Privacy Policy</a> for detailed items and retention periods."
+        ]
+      },
+      {
+        "title": "Article 9 (Dispute resolution)",
+        "items": [
+          "Disputes regarding auto-billing shall be resolved through mutual consultation between the Company and the user.",
+          "If consultation fails, you may apply for mediation with bodies such as the Korea Consumer Agency or the E-Commerce Dispute Mediation Committee.",
+          "If still unresolved, a lawsuit may be filed with the competent court under the Korean Civil Procedure Act."
+        ]
+      }
+    ]
+  }
+}

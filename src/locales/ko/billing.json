@@ -1,0 +1,47 @@
+{
+  "perk": {
+    "meeting_logs": "회의록 정리 {count}건/월",
+    "tokens": "AI 작업량 {amount} 토큰",
+    "lite_bonus": "토큰을 다 써도 멈추지 않아요\nLite 모드로 주 {amount} 계속 작업",
+    "free_wait": "토큰 소진 시 다음 달 리셋까지 대기",
+    "skills": "스킬 라이브러리 {count}개",
+    "projects": "동시 프로젝트 {count}개",
+    "discount": "{pct}% 단가 할인 (Pro 대비)",
+    "beta_access": "신규 기능 베타 우선 접근"
+  },
+  "upgrade": {
+    "title_exceeded": "사용 한도에 도달했습니다",
+    "title_max": "Pro Max 한도 안내",
+    "title_default": "등급 업그레이드",
+    "subtitle_exceeded_type": "{label} 한도를 모두 사용하셨습니다.",
+    "subtitle_exceeded": "현재 등급의 사용 한도를 모두 사용하셨습니다.",
+    "subtitle_max": "가장 높은 등급을 이용 중이십니다.",
+    "subtitle_default": "더 많은 미팅 등록과 AI 분석이 필요하신가요?",
+    "stat_current": "현재",
+    "stat_limit": "한도",
+    "stat_tier": "등급",
+    "selffix": "✂️ 회의록을 <strong>{limit}자 이하</strong>로 줄이면 현재 등급에서도 바로 저장할 수 있어요. 업그레이드하면 더 긴 회의록도 한 번에 처리할 수 있습니다.",
+    "reset_days": "💡 <strong>{days}일 후</strong> 자동으로 사용량이 reset 되어 한도가 회복됩니다. 더 빨리 사용하고 싶다면 아래 등급으로 업그레이드하세요.",
+    "reset_today": "💡 오늘 reset 예정 — 잠시 후 사용량이 초기화됩니다.",
+    "recommended": "추천",
+    "per_month": "/ 월",
+    "cta_start": "{label} 시작",
+    "note": "카드 등록 후 즉시 구독이 시작됩니다. 업그레이드 시 잔여 일수 차액만 결제됩니다.",
+    "later": "나중에",
+    "contact_admin": "관리자 문의"
+  },
+  "limit_type": {
+    "meeting_logs": "미팅 로그 등록",
+    "summary_chars": "회의록 1회 입력 글자수",
+    "total_tokens": "AI 토큰 사용량",
+    "library_skills": "스킬 라이브러리 저장",
+    "max_projects": "동시 보유 프로젝트 수"
+  },
+  "pro_max_notice": "Pro Max 한도에 도달하셨습니다. 추가 용량이 필요하시면 관리자에게 문의해 주세요.",
+  "mailto": {
+    "upgrade_subject": "[Harness] {label} 업그레이드 문의",
+    "upgrade_body": "안녕하세요,\n\nHarness {label} ({price}) 등급으로 업그레이드를 요청합니다.\n- 이메일: (가입한 이메일)\n- 현재 등급: {current}\n- 사유: \n\n감사합니다.",
+    "contact_subject": "[Harness] 추가 용량 문의",
+    "contact_body": "안녕하세요,\n\nHarness Pro Max 한도에 도달하여 추가 용량을 문의드립니다.\n- 이메일: (가입한 이메일)\n- 사유: \n\n감사합니다."
+  }
+}

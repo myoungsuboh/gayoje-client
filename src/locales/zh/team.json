@@ -1,0 +1,107 @@
+{
+  "title": "团队",
+  "create": "创建团队",
+  "empty": "你还没有任何团队。创建一个，或等待邀请。",
+  "deleteTeam": "删除团队",
+  "leaveTeam": "退出团队",
+  "members": "成员（{count}）",
+  "invite": "邀请",
+  "pendingInvites": "待处理的邀请（{count}）",
+  "cancelInvite": "取消邀请",
+  "createModal": {
+    "title": "创建一个新团队",
+    "proRequired": "团队功能需要{plan}。",
+    "proPlan": "Pro 套餐或更高级别",
+    "namePlaceholder": "团队名称"
+  },
+  "inviteModal": {
+    "title": "邀请队友",
+    "sentBanner": "邀请邮件已发送。",
+    "linkLabel": "邀请链接（可直接分享）",
+    "inviteAnother": "邀请其他人",
+    "emailPlaceholder": "邮箱地址",
+    "send": "发送邀请"
+  },
+  "toast": {
+    "loadTeamsFail": "加载你的团队失败。",
+    "loadTeamFail": "加载团队信息失败。",
+    "created": "团队「{name}」已创建。",
+    "createProRequired": "团队功能需要 Pro 套餐或更高级别。",
+    "createFail": "创建团队失败。",
+    "deleteConfirm": "删除团队「{name}」？其团队项目也将一并删除。",
+    "deleted": "团队「{name}」已删除。",
+    "deleteFail": "删除团队失败。",
+    "leaveConfirm": "退出此团队？",
+    "removeConfirm": "移除成员「{email}」？",
+    "left": "你已退出团队。",
+    "removed": "成员已移除。",
+    "removeFail": "移除成员失败。",
+    "roleChanged": "角色已更新。",
+    "roleChangeFail": "更新角色失败。",
+    "inviteSent": "已向 {email} 发送邀请。",
+    "inviteFail": "发送邀请失败。",
+    "inviteCancelled": "邀请已取消。",
+    "inviteCancelFail": "取消邀请失败。",
+    "copyFail": "复制失败"
+  },
+  "accept": {
+    "loading": "正在加载邀请信息…",
+    "joinedTitle": "你已加入团队！",
+    "joinedBody": "你现在是 {team} 团队的成员了。",
+    "start": "开始使用",
+    "declinedTitle": "已拒绝邀请",
+    "goHome": "返回首页",
+    "errorTitle": "出了点问题",
+    "upgrade": "升级套餐",
+    "inviteTitle": "团队邀请",
+    "inviteBody": "{inviter} 邀请你加入 {team}。",
+    "fieldTeam": "团队",
+    "fieldRole": "角色",
+    "fieldExpires": "过期时间",
+    "loginRequired": "请先登录以接受邀请。",
+    "loginAndAccept": "登录并接受",
+    "proRequired": "加入团队需要{plan}。",
+    "proPlan": "Pro 套餐或更高级别",
+    "upgradePlan": "升级你的套餐",
+    "decline": "拒绝",
+    "join": "加入团队"
+  },
+  "error": {
+    "notFound": "找不到该邀请，或它已经过期。",
+    "loadFail": "加载邀请信息失败。",
+    "acceptProRequired": "加入团队需要 Pro 套餐或更高级别。请升级你的套餐后重试。",
+    "acceptFail": "接受邀请失败。",
+    "declineFail": "处理拒绝操作失败。"
+  },
+  "page": {
+    "title": "团队协作",
+    "subtitle": "创建团队并邀请成员，一起规划项目。",
+    "how": {
+      "step1": {
+        "title": "创建团队",
+        "body": "确定团队名称并创建团队。"
+      },
+      "step2": {
+        "title": "邀请成员",
+        "body": "通过邮箱邀请成员或分享邀请链接。"
+      },
+      "step3": {
+        "title": "共同规划",
+        "body": "团队成员可以一起查看和编辑同一项目。"
+      }
+    }
+  },
+  "emptyState": {
+    "title": "还没有团队",
+    "body": "创建团队后，多人可以一起查看和规划同一项目。",
+    "cta": "创建第一个团队",
+    "orWait": "或向团队负责人索取邀请链接。"
+  },
+  "profileCard": {
+    "title": "团队",
+    "description": "创建团队或与成员共享项目。",
+    "teamCount": "已加入 {count} 个团队",
+    "noTeam": "尚未加入任何团队。",
+    "manage": "管理团队"
+  }
+}

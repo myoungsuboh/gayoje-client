@@ -1,0 +1,60 @@
+{
+  "page": {
+    "title": "联系我们",
+    "subtitle": "向管理员提交咨询并获得回复。回复会通过你注册的邮箱通知你。",
+    "new_inquiry": "撰写新咨询",
+    "category": "分类",
+    "subject": "主题",
+    "subject_placeholder": "简短的一行概要",
+    "subject_hint": "{count} / 200",
+    "body": "正文",
+    "body_placeholder": "详细内容（复现步骤、预期行为、环境等）",
+    "body_hint": "{count} / 5000",
+    "submitting": "正在发送…",
+    "submit": "发送咨询",
+    "my_inquiries": "我的咨询",
+    "refresh_title": "刷新",
+    "loading": "正在加载…",
+    "empty_title": "还没有咨询",
+    "empty_desc": "用左侧的表单发送你的第一条咨询吧。",
+    "detail_my_inquiry": "我的咨询",
+    "detail_admin_reply": "管理员回复",
+    "detail_pending": "正在等待管理员回复。回复发布后，我们会通过邮件通知你。",
+    "toast_submit_failed": "提交咨询失败。",
+    "toast_rate_limited": "你已达到咨询次数上限（每小时 10 条）。请稍后重试。",
+    "toast_submitted": "你的咨询已收到。我们会回复到你注册的邮箱。",
+    "toast_list_failed": "加载你的咨询失败。"
+  },
+  "billing": {
+    "processing_title": "正在处理付款…",
+    "success_title": "完成",
+    "error_title": "失败",
+    "msg_processing": "正在处理银行卡注册…",
+    "msg_error_cancelled": "银行卡注册已取消或失败。{detail}",
+    "msg_missing_params": "缺少必要信息。",
+    "msg_issue_failed": "银行卡注册失败。",
+    "msg_card_only": "银行卡已注册。请在价格页面开始你的订阅。",
+    "msg_subscribe_failed": "付款失败。",
+    "msg_subscribe_done": "你的订阅已开始。"
+  },
+  "category": {
+    "general": { "label": "一般咨询", "desc": "关于服务使用或账户的一般问题" },
+    "bug": { "label": "Bug 报告", "desc": "出现异常行为或发生错误" },
+    "feature": { "label": "功能建议", "desc": "新功能或改进的想法" },
+    "billing": { "label": "计费咨询", "desc": "Pro 订阅、退款、收据" },
+    "other": { "label": "其他", "desc": "以上选项未涵盖的内容" }
+  },
+  "status": {
+    "open": "已接收",
+    "in_progress": "处理中",
+    "resolved": "已回复",
+    "closed": "已关闭"
+  },
+  "error": {
+    "create": "提交咨询失败。",
+    "fetch_list": "加载咨询失败。",
+    "fetch_stats": "加载统计失败。",
+    "fetch_detail": "加载咨询详情失败。",
+    "update": "更新失败。"
+  }
+}

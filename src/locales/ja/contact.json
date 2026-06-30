@@ -1,0 +1,60 @@
+{
+  "page": {
+    "title": "お問い合わせ",
+    "subtitle": "管理者にお問い合わせを送信して、回答を受け取れます。回答は登録済みのメールアドレスに通知されます。",
+    "new_inquiry": "新しいお問い合わせを書く",
+    "category": "カテゴリ",
+    "subject": "件名",
+    "subject_placeholder": "簡単な一行の概要",
+    "subject_hint": "{count} / 200",
+    "body": "本文",
+    "body_placeholder": "詳しい内容 (再現手順、期待する動作、環境など)",
+    "body_hint": "{count} / 5000",
+    "submitting": "送信中...",
+    "submit": "お問い合わせを送信",
+    "my_inquiries": "お問い合わせ履歴",
+    "refresh_title": "更新",
+    "loading": "読み込み中...",
+    "empty_title": "まだお問い合わせがありません",
+    "empty_desc": "左のフォームから最初のお問い合わせを送ってみましょう。",
+    "detail_my_inquiry": "あなたのお問い合わせ",
+    "detail_admin_reply": "管理者からの回答",
+    "detail_pending": "管理者からの回答をお待ちください。回答が投稿されると、メールでお知らせします。",
+    "toast_submit_failed": "お問い合わせの送信に失敗しました。",
+    "toast_rate_limited": "お問い合わせの回数上限に達しました (1時間あたり10件)。しばらくしてからもう一度お試しください。",
+    "toast_submitted": "お問い合わせを受け付けました。回答は登録済みのメールアドレスにお送りします。",
+    "toast_list_failed": "お問い合わせ履歴の読み込みに失敗しました。"
+  },
+  "billing": {
+    "processing_title": "決済を処理中...",
+    "success_title": "完了",
+    "error_title": "失敗",
+    "msg_processing": "カード登録を処理中...",
+    "msg_error_cancelled": "カード登録がキャンセルされたか、失敗しました。{detail}",
+    "msg_missing_params": "必要な情報が不足しています。",
+    "msg_issue_failed": "カードの登録に失敗しました。",
+    "msg_card_only": "カードを登録しました。料金ページでサブスクリプションを開始してください。",
+    "msg_subscribe_failed": "決済に失敗しました。",
+    "msg_subscribe_done": "サブスクリプションを開始しました。"
+  },
+  "category": {
+    "general": { "label": "一般のお問い合わせ", "desc": "サービスの利用やアカウントに関する一般的な質問" },
+    "bug": { "label": "バグ報告", "desc": "動作がおかしい、またはエラーが発生した" },
+    "feature": { "label": "機能のご提案", "desc": "新しい機能や改善のアイデア" },
+    "billing": { "label": "お支払いのお問い合わせ", "desc": "Proサブスクリプション、返金、領収書" },
+    "other": { "label": "その他", "desc": "上記の項目に当てはまらないお問い合わせ" }
+  },
+  "status": {
+    "open": "受付済み",
+    "in_progress": "対応中",
+    "resolved": "回答済み",
+    "closed": "クローズ"
+  },
+  "error": {
+    "create": "お問い合わせの送信に失敗しました。",
+    "fetch_list": "お問い合わせの読み込みに失敗しました。",
+    "fetch_stats": "統計の読み込みに失敗しました。",
+    "fetch_detail": "お問い合わせの詳細の読み込みに失敗しました。",
+    "update": "更新に失敗しました。"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "page": {
+    "title": "Contact",
+    "subtitle": "Send an inquiry to an admin and get a reply. Replies are notified to your registered email.",
+    "new_inquiry": "Write a new inquiry",
+    "category": "Category",
+    "subject": "Subject",
+    "subject_placeholder": "A brief one-line summary",
+    "subject_hint": "{count} / 200",
+    "body": "Body",
+    "body_placeholder": "Details (reproduction steps, expected behavior, environment, etc.)",
+    "body_hint": "{count} / 5000",
+    "submitting": "Sending...",
+    "submit": "Send inquiry",
+    "my_inquiries": "My inquiries",
+    "refresh_title": "Refresh",
+    "loading": "Loading...",
+    "empty_title": "No inquiries yet",
+    "empty_desc": "Send your first inquiry using the form on the left.",
+    "detail_my_inquiry": "My inquiry",
+    "detail_admin_reply": "Admin reply",
+    "detail_pending": "Awaiting an admin reply. We'll notify you by email once a reply is posted.",
+    "toast_submit_failed": "Failed to submit the inquiry.",
+    "toast_rate_limited": "You've reached the inquiry rate limit (10 per hour). Please try again later.",
+    "toast_submitted": "Your inquiry has been received. We'll reply to your registered email.",
+    "toast_list_failed": "Failed to load your inquiries."
+  },
+  "billing": {
+    "processing_title": "Processing payment...",
+    "success_title": "Done",
+    "error_title": "Failed",
+    "msg_processing": "Processing card registration...",
+    "msg_error_cancelled": "Card registration was cancelled or failed. {detail}",
+    "msg_missing_params": "Required information is missing.",
+    "msg_issue_failed": "Failed to register the card.",
+    "msg_card_only": "Card registered. Please start your subscription on the pricing page.",
+    "msg_subscribe_failed": "Payment failed.",
+    "msg_subscribe_done": "Your subscription has started."
+  },
+  "category": {
+    "general": { "label": "General inquiry", "desc": "General questions about using the service or your account" },
+    "bug": { "label": "Bug report", "desc": "Something behaves oddly or an error occurred" },
+    "feature": { "label": "Feature request", "desc": "An idea for a new feature or improvement" },
+    "billing": { "label": "Billing inquiry", "desc": "Pro subscription, refunds, receipts" },
+    "other": { "label": "Other", "desc": "Anything not covered by the options above" }
+  },
+  "status": {
+    "open": "Received",
+    "in_progress": "In progress",
+    "resolved": "Answered",
+    "closed": "Closed"
+  },
+  "error": {
+    "create": "Failed to submit your inquiry.",
+    "fetch_list": "Failed to load inquiries.",
+    "fetch_stats": "Failed to load stats.",
+    "fetch_detail": "Failed to load the inquiry.",
+    "update": "Update failed."
+  }
+}

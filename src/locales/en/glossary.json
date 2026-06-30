@@ -1,0 +1,161 @@
+{
+  "modal": {
+    "headline": "Glossary",
+    "sub": "See a word you don't recognize? Look it up here in plain language.",
+    "search_placeholder": "Search by term (e.g. PRD, traceability, context)",
+    "search_aria": "Search terms",
+    "empty": "No terms match \"{query}\". Try a different word.",
+    "example_prefix": "e.g. {example}",
+    "count": "{matched} / {total} terms"
+  },
+  "groups": {
+    "plan": {
+      "label": "① Plan",
+      "hint": "The stage where you sort out what to build from meeting logs"
+    },
+    "design": {
+      "label": "② Design",
+      "hint": "The stage where you draw a blueprint of what and how to build"
+    },
+    "lint": {
+      "label": "③ Lint",
+      "hint": "The stage where you check the code was built as designed"
+    },
+    "deliver": {
+      "label": "④ Deliverables",
+      "hint": "The stage where you bundle the results to hand off to the next team"
+    }
+  },
+  "terms": {
+    "meeting_log": {
+      "name": "Meeting Log",
+      "desc": "The starting point of everything. Type out what was discussed in a meeting or upload a recording, and Harness extracts the essentials from it.",
+      "example": "\"This week's decision: card payment only, refunds within 7 days\""
+    },
+    "cps": {
+      "name": "Core Problem & Solution",
+      "desc": "A one-page summary distilled from the meeting log to just \"what Problem to solve and how (Solution)\". Long meetings keep only the decisions that truly matter.",
+      "example": "Problem: customers don't know how to get a refund → Solution: add a refund button to order history"
+    },
+    "prd": {
+      "name": "Product Requirements Doc",
+      "desc": "A requirements document that breaks the CPS down into developable units. Think of it as a list of \"what features this product must have\".",
+      "example": "Product Requirements Document"
+    },
+    "epic": {
+      "name": "Feature Group",
+      "desc": "A large chunk grouping related features together. e.g. the \"Account management\" group contains sign-up, login, and deactivation features.",
+      "example": ""
+    },
+    "story": {
+      "name": "User Story",
+      "desc": "A single sentence describing \"what the user wants to do\". It is the smallest unit of an individual feature.",
+      "example": "\"As a customer, I want to request a refund right from my order history\""
+    },
+    "acceptance_criteria": {
+      "name": "Acceptance Criteria",
+      "desc": "The checklist that must be satisfied to call a feature \"done\". Developers and planners judge pass/fail against the same standard.",
+      "example": ""
+    },
+    "nfr": {
+      "name": "Non-Functional Requirement",
+      "desc": "Quality conditions about \"how fast, secure, and resilient\" something must be, rather than the feature itself. e.g. \"payment within 3 seconds\", \"password 8+ characters\".",
+      "example": ""
+    },
+    "rule_generator": {
+      "name": "Coding Rule Generator",
+      "desc": "AI recommends code-writing rules suited to this project (naming conventions, folder structure, forbidden patterns, etc.). They're later applied automatically during code lint.",
+      "example": ""
+    },
+    "spack": {
+      "name": "Spec Pack",
+      "desc": "The answer to \"what to build\". It bundles the entry points the system exposes (API), its core data (Entity), and the rules it must keep (Policy).",
+      "example": ""
+    },
+    "api": {
+      "name": "External Entry Point",
+      "desc": "The \"counter\" through which apps, web, or other services request something from this system. It defines what to send to which address and what comes back.",
+      "example": "GET /users/{id} → fetch that user's information"
+    },
+    "entity": {
+      "name": "Core Data",
+      "desc": "The business \"nouns\" the system handles. Things that need to be stored and managed, like users, orders, and payments.",
+      "example": ""
+    },
+    "policy": {
+      "name": "Business Rule",
+      "desc": "A promise the system must always keep. e.g. \"retry payment up to 3 times\", \"no order when stock is 0\".",
+      "example": ""
+    },
+    "ddd": {
+      "name": "Domain Model",
+      "desc": "The answer to \"how the system works\". It divides the business into areas (Domain-Driven Design) and models each area's data and events.",
+      "example": ""
+    },
+    "bounded_context": {
+      "name": "Bounded Context",
+      "desc": "One chunk of the business. For a shopping mall, \"payment\", \"membership\", and \"shipping\" are each a context, and each has its own vocabulary and rules.",
+      "example": ""
+    },
+    "aggregate": {
+      "name": "Aggregate",
+      "desc": "A unit of data handled as one bundle. An \"Order\" contains order items, payment info, and shipping address — and \"Order\" is the name representing that whole bundle.",
+      "example": ""
+    },
+    "domain_event": {
+      "name": "Domain Event",
+      "desc": "A record that \"something just happened\". e.g. \"payment completed\", \"order cancelled\". Other features watch these events to do follow-up work like notifications or settlement.",
+      "example": ""
+    },
+    "architecture": {
+      "name": "System Architecture",
+      "desc": "A blueprint drawing the system as actually deployable units. It shows which services and databases exist and how they connect to each other.",
+      "example": ""
+    },
+    "vibe_coding": {
+      "name": "Vibe Coding",
+      "desc": "Handing your design output wholesale to AI coding tools (Claude Code, Cursor, etc.) to write the code automatically. Harness's design deliverables become that input.",
+      "example": ""
+    },
+    "lint": {
+      "name": "Code Lint",
+      "desc": "An automatic check of whether the code pushed to GitHub follows the design spec. It shows the pass rate across 4 areas — spec, domain, architecture, and coding rules — in a table.",
+      "example": ""
+    },
+    "traceability": {
+      "name": "Traceability Score",
+      "desc": "The ratio (0–100) of items written in the design (API, data, rules) that actually appear in the code. It measures \"was it implemented as designed\", not \"code quality\".",
+      "example": ""
+    },
+    "deterministic": {
+      "name": "Deterministic Check",
+      "desc": "A result confirmed with 100% certainty by reading the code directly to see whether something \"really exists or not\". It's the most trustworthy verdict, not an AI guess.",
+      "example": ""
+    },
+    "fix_agent": {
+      "name": "Fix Agent",
+      "desc": "Collects the rules that failed the lint and turns them into a spec an AI coding tool can fix directly. Paste that spec into the tool and the code fixes proceed automatically.",
+      "example": ""
+    },
+    "lineage": {
+      "name": "Code Lineage",
+      "desc": "A map tracing how requirements (Story) → spec (API) → domain → actual code files connect together. It shows \"why this code was written\" at a glance.",
+      "example": ""
+    },
+    "coverage": {
+      "name": "Mapping Coverage",
+      "desc": "What percentage of design deliverables are linked to actual code files. A low value means there are items \"written in the spec but missing in the code\".",
+      "example": ""
+    },
+    "handoff_zip": {
+      "name": "Handoff Package",
+      "desc": "A document bundle packing the design spec + the list of repository addresses + the lint report into one file. The source code itself isn't included; the code is pulled from the repositories.",
+      "example": ""
+    },
+    "repository": {
+      "name": "Repository",
+      "desc": "The GitHub space where code is stored. You can register several by role, such as frontend, backend, DB, and mobile.",
+      "example": ""
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "toast": {
+    "download_ok": "CPS markdown downloaded",
+    "copy_fail": "Copy failed. Please check browser permissions.",
+    "save_ok": "CPS saved successfully.",
+    "save_fail": "Failed to save CPS.",
+    "node_save_ok": "{label} node updated.",
+    "node_save_fail": "Failed to update node.",
+    "dismiss_ok": "CPS markdown desync notice dismissed.",
+    "dismiss_fail": "Dismiss failed.",
+    "resynth_not_found": "No resynthesis target found, or LLM output did not match the expected format. Try again or edit the markdown directly.",
+    "resynth_rate_limit": "Too many requests. Please try again later. {detail}",
+    "resynth_fail": "CPS resynthesis failed.",
+    "resynth_apply_ok": "CPS markdown resynthesis applied successfully.",
+    "resynth_apply_fail": "Apply failed.",
+    "save_conflict": "This document was changed elsewhere (another device or background processing). Review the latest content and try again.",
+    "remote_busy": "This project is being processed on another device or tab. Please try again after it finishes."
+  },
+  "err": {
+    "no_project": "No project selected.",
+    "content_empty": "Content is empty.",
+    "content_too_large": "Content is too large (max 500KB).",
+    "summary_empty": "Summary is empty.",
+    "summary_too_large": "Summary is too long (max 2KB)."
+  },
+  "confirm": {
+    "large_delete": "⚠️ {pct}% ({deleted} chars) of the CPS will be deleted.\n\nAccumulated Problem/Solution data may be lost.\nClick OK if this is intentional."
+  },
+  "nav": {
+    "context_hint": "See the full Context in the viewer on the right.",
+    "problem_empty": "No PRB items.",
+    "solution_empty": "No RES items.",
+    "pending_empty": "No Pending groups.",
+    "pending_group_empty": "No items listed yet."
+  },
+  "graph": {
+    "edit_mode": "Review",
+    "no_nodes": "No nodes."
+  },
+  "copy_title": "Copy CPS markdown to clipboard",
+  "download_title": "Download CPS markdown (.md) — for Cursor · Notion · repo",
+  "edit_title": "Edit by section (review mode)",
+  "tab_locked": "Tabs are locked while editing. Save or cancel first.",
+  "saving": "Saving...",
+  "stale": {
+    "title": "Graph nodes were updated but the markdown is still outdated.",
+    "sub": "Choose auto-resynthesize (LLM, 5–15 sec) or edit the markdown directly."
+  },
+  "resynth_running": "Resynthesizing...",
+  "resynth_btn": "Auto-resynthesize",
+  "manual_edit_btn": "Edit manually",
+  "dismiss_btn": "Dismiss",
+  "filter": {
+    "view_only": "Viewing \"{label}\" only",
+    "view_all": "View all ←"
+  },
+  "edit_scope": {
+    "editing": "Editing:",
+    "section_label": "#{num} {title}",
+    "section_hint": "Other sections will be preserved when you save.",
+    "full_label": "full markdown",
+    "full_hint": "Section parsing failed — editing the full markdown directly."
+  },
+  "placeholder": {
+    "section": "Edit this section's markdown directly...",
+    "full": "Edit the full CPS markdown directly..."
+  },
+  "compliance": {
+    "desc": "All requirements in this spec are 100% mapped. Convert them to engineering rules instantly with Rule Generator."
+  }
+}

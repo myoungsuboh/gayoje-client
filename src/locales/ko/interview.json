@@ -1,0 +1,48 @@
+{
+  "header": {
+    "title_supplement": "AI로 빈 곳 채우기",
+    "title_new": "AI와 대화로 시작하기",
+    "title_project": "보강 중: {name}",
+    "sub_project": "이 프로젝트의 기획을 이미 알고 있어요. 빠진 부분만 콕 집어 여쭤볼게요.",
+    "sub_supplement": "작성하신 내용을 읽고, 빠진 부분만 여쭤볼게요.",
+    "sub_new": "회의록이 없어도 괜찮아요. 몇 가지만 답하면 정리해 드려요.",
+    "close_aria": "닫기",
+    "restart": "새로 시작하기",
+    "restart_aria": "대화를 처음부터 새로 시작",
+    "restart_confirm": "지금까지의 대화를 모두 지우고 처음부터 다시 시작할까요?"
+  },
+  "agenda": {
+    "label": "채울 항목 {count}개",
+    "pick": "'{topic}'부터 채우고 싶어요"
+  },
+  "restored": { "notice": "이전 대화를 이어가고 있어요." },
+  "progress": { "label": "준비도" },
+  "coverage": { "label": "파악됨" },
+  "focus": { "prefix": "지금 여쭤보는 것" },
+  "dim": {
+    "goal": "목표",
+    "features": "핵심 기능",
+    "data": "데이터",
+    "users": "사용자",
+    "constraints": "제약(로그인·결제 등)",
+    "usage": "용도"
+  },
+  "typing": {
+    "thinking": "생각 중…",
+    "finalizing": "회의록으로 정리 중…",
+    "tool": "프로젝트 자료 확인 중…"
+  },
+  "input": { "placeholder": "답변을 입력하세요… (Enter 전송, Shift+Enter 줄바꿈)" },
+  "error": { "generic": "AI 인터뷰 중 오류가 발생했어요. 잠시 후 다시 시도해 주세요." },
+  "entry": {
+    "title_fill": "AI 가 지금 작성한 내용을 읽고, 빠진 부분만 질문해 채워 줍니다",
+    "title_start": "회의록이 없어도 OK — AI 가 몇 가지 질문으로 핵심을 끌어내 회의록으로 정리해 줍니다",
+    "btn_fill": "AI로 빈 곳 채우기",
+    "btn_start": "AI와 대화로 시작",
+    "undo_title": "인터뷰로 합치기 전 내용으로 되돌립니다",
+    "undo_btn": "인터뷰 전으로 되돌리기",
+    "merged_with_draft": "기존 내용에 대화에서 보완한 부분을 합쳐 정리했어요. 검토 후 저장하세요. (원하면 되돌리기 가능)",
+    "merged_no_draft": "대화 내용을 회의록으로 정리했어요. 검토 후 저장하세요.",
+    "reverted": "인터뷰 전 내용으로 되돌렸어요."
+  }
+}

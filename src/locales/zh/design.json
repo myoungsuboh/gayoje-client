@@ -1,0 +1,935 @@
+{
+  "node_label": {
+    "Epic": "Epic",
+    "Story": "Story",
+    "API": "API",
+    "Screen": "界面",
+    "Entity": "Entity",
+    "ArchService": "服务",
+    "ArchDatabase": "DB",
+    "fallback": "项",
+    "etc": "其他"
+  },
+  "impact": {
+    "ddd": "DDD",
+    "arch": "Arch",
+    "events": "事件",
+    "screens": "界面",
+    "api_chain": "关联 API",
+    "none": "无关联设计",
+    "expand": "查看受影响的设计详情",
+    "design_label": "设计"
+  },
+  "stage": {
+    "spack": {
+      "desc": "正在生成 API · Entity · Policy 规格",
+      "tip": "\"要构建什么\"：系统将提供的功能规格。"
+    },
+    "ddd": {
+      "desc": "正在建模 Aggregate · Domain Event",
+      "tip": "\"领域如何运作\"：业务规则与流程汇聚之处。"
+    },
+    "architecture": {
+      "desc": "正在设计服务拆分 · DB · 通信",
+      "tip": "\"如何部署\"：可运营系统的蓝图。"
+    },
+    "preparing": "准备中…",
+    "step_progress": "第 {current}/{total} 步",
+    "title": "正在生成系统设计",
+    "cancel": "停止",
+    "cancelling": "正在停止…",
+    "cancel_title": "停止更新（保留之前的数据）",
+    "cancelling_title": "正在停止处理…"
+  },
+  "loading_guide": {
+    "heading": "完成后，将这样进入编码",
+    "dismiss": "不再显示",
+    "dismiss_title": "下次更新起隐藏此提示",
+    "step1_title": "下载\"Vibe Coding 启动包\"",
+    "step1_desc": "选择你要用的 AI 工具，指南会按该工具定制（SPACK · DDD · Architecture 规格 + 编码规则 + 指南）。",
+    "step2_title": "解压后，用你的 AI 工具打开该文件夹",
+    "step2_desc": "解压后会得到一个项目文件夹。用 Claude Code · Cursor · Antigravity 等打开它即可。",
+    "step3_title": "工具自动识别 → 一句话开始",
+    "step3_desc": "只需打开文件夹，工具就会自动读取。在聊天里说一句即可开始。无需粘贴长提示词。（开始用语已包含在下载的包中。）",
+    "step4_title": "智能体按 phase 自动推进",
+    "step4_desc": "理解规格 → 搭建骨架 → Aggregate → API → 集成 → 验证。每一步都会汇报。"
+  },
+  "headline": {
+    "title": "系统设计",
+    "desc": "AI 会基于你的 PRD 自动绘制设计图（所需功能、数据结构、系统架构）。",
+    "guide_btn": "使用指南"
+  },
+  "tabs": {
+    "spack": "功能规格",
+    "ddd": "领域模型",
+    "architecture": "系统结构"
+  },
+  "action": {
+    "updating": "更新中...",
+    "update": "最新更新",
+    "regen": "重新生成",
+    "regen_full": "以最新更新重新生成",
+    "close": "关闭",
+    "ignore": "忽略"
+  },
+  "stale": {
+    "prd_changed_title": "PRD 已更新。",
+    "prd_changed_subtitle_impact": "{changed} 项 PRD 变更影响了 {affected} 个设计项。请以最新更新重新生成。",
+    "prd_changed_subtitle_generic": "当前 Design 基于旧的 PRD。请以最新更新重新生成。",
+    "modal_title": "PRD 已变更 — 要重新生成设计吗？",
+    "modal_body": "你已更新 PRD。你当前查看的<strong>设计（界面 · 功能 · 数据结构）</strong>基于<strong>此前的 PRD</strong>，因此变更尚未反映。以最新 PRD 重新生成将更新设计以及下游的代码。",
+    "modal_note": "重新生成需要几分钟。你随时可以稍后通过顶部的黄色提示来执行。",
+    "modal_later": "稍后",
+    "modal_regen": "立即重新生成"
+  },
+  "empty_project": {
+    "title": "请先选择一个项目",
+    "desc": "要使用 SPACK · DDD · Architecture 进行设计，你需要先选择或创建一个项目。",
+    "hint_header": "点击顶部的\"我的项目\"按钮即可快速选择",
+    "hint_plan": "或前往 Plan 页面，上传会议记录并完成 PRD"
+  },
+  "ai_draft_label": "系统设计",
+  "erd": {
+    "title_main": "数据结构 (ERD)",
+    "title_sub": "实体 · 属性 · 关系一目了然 — 基于 SPACK · DDD 自动生成",
+    "download_excel": "下载 Excel",
+    "download_excel_aria": "将 ERD 下载为 Excel（实体 · 属性 · 关系 3 个工作表）",
+    "loading": "正在加载数据结构...",
+    "err_no_project": "请先选择一个项目。",
+    "err_no_design": "没有可显示的实体。请先生成设计（SPACK · DDD）。",
+    "err_no_container": "无法准备图形区域。请重新打开。",
+    "err_load_failed": "无法加载数据结构：{reason}",
+    "intro_title": "这是什么图？",
+    "intro_text": "展示项目的<strong>数据结构</strong>。每个方框是一个<strong>实体（数据集合）</strong>，框内的行是它的<strong>属性（字段）</strong>。连线表示实体之间的<strong>归属·组成关系</strong>。",
+    "node_section": "方框（实体）",
+    "node_entity": "Entity（功能规格）",
+    "node_entity_desc": "在 SPACK 中定义的数据集合。屏幕和 API 处理的核心数据。",
+    "node_aggregate": "Aggregate（领域）",
+    "node_aggregate_desc": "DDD 的一致性边界。一起变化的实体集合 + 不变式（规则）。",
+    "node_domain_entity": "Domain Entity",
+    "node_domain_entity_desc": "属于某个 Aggregate 的详细实体。",
+    "edge_section": "连线（关系）",
+    "edge_mapped": "归属映射",
+    "edge_mapped_desc": "实体属于哪个 <strong>Aggregate</strong>（MAPPED_TO）。",
+    "edge_partof": "组成",
+    "edge_partof_desc": "Domain Entity 是 Aggregate 的<strong>一部分</strong>（PART_OF）。",
+    "tip_title": "使用方法",
+    "tip1": "<strong>点击方框</strong> → 属性、约束、连接详情",
+    "tip2": "<strong>拖动</strong>排列 · <strong>滚轮</strong>缩放",
+    "tip3": "属性为空时显示<strong>属性未定</strong> — 需要完善设计",
+    "insp_name": "名称",
+    "insp_attrs": "属性 ({n})",
+    "insp_no_attrs": "尚未定义属性。",
+    "insp_invariants": "不变式（规则）",
+    "insp_no_invariants": "尚未定义不变式。",
+    "insp_show_all": "显示全部 {n} 个属性",
+    "insp_collapse": "收起",
+    "attr_required": "必填",
+    "label_no_attrs": "（属性未定）",
+    "label_no_inv": "不变式未定",
+    "label_inv": "{n} 个不变式"
+  },
+  "vibe_cta_title": "AI 代理可以用这些文件开始 vibe coding",
+  "toast": {
+    "update_cancelled": "已取消更新 — 你此前的设计数据保持不变。",
+    "dismiss_success": "已忽略 Design 更新提示。",
+    "dismiss_error": "关闭提示失败。请重试。",
+    "precheck_failed_fallback": "由于 PRD 未整理，无法生成设计。请整理 PRD（或用高质量会议记录重新生成）后重试。",
+    "queue_unavailable": "AI 任务队列暂时不可用。请在 1～2 分钟后重试。",
+    "rate_limited": "请求过于频繁（限制：3 次/分钟）。请稍后重试。",
+    "update_failed_fallback": "更新失败。",
+    "update_timeout": "更新未能在 20 分钟内完成。可能是 PRD 过大或 worker 延迟。请稍后重试。",
+    "update_not_found": "未找到更新任务。请重试。",
+    "update_failed_msg": "更新失败：{msg}",
+    "update_unknown_error": "发生了未知错误。",
+    "update_error": "更新过程中发生错误。",
+    "incomplete_layers": "⚠️ {layers} 未生成（{counts}）{hint}。请完善 PRD 中的 Epic·Story 定义后重新生成。",
+    "incomplete_notice_title": "部分设计未生成（{layers}）。",
+    "incomplete_notice_subtitle": "{counts}。Epic·Story 定义可能不足，或 PRD 未整理{hint}。请完善 PRD 后重新生成。",
+    "has_errors": "⚠️ 设计已生成，但发现 {count} 处规格完整性违规{code_hint}。详情见 Architecture 标签页。可以进行 vibe coding，但准确度可能较低。",
+    "cleanup_fail_warning": "⚠️ PRD 自动整理失败（已使用原文继续）。建议在 PRD 标签页手动整理。 ",
+    "cleanup_applied_prefix": "📋 PRD 自动整理（{pct}%↓） + ",
+    "cleanup_hint_applied": "（PRD 自动整理已完成，但提取失败 — 需要完善 PRD）",
+    "cleanup_hint_attempted": "（PRD 自动整理失败 — 已使用原始 PRD 继续）",
+    "design_complete_with_cleanup_fail": "✅ 设计完成。如需更准确的结果，请先尝试整理 PRD。",
+    "design_complete_with_warnings": "✅ 设计完成（{count} 条警告）。获取 Vibe Coding 启动包。",
+    "design_complete": "✅ 设计完成！获取 ✨ Vibe Coding 启动包。",
+    "no_project": "请先选择一个项目。使用顶部的\"我的项目\"按钮。",
+    "update_enqueue_failed": "更新任务注册失败 — 缺少 task_id。请稍后重试。",
+    "md_failed_fallback": "生成 MD 文件失败。",
+    "md_timeout": "MD 生成未能在 10 分钟内完成。请稍后重试。",
+    "pdf_failed_fallback": "生成设计文档 PDF 失败。",
+    "pdf_timeout": "PDF 生成未能在 10 分钟内完成。请稍后重试。"
+  },
+  "pdf": {
+    "title": "设计文档",
+    "section_spack": "SPACK — 要构建什么",
+    "section_ddd": "DDD — 领域模型",
+    "section_arch": "Architecture — 部署结构"
+  },
+  "fresh_regen_confirm": "企划书（PRD）没有变化，设计已是最新。\n\n重新生成需要几分钟和 AI 用量，结果也很可能与现在相似。仍要重新生成吗？",
+  "cancel_confirm": "要停止更新吗？\n\n进行中的任务将被取消。你此前的设计数据（SPACK · DDD · Architecture）将被保留。",
+  "arch": {
+    "conn_type": {
+      "sync": "同步调用",
+      "async": "异步",
+      "event": "Event",
+      "event_driven": "Event",
+      "message": "消息",
+      "query": "查询",
+      "command": "命令"
+    },
+    "md_stage": {
+      "collecting": {
+        "name": "收集规格",
+        "desc": "正在从设计图中收集 SPACK · DDD · Architecture 规格",
+        "tip": "整理从会议记录中提炼出的设计内容。"
+      },
+      "generating": {
+        "name": "AI 文档生成",
+        "desc": "AI 正在同时编写 3 份规格文档 + 智能体集成指南（00-ORCHESTRATOR）",
+        "tip": "并行生成 SPACK · DDD · Architecture 文档与主工作流指南。"
+      },
+      "assembling": {
+        "name": "打包组装",
+        "desc": "正在将生成的文档与实现清单打包",
+        "tip": "即将开始下载。"
+      },
+      "orchestrator": {
+        "name": "集成指南",
+        "desc": "正在为 AI 智能体编写集成指南（00-ORCHESTRATOR）",
+        "tip": "智能体逐步遵循的主工作流指南。"
+      },
+      "long_note": "快完成了 — 项目越大，集成指南的编写可能多花几分钟。无需刷新，完成后会自动关闭。"
+    },
+    "loading_title": "正在生成 Vibe Coding 包",
+    "title": "系统构成",
+    "subtitle": "服务层 · 数据层 · 连接",
+    "aggregates_label": "数据集合",
+    "empty": "没有可用的架构数据。",
+    "service_layer": "服务列表",
+    "data_layer": "数据存储",
+    "conn_section_title": "服务连接流",
+    "conn_count": "{n} 个连接",
+    "conn_total": "共 {n} 个连接",
+    "conn_empty": "该服务没有连接信息。",
+    "conn_modal_title": "连接流",
+    "conn_header_from": "来源",
+    "conn_header_to": "目标",
+    "conn_header_type": "通信方式",
+    "conn_header_protocol": "协议",
+    "conn_header_auth": "认证",
+    "conn_header_desc": "说明",
+    "vibe_btn": "Vibe Coding 启动包",
+    "vibe_modal_title": "Vibe Coding 启动包",
+    "vibe_modal_sub": "交给 AI 智能体，它会自动生成代码",
+    "vibe_checking": "正在检查项目设置...",
+    "vibe_full_pkg": "✦ 含编码规则（Skills）— Phase 0–5",
+    "vibe_lite_pkg": "◇ 基础包 — Phase 1–5",
+    "vibe_intro": "只需解压，并用 <strong>Claude Code / Cursor / Antigravity</strong> 等 AI 工具打开该文件夹。它会<strong>自动识别</strong> <code>AGENTS.md</code> · <code>CLAUDE.md</code>，并按 <code>00-ORCHESTRATOR.md</code> 工作流<strong>逐阶段（phase）</strong>推进、映射技能。（无需粘贴）",
+    "vibe_faq1_title": "🎵 什么是 Vibe Coding？（初次接触可展开）",
+    "vibe_faq1_body": "<strong>Vibe Coding</strong> 是指把开发规格交给 AI 智能体，让它自动实现代码。<br>放入规格文件 → AI 阅读它们 → 逐步汇报代码。你在每一步审阅并提出修改 — 这是一种<strong>逐步协作</strong>。",
+    "vibe_faq2_title": "🤔 什么是 AI 智能体？",
+    "vibe_faq2_body": "<strong>AI 智能体</strong>是根据自然语言指令自动编写和修改代码的工具。",
+    "vibe_tool_claude": "基于终端的 AI。与本工具兼容性最佳",
+    "vibe_tool_cursor": "基于 VS Code 的 IDE。使用聊天窗口",
+    "vibe_tool_copilot": "VS Code/JetBrains 扩展",
+    "vibe_tool_windsurf": "Codeium 的智能体 IDE",
+    "vibe_pkg_autoload": "自动识别文件 — 打开文件夹后 AI 工具会自动读取（无需操作）",
+    "vibe_pkg_orchestrator": "AI 智能体入口点 — 动态生成的主工作流指南",
+    "vibe_pkg_skills_label": "必读",
+    "vibe_pkg_skills_desc": "编码规则 — 在 zip 内的 <code>skills/</code> 文件夹中。AI 在编写代码前会参考它（Phase 0）",
+    "vibe_pkg_skills_count": "{count} 条规则",
+    "vibe_pkg_spack": "SPACK — API / Entity（数据结构）/ Policy（业务规则）规格（Phase 4 参考）",
+    "vibe_pkg_ddd": "DDD — Aggregate（实体分组）/ Domain Event（状态变化）模型（Phase 3 参考）",
+    "vibe_pkg_arch": "Architecture — 服务拆分 · 部署结构 · 连接图（Phase 2 参考 · 冲突时的最终权威）",
+    "vibe_dl_btn": "下载包",
+    "vibe_dl_pdf": "设计文档 PDF",
+    "vibe_dl_hint": "解压下载的单个 zip 即可得到项目文件夹，然后在你的 AI 智能体中打开该文件夹。",
+    "next": {
+      "title": "包已下载 — 再 3 步就完成了",
+      "sub": "完成下面 3 步，AI 就会自动开始构建。",
+      "s1": "解压 <code>{project}_vibe.zip</code> → 会得到 <code>{project}/</code> 文件夹",
+      "s2_claude": "在终端运行 <code>cd {project}</code> 然后执行 <code>claude</code> — 它会自动读取 CLAUDE.md",
+      "s2_cursor": "用 Cursor 打开 <code>{project}/</code> 文件夹并按 <code>Ctrl/Cmd+L</code> 打开聊天 — 自动应用 AGENTS.md",
+      "s2_antigravity": "用 Antigravity 打开 <code>{project}/</code> 文件夹并打开智能体面板 — 自动识别 AGENTS.md",
+      "s2_other": "用你的 AI 工具打开 <code>{project}/</code> 文件夹 — 大多数工具会自动读取 AGENTS.md",
+      "s3": "把下面这段粘贴到聊天即可开始：",
+      "full_prompt": "请阅读此文件夹中的 {autoFile} 和 0_START_HERE.md，然后按 Phase 顺序进行。每个 Phase 结束后停下来等我确认。",
+      "s3_hint": "如果你的工具能自动识别 {autoFile}（Claude Code、Cursor 等），只输入“{start}”也可以。",
+      "copy": "复制",
+      "copied": "已复制！",
+      "after": "之后智能体会按 Phase 构建并汇报。你只需逐步确认 — 最后完成 100% 清单核对才算结束。",
+      "done": "知道了"
+    },
+    "inapp_warn": "在微信、Instagram 等应用内浏览器中，下载可能被拦截。请使用 Chrome 或 Safari 等外部浏览器打开。",
+    "inapp_open": "在浏览器中打开",
+    "inapp_copied": "链接已复制，请粘贴到浏览器中打开。",
+    "tool_q": "你会用哪个 AI 工具？",
+    "tool_claude": "Claude Code (推荐)",
+    "tool_cursor": "Cursor",
+    "tool_antigravity": "Antigravity",
+    "tool_other": "其他 / 不确定",
+    "tool_hint": "我们会按你选的工具定制使用指南。无论选哪个，自动识别文件(AGENTS.md · CLAUDE.md)都会一起打包——打开文件夹，智能体即刻知道该做什么。",
+    "vibe_low_completeness_title": "规格完整度 {pct}% — 现在可以下载，但不建议",
+    "vibe_low_completeness_low": "许多字段为空，AI 可能会猜测并生成不准确的代码。我们建议先运行\"最新更新\"。（你仍可现在下载。）",
+    "vibe_low_completeness_mid": "部分字段仍为空。你现在可以继续，但提高完整度会让 AI 输出更准确。",
+    "toast": {
+      "md_timeout": "MD 生成未能在 20 分钟内完成。项目可能较大 — 请稍后重试。",
+      "md_failed_msg": "MD 生成失败：{reason}",
+      "md_failed_final": "生成 MD 文件失败。请稍后重试。",
+      "md_empty_specs": "规格文档未能生成，无法构建包。请再次点击\"下载包\"。如果反复出现，请先用\"最新更新\"重新生成设计。",
+      "orchestrator_degraded": "你的设计文档（SPACK·DDD·Architecture）已正常下载。仅集成指南有所延迟，因此我们用基础的 START_HERE 文件代替 — vibe coding 不会有问题。"
+    },
+    "md_docs": {
+      "spack": "SPACK 规格",
+      "ddd": "DDD 设计",
+      "architecture": "Architecture 架构",
+      "orchestrator": "集成指南（ORCHESTRATOR）",
+      "last_doc_hint": "{doc}是最大的文档，所以最后完成 — 马上就好！"
+    },
+    "vibe_no_design_title": "尚无设计",
+    "vibe_no_design_body": "先通过\"最新更新\"生成设计，即可下载启动包。"
+  },
+  "ddd": {
+    "title": "Domain Map",
+    "subtitle": "Bounded Context · Aggregate · Entity · Domain Event",
+    "aggregate": "Aggregate",
+    "domain_entity": "Entity",
+    "domain_entity_short": "Entity",
+    "domain_event": "Domain Event",
+    "unnamed": "（未命名）",
+    "refresh_aria": "刷新",
+    "refresh_title": "刷新设计数据",
+    "intro_toggle": "如何读懂此视图",
+    "intro_lead_text": "一张将你的系统按业务领域划分的<strong>领域地图</strong>。",
+    "intro_lead_why": "在开发之前，你可以在这里看到是哪些数据和事件驱动着你的服务的全局视图。",
+    "intro_terms": "在每个领域内你会看到 <strong>Aggregate</strong> · <strong>Entity</strong> · <strong>Domain Event</strong>。遇到不懂的术语，点击 ⓘ 即可。",
+    "intro_legend_direct": "实线 = 与 PRD 功能直接关联",
+    "intro_legend_dashed": "虚线 = 推断关联",
+    "intro_legend_dotted": "点线（浅）= 来源未知 — 需要复查",
+    "fixguide_title": "部分项未关联到 PRD 功能",
+    "fixguide_desc": "下列项未找到其创建依据（PRD Story）。<strong>在你的会议记录或 PRD Epic &amp; Story 标签页中添加相关功能</strong>，它们就会被自动关联。",
+    "unlinked_more": "还有 {n} 个",
+    "qualguide_title": "发现领域模型质量问题",
+    "qualguide_desc": "以下 Aggregate 的 <strong>aggregate root</strong> 为 0 个或超过 1 个。重新生成设计或改进 PRD，即可自动修复。",
+    "loading_title": "正在加载领域模型...",
+    "empty_title": "尚无领域模型",
+    "empty_subtitle": "点击右上角的\"最新更新\"，即可从你的 PRD 生成 bounded context、aggregate 和 domain event。",
+    "invariants_label": "业务规则",
+    "service_jump": "前往服务 '{name}'",
+    "ctx_empty": "此 context 中没有节点。"
+  },
+  "spack": {
+    "title": "功能组件",
+    "subtitle": "API · Entity · Policy 节点状态",
+    "refresh_aria": "刷新",
+    "refresh_title": "刷新设计数据",
+    "loading_title": "正在加载功能规格...",
+    "empty_title": "尚无功能规格",
+    "empty_subtitle": "点击右上角的\"最新更新\"，即可从你的 PRD 生成 API · Entity · Policy。",
+    "api_empty": "无 API",
+    "entity_empty": "无 Entity",
+    "policy_empty": "无 Policy",
+    "lineage_basis": "{n} 项 PRD 依据",
+    "jump_service": "前往 {name}（{'{id}'}）",
+    "jump_aggregate": "前往领域 Aggregate '{name}'",
+    "jump_domain_entity": "前往领域 Entity '{name}'",
+    "jump_service_named": "前往服务 '{name}'",
+    "policy_no_content": "无内容 — 完善 PRD 中的 NFR/约束详情后，点击\"最新更新\"",
+    "policy_related": "相关 Entity："
+  },
+  "eval": {
+    "loading": "正在计算完整度…",
+    "empty_msg": "尚无数据",
+    "empty_title_attr": "上传会议记录并运行分析后才会测算分数",
+    "card_main": "PRD 完成度",
+    "card_sub": "AI 能据此生成代码的程度",
+    "prd_link": "PRD 完整度",
+    "trigger_title": "PRD 完整度 — 点击查看详情",
+    "cta_complete": "{pct}%",
+    "cta_detail": "详情",
+    "coach": "点这里 — 我们会告诉你缺什么、该填什么",
+    "coach_close": "关闭提示",
+    "modal_aria": "PRD 完整度详情",
+    "modal_title": "📋 PRD 完整度",
+    "modal_subtitle": "显示 AI 能据此 PRD 多准确地生成代码",
+    "close": "关闭",
+    "minis_label": "各领域得分",
+    "minis_summary": "基础 · 细节 · 关联 · 错误",
+    "autofill_dupe": "API 自动填充已在后台运行 — 完成后会通知你。（参见顶部的进度指示）",
+    "autofill_enqueue_fail": "API 自动填充入队失败 — 缺少 task_id。",
+    "autofill_job_label": "API 错误·认证 AI 自动填充",
+    "autofill_all_failed": "未能完成 API 自动填充 — 可能是 AI 用量上限或临时错误。请稍后重试。",
+    "autofill_none": "没有需要补全的项目 — 错误·认证和 PRD 关联均已填好。",
+    "autofill_success_n": "已为 {n} 个 API 填充错误·认证规格 —— 已立即计入完成度。",
+    "autofill_success_generic": "API 错误·认证 AI 草稿已完成 — 审阅后确认。",
+    "autofill_partial_tail": "（{n} 个因上限/临时错误未能填充 — 请稍后重试）",
+    "autofill_error": "API 自动填充失败：{reason}",
+    "autofill_start_fail": "启动 API 自动填充失败：{reason}",
+    "autofill_bg_running": "AI 正在后台填充 API — 你可以继续工作。完成后会通知你。（参见顶部的进度指示）",
+    "reason_default": "请稍后重试。",
+    "autofill_btn_sending": "正在发送到后台…",
+    "autofill_btn": "重新填充 API 规格·PRD 关联",
+    "autofill_hint": "<strong>「最新更新」（重新生成设计）时会自动填充空的 API。</strong>此按钮用于部分遗漏时（如生成中达到 AI 上限）的<strong>手动重试</strong>。它会为未注明的 API 以 <strong>AI 草案</strong>填充错误响应·认证方式，并<strong>在后台执行</strong>（顶部显示进度）。已填充的规格<strong>立即计入</strong>完成度。",
+    "top_actions_head": "🎯 先填这些，完整度提升最快",
+    "top_action_count_title": "{total} 项中有 {missing} 项需要处理",
+    "target": "目标：",
+    "more_n": "还有 {n} 个",
+    "jump_chip_title": "点击跳转到 '{id}'",
+    "jump_prd": "在 PRD 中补充",
+    "jump_not_found": "未找到该项目 — 请刷新后重试",
+    "delta_approx": "约 +{pct}%",
+    "delta_title": "补全此项可使完整度大约提升这么多（近似）",
+    "assist_head": "✅ 提升完整度 — 这样做",
+    "assist_progress": "当前完成度 <strong>{pct}%</strong>。只需下面这一个按钮，API 规格项目即可获得满分。",
+    "assist_step1": "用 AI 填充空规格 —— 自动生成错误响应·认证草案，并补全 PRD 关联（故事追溯），立即计入完成度",
+    "assist_rest": "其他项目请点击下方<strong>“先从这里开始”</strong>列表，在准确位置补充。",
+    "lineage_detail_head": "🔗 {tab} PRD 关联详情",
+    "lineage_summary": "{total} 项中有 <strong>{none}</strong> 项未关联",
+    "lineage_unlinked": "未关联：",
+    "lineage_allok": "✓ 全部已关联到 PRD",
+    "lineage_hint": "▶ 一旦你在 PRD Story 正文中添加相关的数据·功能线索，未关联的节点就会被关联。",
+    "adv_toggle": "查看各领域得分 · 验证详情",
+    "detail_tiers_head": "📊 各领域详情",
+    "tier_weight": "权重 {weight}",
+    "violations_head": "⚠️ 频繁出现的验证违规",
+    "count_suffix": "{count}",
+    "tier_short": {
+      "t1": "基础",
+      "t2": "细节",
+      "t3": "关联",
+      "t4": "错误"
+    },
+    "tier_by_num": {
+      "1": "基础项",
+      "2": "细节",
+      "3": "PRD 关联",
+      "4": "无错误"
+    },
+    "tier_meta": {
+      "t1": {
+        "label": "基础项",
+        "sub": "是否创建了所需节点（API·Entity·服务）"
+      },
+      "t2": {
+        "label": "细节",
+        "sub": "每项的正文是否完整（输入·输出·错误）"
+      },
+      "t3": {
+        "label": "PRD 关联",
+        "sub": "每个派生项是否可追溯回 PRD 的某部分"
+      },
+      "t4": {
+        "label": "无错误",
+        "sub": "自动验证中是否没有违规"
+      }
+    },
+    "status": {
+      "none": {
+        "text": "尚未分析",
+        "hint": "上传会议记录并运行系统设计即可获得完整度评分。"
+      },
+      "low": {
+        "text": "相当不足",
+        "hint": "PRD 几乎没有输入·输出·错误等具体内容。请从填写下列项开始。"
+      },
+      "mid": {
+        "text": "基础已就位",
+        "hint": "整体结构已具备。填写下列项可大幅提升 AI 的准确度。"
+      },
+      "high": {
+        "text": "就差一点",
+        "hint": "再加把劲！完善下面几项，AI 就能准确生成代码。"
+      },
+      "done": {
+        "text": "完美！",
+        "hint": "仅凭此 PRD，AI 就能准确生成代码。"
+      }
+    },
+    "action_hint": {
+      "not_analyzed": "尚未分析 — 请上传会议记录，然后运行系统设计",
+      "low": "PRD 正文过于单薄 — 请为你的 Story 添加输入·输出·错误细节",
+      "weak": "{label} 领域较弱：{hint}",
+      "fix_t1": "必需项未创建 — 请检查你的 PRD Story 是否为空",
+      "fix_t2": "项的正文单薄 — 请为 PRD Story 添加输入/输出/错误用例",
+      "fix_t3": "PRD↔派生项的关联断裂 — 请检查 Story id（例如 Story 1.1）的一致性",
+      "fix_t4": "验证违规较多 — 请参考下面的违规说明修复相关部分",
+      "ready": "完整的规格 — 已可生成代码"
+    },
+    "tooltip": {
+      "tiers_header": "─ 各领域得分 ─",
+      "tier_line": "{label}（权重 {weight}）：{pct}%",
+      "meaning_header": "分数含义：",
+      "m1": "· 80%+ → AI 仅凭 PRD 即可几乎准确地编写代码",
+      "m2": "· 50–80% → AI 会推断部分字段（可能出错）",
+      "m3": "· 低于 50% → PRD 细节不足 — 需要进一步完善",
+      "click": "点击查看各领域详情及亟需填写的项。"
+    },
+    "metric": {
+      "spack_apis_present": {
+        "label": "派生出后端 API",
+        "why": "是否从 PRD Story 创建了至少一个 API",
+        "fix": "若为 0%，说明 PRD Epic & Story 标签页为空 — 请先添加 Story"
+      },
+      "spack_entities_present": {
+        "label": "派生出数据项",
+        "why": "是否识别出至少一种数据类型（Entity）",
+        "fix": "若为 0%，说明 PRD 缺少\"数据/模型/存储\"之类的线索"
+      },
+      "spack_policies_present": {
+        "label": "派生出非功能规则",
+        "why": "是否派生出至少一条策略（响应时间·权限）",
+        "fix": "在 PRD NFR 标签页添加可衡量的数值（例如\"响应低于 500ms\"）"
+      },
+      "ddd_contexts_present": {
+        "label": "划分领域边界",
+        "why": "是否分离出支付·用户之类的业务领域",
+        "fix": "检查 Story 是否覆盖多样的领域"
+      },
+      "ddd_aggregates_present": {
+        "label": "核心模型分组",
+        "why": "Entity 是否被分组为有意义的单元（Aggregate）"
+      },
+      "arch_services_present": {
+        "label": "服务拆分",
+        "why": "是否决定了系统拆分成哪些服务"
+      },
+      "arch_databases_present": {
+        "label": "数据库已确定",
+        "why": "是否决定了数据存储在哪里"
+      },
+      "entity_attributes_present_ratio": {
+        "label": "已指定数据字段",
+        "why": "每个 Entity 有哪些字段（例如 User={'{name, email}'}）",
+        "fix": "在 PRD Story 正文中写出字段，如\"输入：name, email\""
+      },
+      "attribute_typed_ratio": {
+        "label": "已指定字段类型",
+        "why": "是否确定了每个字段的类型（string/number/date）",
+        "fix": "在 PRD 中写成\"name: string 最多 100 字符\""
+      },
+      "api_request_body_ratio": {
+        "label": "API 输入规格",
+        "why": "POST/PUT API 接受哪些数据",
+        "fix": "在 PRD Story 正文中添加\"- 输入：{'{ ... }'}\""
+      },
+      "api_response_body_ratio": {
+        "label": "API 输出规格",
+        "why": "API 返回什么",
+        "fix": "在 PRD Story 正文中添加\"- 输出：{'{ ... }'}\""
+      },
+      "api_path_params_consistent_ratio": {
+        "label": "API 路径变量一致性",
+        "why": "{'{id}'} 之类的路径变量是否与 path_params 匹配"
+      },
+      "api_error_cases_ratio": {
+        "label": "已指定 API 错误响应",
+        "why": "权限·校验失败时给出什么响应（401/403/404 等）",
+        "fix": "在 PRD Story 正文中指定，如\"未授权则 401\""
+      },
+      "api_auth_specified_ratio": {
+        "label": "已指定 API 认证方式",
+        "why": "此 API 是否需要登录·需要什么权限",
+        "fix": "在 PRD NFR 或 Story 中指定，如\"OAuth 登录\"、\"仅管理员\""
+      },
+      "api_validation_422_ratio": {
+        "label": "API 输入校验（422）",
+        "why": "已为无效输入（如邮箱格式错误）指定响应",
+        "fix": "在 PRD Story 中指定，如\"非邮箱格式则 422\""
+      },
+      "aggregate_invariants_ratio": {
+        "label": "模型完整性规则",
+        "why": "领域模型的不变条件（例如\"支付后数量不可更改\"）"
+      },
+      "domain_entity_attributes_ratio": {
+        "label": "领域模型字段",
+        "why": "领域 Entity 是否有足够的字段"
+      },
+      "domain_event_payload_ratio": {
+        "label": "已指定事件数据",
+        "why": "domain event 触发时携带哪些数据"
+      },
+      "service_deployment_ratio": {
+        "label": "服务部署规格",
+        "why": "每个服务如何部署（例如 Lambda/Container）"
+      },
+      "connection_auth_ratio": {
+        "label": "服务间认证",
+        "why": "服务通信时如何认证"
+      },
+      "screen_coverage_ratio": {
+        "label": "界面定义",
+        "why": "PRD 中是否指定了所需的界面",
+        "fix": "在 PRD Screens 标签页添加\"#### 🖥️ [Screen: 名称]\"区块"
+      },
+      "screen_api_coverage_ratio": {
+        "label": "界面 ↔ API 关联",
+        "why": "每个界面是否映射到它调用的 API"
+      },
+      "screen_story_mapped_ratio": {
+        "label": "界面 ↔ 功能（Story）关联",
+        "why": "界面是否映射到它服务的功能",
+        "fix": "在 PRD Screens 标签页为每个界面添加\"`[Story 1.1]`\"引用"
+      },
+      "api_story_mapped_ratio": {
+        "label": "API ↔ Story 追溯",
+        "why": "每个 API 是否标明它来自哪个 PRD Story",
+        "fix": "检查 PRD Story id（Story 1.1 格式）的一致性"
+      },
+      "entity_lineage_direct_ratio": {
+        "label": "Entity ↔ Story 直接追溯",
+        "why": "Entity 是从哪个 Story 直接引用/派生的",
+        "fix": "在 PRD Story 正文中明确数据模型线索"
+      },
+      "entity_story_mapped_ratio": {
+        "label": "Entity ↔ Story 映射",
+        "why": "Entity 与 Story 之间的关联比例"
+      },
+      "aggregate_lineage_mapped_ratio": {
+        "label": "Aggregate ↔ Story 映射",
+        "why": "领域模型是否以 PRD 为依据"
+      },
+      "error_score": {
+        "label": "严重违规",
+        "why": "对代码生成致命的错误（越低违规越少）"
+      },
+      "warning_score": {
+        "label": "警告级违规",
+        "why": "未满足的建议（越低越少）"
+      },
+      "errors": {
+        "label": "错误数"
+      },
+      "warnings": {
+        "label": "警告数"
+      },
+      "infos": {
+        "label": "提示数"
+      }
+    },
+    "violation": {
+      "API_MISSING_STORY_REF": {
+        "label": "API 未标明它来自哪个功能（Story）",
+        "fix": "将 PRD Story 重新映射到派生出的 API"
+      },
+      "API_ERROR_CASES_MISSING": {
+        "label": "API 未定义它会返回哪些错误",
+        "fix": "在 PRD Story 正文中添加\"未授权则 401\"之类的内容"
+      },
+      "API_AUTH_ERROR_CASE_MISSING": {
+        "label": "缺少 API 认证失败的响应",
+        "fix": "在 PRD Story 正文中添加\"token 过期则 401\"之类的内容"
+      },
+      "API_AUTH_SPECIFIED_MISSING": {
+        "label": "API 未标明它使用哪种认证",
+        "fix": "在 PRD NFR 标签页指定认证方式，如\"OAuth/JWT\""
+      },
+      "API_REQUEST_BODY_MISSING": {
+        "label": "未指定 API 输入数据",
+        "fix": "在 PRD Story 正文中添加\"- 输入：{'{ ... }'}\""
+      },
+      "API_RESPONSE_BODY_MISSING": {
+        "label": "未指定 API 响应",
+        "fix": "在 PRD Story 正文中添加\"- 输出：{'{ ... }'}\""
+      },
+      "ARCH_API_UNMAPPED": {
+        "label": "API 未被放入系统架构中",
+        "fix": "重新运行 系统设计 → Architecture 阶段"
+      },
+      "LINEAGE_MISSING": {
+        "label": "缺少派生项的 PRD 来源（可追溯性）",
+        "fix": "检查 PRD Story id 格式的一致性（Story 1.1）"
+      },
+      "ENTITY_ATTRIBUTES_MISSING": {
+        "label": "缺少 Entity 字段定义",
+        "fix": "在 PRD Story 正文中写出字段，如\"- 输入：name, email\""
+      },
+      "ENTITY_NAME_NOT_PASCAL_CASE": {
+        "label": "Entity 名称不是 PascalCase",
+        "fix": "\"user_account\" → \"UserAccount\"。重新运行时自动规范化"
+      },
+      "POLICY_CATEGORY_MISSING": {
+        "label": "缺少 Policy 的类别（Security/Performance 等）",
+        "fix": "在 PRD NFR 标签页明确策略类别"
+      },
+      "POLICY_STUB_DROPPED": {
+        "label": "无意义的空 Policy 已被自动移除",
+        "fix": "完善 PRD NFR 详情后重新运行"
+      },
+      "SCREEN_INVALID": {
+        "label": "界面定义不完整（缺少名称/路径）",
+        "fix": "在 PRD Screens 标签页指定界面名称·路径"
+      }
+    },
+    "autofill_linked_only": "已补全 {n} 条 PRD 关联 — 立即计入完成度。",
+    "autofill_linked_tail": " · 还补全了 {n} 条 PRD 关联。"
+  },
+  "lgraph": {
+    "err_no_project": "未选择项目。",
+    "err_focus_no_nodes": "没有与 {id} 关联的设计节点。请重新运行设计后再次确认。",
+    "err_no_design": "Design 尚未生成。请生成 SPACK/DDD/Architecture 后重试。",
+    "err_no_lineage": "Design 已存在，但没有 PRD ↔ Design（lineage）数据。此设计是在部署新图代码之前创建的 — 建议重新运行设计。",
+    "err_no_lineage_generic": "尚无 lineage 数据。请重新运行 Design 以生成 lineage。",
+    "err_no_container": "找不到图容器。",
+    "err_load_failed": "加载 lineage 图失败：{reason}",
+    "title_sub": "一张追溯 PRD 需求如何流向实际设计（Entity · Service 等）的地图",
+    "download_excel": "下载 Excel",
+    "download_excel_aria": "将 Lineage（PRD→设计可追溯性）下载为 Excel — 元素 · 追溯关系 2 个工作表",
+    "loading": "正在加载图数据...",
+    "intro_title": "📍 这张图是什么？",
+    "intro_text": "它将从会议记录 → <strong>PRD（需求）</strong> → 实际<strong>设计（Entity · Service · DB 等）</strong>的流向可视化为一张<strong>可追溯性地图</strong>。<br><br>你可以顺着\"为什么会创建这个 Service？\"这类问题一路追溯回 PRD。",
+    "node_section": "Node — 组成要素",
+    "node_entity_desc": "系统处理的<strong>数据对象</strong>，如 User · Order · Payment。",
+    "node_aggregate_desc": "相关 Entity 的<strong>分组</strong> — 一同变化的业务一致性单元。",
+    "node_service_desc": "执行单元（微服务）。负责业务逻辑和 API。",
+    "node_api_desc": "<strong>实现 Story 的 REST 接口</strong> — 由页面/服务调用。",
+    "node_db_desc": "服务存储数据的<strong>数据库</strong>（如 RDBMS、缓存）。",
+    "node_story_desc": "以\"可以做~\"形式表达的<strong>单条用户需求</strong>。PRD 的最小单元。",
+    "node_epic_desc": "相关 Story 的<strong>分组</strong> — 一个大的功能单元（例如\"会员管理\"）。",
+    "edge_section": "Edge — 连接线",
+    "badge_high": "高置信度",
+    "badge_review": "建议复查",
+    "edge_direct_desc": "PRD 中<strong>明确写出</strong>的关联 — 由人工编写。",
+    "edge_inferred_desc": "AI 从<strong>上下文推断</strong>出的关联 — 建议复查准确性。",
+    "edge_contains_desc": "Epic <strong>包含</strong>哪个 Story — PRD 的内部结构。",
+    "tip_title": "💡 提示",
+    "tip1": "<strong>点击</strong>节点即可在左下角查看详情。",
+    "tip2": "<strong>拖动</strong>节点即可自由排布。",
+    "tip3": "如果虚线（<strong>inferred</strong>）关联很多，请尝试把 PRD 写得更具体。",
+    "tip4": "孤立节点是未关联到任何需求的设计 — 请复查它们是否真的需要。",
+    "insp_node": "选中的节点",
+    "insp_prd_basis": "PRD 依据：",
+    "insp_story_linked": "关联到 {n} 个 Story",
+    "insp_all_props": "全部属性（{n}）",
+    "insp_lineage_edge": "选中的 lineage 边",
+    "insp_prd_quote": "PRD quote：",
+    "insp_edge": "选中的边"
+  },
+  "lpanel": {
+    "node_fallback": "项",
+    "prd_basis": "PRD 依据",
+    "no_story": "没有关联的 PRD Story。",
+    "detail_pending": "已关联到 {n} 项 PRD 依据。详情（Story ID / 原文引用）即将提供。",
+    "view_in_prd": "在 PRD 中查看",
+    "quote_empty": "无 PRD 原文引用（AI 推断关联）"
+  },
+  "empty_state": {
+    "default_subtitle": "点击右上角的\"最新更新\"开始分析。"
+  },
+  "coverage_badge": {
+    "label": "{label} PRD 关联"
+  },
+  "guide_modal": {
+    "headline": "系统设计",
+    "sub": "一份 PRD 会自动分解为 SPACK · DDD · Architecture（3 个阶段），一直延伸到 Vibe Coding 启动包。",
+    "step1_title": "设计阶段概览",
+    "step1_desc": "来自 Plan 页面的一份 PRD 会自动分解为 SPACK（规格）→ DDD（领域模型）→ Architecture（系统结构）。点击一次右上角的\"最新更新\"，即可一次性刷新全部三项产出。",
+    "step1_tip": "每个阶段都以上一阶段的产出作为输入，因此它们顺序运行（≈ 4–6 分钟）。你可以中途\"停止\" — 此前的数据会被保留。",
+    "step2_title": "SPACK — 要构建什么",
+    "step2_desc": "将 PRD User Story 整理为功能规格。派生出系统提供的 API、它处理的 Entity（数据），以及它必须遵守的 Policy（非功能需求）。",
+    "step2_tip": "每一项都通过 lineage 关联到一个 PRD Story 以实现可追溯（由左侧圆点颜色表示）。",
+    "step3_title": "DDD — 领域如何运作",
+    "step3_desc": "将 SPACK 的 Entity 分组为领域模型。用 Bounded Context 划定边界，用 Aggregate 定义一致性单元，用 Domain Event 表达业务流程。",
+    "step3_tip": "领域越复杂，DDD 越能发挥作用 — 微服务的边界在此决定。",
+    "step4_title": "Architecture — 如何部署",
+    "step4_desc": "基于 DDD Aggregate 拆分服务，并设计 DB 与外部通信。产出一份可运营的系统蓝图。",
+    "step4_tip": "完成后，下载\"✨ Vibe Coding 启动包\" — AI 智能体（Claude Code/Cursor）仅凭这一个包即可开始编码。",
+    "svg_resp": "200ms 响应",
+    "svg_concurrent": "10K 并发",
+    "svg_privacy": "隐私"
+  },
+    "spec_md": {
+      "title": {
+        "spack": "SPACK — 详细规格",
+        "ddd": "DDD — 领域模型",
+        "arch": "Architecture — 系统结构"
+      },
+      "sec": {
+        "entity": "数据 (Entity)",
+        "policy": "策略 (Policy)",
+        "connection": "Connection (连接)"
+      },
+      "related": "关联",
+      "stack": "技术栈",
+      "gap": {
+        "request_spec": "请求规格",
+        "response_spec": "响应规格",
+        "owner_service": "负责服务",
+        "attributes": "属性"
+      },
+      "dont_guess": "不要猜测——请提问",
+      "gap_header": "⚠️ **未定 {n}项** — 下方标记 ⚠️ 的项目设计尚为空白。**不要擅自实现**，请停下来与用户确认。",
+      "snapshot_footer": "本文档是 Harness 设计图的快照。更丰富的设计文档可在 Harness 的设计(Design)阶段获取。",
+      "unnamed": "(名称未定)",
+      "undecided_label": "未定",
+      "oq": {
+        "title": "未定项目 (Open Questions)",
+        "lead": "设计尚为空白的项目共 **{n}项**。请在编写代码前先确定下列项。原则是**不要擅自实现**，与用户确认。",
+        "footer": "🤖 Harness — 自动汇总的设计图空白项清单。"
+      },
+      "vault_gap_header": "⚠️ **未定 {n}项** — 标记 ⚠️ 的笔记设计尚为空白。不要擅自实现，请与用户确认。"
+    },
+  "vibe": {
+    "start_line": "开始吧",
+    "tools": {
+      "claude": {
+        "label": "Claude Code",
+        "open": "在终端运行 `cd \"{p}_vibe\"` 进入文件夹，然后运行 `claude`。Claude Code 会 **自动读取 CLAUDE.md。**"
+      },
+      "cursor": {
+        "label": "Cursor",
+        "open": "在 Cursor 中打开 `{p}_vibe/` 文件夹，按 `Cmd/Ctrl + L` 打开聊天。Cursor 会 **自动应用 AGENTS.md。**"
+      },
+      "antigravity": {
+        "label": "Antigravity (Google)",
+        "open": "在 Antigravity 中打开 `{p}_vibe/` 文件夹并打开智能体面板。**会自动识别 AGENTS.md。**"
+      },
+      "other": {
+        "label": "其他 / 不确定",
+        "open": "用你的 AI 编码工具打开 `{p}_vibe/` 文件夹。大多数（Codex · Windsurf · Antigravity 等）会 **自动读取 AGENTS.md。** 如果还没有工具，推荐使用终端的 **Claude Code** 或编辑器式的 **Cursor**。"
+      }
+    },
+    "bootstrap": {
+      "title": "AI 代理指令 — {project}",
+      "intro": "你是在此文件夹内工作的 AI 编码智能体。这是由 Harness 生成的 **vibe 编码规格包**：一份供你实现的结构化设计。此文件由你的工具自动加载（Claude Code 读取 `CLAUDE.md`；Cursor / Codex / Antigravity / Windsurf 读取 `AGENTS.md`），因此用户无需粘贴冗长的指令。",
+      "entry_orchestrator": "阅读 **`00-ORCHESTRATOR.md`** 并严格执行 — 它是你权威的、逐 Phase 的主工作流。",
+      "entry_start_here": "阅读 **`0_START_HERE.md`** 的 **\"INSTRUCTIONS FOR AI AGENT\"** 部分，并按顺序执行其各个 phase。",
+      "enhance_banner": "> ⚠️ **本项目是从一个既有（EXISTING）代码库导入的 — 你不是从空文件夹开始。**\n> 请 **先（FIRST）阅读 `IMPLEMENTATION_STATUS.md`**: 它列出了已实现（✅）与尚未实现（⬜）的内容。\n> 尊重 ✅ 的代码（不要重写），仅在既有代码之上实现 ⬜ 的项目，并遵循\n> 既有的结构 / 命名 / Tech Stack。spec↔code 映射是自动估算的 — 请将 ✅ 与真实代码核对验证。\n> STATUS 反映的是最后（LAST）一次分析；请与当前 spec 交叉核对 — 任何未列入 STATUS 的 spec 项目都应视为 ⬜（未实现）。",
+      "h_master_plan": "▶ 主计划",
+      "master_plan_note": "**一次只推进一个 phase，每个 phase 之后为等待用户确认而 STOP。** 不要抢先。",
+      "h_spec_files": "📂 规格文件",
+      "spec_status": "- `IMPLEMENTATION_STATUS.md` — 已实现（✅）与尚未实现（⬜）的内容。**请先阅读（READ FIRST）。**",
+      "spec_spack": "- `1_spack.md` — APIs / Entities / Policies（要构建什么）",
+      "spec_ddd": "- `2_ddd.md` — 领域模型: Aggregates / Domain Events / Services（如何运作）",
+      "spec_architecture": "- `3_architecture.md` — services / databases / connections 与 **Tech Stack**（如何部署；当 spec 冲突时为最终权威）",
+      "spec_skills": "- `skills/` — 编码规则。写代码前（BEFORE）阅读相关规则，绝不违反。",
+      "spec_checklist": "- `IMPLEMENTATION-CHECKLIST.md` — 要构建的一切的机器生成全量清单（其中没有遗漏）。在每一项都被勾选之前，你的工作都没有完成。",
+      "h_hard_rules": "✅ 硬性规则",
+      "rule_enhance": "0. **在既有代码之上构建 — 不要从零重建项目。** 仅实现 `IMPLEMENTATION_STATUS.md` 中的 ⬜（未实现）项目；除非用户另有要求，保持 ✅ 项目不变。",
+      "rule_stack": "1. **Tech stack 来自 `3_architecture.md`。** 使用它指定的 Tech Stack。仅当未指定时，才请用户选择 — 绝不静默使用默认值。",
+      "rule_stop": "2. **每个 phase 之后停止（Stop after every phase）**，并在继续前等待用户的 OK。",
+      "rule_no_invent": "3. **绝不臆造需求（Never invent requirements）。** 若有不清楚之处，请询问用户。",
+      "rule_skills": "4. 对每一次编码行为都 **遵循 `skills/` 规则（Follow `skills/` rules）。** 当你修复违规时，请指明（cite）违反了哪个（WHICH）`skills/` 文件的哪条（WHICH）规则。",
+      "rule_checklist": "{num}. **完成 = `IMPLEMENTATION-CHECKLIST.md` 中每一项都以真实文件路径标记为 `[x]`。** 在报告完成之前，逐项将清单与代码核对审计；实现缺失的部分，然后 **循环直到全部通过（loop until all pass）**。",
+      "h_human_guide": "🙋 用户上手指南",
+      "human_guide": "面向用户的\"如何开始\"指南在 `0_START_HERE.md` 中。"
+    },
+    "guide": {
+      "title": "🎯 {project} — Vibe Coding 启动指南",
+      "lead": "本文件是面向 **你（用户）** 和 **AI 编码智能体** 双方的说明。",
+      "h_what_is_this": "🙋 这是什么？",
+      "what_is_this_1": "**Vibe Coding** 是指将开发规格整体交给 AI 智能体，\n由智能体自动实现代码的方式。",
+      "what_is_this_2": "你刚刚收到了一个 `{project}_vibe.zip`。解压后，`{project}_vibe/` 文件夹中\n包含一组系统性整理的规格文档，描述 **\"我们的项目是怎样一个系统\"**。",
+      "what_is_this_3": "将这些规格整体交给 **AI 编码智能体**（如 Claude Code、Cursor、Codex、Windsurf 等），\n智能体便会 **自行编写代码**。",
+      "h_what_to_do": "✅ 现在该做什么？（3 步即可完成！）",
+      "step1_title": "第 1 步 — 解压",
+      "step1_body": "解压你收到的 `{project}_vibe.zip`，会生成一个 `{project}_vibe/` 文件夹。",
+      "skill_step1_note": "（编码规则已经在 `skills/` 文件夹中 — AI 智能体会自动引用。）",
+      "step2_title": "第 2 步 — 用 {tool} 打开文件夹",
+      "step2_note": "如果你还没有工具: 请安装 **Claude Code**（`https://claude.com/code`，终端）或 **Cursor**（`https://cursor.com`，编辑器）。",
+      "step3_title": "第 3 步 — 只说一句\"{start}\"",
+      "step3_body": "打开文件夹后，智能体会 **自动读取 `{autoFile}`**，已经知道该做什么。只需在聊天中输入:",
+      "step3_fallback_lead": "如果你的工具不会自动读取，请粘贴下面这一行:",
+      "step3_fallback_prompt": "阅读本文件夹中的 {autoFile} 和 0_START_HERE.md，并从 {phase} 开始推进。每个步骤结束后请向我确认。",
+      "phase_hint_with_skills": "Phase 0（规则内化）",
+      "phase_hint_no_skills": "Phase 1（理解规格）",
+      "skill_prompt_line": "把 `skills/` 文件夹中所有 .md 文件用作编码规则参考集 — 写代码前先确认并应用相关规则。",
+      "step3_after": "此后，智能体会 **逐 Phase 编写并汇报代码**。在每个步骤检查结果，若不满意可用自然语言请求修改。\n它不是完全自动一次性生成，而是 **分步协作**。",
+      "h_agent_instructions": "⚙️ 给 AI 代理的指示",
+      "agent_intro": "你是一个 AI 编码智能体。以下全部是你的指令。在采取任何行动之前请通读全部内容。",
+      "agent_authority": "**⚠️ Authority check — 请先（FIRST）做这件事:** 如果此文件夹中存在 `00-ORCHESTRATOR.md`，**将其作为权威主计划来遵循**，并将下面的 phase 仅视为背景。当 `00-ORCHESTRATOR.md` 不存在时，下面的 phase 才是完整指令。",
+      "agent_env_check": "**Environment check — 请先做这件事:**",
+      "agent_env_fs": "如果你有文件系统访问权限（Claude Code、Cursor agent 等）: 按指示直接读取文件。",
+      "agent_env_chat": "如果你是没有任何文件访问权限的纯聊天（chat-only）模型: 在每个标有 ↺ 的 Phase 之前，请用户把相关 spec 文件内容粘贴到聊天中。不要假装读取你无法访问的文件。",
+      "phase0_heading": "### PHASE 0 — 规则内化（必需的第一步）",
+      "phase0_list_index": "- 列出 `skills/` 中的每一个（EVERY）`.md` 文件，并只读取每个文件的 **frontmatter（frontmatter only）**（name + description / 适用条件）— 构建一份紧凑的规则索引",
+      "phase0_list_reread": "- 现在不要阅读每条规则正文（Do NOT read every rule body now）: 数十条规则正文会淹没你的上下文，到 Phase 4 时就被遗忘。相反，在后续 phase 中 **在每个编码任务之前（RIGHT BEFORE each coding task）** 完整重读相关规则文件 — 把规则当作每次都重新检查的常驻工具",
+      "phase0_list_no_access": "- 如果你没有任何文件访问权限: 在继续之前，请用户粘贴 skills 文件清单",
+      "phase0_output_lead": "OUTPUT (REQUIRED — 不要总结或跳过):",
+      "phase0_output_1": "规则索引: 每一个（EVERY）确切的文件路径（例如 `skills/backEnd/auth.md`）+ 一行说明何时适用",
+      "phase0_output_2": "你预计在本项目中最常适用的 3~5 条规则，以及原因",
+      "phase0_warn": "⚠️ 如果你无法列出真实的文件路径，说明你没有扫描该文件夹。请先扫描。",
+      "phase0_stop": "**STOP 并等待用户确认**",
+      "phase1_heading": "### PHASE 1 — 理解规格",
+      "phase1_lead": "严格按此顺序（IN THIS EXACT ORDER）阅读三个 spec 文件:",
+      "phase1_file_spack": "`1_spack.md` — 要构建什么 (APIs, Entities, Policies)",
+      "phase1_file_ddd": "`2_ddd.md` — 领域如何运作 (Aggregates, Domain Events, Services)",
+      "phase1_file_architecture": "`3_architecture.md` — 如何部署 (当 spec 冲突时为 **最终权威（FINAL AUTHORITY）**)",
+      "phase1_no_access": "如果你没有任何文件访问权限: 现在请用户粘贴每个文件的内容。",
+      "phase1_output_lead": "OUTPUT (你必须报告以下全部（ALL） — 不要跳过任何一项):",
+      "phase1_output_1": "系统概览 (2~3 句)",
+      "phase1_output_2": "服务清单，并为每个服务给出一行角色说明",
+      "phase1_output_3": "核心领域及其职责",
+      "phase1_output_4": "**Tech stack** — 首先阅读 `3_architecture.md` 中每个 Service/Database 的 **Tech Stack** 字段。如果那里指定了栈，请准确说明你将使用什么并继续 — 不要再次询问（do NOT re-ask）。仅当（ONLY if）架构未指定时，才提出带权衡的 2~3 个具体选项（后端语言/框架 · 如适用前端 · 数据库）并请用户选择。绝不静默使用默认值，也不要在栈确定之前开始编码。",
+      "phase1_stop": "**STOP 并等待用户确认。**（当且仅当 `3_architecture.md` 中未指定 Tech stack 时，也要等待用户明确的栈选择。）",
+      "phase2_heading": "### PHASE 2 — 项目骨架",
+      "phase2_reread": "↺ 现在重读 `3_architecture.md`（若无文件访问权限，请用户粘贴）",
+      "phase2_do": "基于 `3_architecture.md` 创建目录结构和模块脚手架",
+      "phase2_output": "OUTPUT → 文件夹树 + 入口点文件清单 → **STOP 并等待用户确认**",
+      "phase3_heading": "### PHASE 3 — 领域实现",
+      "phase3_reread": "↺ 现在重读 `2_ddd.md`（若无文件访问权限，请用户粘贴）",
+      "phase3_do": "基于 `2_ddd.md` 实现 Entity、Aggregate、Domain Service",
+      "phase3_skill": "在编写每个类之前检查 `skills/` 规则",
+      "phase3_output": "OUTPUT → 领域类清单 + 应用的关键业务规则 → **STOP 并等待用户确认**",
+      "phase4_heading": "### PHASE 4 — API 实现",
+      "phase4_reread": "↺ 现在重读 `1_spack.md`（若无文件访问权限，请用户粘贴）",
+      "phase4_do": "基于 `1_spack.md` 实现 API 端点",
+      "phase4_skill": "在编写每个端点之前检查 `skills/` 规则",
+      "phase4_output": "OUTPUT → API 路由清单 → **STOP 并等待用户确认**",
+      "phase5_heading": "### PHASE 5 — 集成与验证",
+      "phase5_reread": "↺ 现在重读 `3_architecture.md` 的 connection map 部分（若无文件访问权限，请用户粘贴）",
+      "phase5_do": "按照 connection map 连接服务，验证基本的 build/run",
+      "phase5_output": "OUTPUT → 构建状态 + 未实现项目清单 → **STOP 并等待用户确认**",
+      "phase6_heading": "### PHASE 6 — 全量核对审计循环（完成保证 — 最后的关卡）",
+      "phase6_checklist_open": "打开 `IMPLEMENTATION-CHECKLIST.md` — 它是 **从设计图机器生成（machine-generated）** 的，因此没有遗漏",
+      "phase6_checklist_verify": "对每一个（EVERY）项目: 验证它在代码中确实存在。若存在，标记 `- [x]` 并在 `← 实现位置:` 之后写上真实文件路径",
+      "phase6_inventory_build": "先自己构建清单（Build your own inventory first）: 把 `1_spack.md` 中的每一个（EVERY）API / Entity / Policy / Screen 列为未勾选的清单",
+      "phase6_inventory_verify": "对每一个（EVERY）项目: 验证它在代码中确实存在。若存在，标记 `- [x]` 并记下真实文件路径",
+      "phase6_opened": "你写下的每条路径都必须是你为确认而实际 **打开过（OPENED）** 的文件 — 你打不开的路径是一次虚假勾选（a path you cannot open is a false check）",
+      "phase6_not_impl": "你无法指向真实文件的项目 = **未实现（NOT implemented）** → 实现它，然后从头重新运行本次审计",
+      "phase6_repeat": "**重复此循环，直到 100% 的项目都被勾选（Repeat this loop until 100% of items are checked）。** 在此之前不要宣布项目完成。",
+      "phase6_output": "OUTPUT → 完全勾选的清单 + 覆盖率计数（例如 `27/27 ✅`）→ **STOP 并等待用户确认**",
+      "h_mandatory_rules": "### 强制遵守规则",
+      "mr_stop": "**每个 Phase 之后停止（STOP after every Phase）。** 报告上面列出的输出。未经用户明确的 OK，不要开始下一个 Phase。",
+      "mr_stack": "**Tech stack 首先来自 `3_architecture.md`。** 使用它指定的栈。仅当未指定时，才在 Phase 1 提出选项并等待用户明确选择 — 绝不静默使用默认值。",
+      "mr_no_assume": "**绝不臆测需求（NEVER assume requirements）。** 任何不清楚的 → 询问。不要猜测后继续。",
+      "mr_skills_lead": "**在每次编码行为之前检查 skills 规则。**",
+      "mr_skills_yes": "在写代码前，重新检查是否有相关 `skills/` 规则适用。违反 skills 规则是不可接受的。",
+      "mr_skills_no": "（本包中没有 skills 规则。）",
+      "mr_authority": "**`3_architecture.md` 是最终权威。** 当规格冲突时，以架构为准。",
+      "mr_reread": "**在每个 Phase 开始时重读相关 spec 文件**（↺）。长对话会导致上下文漂移 — 始终从源头刷新。如果你没有文件访问权限，请用户粘贴。",
+      "mr_completion_lead": "**完成 = Phase 6 审计达到 100%。**",
+      "mr_completion_checklist": "每一项 `IMPLEMENTATION-CHECKLIST.md` 都以真实文件路径标记为 `[x]`。",
+      "mr_completion_inventory": "清单中每个 spec 项目都已与真实代码核对验证。",
+      "mr_completion_tail": "\"大概能用\"不是完成 — 循环直到审计通过。",
+      "mr_resume_lead": "**中断后恢复（Resuming after an interruption）？** 先阅读",
+      "mr_resume_checklist": "`IMPLEMENTATION-CHECKLIST.md`",
+      "mr_resume_inventory": "你的 Phase 6 清单",
+      "mr_resume_tail": "以及任何 `_workspace/` 笔记，首先（FIRST）了解已完成的内容，然后从第一个未勾选项目继续 — 不要从头开始（do not start over）。",
+      "h_files": "📂 你收到的文件 — 各是什么？",
+      "file_agents_title": "🤖 `AGENTS.md` · `CLAUDE.md`（自动识别文件 — 无需改动）",
+      "file_agents_desc": "AI 工具打开文件夹时 **自动读取** 的指令文。有了它，无需粘贴冗长提示，智能体也知道该做什么。(Claude Code → `CLAUDE.md`, Cursor·Codex·Antigravity·Windsurf → `AGENTS.md`)",
+      "file_start_here_title": "📖 `0_START_HERE.md`（你正在看的这个文件）",
+      "file_start_here_desc": "**面向人的启动指南 + AI 智能体工作指示**。其中包含上面的 3 步用法以及 Phase 顺序与工作规则。",
+      "skill_section": "### 📦 `skills/` — 编码规则合集\n这些是项目中要遵循的 **编码规范**。各分类子文件夹中有 `.md` 规则，AI 智能体在写代码时必须遵循这些规则。",
+      "file_spack_title": "📋 `1_spack.md` — SPACK（要构建什么）",
+      "file_spack_desc": "系统将提供的 **API、Entity（数据结构）、Policy（业务规则）** 规格。\n是 Phase 4 API 实现的依据。",
+      "file_ddd_title": "🧩 `2_ddd.md` — DDD（如何运作 — 领域）",
+      "file_ddd_desc": "业务领域的 **Aggregate（相关 Entity 的集合）、Domain Event（状态变化事件）、Service** 模型。\n是 Phase 3 领域实现的依据。",
+      "file_arch_title": "🏗️ `3_architecture.md` — Architecture（如何部署）",
+      "file_arch_desc": "将代码拆分为哪些 **服务 / 存储** 进行部署的蓝图。\n是 Phase 2 骨架生成的依据。",
+      "file_checklist_title": "✅ `IMPLEMENTATION-CHECKLIST.md` — 全量核对清单",
+      "file_checklist_desc": "从设计图 **机械生成** 的实现清单（摘要过程中无遗漏）。\n在最后的 Phase 6，AI 智能体必须将该清单的 **每一项与代码核对**，全部变为 ✅ 后工作才算结束。",
+      "final_start_phase0": "现在请从 **Phase 0 — 规则内化** 开始。",
+      "final_start_phase1": "现在请从 **Phase 1 — 理解规格** 开始。"
+    },
+    "skill_md": {
+      "instructions": "指示事项 (Instructions)",
+      "scope": "范围(Scope):",
+      "priority": "优先级:",
+      "applies_when": "适用条件:",
+      "tags": "标签"
+    }
+  }
+}

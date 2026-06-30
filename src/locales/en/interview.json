@@ -1,0 +1,48 @@
+{
+  "header": {
+    "title_supplement": "Fill the gaps with AI",
+    "title_new": "Start with an AI conversation",
+    "title_project": "Filling gaps: {name}",
+    "sub_project": "I already know this project's plan — I'll ask only about what's missing.",
+    "sub_supplement": "I'll read what you've written and ask only about what's missing.",
+    "sub_new": "No meeting notes? No problem. Answer a few questions and I'll put them together for you.",
+    "close_aria": "Close",
+    "restart": "Start over",
+    "restart_aria": "Restart the conversation from scratch",
+    "restart_confirm": "Clear the whole conversation and start over?"
+  },
+  "agenda": {
+    "label": "{count} gaps to fill",
+    "pick": "Let's start with '{topic}'"
+  },
+  "restored": { "notice": "Continuing your previous conversation." },
+  "progress": { "label": "Readiness" },
+  "coverage": { "label": "Captured" },
+  "focus": { "prefix": "Currently asking about" },
+  "dim": {
+    "goal": "Goal",
+    "features": "Core features",
+    "data": "Data",
+    "users": "Users",
+    "constraints": "Constraints (login, payments, etc.)",
+    "usage": "Use case"
+  },
+  "typing": {
+    "thinking": "Thinking…",
+    "finalizing": "Organizing into notes…",
+    "tool": "Checking project data…"
+  },
+  "input": { "placeholder": "Type your answer… (Enter to send, Shift+Enter for a new line)" },
+  "error": { "generic": "Something went wrong during the AI interview. Please try again in a moment." },
+  "entry": {
+    "title_fill": "AI reads what you've written and asks only about what's missing to fill it in",
+    "title_start": "No meeting notes? OK — AI draws out the essentials with a few questions and organizes them into notes",
+    "btn_fill": "Fill gaps with AI",
+    "btn_start": "Start with AI chat",
+    "undo_title": "Reverts to the content before merging the interview",
+    "undo_btn": "Revert to pre-interview",
+    "merged_with_draft": "Merged what the conversation added into your existing content. Review and save. (You can revert if you like.)",
+    "merged_no_draft": "Organized the conversation into meeting notes. Review and save.",
+    "reverted": "Reverted to the pre-interview content."
+  }
+}

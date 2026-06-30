@@ -1,0 +1,50 @@
+{
+  "tier": {
+    "confirmed": "확정",
+    "review": "검토",
+    "estimated": "추정"
+  },
+  "confidence": {
+    "direct": "직접 근거",
+    "inferred": "추론",
+    "none": "근거 없음",
+    "high": "확실",
+    "medium": "추정",
+    "low": "약한 매칭",
+    "unverified": "⚠ 미확인",
+    "description": {
+      "direct": "PRD 원문에 명시적으로 등장",
+      "inferred": "PRD 흐름상 필요하지만 명시 없음",
+      "none": "PRD 에서 근거를 찾지 못함"
+    }
+  },
+  "violation_type": {
+    "missing_aggregate_root": {
+      "chip": "루트 없음",
+      "title": "집합 루트 없음"
+    },
+    "multiple_aggregate_roots": {
+      "chip": "루트 중복",
+      "title": "집합 루트 {count}개 중복"
+    }
+  },
+  "job_status": {
+    "pending": "대기",
+    "running": "처리 중",
+    "done": "완료",
+    "failed": "실패",
+    "error": "실패",
+    "cancelled": "중지됨"
+  },
+  "coverage": {
+    "direct": "직접 {count}",
+    "inferred": "추론 {count}",
+    "none": "근거 없음 {count}",
+    "total": "전체 {count}",
+    "no_data": "PRD 연결 데이터 없음"
+  },
+  "rel_type": {
+    "IMPLEMENTS": "구현",
+    "DERIVED_FROM": "도출"
+  }
+}

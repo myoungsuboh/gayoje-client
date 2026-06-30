@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" role="img" aria-label="Plan 단계 — 미팅 로그에서 PRD까지">
+  <defs>
+    <linearGradient id="planBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCFAEE"/>
+      <stop offset="100%" stop-color="#F2EAD8"/>
+    </linearGradient>
+    <linearGradient id="planAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8C6239"/>
+      <stop offset="100%" stop-color="#C89B6A"/>
+    </linearGradient>
+    <filter id="planShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#8C6239" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="480" fill="url(#planBg)"/>
+
+  <!-- Step badge -->
+  <g transform="translate(60,52)">
+    <rect width="68" height="28" rx="14" fill="#8C6239"/>
+    <text x="34" y="19" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="800" fill="#FFFFFF" letter-spacing="2">STEP 01</text>
+  </g>
+
+  <text x="60" y="120" font-family="Outfit, Arial, sans-serif" font-size="42" font-weight="900" fill="#2A2421" letter-spacing="-1.5">Plan · 요구사항 추출</text>
+  <text x="60" y="150" font-family="Pretendard, Arial, sans-serif" font-size="15" fill="#8A817C">미팅 로그를 업로드하면 AI가 CPS · PRD · Rule 까지 자동 정리합니다.</text>
+
+  <!-- 4-step pipeline -->
+  <g font-family="Outfit, Arial, sans-serif">
+    <!-- Meeting Log -->
+    <g transform="translate(60,210)" filter="url(#planShadow)">
+      <rect width="240" height="190" rx="20" fill="#FFFFFF" stroke="#8C6239" stroke-opacity="0.15"/>
+      <rect x="20" y="20" width="50" height="50" rx="14" fill="url(#planAccent)"/>
+      <!-- Doc icon -->
+      <g transform="translate(32,32)" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 2 L18 2 L24 8 L24 24 L4 24 Z"/>
+        <path d="M18 2 L18 8 L24 8"/>
+        <line x1="9" y1="14" x2="19" y2="14"/>
+        <line x1="9" y1="19" x2="19" y2="19"/>
+      </g>
+      <text x="20" y="100" font-size="20" font-weight="900" fill="#2A2421">Meeting Log</text>
+      <text x="20" y="124" font-family="Pretendard, Arial, sans-serif" font-size="12" fill="#8A817C">미팅록 업로드 (.txt/.md)</text>
+      <text x="20" y="142" font-family="Pretendard, Arial, sans-serif" font-size="12" fill="#8A817C">버전 관리 v1.0 · v1.1 …</text>
+      <rect x="20" y="158" width="92" height="22" rx="11" fill="#F7F5EB"/>
+      <text x="66" y="173" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="700" fill="#8C6239">UPLOAD</text>
+    </g>
+
+    <!-- CPS -->
+    <g transform="translate(330,210)" filter="url(#planShadow)">
+      <rect width="240" height="190" rx="20" fill="#FFFFFF" stroke="#8C6239" stroke-opacity="0.15"/>
+      <rect x="20" y="20" width="50" height="50" rx="14" fill="url(#planAccent)"/>
+      <g transform="translate(32,32)" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="14" cy="14" r="11"/>
+        <path d="M9 14 L13 18 L19 10"/>
+      </g>
+      <text x="20" y="100" font-size="20" font-weight="900" fill="#2A2421">CPS</text>
+      <text x="20" y="124" font-family="Pretendard, Arial, sans-serif" font-size="12" fill="#8A817C">Critical Problem</text>
+      <text x="20" y="142" font-family="Pretendard, Arial, sans-serif" font-size="12" fill="#8A817C">Statement 자동 생성</text>
+      <rect x="20" y="158" width="92" height="22" rx="11" fill="#F7F5EB"/>
+      <text x="66" y="173" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="700" fill="#8C6239">EXTRACT</text>
+    </g>
+
+    <!-- PRD -->
+    <g transform="translate(600,210)" filter="url(#planShadow)">
+      <rect width="240" height="190" rx="20" fill="#FFFFFF" stroke="#8C6239" stroke-opacity="0.15"/>
+      <rect x="20" y="20" width="50" height="50" rx="14" fill="url(#planAccent)"/>
+      <g transform="translate(32,32)" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="3" width="20" height="22" rx="2"/>
+        <line x1="9" y1="9" x2="19" y2="9"/>
+        <line x1="9" y1="14" x2="19" y2="14"/>
+        <line x1="9" y1="19" x2="15" y2="19"/>
+      </g>
+      <text x="20" y="100" font-size="20" font-weight="900" fill="#2A2421">PRD</text>
+      <text x="20" y="124" font-family="Pretendard, Arial, sans-serif" font-size="12" fill="#8A817C">Epic / Story 자동 분해</text>
+      <text x="20" y="142" font-family="Pretendard, Arial, sans-serif" font-size="12" fill="#8A817C">Acceptance Criteria 포함</text>
+      <rect x="20" y="158" width="92" height="22" rx="11" fill="#F7F5EB"/>
+      <text x="66" y="173" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="700" fill="#8C6239">STRUCTURE</text>
+    </g>
+
+    <!-- Rule Generator -->
+    <g transform="translate(870,210)" filter="url(#planShadow)">
+      <rect width="240" height="190" rx="20" fill="#FFFFFF" stroke="#8C6239" stroke-opacity="0.15"/>
+      <rect x="20" y="20" width="50" height="50" rx="14" fill="url(#planAccent)"/>
+      <g transform="translate(32,32)" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 3 L4 9 L14 15 L24 9 Z"/>
+        <path d="M4 14 L14 20 L24 14"/>
+        <path d="M4 19 L14 25 L24 19"/>
+      </g>
+      <text x="20" y="100" font-size="20" font-weight="900" fill="#2A2421">Rule Generator</text>
+      <text x="20" y="124" font-family="Pretendard, Arial, sans-serif" font-size="12" fill="#8A817C">개발 규칙 자동 도출</text>
+      <text x="20" y="142" font-family="Pretendard, Arial, sans-serif" font-size="12" fill="#8A817C">Lint 단계 입력으로 사용</text>
+      <rect x="20" y="158" width="92" height="22" rx="11" fill="#F7F5EB"/>
+      <text x="66" y="173" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="700" fill="#8C6239">GENERATE</text>
+    </g>
+  </g>
+
+  <!-- Arrows between cards (pointing right) -->
+  <g fill="#8C6239">
+    <polygon points="306,297 306,313 322,305"/>
+    <polygon points="576,297 576,313 592,305"/>
+    <polygon points="846,297 846,313 862,305"/>
+  </g>
+
+  <!-- Bottom info bar -->
+  <g transform="translate(60,430)">
+    <rect width="1080" height="32" rx="16" fill="#FFFFFF" stroke="#8C6239" stroke-opacity="0.18"/>
+    <circle cx="22" cy="16" r="5" fill="#5BA160"/>
+    <text x="38" y="20" font-family="Pretendard, Arial, sans-serif" font-size="12" fill="#2A2421" font-weight="600">
+      INPUT  미팅 로그 (.txt/.md)   →   OUTPUT  CPS · PRD · Rule (Markdown · Neo4j Graph)
+    </text>
+  </g>
+</svg>

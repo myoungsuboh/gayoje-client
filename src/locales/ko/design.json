@@ -1,0 +1,935 @@
+{
+  "node_label": {
+    "Epic": "에픽",
+    "Story": "스토리",
+    "API": "API",
+    "Screen": "화면",
+    "Entity": "엔티티",
+    "ArchService": "서비스",
+    "ArchDatabase": "DB",
+    "fallback": "항목",
+    "etc": "기타"
+  },
+  "impact": {
+    "ddd": "DDD",
+    "arch": "Arch",
+    "events": "이벤트",
+    "screens": "화면",
+    "api_chain": "연결 API",
+    "none": "연결된 설계 없음",
+    "expand": "영향받는 설계 자세히 보기",
+    "design_label": "설계"
+  },
+  "stage": {
+    "spack": {
+      "desc": "API · Entity · Policy 명세 생성 중",
+      "tip": "\"무엇을 만들 것인가\": 시스템이 제공할 기능의 명세입니다."
+    },
+    "ddd": {
+      "desc": "Aggregate · Domain Event 모델링 중",
+      "tip": "\"도메인이 어떻게 동작하는가\": 비즈니스 규칙과 흐름이 모이는 곳."
+    },
+    "architecture": {
+      "desc": "서비스 분리 · DB · 통신 설계 중",
+      "tip": "\"어떻게 배포할 것인가\": 운영 가능한 시스템 청사진."
+    },
+    "preparing": "준비 중…",
+    "step_progress": "{current}/{total} 단계",
+    "title": "시스템 설계 생성 중",
+    "cancel": "중지",
+    "cancelling": "중지 중…",
+    "cancel_title": "업데이트 중지 (이전 데이터 유지)",
+    "cancelling_title": "중지 처리 중…"
+  },
+  "loading_guide": {
+    "heading": "완성되면, 이렇게 코딩으로 이어져요",
+    "dismiss": "다시 안보기",
+    "dismiss_title": "다음 업데이트부터 이 안내 숨김",
+    "step1_title": "\"바이브 코딩 시작 패키지\" 다운로드",
+    "step1_desc": "사용할 AI 도구를 고르면 그 도구 맞춤 사용법까지 한 번에 (SPACK · DDD · Architecture 명세 + 코딩 규칙 + 가이드).",
+    "step2_title": "받은 zip 풀고, AI 도구로 그 폴더 열기",
+    "step2_desc": "압축을 풀면 프로젝트 폴더 하나가 생겨요. Claude Code · Cursor · Antigravity 등으로 그 폴더를 열기만 하면 됩니다.",
+    "step3_title": "도구가 자동 인식 → 한 마디면 시작",
+    "step3_desc": "폴더만 열면 도구가 알아서 읽어요. 채팅에 한 마디면 시작돼요. 긴 프롬프트는 붙여넣지 않아도 돼요. (시작 문구는 받은 패키지 안에 안내돼 있어요.)",
+    "step4_title": "에이전트가 Phase 별로 알아서 진행",
+    "step4_desc": "명세 이해 → 골격 → Aggregate → API → 통합 → 검증. 단계마다 보고합니다."
+  },
+  "headline": {
+    "title": "시스템 그리기",
+    "desc": "기획서를 바탕으로 AI가 설계도(필요한 기능·데이터 구조·시스템 구성)를 자동으로 그려 줘요.",
+    "guide_btn": "사용 가이드"
+  },
+  "tabs": {
+    "spack": "기능 명세",
+    "ddd": "도메인 모델",
+    "architecture": "시스템 구조"
+  },
+  "action": {
+    "updating": "업데이트 중...",
+    "update": "최신 업데이트",
+    "regen": "다시 생성",
+    "regen_full": "최신 업데이트로 다시 생성",
+    "close": "닫기",
+    "ignore": "무시"
+  },
+  "stale": {
+    "prd_changed_title": "기획서(PRD)가 갱신되었습니다.",
+    "prd_changed_subtitle_impact": "변경된 기획 {changed}건이 설계 {affected}개에 영향을 줍니다. 최신 업데이트로 다시 생성하세요.",
+    "prd_changed_subtitle_generic": "현재 설계는 옛 기획서(PRD) 기준입니다. 최신 업데이트로 다시 생성하세요.",
+    "modal_title": "기획서가 바뀌었어요 — 설계도를 다시 만들까요?",
+    "modal_body": "기획서(PRD)를 수정하셨네요. 지금 보고 계신 <strong>설계도(화면·기능·데이터 구조)</strong>는 <strong>수정 전 기획서</strong> 기준이라, 바뀐 내용이 아직 반영되지 않았어요. 최신 기획서로 다시 만들면 설계도와 그 뒤의 코드까지 의도에 맞게 갱신됩니다.",
+    "modal_note": "다시 만들기는 몇 분 정도 걸려요. 지금 안 하셔도 위쪽 노란 알림에서 언제든 다시 만들 수 있어요.",
+    "modal_later": "나중에",
+    "modal_regen": "지금 다시 만들기"
+  },
+  "empty_project": {
+    "title": "프로젝트를 먼저 선택해주세요",
+    "desc": "SPACK · DDD · Architecture 를 설계하려면 먼저 작업할 프로젝트를 선택하거나 새로 만들어야 합니다.",
+    "hint_header": "화면 상단의 \"내 프로젝트\" 버튼을 클릭해 빠르게 선택",
+    "hint_plan": "또는 Plan 페이지에서 미팅 로그 업로드 후 PRD 까지 완성"
+  },
+  "ai_draft_label": "시스템 설계",
+  "erd": {
+    "title_main": "데이터 구조 (ERD)",
+    "title_sub": "엔티티 · 속성 · 관계를 한눈에 — SPACK · DDD 기반 자동 생성",
+    "download_excel": "Excel 다운로드",
+    "download_excel_aria": "ERD를 Excel로 다운로드 (엔티티·속성·관계 3시트)",
+    "loading": "데이터 구조를 불러오는 중...",
+    "err_no_project": "프로젝트를 먼저 선택해주세요.",
+    "err_no_design": "표시할 엔티티가 없습니다. 먼저 설계(SPACK · DDD)를 생성하세요.",
+    "err_no_container": "그래프 영역을 준비하지 못했습니다. 다시 열어주세요.",
+    "err_load_failed": "데이터 구조를 불러오지 못했습니다: {reason}",
+    "intro_title": "이 그래프는?",
+    "intro_text": "프로젝트의 <strong>데이터 구조</strong>를 보여줘요. 각 박스는 <strong>엔티티(데이터 묶음)</strong>이고, 박스 안 줄은 그 엔티티의 <strong>속성(필드)</strong>입니다. 선은 엔티티 사이의 <strong>소속·구성 관계</strong>예요.",
+    "node_section": "박스 (엔티티)",
+    "node_entity": "Entity (기능 명세)",
+    "node_entity_desc": "SPACK 에서 정의한 데이터 묶음. 화면·API 가 다루는 핵심 데이터.",
+    "node_aggregate": "Aggregate (도메인)",
+    "node_aggregate_desc": "DDD 의 일관성 경계. 함께 변해야 하는 엔티티 묶음 + 불변식(규칙).",
+    "node_domain_entity": "Domain Entity",
+    "node_domain_entity_desc": "Aggregate 안에 속한 세부 엔티티.",
+    "edge_section": "선 (관계)",
+    "edge_mapped": "소속 매핑",
+    "edge_mapped_desc": "엔티티가 어떤 <strong>Aggregate</strong> 에 속하는지 (MAPPED_TO).",
+    "edge_partof": "구성",
+    "edge_partof_desc": "Domain Entity 가 Aggregate 의 <strong>일부</strong>임 (PART_OF).",
+    "tip_title": "사용법",
+    "tip1": "<strong>박스 클릭</strong> → 속성·제약·연결 상세",
+    "tip2": "<strong>드래그</strong>로 배치 · <strong>휠</strong>로 확대/축소",
+    "tip3": "속성이 비어 있으면 <strong>속성 미정</strong> — 설계 보강이 필요해요",
+    "insp_name": "이름",
+    "insp_attrs": "속성 ({n})",
+    "insp_no_attrs": "속성이 아직 정의되지 않았습니다.",
+    "insp_invariants": "불변식 (규칙)",
+    "insp_no_invariants": "불변식이 아직 정의되지 않았습니다.",
+    "insp_show_all": "속성 {n}개 모두 보기",
+    "insp_collapse": "접기",
+    "attr_required": "필수",
+    "label_no_attrs": "(속성 미정)",
+    "label_no_inv": "불변식 미정",
+    "label_inv": "불변식 {n}개"
+  },
+  "vibe_cta_title": "이 파일들로 AI 에이전트가 바이브 코딩을 시작할 수 있어요",
+  "toast": {
+    "update_cancelled": "업데이트를 중지했습니다 — 이전 설계 데이터는 그대로 유지됩니다.",
+    "dismiss_success": "Design 갱신 알림을 무시했습니다.",
+    "dismiss_error": "알림 닫기에 실패했습니다. 다시 시도해 주세요.",
+    "precheck_failed_fallback": "PRD 가 정리되지 않아 설계를 생성할 수 없습니다. PRD 를 정리(또는 양질의 회의록으로 재생성)한 뒤 다시 시도해 주세요.",
+    "queue_unavailable": "AI 작업 큐가 일시적으로 사용 불가합니다. 1~2분 후 다시 시도해주세요.",
+    "rate_limited": "너무 자주 요청했습니다 (분당 3회 제한). 잠시 후 다시 시도하세요.",
+    "update_failed_fallback": "업데이트에 실패했습니다.",
+    "update_timeout": "업데이트가 20분 안에 못 끝났어요. 매우 큰 PRD 거나 worker 지연일 수 있습니다. 잠시 후 다시 시도하세요.",
+    "update_not_found": "업데이트 작업을 찾을 수 없습니다. 다시 시도해주세요.",
+    "update_failed_msg": "업데이트 실패: {msg}",
+    "update_unknown_error": "알 수 없는 오류가 발생했습니다.",
+    "update_error": "업데이트 중 오류가 발생했습니다.",
+    "incomplete_layers": "⚠️ {layers} 가 생성되지 않았습니다 ({counts}){hint}. PRD 의 Epic·Story 정의를 보강한 뒤 다시 생성해 주세요.",
+    "incomplete_notice_title": "설계 일부가 생성되지 않았습니다 ({layers}).",
+    "incomplete_notice_subtitle": "{counts}. PRD 의 Epic·Story 정의가 부족하거나 PRD 가 정리되지 않았을 수 있습니다{hint}. PRD 를 보강한 뒤 다시 생성하세요.",
+    "has_errors": "⚠️ 설계 생성은 완료됐지만 {count}개 명세 정합성 위반이 있습니다{code_hint}. Architecture 탭에서 상세 확인 가능. 바이브 코딩 진행 가능하지만 정확도 ↓.",
+    "cleanup_fail_warning": "⚠️ PRD 자동 정리 시도 실패 (원본으로 진행됨). PRD 탭에서 수동 정리 권장. ",
+    "cleanup_applied_prefix": "📋 PRD 자동 정리 ({pct}%↓) + ",
+    "cleanup_hint_applied": " (PRD 자동 정리는 완료됐으나 추출 실패 — PRD 보강 필요)",
+    "cleanup_hint_attempted": " (PRD 자동 정리 시도 실패 — 원본 PRD 로 진행됨)",
+    "design_complete_with_cleanup_fail": "✅ 설계 완료. 더 정확한 결과를 원하면 PRD 정리 후 다시 시도해 주세요.",
+    "design_complete_with_warnings": "✅ 설계 완료 (경고 {count}건). 바이브 코딩 시작 패키지 받기.",
+    "design_complete": "✅ 설계 완료! 이제 ✨ 바이브 코딩 시작 패키지를 받으세요.",
+    "no_project": "프로젝트를 먼저 선택해주세요. 화면 상단의 \"내 프로젝트\" 버튼을 이용하세요.",
+    "update_enqueue_failed": "업데이트 작업 등록 실패 — task_id 누락. 잠시 후 다시 시도하세요.",
+    "md_failed_fallback": "MD 파일 생성에 실패했습니다.",
+    "md_timeout": "MD 생성이 10분 안에 못 끝났어요. 잠시 후 다시 시도하세요.",
+    "pdf_failed_fallback": "디자인 문서 PDF 생성에 실패했습니다.",
+    "pdf_timeout": "PDF 생성이 10분 안에 못 끝났어요. 잠시 후 다시 시도하세요."
+  },
+  "pdf": {
+    "title": "디자인 문서",
+    "section_spack": "SPACK — 무엇을 만들 것인가",
+    "section_ddd": "DDD — 도메인 모델",
+    "section_arch": "Architecture — 배포 구조"
+  },
+  "fresh_regen_confirm": "기획서(PRD)가 변경되지 않아 설계가 이미 최신이에요.\n\n다시 생성하면 몇 분의 시간과 AI 사용량이 들고, 결과도 지금과 비슷할 가능성이 높아요. 그래도 다시 생성할까요?",
+  "cancel_confirm": "업데이트를 중지할까요?\n\n진행 중인 작업이 취소되며, 이전 설계 데이터(SPACK · DDD · Architecture)는 그대로 유지됩니다.",
+  "arch": {
+    "conn_type": {
+      "sync": "동기 호출",
+      "async": "비동기",
+      "event": "이벤트",
+      "event_driven": "이벤트",
+      "message": "메시지",
+      "query": "조회",
+      "command": "명령"
+    },
+    "md_stage": {
+      "collecting": {
+        "name": "명세 수집",
+        "desc": "설계 그래프에서 SPACK · DDD · Architecture 명세를 모으는 중",
+        "tip": "회의록에서 도출한 설계 내용을 정리합니다."
+      },
+      "generating": {
+        "name": "AI 문서 생성",
+        "desc": "명세 3종 + AI 에이전트용 통합 가이드(00-ORCHESTRATOR)를 동시에 작성하는 중",
+        "tip": "SPACK · DDD · Architecture 문서와 마스터 워크플로우 가이드를 병렬로 만듭니다."
+      },
+      "assembling": {
+        "name": "패키지 조립",
+        "desc": "생성된 문서와 구현 체크리스트를 패키지로 묶는 중",
+        "tip": "곧 다운로드가 시작됩니다."
+      },
+      "orchestrator": {
+        "name": "통합 가이드",
+        "desc": "AI 에이전트용 통합 가이드(00-ORCHESTRATOR)를 작성하는 중",
+        "tip": "에이전트가 단계별로 따라갈 마스터 워크플로우 가이드입니다."
+      },
+      "long_note": "거의 다 됐어요 — 프로젝트가 클수록 통합 가이드 작성이 몇 분 더 걸릴 수 있어요. 새로고침하지 않으셔도 됩니다. 끝나면 자동으로 닫혀요."
+    },
+    "loading_title": "바이브 코딩 패키지 생성 중",
+    "title": "시스템 구성",
+    "subtitle": "서비스 계층 · 데이터 계층 · 연결",
+    "aggregates_label": "데이터 묶음",
+    "empty": "아키텍처 데이터가 없습니다.",
+    "service_layer": "서비스 목록",
+    "data_layer": "데이터 저장소",
+    "conn_section_title": "서비스 연결 흐름",
+    "conn_count": "{n}개 연결",
+    "conn_total": "총 {n}개 연결",
+    "conn_empty": "이 서비스의 연결 정보가 없습니다.",
+    "conn_modal_title": "연결 흐름",
+    "conn_header_from": "출발",
+    "conn_header_to": "도착",
+    "conn_header_type": "통신 방식",
+    "conn_header_protocol": "프로토콜",
+    "conn_header_auth": "인증",
+    "conn_header_desc": "설명",
+    "vibe_btn": "바이브 코딩 시작 패키지",
+    "vibe_modal_title": "바이브 코딩 시작 패키지",
+    "vibe_modal_sub": "AI 에이전트에게 던지면 알아서 코드를 생성합니다",
+    "vibe_checking": "프로젝트 설정 확인 중...",
+    "vibe_full_pkg": "✦ 코딩 규칙(Skills) 포함 패키지 — Phase 0~5",
+    "vibe_lite_pkg": "◇ 기본 패키지 — Phase 1~5",
+    "vibe_intro": "압축을 풀고 그 폴더를 <strong>Claude Code / Cursor / Antigravity</strong> 같은 AI 도구로 열기만 하면 됩니다. <code>AGENTS.md</code>·<code>CLAUDE.md</code> 를 <strong>자동으로 인식</strong>해, <code>00-ORCHESTRATOR.md</code> 워크플로우대로 <strong>단계별(Phase)</strong> 진행하고 스킬을 매핑합니다. (붙여넣기 필요 없음)",
+    "vibe_faq1_title": "🎵 바이브 코딩이 뭐예요? (처음이라면 펼쳐보세요)",
+    "vibe_faq1_body": "<strong>바이브 코딩(Vibe Coding)</strong>은 개발 명세를 AI 에이전트에게 통째로 넘기고, 에이전트가 코드를 자동으로 구현하는 방식입니다.<br>명세서 파일을 던지면 → AI가 읽고 → 단계별로 코드를 만들어 보고합니다. 각 단계마다 확인하고 수정 요청하며 완성해 가는 <strong>단계별 협업</strong>입니다.",
+    "vibe_faq2_title": "🤔 AI 에이전트가 뭐예요?",
+    "vibe_faq2_body": "<strong>AI 에이전트</strong>는 자연어로 명령하면 코드를 자동으로 작성·수정하는 도구입니다.",
+    "vibe_tool_claude": "터미널에서 실행하는 AI. 이 도구와 가장 호환됨",
+    "vibe_tool_cursor": "VS Code 기반 IDE. 채팅창에 명령",
+    "vibe_tool_copilot": "VS Code/JetBrains 확장",
+    "vibe_tool_windsurf": "Codeium 의 agent IDE",
+    "vibe_pkg_autoload": "자동 인식 파일 — 폴더만 열면 AI 도구가 알아서 읽어요 (건드릴 필요 없음)",
+    "vibe_pkg_orchestrator": "AI 에이전트 진입점 — 동적으로 생성된 마스터 워크플로우 가이드",
+    "vibe_pkg_skills_label": "필수",
+    "vibe_pkg_skills_desc": "코딩 규칙 모음 — zip 안 <code>skills/</code> 폴더에 들어 있어요. AI가 코드 작성 전 매번 참조 (Phase 0)",
+    "vibe_pkg_skills_count": "규칙 {count}개",
+    "vibe_pkg_spack": "SPACK — API / Entity(데이터 구조) / Policy(비즈니스 규칙) 명세 (Phase 4 기준)",
+    "vibe_pkg_ddd": "DDD — Aggregate(Entity 묶음) / Domain Event(상태 변화 이벤트) 모델 (Phase 3 기준)",
+    "vibe_pkg_arch": "Architecture — 서비스 분리·배포 구조·연결 맵 (Phase 2 기준 · 충돌 시 최종 권위)",
+    "vibe_dl_btn": "패키지 다운로드",
+    "vibe_dl_pdf": "디자인 문서 PDF",
+    "vibe_dl_hint": "받은 zip 하나의 압축을 풀면 프로젝트 폴더가 생깁니다. AI 에이전트에서 그 폴더를 열어 시작하세요.",
+    "next": {
+      "title": "패키지 받기 완료 — 이제 3번이면 끝나요",
+      "sub": "아래 3단계만 하면 AI가 알아서 만들기 시작합니다.",
+      "s1": "<code>{project}_vibe.zip</code> 압축 풀기 → <code>{project}/</code> 폴더가 생겨요",
+      "s2_claude": "터미널에서 <code>cd {project}</code> 입력 후 <code>claude</code> 실행 — CLAUDE.md 를 자동으로 읽어요",
+      "s2_cursor": "Cursor 로 <code>{project}/</code> 폴더를 열고 <code>Ctrl/Cmd+L</code> 로 채팅 열기 — AGENTS.md 자동 적용",
+      "s2_antigravity": "Antigravity 로 <code>{project}/</code> 폴더를 열고 에이전트 패널 열기 — AGENTS.md 자동 인식",
+      "s2_other": "쓰시는 AI 도구로 <code>{project}/</code> 폴더 열기 — 대부분 AGENTS.md 를 자동으로 읽어요",
+      "s3": "채팅에 아래를 붙여넣으면 바로 시작:",
+      "full_prompt": "이 폴더의 {autoFile} 와 0_START_HERE.md 를 읽고 Phase 순서대로 진행해줘. 각 Phase 가 끝나면 멈춰서 내 확인을 받아줘.",
+      "s3_hint": "{autoFile} 를 자동 인식하는 도구(Claude Code·Cursor 등)라면 「{start}」 한 마디로도 충분해요.",
+      "copy": "복사",
+      "copied": "복사됨!",
+      "after": "이후엔 에이전트가 Phase 별로 만들고 보고해요. 각 단계에서 확인만 해주면, 마지막엔 체크리스트 100% 대조까지 마치고 끝납니다.",
+      "done": "알겠어요"
+    },
+    "inapp_warn": "카카오톡·인스타그램 등 인앱 브라우저에서는 다운로드가 차단될 수 있어요. Chrome·Safari 같은 외부 브라우저로 열어주세요.",
+    "inapp_open": "외부 브라우저로 열기",
+    "inapp_copied": "주소가 복사되었습니다. 브라우저에 붙여넣어 열어주세요.",
+    "tool_q": "어떤 AI 도구로 만들 건가요?",
+    "tool_claude": "Claude Code (추천)",
+    "tool_cursor": "Cursor",
+    "tool_antigravity": "Antigravity",
+    "tool_other": "기타 / 잘 모름",
+    "tool_hint": "고른 도구에 맞춰 사용법을 가이드에 담아드려요. 어떤 도구를 골라도 자동 인식 파일(AGENTS.md · CLAUDE.md)이 함께 들어가, 폴더만 열면 에이전트가 바로 알아봅니다.",
+    "vibe_low_completeness_title": "기획서 완성도 {pct}% — 지금 받을 수 있지만 권장하진 않아요",
+    "vibe_low_completeness_low": "비어 있는 항목이 많아 AI 가 임의로 추측해 코드를 만들 수 있어요. '최신 업데이트'로 보완한 뒤 받는 걸 권장합니다. (그래도 지금 받을 수 있어요)",
+    "vibe_low_completeness_mid": "일부 항목이 비어 있어요. 지금 받아 진행해도 되지만, 완성도를 올리면 AI 결과물이 더 정확해집니다.",
+    "toast": {
+      "md_timeout": "MD 생성이 20분 안에 못 끝났어요. 프로젝트가 크면 잠시 후 다시 시도하세요.",
+      "md_failed_msg": "MD 생성 실패: {reason}",
+      "md_failed_final": "MD 파일 생성에 실패했습니다. 잠시 후 다시 시도하세요.",
+      "md_empty_specs": "명세 문서가 생성되지 않아 패키지를 만들 수 없어요. '패키지 다운로드'를 다시 눌러주세요. 반복되면 '최신 업데이트'로 설계를 다시 생성한 뒤 시도해 주세요.",
+      "orchestrator_degraded": "설계 문서(SPACK·DDD·Architecture)는 정상 다운로드됐어요. 통합 가이드만 생성이 지연돼 기본 안내 파일(START_HERE)로 대체했습니다 — 바이브 코딩 진행에는 문제 없어요."
+    },
+    "md_docs": {
+      "spack": "SPACK 명세",
+      "ddd": "DDD 설계",
+      "architecture": "Architecture 구성",
+      "orchestrator": "통합 가이드(ORCHESTRATOR)",
+      "last_doc_hint": "{doc}는 가장 큰 문서라 마지막까지 작성돼요 — 거의 다 왔어요!"
+    },
+    "vibe_no_design_title": "설계가 아직 없어요",
+    "vibe_no_design_body": "'최신 업데이트'로 설계를 먼저 생성하면 패키지를 받을 수 있어요."
+  },
+  "ddd": {
+    "title": "업무 지도",
+    "subtitle": "업무 영역 · 데이터 묶음 · 묶음 속 데이터 · 일어난 사건",
+    "aggregate": "데이터 묶음",
+    "domain_entity": "묶음 속 데이터",
+    "domain_entity_short": "데이터",
+    "domain_event": "일어난 사건",
+    "unnamed": "(이름 없음)",
+    "refresh_aria": "새로고침",
+    "refresh_title": "설계 데이터 새로고침",
+    "intro_toggle": "이 화면 읽는 법",
+    "intro_lead_text": "업무를 영역별로 쪼개 그린 <strong>업무 지도</strong>입니다.",
+    "intro_lead_why": "개발 전에 \"이 서비스가 어떤 데이터·사건으로 굴러가는지\" 큰 그림을 확인하는 곳이에요.",
+    "intro_terms": "각 영역 안에 <strong>데이터 묶음 (Aggregate)</strong> · <strong>묶음 속 데이터 (Entity)</strong> · <strong>일어난 사건 (Event)</strong> 가 있어요. 모르는 용어는 옆 ⓘ 를 눌러보세요.",
+    "intro_legend_direct": "실선 = PRD 기능과 직접 연결됨",
+    "intro_legend_dashed": "점선 = 연결 추정됨",
+    "intro_legend_dotted": "점선(약함) = 출처 모름 — 보강 필요",
+    "fixguide_title": "PRD 기능과 연결 안 된 항목이 있어요",
+    "fixguide_desc": "아래 항목들은 \"왜 만들어졌는지\" 근거(PRD Story)를 못 찾았어요. <strong>회의록 또는 PRD Epic &amp; Story 탭에 관련 기능을 적으면</strong> 자동으로 연결됩니다.",
+    "unlinked_more": "+{n}개 더",
+    "qualguide_title": "도메인 모델 품질 이슈가 있어요",
+    "qualguide_desc": "아래 데이터 묶음(Aggregate)의 <strong>집합 루트(aggregate_root)</strong>가 0개이거나 2개 이상이에요. 설계를 재생성하거나 PRD를 보완하면 자동으로 수정됩니다.",
+    "loading_title": "도메인 모델을 불러오는 중...",
+    "empty_title": "도메인 모델이 아직 없습니다",
+    "empty_subtitle": "상단 우측 '최신 업데이트' 버튼을 누르면 PRD 기반으로 업무 영역 · 데이터 묶음 · 일어난 사건 이 만들어집니다.",
+    "invariants_label": "지켜야 할 규칙",
+    "service_jump": "서비스 '{name}' 로 이동",
+    "ctx_empty": "이 컨텍스트에 노드가 없습니다."
+  },
+  "spack": {
+    "title": "기능 구성요소",
+    "subtitle": "API · Entity · Policy 노드 현황",
+    "refresh_aria": "새로고침",
+    "refresh_title": "설계 데이터 새로고침",
+    "loading_title": "기능 명세를 불러오는 중...",
+    "empty_title": "기능 명세가 아직 없습니다",
+    "empty_subtitle": "상단 우측 '최신 업데이트' 버튼을 누르면 PRD 기반으로 API · Entity · Policy 가 만들어집니다.",
+    "api_empty": "API 없음",
+    "entity_empty": "Entity 없음",
+    "policy_empty": "Policy 없음",
+    "lineage_basis": "PRD 근거 {n}개",
+    "jump_service": "{name} ({'{id}'}) 로 이동",
+    "jump_aggregate": "도메인 Aggregate '{name}' 로 이동",
+    "jump_domain_entity": "도메인 Entity '{name}' 로 이동",
+    "jump_service_named": "서비스 '{name}' 로 이동",
+    "policy_no_content": "내용 없음 — PRD 의 NFR/제약 디테일 보강 후 '최신 업데이트' 클릭",
+    "policy_related": "관련 Entity:"
+  },
+  "eval": {
+    "loading": "충실도 계산 중…",
+    "empty_msg": "아직 데이터 없음",
+    "empty_title_attr": "미팅로그 업로드 후 분석 실행 시 점수 측정",
+    "card_main": "PRD 완성도",
+    "card_sub": "AI 가 코드를 잘 만들 수 있는 정도",
+    "prd_link": "기획서 완성도",
+    "trigger_title": "기획서 완성도 — 클릭하면 상세",
+    "cta_complete": "{pct}%",
+    "cta_detail": "자세히",
+    "coach": "눌러보세요 — 어디가 부족한지, 무엇을 채우면 좋은지 보여드려요",
+    "coach_close": "안내 닫기",
+    "modal_aria": "PRD 완성도 상세",
+    "modal_title": "📋 기획서 완성도",
+    "modal_subtitle": "AI 가 이 기획서로 코드를 얼마나 정확히 만들 수 있는지 보여줘요",
+    "close": "닫기",
+    "minis_label": "영역별 점수",
+    "minis_summary": "기본 · 내용 · 연결 · 오류",
+    "autofill_dupe": "이미 백그라운드에서 API 를 채우는 중이에요 — 완료되면 알려드릴게요. (상단 진행 표시 참고)",
+    "autofill_enqueue_fail": "API 보완 작업 등록 실패 — task_id 누락.",
+    "autofill_job_label": "API 에러·인증 AI 채우기",
+    "autofill_all_failed": "API 자동 보완을 완료하지 못했어요 — AI 사용량 한도이거나 일시 오류일 수 있어요. 잠시 후 다시 시도해 주세요.",
+    "autofill_none": "보완할 항목이 없어요 — 에러·인증과 PRD 연결이 이미 채워져 있습니다.",
+    "autofill_success_n": "API {n}건의 에러·인증 명세를 채웠어요 — 완성도에 바로 반영됐습니다.",
+    "autofill_success_generic": "API 에러·인증 AI 초안 생성 완료 — 검토 후 확정하세요.",
+    "autofill_partial_tail": " ({n}건은 한도/일시 오류로 못 채웠어요 — 잠시 후 다시 시도)",
+    "autofill_error": "API 자동 보완 실패: {reason}",
+    "autofill_start_fail": "API 자동 보완 시작 실패: {reason}",
+    "autofill_bg_running": "AI 가 백그라운드에서 API 를 채우는 중이에요 — 다른 작업을 계속하셔도 됩니다. 완료되면 알려드릴게요. (상단 진행 표시 참고)",
+    "reason_default": "잠시 후 다시 시도하세요.",
+    "autofill_btn_sending": "백그라운드로 보내는 중…",
+    "autofill_btn": "API 명세·PRD 연결 다시 채우기",
+    "autofill_hint": "<strong>'최신 업데이트'(설계 다시 생성) 시 빈 API 는 자동으로 채워집니다.</strong> 이 버튼은 일부가 누락됐을 때(예: 생성 중 AI 한도) <strong>수동 재시도</strong>용이에요. 미명시 API 에 에러 응답·인증 방식을 <strong>AI 초안</strong>으로 채우며, <strong>백그라운드로 실행</strong>됩니다 (상단에 진행 표시). 채워진 명세는 완성도에 <strong>바로 반영</strong>돼요.",
+    "top_actions_head": "🎯 지금 이것부터 채우면 완성도가 확 올라가요",
+    "top_action_count_title": "{total}개 중 {missing}개 보강 필요",
+    "target": "대상:",
+    "more_n": "+{n}개 더",
+    "jump_chip_title": "클릭하면 '{id}' 위치로 이동해요",
+    "jump_prd": "PRD에서 보강",
+    "jump_not_found": "해당 항목을 찾지 못했어요 — 새로고침 후 다시 시도해 주세요",
+    "delta_approx": "약 +{pct}%",
+    "delta_title": "이 항목을 모두 채우면 완성도가 약 이만큼 올라요 (근사치)",
+    "assist_head": "✅ 완성도 끌어올리기 — 이렇게 하면 돼요",
+    "assist_progress": "현재 완성도 <strong>{pct}%</strong>. 아래 버튼 하나면 API 명세 항목이 만점으로 반영돼요.",
+    "assist_step1": "AI로 빈 명세 채우기 — 에러 응답·인증 초안 + PRD 연결(스토리 추적)을 자동 보완, 완성도에 바로 반영",
+    "assist_rest": "그 외 항목은 아래 <strong>'지금 이것부터'</strong> 목록을 눌러 정확한 지점에서 보강하세요.",
+    "lineage_detail_head": "🔗 {tab} PRD 연결 상세",
+    "lineage_summary": "{total}개 중 <strong>{none}개 미연결</strong>",
+    "lineage_unlinked": "미연결:",
+    "lineage_allok": "✓ 전부 PRD 와 연결됨",
+    "lineage_hint": "▶ 미연결 노드는 PRD Story 본문에 해당 데이터·기능 단서를 추가하면 연결됩니다.",
+    "adv_toggle": "영역별 점수 · 검증 결과 자세히 보기",
+    "detail_tiers_head": "📊 영역별 상세",
+    "tier_weight": "가중치 {weight}",
+    "violations_head": "⚠️ 자주 발생한 검증 위반",
+    "count_suffix": "{count}건",
+    "tier_short": {
+      "t1": "기본",
+      "t2": "내용",
+      "t3": "연결",
+      "t4": "오류"
+    },
+    "tier_by_num": {
+      "1": "기본 항목",
+      "2": "세부 내용",
+      "3": "PRD 연결",
+      "4": "오류 없음"
+    },
+    "tier_meta": {
+      "t1": {
+        "label": "기본 항목",
+        "sub": "필요한 노드(API·Entity·서비스)가 만들어졌나"
+      },
+      "t2": {
+        "label": "세부 내용",
+        "sub": "각 항목 본문이 충실한가 (입력·출력·에러)"
+      },
+      "t3": {
+        "label": "PRD 연결",
+        "sub": "도출 결과가 PRD 의 어느 부분에서 왔는지 추적되나"
+      },
+      "t4": {
+        "label": "오류 없음",
+        "sub": "자동 검증에서 위반이 없나"
+      }
+    },
+    "status": {
+      "none": {
+        "text": "아직 분석 전",
+        "hint": "회의록을 올리고 시스템 그리기를 실행하면 완성도가 매겨져요."
+      },
+      "low": {
+        "text": "많이 부족해요",
+        "hint": "기획서에 입력·출력·에러 같은 구체적 내용이 거의 없어요. 아래 항목부터 채워보세요."
+      },
+      "mid": {
+        "text": "기초는 잡혔어요",
+        "hint": "큰 틀은 만들어졌어요. 아래 항목을 채우면 AI 정확도가 확 올라가요."
+      },
+      "high": {
+        "text": "거의 다 왔어요",
+        "hint": "조금만 더! 아래 몇 개만 보강하면 AI 가 정확히 코드를 만들 수 있어요."
+      },
+      "done": {
+        "text": "완벽해요!",
+        "hint": "AI 가 이 기획서만 보고도 코드를 정확히 만들 수 있어요."
+      }
+    },
+    "action_hint": {
+      "not_analyzed": "아직 분석 안 됨 — 회의록 올린 후 시스템 그리기 실행",
+      "low": "PRD 본문이 부족해요 — Story 의 입력·출력·에러 디테일 추가 필요",
+      "weak": "{label} 영역이 약해요: {hint}",
+      "fix_t1": "필수 항목 자체가 안 만들어짐 — PRD 의 Story 가 비어있는지 확인",
+      "fix_t2": "항목 본문이 부실 — PRD Story 에 입력/출력/에러 케이스 추가",
+      "fix_t3": "PRD 와 도출 결과의 연결 끊김 — Story id (예: Story 1.1) 일관성 점검",
+      "fix_t4": "자동 검증 위반 다수 — 아래 위반 항목 한글 설명 참고해 해당 부분 수정",
+      "ready": "충실한 명세 — 코드 생성 준비 완료"
+    },
+    "tooltip": {
+      "tiers_header": "─ 영역별 점수 ─",
+      "tier_line": "{label} (가중치 {weight}): {pct}%",
+      "meaning_header": "점수 의미:",
+      "m1": "· 80% 이상 → AI 가 PRD 만 보고 코드 거의 정확히 작성",
+      "m2": "· 50~80% → 일부 필드를 AI 가 추정 (틀릴 수 있음)",
+      "m3": "· 50% 미만 → PRD 디테일 부족 — 추가 보강 필요",
+      "click": "클릭하면 영역별 상세·시급한 보강 항목 표시."
+    },
+    "metric": {
+      "spack_apis_present": {
+        "label": "백엔드 API 도출",
+        "why": "PRD 의 Story 로부터 API 가 한 개 이상 만들어졌는지",
+        "fix": "0% 이면 PRD 의 Epic & Story 탭이 비어있는 케이스 — Story 먼저 추가"
+      },
+      "spack_entities_present": {
+        "label": "데이터 항목 도출",
+        "why": "저장할 데이터 종류(Entity)가 한 개 이상 인식됐는지",
+        "fix": "0% 이면 PRD 에 \"데이터/모델/저장\" 같은 단서 부족"
+      },
+      "spack_policies_present": {
+        "label": "비기능 규칙 도출",
+        "why": "응답 시간·권한 같은 정책이 한 개 이상 도출됐는지",
+        "fix": "PRD 의 NFR 탭에 측정 가능한 수치 추가 (예: \"응답 500ms 이하\")"
+      },
+      "ddd_contexts_present": {
+        "label": "도메인 경계 분리",
+        "why": "결제·사용자 같은 비즈니스 영역 분리가 됐는지",
+        "fix": "Story 가 다양한 도메인을 다루는지 확인"
+      },
+      "ddd_aggregates_present": {
+        "label": "핵심 모델 묶음",
+        "why": "Entity 들이 의미 단위(Aggregate)로 묶였는지"
+      },
+      "arch_services_present": {
+        "label": "서비스 분리",
+        "why": "시스템이 어떤 서비스로 쪼개지는지 결정됐는지"
+      },
+      "arch_databases_present": {
+        "label": "데이터베이스 결정",
+        "why": "어디에 데이터를 저장할지 결정됐는지"
+      },
+      "entity_attributes_present_ratio": {
+        "label": "데이터 필드 명시",
+        "why": "각 Entity 가 어떤 필드를 가지는지 (예: 사용자={'{이름, 이메일}'})",
+        "fix": "PRD Story 본문에 \"입력: name, email\" 같이 필드 적기"
+      },
+      "attribute_typed_ratio": {
+        "label": "필드 타입 명시",
+        "why": "각 필드의 타입 (문자열/숫자/날짜 등) 결정됐는지",
+        "fix": "PRD 에 \"name: 문자열 100자 이하\" 형식으로 작성"
+      },
+      "api_request_body_ratio": {
+        "label": "API 입력 명세",
+        "why": "POST/PUT API 가 어떤 데이터를 받는지",
+        "fix": "PRD Story 본문에 \"- 입력: {'{ ... }'}\" 추가"
+      },
+      "api_response_body_ratio": {
+        "label": "API 출력 명세",
+        "why": "API 가 무엇을 응답하는지",
+        "fix": "PRD Story 본문에 \"- 출력: {'{ ... }'}\" 추가"
+      },
+      "api_path_params_consistent_ratio": {
+        "label": "API 경로 변수 일관성",
+        "why": "API 경로의 {'{id}'} 같은 변수가 path_params 와 일치하는지"
+      },
+      "api_error_cases_ratio": {
+        "label": "API 에러 응답 명시",
+        "why": "권한·검증 실패 시 어떤 응답 (401/403/404 등) 줄지",
+        "fix": "PRD Story 본문에 \"권한 없으면 401\" 같이 명시"
+      },
+      "api_auth_specified_ratio": {
+        "label": "API 인증 방식 명시",
+        "why": "이 API 가 로그인 필요한지·어떤 권한 필요한지",
+        "fix": "PRD NFR 또는 Story 에 \"OAuth 로그인\", \"관리자만\" 같이 명시"
+      },
+      "api_validation_422_ratio": {
+        "label": "API 입력 검증 (422)",
+        "why": "잘못된 입력 (예: 이메일 형식 깨짐) 시 응답 명시",
+        "fix": "PRD Story 에 \"이메일 형식 아니면 422\" 명시"
+      },
+      "aggregate_invariants_ratio": {
+        "label": "모델 무결성 규칙",
+        "why": "도메인 모델의 변경 불가 조건 (예: \"주문은 결제 후 수량 변경 불가\")"
+      },
+      "domain_entity_attributes_ratio": {
+        "label": "도메인 모델 필드",
+        "why": "도메인 Entity 가 충분히 필드를 가지는지"
+      },
+      "domain_event_payload_ratio": {
+        "label": "이벤트 데이터 명시",
+        "why": "도메인 이벤트가 발생 시 어떤 데이터를 함께 전달하는지"
+      },
+      "service_deployment_ratio": {
+        "label": "서비스 배포 명세",
+        "why": "각 서비스가 어떻게 배포되는지 (예: Lambda/Container)"
+      },
+      "connection_auth_ratio": {
+        "label": "서비스 간 인증",
+        "why": "서비스끼리 통신 시 어떻게 인증하는지"
+      },
+      "screen_coverage_ratio": {
+        "label": "화면 정의",
+        "why": "필요한 화면이 PRD 에 명시됐는지",
+        "fix": "PRD Screens 탭에 \"#### 🖥️ [Screen: 이름]\" 섹션 추가"
+      },
+      "screen_api_coverage_ratio": {
+        "label": "화면 ↔ API 연결",
+        "why": "각 화면이 어떤 API 를 호출하는지 매핑됐는지"
+      },
+      "screen_story_mapped_ratio": {
+        "label": "화면 ↔ 기능(Story) 연결",
+        "why": "화면이 어느 기능을 위한 것인지 매핑됐는지",
+        "fix": "PRD Screens 탭 각 화면에 \"`[Story 1.1]`\" 참조 추가"
+      },
+      "api_story_mapped_ratio": {
+        "label": "API ↔ Story 추적",
+        "why": "각 API 가 어느 PRD Story 에서 왔는지 명시",
+        "fix": "PRD Story id (Story 1.1 형식) 일관성 점검"
+      },
+      "entity_lineage_direct_ratio": {
+        "label": "Entity ↔ Story 직접 추적",
+        "why": "Entity 가 어떤 Story 에서 도출됐는지 직접 인용",
+        "fix": "PRD Story 본문에 데이터 모델 단서 명확히"
+      },
+      "entity_story_mapped_ratio": {
+        "label": "Entity ↔ Story 매핑",
+        "why": "Entity 와 Story 의 연결 비율"
+      },
+      "aggregate_lineage_mapped_ratio": {
+        "label": "Aggregate ↔ Story 매핑",
+        "why": "도메인 모델이 PRD 에 근거를 두는지"
+      },
+      "error_score": {
+        "label": "심각한 위반",
+        "why": "코드 생성에 치명적인 오류 (낮을수록 위반 적음)"
+      },
+      "warning_score": {
+        "label": "경고 수준 위반",
+        "why": "권장 사항 미준수 (낮을수록 적음)"
+      },
+      "errors": {
+        "label": "오류 건수"
+      },
+      "warnings": {
+        "label": "경고 건수"
+      },
+      "infos": {
+        "label": "안내 건수"
+      }
+    },
+    "violation": {
+      "API_MISSING_STORY_REF": {
+        "label": "API 가 어느 기능(Story) 에서 왔는지 안 적힘",
+        "fix": "PRD 의 Story 와 API 도출 결과를 다시 매핑"
+      },
+      "API_ERROR_CASES_MISSING": {
+        "label": "API 가 어떤 에러를 낼지 안 정의됨",
+        "fix": "PRD Story 본문에 \"권한 없으면 401\" 등 추가"
+      },
+      "API_AUTH_ERROR_CASE_MISSING": {
+        "label": "API 인증 실패 시 응답이 빠짐",
+        "fix": "PRD Story 본문에 \"토큰 만료 시 401\" 등 추가"
+      },
+      "API_AUTH_SPECIFIED_MISSING": {
+        "label": "API 가 어떤 인증을 쓰는지 안 적힘",
+        "fix": "PRD NFR 탭에 \"OAuth/JWT\" 같은 인증 방식 명시"
+      },
+      "API_REQUEST_BODY_MISSING": {
+        "label": "API 가 받는 입력 데이터가 안 적힘",
+        "fix": "PRD Story 본문에 \"- 입력: {'{ ... }'}\" 추가"
+      },
+      "API_RESPONSE_BODY_MISSING": {
+        "label": "API 가 돌려주는 응답이 안 적힘",
+        "fix": "PRD Story 본문에 \"- 출력: {'{ ... }'}\" 추가"
+      },
+      "ARCH_API_UNMAPPED": {
+        "label": "시스템 아키텍처에 API 가 배치 안 됨",
+        "fix": "시스템 그리기 → 아키텍처 단계 재실행"
+      },
+      "LINEAGE_MISSING": {
+        "label": "도출 항목의 PRD 출처(추적성) 빠짐",
+        "fix": "PRD Story id 형식 일관성 (Story 1.1) 확인"
+      },
+      "ENTITY_ATTRIBUTES_MISSING": {
+        "label": "Entity 의 필드 정의 빠짐",
+        "fix": "PRD Story 본문에 \"- 입력: name, email\" 같이 필드 적기"
+      },
+      "ENTITY_NAME_NOT_PASCAL_CASE": {
+        "label": "Entity 이름이 PascalCase 형식 아님",
+        "fix": "\"user_account\" → \"UserAccount\" 형식. 재실행 시 자동 정규화"
+      },
+      "POLICY_CATEGORY_MISSING": {
+        "label": "Policy 의 종류(Security/Performance 등) 빠짐",
+        "fix": "PRD NFR 탭에 정책 종류 명확히"
+      },
+      "POLICY_STUB_DROPPED": {
+        "label": "의미 없는 빈 Policy 가 자동 제거됨",
+        "fix": "PRD NFR 디테일 보강 후 재실행"
+      },
+      "SCREEN_INVALID": {
+        "label": "화면 정의가 불완전 (이름/경로 빠짐)",
+        "fix": "PRD Screens 탭에 화면 이름·경로 명시"
+      }
+    },
+    "autofill_linked_only": "PRD 연결 {n}건을 채웠어요 — 완성도에 바로 반영됐습니다.",
+    "autofill_linked_tail": " · PRD 연결 {n}건도 채웠어요."
+  },
+  "lgraph": {
+    "err_no_project": "프로젝트가 선택되지 않았습니다.",
+    "err_focus_no_nodes": "{id} 와 연결된 design 노드가 없습니다. design 재실행 후 다시 확인해주세요.",
+    "err_no_design": "Design 이 아직 생성되지 않았습니다. SPACK/DDD/Architecture 생성 후 다시 시도해주세요.",
+    "err_no_lineage": "Design 은 있지만 PRD ↔ Design 연결(lineage) 데이터가 없습니다. 새 그래프 코드 배포 이전에 만들어진 design 입니다 — design 재실행을 권장합니다.",
+    "err_no_lineage_generic": "아직 lineage 데이터가 없습니다. Design 을 재실행해 lineage 를 생성하세요.",
+    "err_no_container": "그래프 컨테이너를 찾을 수 없습니다.",
+    "err_load_failed": "Lineage 그래프 로드 실패: {reason}",
+    "title_sub": "기획서(PRD)가 실제 설계(Entity · Service 등)로 어떻게 이어지는지 추적하는 지도",
+    "download_excel": "Excel 다운로드",
+    "download_excel_aria": "Lineage(PRD→설계 추적성)를 Excel로 다운로드 — 요소 · 추적관계 2시트",
+    "loading": "그래프 데이터 로드 중...",
+    "intro_title": "📍 이 그래프는 뭐예요?",
+    "intro_text": "회의록 → <strong>기획서(PRD)</strong> → 실제 <strong>설계(Entity · Service · DB 등)</strong> 로 이어지는 흐름을 시각화한 <strong>추적 지도</strong>입니다.<br><br>\"이 Service 가 왜 만들어졌지?\" 같은 질문에 대한 답을 PRD 까지 한번에 따라갈 수 있어요.",
+    "node_section": "노드 (Node) — 구성 요소",
+    "node_entity_desc": "사용자 · 주문 · 결제 같이 시스템이 다루는 <strong>데이터 객체</strong>.",
+    "node_aggregate_desc": "관련된 Entity 의 <strong>묶음</strong> — 함께 변하는 비즈니스 일관성 단위.",
+    "node_service_desc": "실행 단위 (마이크로서비스). 비즈니스 로직과 API 를 담당.",
+    "node_api_desc": "Story 를 <strong>구현하는 REST 엔드포인트</strong> — 화면·서비스가 호출.",
+    "node_db_desc": "서비스가 데이터를 저장하는 <strong>데이터베이스</strong> (예: RDBMS · 캐시).",
+    "node_story_desc": "\"~ 할 수 있다\" 형식의 <strong>사용자 요구사항 한 줄</strong>. PRD 최소 단위.",
+    "node_epic_desc": "관련된 Story 들의 <strong>묶음</strong> — 큰 기능 단위 (예: \"회원 관리\").",
+    "edge_section": "엣지 (Edge) — 연결선",
+    "badge_high": "신뢰도 높음",
+    "badge_review": "검토 권장",
+    "edge_direct_desc": "PRD 에 <strong>명시적으로 적혀 있는</strong> 연결 — 사람이 직접 작성.",
+    "edge_inferred_desc": "AI 가 <strong>문맥에서 추론</strong>한 연결 — 정확성 검토 권장.",
+    "edge_contains_desc": "Epic 이 어떤 Story 를 <strong>포함</strong>하는지 — PRD 내부 구조.",
+    "tip_title": "💡 사용 팁",
+    "tip1": "노드를 <strong>클릭</strong>하면 좌측 하단에 상세 정보가 표시돼요.",
+    "tip2": "노드를 <strong>드래그</strong>해 자유롭게 배치할 수 있어요.",
+    "tip3": "점선(<strong>inferred</strong>) 이 많다면 PRD 를 더 구체적으로 작성해보세요.",
+    "tip4": "고립된 노드는 어떤 요구사항과도 연결 안 된 설계 — 정말 필요한지 검토.",
+    "insp_node": "선택된 노드",
+    "insp_prd_basis": "PRD 근거:",
+    "insp_story_linked": "{n}개 Story 와 연결",
+    "insp_all_props": "전체 속성 ({n})",
+    "insp_lineage_edge": "선택된 lineage 엣지",
+    "insp_prd_quote": "PRD quote:",
+    "insp_edge": "선택된 엣지"
+  },
+  "lpanel": {
+    "node_fallback": "항목",
+    "prd_basis": "PRD 근거",
+    "no_story": "연결된 PRD Story 가 없습니다.",
+    "detail_pending": "PRD 근거 {n}개와 연결되어 있습니다. 상세 항목 (Story ID / 원문 인용) 은 곧 제공됩니다.",
+    "view_in_prd": "PRD 에서 보기",
+    "quote_empty": "PRD 원문 인용 없음 (AI 추론 연결)"
+  },
+  "empty_state": {
+    "default_subtitle": "상단 우측 '최신 업데이트' 버튼을 눌러 분석을 시작하세요."
+  },
+  "coverage_badge": {
+    "label": "{label} PRD 연결"
+  },
+  "guide_modal": {
+    "headline": "시스템 그리기",
+    "sub": "PRD 한 건이 SPACK · DDD · Architecture 3단계로 자동 분해되어 바이브 코딩 시작 패키지까지 이어집니다.",
+    "step1_title": "Design Phase 개요",
+    "step1_desc": "Plan 페이지에서 만든 PRD 한 건이 SPACK(명세) → DDD(도메인 모델) → Architecture(시스템 구성) 3단계로 자동 분해됩니다. 우측 상단 \"최신 업데이트\" 한 번이면 3개 산출물이 동시에 갱신됩니다.",
+    "step1_tip": "각 단계는 이전 단계 결과를 입력으로 받기 때문에 순차 실행됩니다 (≈ 4~6분). 처리 중 \"중지\" 가능 — 이전 데이터는 유지됩니다.",
+    "step2_title": "SPACK — 무엇을 만들 것인가",
+    "step2_desc": "PRD User Story 를 기능 명세로 정리합니다. 시스템이 제공할 API, 다룰 Entity(데이터), 지켜야 할 Policy(비기능 요구사항)를 도출합니다.",
+    "step2_tip": "각 항목은 PRD 의 Story 와 lineage 로 연결돼 추적 가능합니다 (좌측 점 색상으로 표시).",
+    "step3_title": "DDD — 도메인이 어떻게 동작하는가",
+    "step3_desc": "SPACK 의 Entity 를 도메인 모델로 묶습니다. Bounded Context 로 경계 짓고, Aggregate 로 일관성 단위를 정의하고, Domain Event 로 비즈니스 흐름을 표현합니다.",
+    "step3_tip": "복잡한 도메인일수록 DDD 가 빛납니다 — 마이크로서비스 분리 기준이 여기서 결정됩니다.",
+    "step4_title": "Architecture — 어떻게 배포할 것인가",
+    "step4_desc": "DDD Aggregate 를 기준으로 서비스를 분리하고, DB · 외부 통신을 설계합니다. 운영 가능한 시스템 청사진이 만들어집니다.",
+    "step4_tip": "완성되면 \"✨ 바이브 코딩 시작 패키지\" 다운로드 — AI 에이전트(Claude Code/Cursor)가 이 패키지 하나로 코딩을 시작할 수 있습니다.",
+    "svg_resp": "응답 200ms",
+    "svg_concurrent": "10K 동시",
+    "svg_privacy": "개인정보"
+  },
+    "spec_md": {
+      "title": {
+        "spack": "SPACK — 상세 스펙",
+        "ddd": "DDD — 도메인 모델",
+        "arch": "Architecture — 시스템 구조"
+      },
+      "sec": {
+        "entity": "데이터 (Entity)",
+        "policy": "정책 (Policy)",
+        "connection": "Connection (연결)"
+      },
+      "related": "관련",
+      "stack": "스택",
+      "gap": {
+        "request_spec": "요청스펙",
+        "response_spec": "응답스펙",
+        "owner_service": "담당서비스",
+        "attributes": "속성"
+      },
+      "dont_guess": "추측 말고 질문",
+      "gap_header": "⚠️ **미정 {n}건** — 아래 ⚠️ 표시 항목은 설계가 아직 비어 있습니다. **임의로 구현하지 말고**, 멈춰서 사용자에게 확인하세요.",
+      "snapshot_footer": "이 문서는 Harness 설계 그래프의 스냅샷입니다. 더 풍부한 설계 문서는 Harness 의 설계(Design) 단계에서 받을 수 있어요.",
+      "unnamed": "(이름 미정)",
+      "undecided_label": "미정",
+      "oq": {
+        "title": "미정 항목 (Open Questions)",
+        "lead": "설계가 아직 비어 있는 항목 **{n}건**입니다. 코드를 짓기 전에 아래 항목을 확정하세요. **임의로 구현하지 말고** 사용자에게 확인하는 것이 원칙입니다.",
+        "footer": "🤖 Harness — 설계 그래프의 빈 항목을 자동 집계한 목록입니다."
+      },
+      "vault_gap_header": "⚠️ **미정 {n}건** — ⚠️ 표시된 노트는 설계가 아직 비어 있습니다. 임의로 구현하지 말고 사용자에게 확인하세요."
+    },
+  "vibe": {
+    "start_line": "시작해줘",
+    "tools": {
+      "claude": {
+        "label": "Claude Code",
+        "open": "터미널에서 `cd \"{p}_vibe\"` 로 폴더에 들어간 뒤 `claude` 를 실행하세요. Claude Code 가 **CLAUDE.md 를 자동으로 읽습니다.**"
+      },
+      "cursor": {
+        "label": "Cursor",
+        "open": "Cursor 로 `{p}_vibe/` 폴더를 열고 `Cmd/Ctrl + L` 로 채팅을 여세요. Cursor 가 **AGENTS.md 를 자동으로 적용합니다.**"
+      },
+      "antigravity": {
+        "label": "Antigravity (Google)",
+        "open": "Antigravity 로 `{p}_vibe/` 폴더를 열고 에이전트 패널을 여세요. **AGENTS.md 를 자동으로 인식합니다.**"
+      },
+      "other": {
+        "label": "기타 / 잘 모르겠어요",
+        "open": "사용하는 AI 코딩 도구로 `{p}_vibe/` 폴더를 여세요. 대부분(Codex · Windsurf · Antigravity 등)은 **AGENTS.md 를 자동으로 읽습니다.** 아직 도구가 없다면 터미널의 **Claude Code** 또는 편집기형 **Cursor** 를 추천해요."
+      }
+    },
+    "bootstrap": {
+      "title": "AI 에이전트 지침 — {project}",
+      "intro": "당신은 이 폴더 안에서 작업하는 AI 코딩 에이전트입니다. 이것은 Harness 가 생성한 **바이브 코딩 명세 패키지**입니다 — 당신이 구현할 구조화된 설계입니다. 이 파일은 당신의 도구가 자동으로 읽습니다(Claude Code 는 `CLAUDE.md`, Cursor / Codex / Antigravity / Windsurf 는 `AGENTS.md`). 따라서 사용자가 긴 지시문을 붙여넣을 필요가 없습니다.",
+      "entry_orchestrator": "**`00-ORCHESTRATOR.md`** 를 읽고 그대로 실행하세요 — 그것이 권위 있는, 단계별(phase-by-phase) 마스터 워크플로우입니다.",
+      "entry_start_here": "**`0_START_HERE.md`** 의 **\"INSTRUCTIONS FOR AI AGENT\"** 섹션을 읽고 그 phase 들을 순서대로 실행하세요.",
+      "enhance_banner": "> ⚠️ **이 프로젝트는 기존(EXISTING) 코드베이스에서 가져온 것입니다 — 빈 폴더에서 시작하는 것이 아닙니다.**\n> **`IMPLEMENTATION_STATUS.md` 를 먼저(FIRST) 읽으세요**: 이미 구현된 것(✅)과 아직 안 된 것(⬜)이 적혀 있습니다.\n> ✅ 코드는 존중하고(다시 작성하지 마세요), 기존 코드 위에 ⬜ 항목만 구현하며,\n> 기존 구조 / 네이밍 / Tech Stack 을 따르세요. spec↔code 매핑은 자동 추정이므로 — ✅ 는 실제 코드와 대조해 검증하세요.\n> STATUS 는 마지막(LAST) 분석을 반영합니다; 현재 spec 과 교차 확인하세요 — STATUS 에 없는 spec 항목은 ⬜(미구현)로 취급해야 합니다.",
+      "h_master_plan": "▶ 마스터 플랜",
+      "master_plan_note": "**한 번에 한 phase 씩 진행하고, 각 phase 가 끝나면 사용자의 확인을 받기 위해 STOP 하세요.** 앞서 나가지 마세요.",
+      "h_spec_files": "📂 명세 파일",
+      "spec_status": "- `IMPLEMENTATION_STATUS.md` — 이미 구현된 것(✅)과 아직 안 된 것(⬜). **먼저 읽으세요(READ FIRST).**",
+      "spec_spack": "- `1_spack.md` — APIs / Entities / Policies (무엇을 만들지)",
+      "spec_ddd": "- `2_ddd.md` — 도메인 모델: Aggregates / Domain Events / Services (어떻게 동작하는지)",
+      "spec_architecture": "- `3_architecture.md` — services / databases / connections 와 **Tech Stack** (어떻게 배포할지; spec 이 충돌할 때 최종 권위)",
+      "spec_skills": "- `skills/` — 코딩 규칙. 코드를 작성하기 전(BEFORE) 관련 규칙을 읽고, 절대 위반하지 마세요.",
+      "spec_checklist": "- `IMPLEMENTATION-CHECKLIST.md` — 만들어야 할 모든 것의 기계 생성 전수 목록(거기서 빠진 것은 없음). 모든 항목이 체크될 때까지 당신의 작업은 끝나지 않습니다.",
+      "h_hard_rules": "✅ 필수 규칙",
+      "rule_enhance": "0. **기존 코드 위에 빌드하세요 — 프로젝트를 처음부터 다시 만들지 마세요.** `IMPLEMENTATION_STATUS.md` 의 ⬜(미구현) 항목만 구현하고, 사용자가 따로 요청하지 않는 한 ✅ 항목은 그대로 두세요.",
+      "rule_stack": "1. **Tech stack 은 `3_architecture.md` 에서 가져옵니다.** 거기에 명시된 Tech Stack 을 사용하세요. 명시되지 않은 경우에만 사용자에게 선택을 요청하고 — 절대 조용히 기본값을 쓰지 마세요.",
+      "rule_stop": "2. **각 phase 마다 멈추고(Stop after every phase)** 계속하기 전에 사용자의 OK 를 기다리세요.",
+      "rule_no_invent": "3. **요구사항을 절대 지어내지 마세요(Never invent requirements).** 불명확한 점이 있으면 사용자에게 물어보세요.",
+      "rule_skills": "4. 모든 코딩 행위에 대해 **`skills/` 규칙을 따르세요(Follow `skills/` rules).** 위반을 고칠 때는 어떤(WHICH) `skills/` 파일의 어떤(WHICH) 규칙을 위반했는지 명시하세요(cite).",
+      "rule_checklist": "{num}. **완료 = `IMPLEMENTATION-CHECKLIST.md` 의 모든 항목이 실제 파일 경로와 함께 `[x]` 로 체크됨.** 완료를 보고하기 전에 체크리스트를 항목별로 코드와 대조 감사하고; 빠진 것을 구현한 뒤 **모두 통과할 때까지 반복(loop)** 하세요.",
+      "h_human_guide": "🙋 사람용 시작 가이드",
+      "human_guide": "사용자용 \"어떻게 시작하나요\" 가이드는 `0_START_HERE.md` 에 있습니다."
+    },
+    "guide": {
+      "title": "🎯 {project} — 바이브 코딩 시작 가이드",
+      "lead": "이 파일은 **사용자(당신)** 와 **AI 코딩 에이전트** 모두를 위한 안내문입니다.",
+      "h_what_is_this": "🙋 이게 뭐예요?",
+      "what_is_this_1": "**바이브 코딩(Vibe Coding)** 이란 개발 명세를 AI 에이전트에게 통째로 넘기고,\n에이전트가 코드를 자동으로 구현하는 방식입니다.",
+      "what_is_this_2": "당신은 방금 `{project}_vibe.zip` 하나를 받았습니다. 압축을 풀면 `{project}_vibe/` 폴더 안에\n**\"우리 프로젝트가 어떤 시스템인지\"** 를 체계적으로 정리한 명세서 묶음이 들어 있어요.",
+      "what_is_this_3": "이 명세서들을 **AI 코딩 에이전트** (예: Claude Code, Cursor, Codex, Windsurf 등)\n에게 통째로 던지면, 에이전트가 **알아서 코드를 작성**해 줍니다.",
+      "h_what_to_do": "✅ 지금 무엇을 해야 하나요? (3단계면 끝!)",
+      "step1_title": "1단계 — 압축 풀기",
+      "step1_body": "받은 `{project}_vibe.zip` 의 압축을 풀면 `{project}_vibe/` 폴더가 생깁니다.",
+      "skill_step1_note": " (코딩 규칙은 `skills/` 폴더에 이미 들어 있습니다 — AI 에이전트가 자동으로 참조합니다.)",
+      "step2_title": "2단계 — {tool} 로 폴더 열기",
+      "step2_note": "아직 도구가 없다면: **Claude Code**(`https://claude.com/code`, 터미널) 또는 **Cursor**(`https://cursor.com`, 편집기)를 설치하세요.",
+      "step3_title": "3단계 — \"{start}\" 한 마디",
+      "step3_body": "폴더를 열면 에이전트가 `{autoFile}` 를 **자동으로 읽어** 무엇을 할지 이미 압니다. 채팅에 이렇게만 입력하세요:",
+      "step3_fallback_lead": "혹시 자동으로 안 읽는 도구라면 아래 한 줄을 붙여넣으세요:",
+      "step3_fallback_prompt": "이 폴더의 {autoFile} 와 0_START_HERE.md 를 읽고 {phase} 부터 진행해줘. 각 단계 끝나면 확인받아줘.",
+      "phase_hint_with_skills": "Phase 0(규칙 내재화)",
+      "phase_hint_no_skills": "Phase 1(명세 이해)",
+      "skill_prompt_line": "`skills/` 폴더의 모든 .md 파일을 코딩 규칙 참조집으로 활용해줘 — 코드를 작성하기 전 관련 규칙을 먼저 확인하고 적용해줘.",
+      "step3_after": "이후 에이전트가 **Phase 별로 코드를 만들고 보고**합니다. 각 단계에서 결과를 확인하고, 마음에 안 들면 자연어로 수정 요청하세요.\n완전히 자동으로 한 번에 만들어주는 게 아니라 **단계별 협업**입니다.",
+      "h_agent_instructions": "⚙️ AI 에이전트 작업 지시",
+      "agent_intro": "당신은 AI 코딩 에이전트입니다. 아래의 모든 내용이 당신의 지시문입니다. 어떤 행동을 하기 전에 전부 읽으세요.",
+      "agent_authority": "**⚠️ Authority check — 이것을 먼저(FIRST) 하세요:** 이 폴더에 `00-ORCHESTRATOR.md` 가 있으면 **그것을 권위 있는 마스터 플랜으로 따르고** 아래 phase 들은 배경으로만 취급하세요. `00-ORCHESTRATOR.md` 가 없을 때 아래 phase 들이 완전한 지시문입니다.",
+      "agent_env_check": "**Environment check — 이것을 먼저 하세요:**",
+      "agent_env_fs": "파일 시스템 접근이 있으면(Claude Code, Cursor agent 등): 지시대로 파일을 직접 읽으세요.",
+      "agent_env_chat": "파일 접근이 전혀 없는 채팅 전용(chat-only) 모델이라면: ↺ 로 표시된 각 Phase 전에, 관련 spec 파일 내용을 채팅에 붙여넣어 달라고 사용자에게 요청하세요. 접근할 수 없는 파일을 읽은 척하지 마세요.",
+      "phase0_heading": "### PHASE 0 — 규칙 내재화 (필수 선행 단계)",
+      "phase0_list_index": "- `skills/` 안의 모든(EVERY) `.md` 파일을 나열하고 각 파일의 **frontmatter 만(frontmatter only)** 읽으세요(name + description/적용 조건) — 간결한 규칙 인덱스를 만드세요",
+      "phase0_list_reread": "- 지금 모든 규칙 본문을 읽지 마세요(Do NOT read every rule body now): 수십 개의 규칙 본문은 컨텍스트를 넘치게 해 Phase 4 무렵엔 잊힙니다. 대신, 이후 phase 에서 **각 코딩 태스크 바로 직전에(RIGHT BEFORE each coding task)** 관련 규칙 파일을 전부 다시 읽으세요 — 규칙을 매번 다시 확인하는 상시 도구처럼 다루세요",
+      "phase0_list_no_access": "- 파일 접근이 전혀 없으면: 계속하기 전에 사용자에게 skills 파일 목록을 붙여넣어 달라고 요청하세요",
+      "phase0_output_lead": "OUTPUT (REQUIRED — 요약하거나 건너뛰지 마세요):",
+      "phase0_output_1": "규칙 인덱스: 모든(EVERY) 정확한 파일 경로(예: `skills/backEnd/auth.md`) + 언제 적용되는지 한 줄",
+      "phase0_output_2": "이 프로젝트에서 가장 많이 적용될 것으로 예상되는 규칙 3~5개와 그 이유",
+      "phase0_warn": "⚠️ 실제 파일 경로를 나열할 수 없다면, 폴더를 스캔하지 않은 것입니다. 먼저 스캔하세요.",
+      "phase0_stop": "**STOP 하고 사용자 확인을 기다리세요**",
+      "phase1_heading": "### PHASE 1 — 명세 이해",
+      "phase1_lead": "세 개의 spec 파일을 정확히 이 순서로(IN THIS EXACT ORDER) 읽으세요:",
+      "phase1_file_spack": "`1_spack.md` — 무엇을 만들지 (APIs, Entities, Policies)",
+      "phase1_file_ddd": "`2_ddd.md` — 도메인이 어떻게 동작하는지 (Aggregates, Domain Events, Services)",
+      "phase1_file_architecture": "`3_architecture.md` — 어떻게 배포할지 (spec 이 충돌할 때 **최종 권위(FINAL AUTHORITY)**)",
+      "phase1_no_access": "파일 접근이 전혀 없으면: 지금 각 파일 내용을 붙여넣어 달라고 사용자에게 요청하세요.",
+      "phase1_output_lead": "OUTPUT (다음을 모두(ALL) 보고해야 합니다 — 어떤 항목도 건너뛰지 마세요):",
+      "phase1_output_1": "시스템 개요 (2~3 문장)",
+      "phase1_output_2": "서비스 목록과 서비스별 한 줄 역할 설명",
+      "phase1_output_3": "핵심 도메인과 그 책임",
+      "phase1_output_4": "**Tech stack** — 먼저 `3_architecture.md` 의 각 Service/Database 의 **Tech Stack** 필드를 읽으세요. 거기에 스택이 명시돼 있으면 무엇을 쓸지 정확히 진술하고 진행하세요 — 다시 묻지(do NOT re-ask) 마세요. 아키텍처가 명시하지 않은 경우에만(ONLY if) 트레이드오프와 함께 구체적인 2~3개 옵션(백엔드 언어/프레임워크 · 해당 시 프론트엔드 · 데이터베이스)을 제안하고 사용자에게 고르게 하세요. 절대 조용히 기본값을 쓰지 말고, 스택이 정해지기 전에 코딩을 시작하지 마세요.",
+      "phase1_stop": "**STOP 하고 사용자 확인을 기다리세요.** (`3_architecture.md` 에 Tech stack 이 명시되지 않은 경우에 한해서만, 사용자의 명시적 스택 선택도 기다리세요.)",
+      "phase2_heading": "### PHASE 2 — 프로젝트 골격",
+      "phase2_reread": "↺ 지금 `3_architecture.md` 를 다시 읽으세요 (파일 접근이 없으면 사용자에게 붙여넣어 달라고 요청)",
+      "phase2_do": "`3_architecture.md` 를 기반으로 디렉터리 구조와 모듈 스캐폴딩을 생성하세요",
+      "phase2_output": "OUTPUT → 폴더 트리 + 진입점 파일 목록 → **STOP 하고 사용자 확인을 기다리세요**",
+      "phase3_heading": "### PHASE 3 — 도메인 구현",
+      "phase3_reread": "↺ 지금 `2_ddd.md` 를 다시 읽으세요 (파일 접근이 없으면 사용자에게 붙여넣어 달라고 요청)",
+      "phase3_do": "`2_ddd.md` 를 기반으로 Entity, Aggregate, Domain Service 를 구현하세요",
+      "phase3_skill": "각 클래스를 작성하기 전에 `skills/` 규칙을 확인하세요",
+      "phase3_output": "OUTPUT → 도메인 클래스 목록 + 적용한 핵심 비즈니스 규칙 → **STOP 하고 사용자 확인을 기다리세요**",
+      "phase4_heading": "### PHASE 4 — API 구현",
+      "phase4_reread": "↺ 지금 `1_spack.md` 를 다시 읽으세요 (파일 접근이 없으면 사용자에게 붙여넣어 달라고 요청)",
+      "phase4_do": "`1_spack.md` 를 기반으로 API 엔드포인트를 구현하세요",
+      "phase4_skill": "각 엔드포인트를 작성하기 전에 `skills/` 규칙을 확인하세요",
+      "phase4_output": "OUTPUT → API 라우트 목록 → **STOP 하고 사용자 확인을 기다리세요**",
+      "phase5_heading": "### PHASE 5 — 통합 및 검증",
+      "phase5_reread": "↺ 지금 `3_architecture.md` 의 connection map 섹션을 다시 읽으세요 (파일 접근이 없으면 사용자에게 붙여넣어 달라고 요청)",
+      "phase5_do": "connection map 을 따라 서비스를 연결하고, 기본 build/run 을 검증하세요",
+      "phase5_output": "OUTPUT → 빌드 상태 + 미구현 항목 목록 → **STOP 하고 사용자 확인을 기다리세요**",
+      "phase6_heading": "### PHASE 6 — 전수 대조 감사 루프 (완료 보증 — 마지막 관문)",
+      "phase6_checklist_open": "`IMPLEMENTATION-CHECKLIST.md` 를 여세요 — 그것은 **설계 그래프에서 기계 생성(machine-generated)** 되었으므로 빠진 것이 없습니다",
+      "phase6_checklist_verify": "모든(EVERY) 항목에 대해: 코드에 실제로 존재하는지 검증하세요. 존재하면 `- [x]` 로 표시하고 `←구현위치:` 뒤에 실제 파일 경로를 쓰세요",
+      "phase6_inventory_build": "먼저 직접 인벤토리를 만드세요(Build your own inventory first): `1_spack.md` 의 모든(EVERY) API / Entity / Policy / Screen 을 체크 안 된 체크리스트로 나열하세요",
+      "phase6_inventory_verify": "모든(EVERY) 항목에 대해: 코드에 실제로 존재하는지 검증하세요. 존재하면 `- [x]` 로 표시하고 실제 파일 경로를 적으세요",
+      "phase6_opened": "당신이 적는 모든 경로는 확인을 위해 실제로 **열어본(OPENED)** 파일이어야 합니다 — 열 수 없는 경로는 거짓 체크입니다(a path you cannot open is a false check)",
+      "phase6_not_impl": "실제 파일을 가리킬 수 없는 항목 = **구현 안 됨(NOT implemented)** → 그것을 구현한 뒤, 이 감사를 처음부터 다시 실행하세요",
+      "phase6_repeat": "**항목의 100% 가 체크될 때까지 이 루프를 반복하세요(Repeat this loop until 100% of items are checked).** 그 전에 프로젝트가 완료되었다고 선언하지 마세요.",
+      "phase6_output": "OUTPUT → 완전히 체크된 목록 + 커버리지 카운트(예: `27/27 ✅`) → **STOP 하고 사용자 확인을 기다리세요**",
+      "h_mandatory_rules": "### 필수 준수 규칙",
+      "mr_stop": "**각 Phase 마다 멈추세요(STOP after every Phase).** 위에 나열된 출력을 보고하세요. 사용자의 명시적 OK 없이 다음 Phase 를 시작하지 마세요.",
+      "mr_stack": "**Tech stack 은 `3_architecture.md` 에서 먼저 가져옵니다.** 거기에 명시된 스택을 사용하세요. 명시되지 않은 경우에만 Phase 1 에서 옵션을 제안하고 사용자의 명시적 선택을 기다리세요 — 절대 조용히 기본값을 쓰지 마세요.",
+      "mr_no_assume": "**요구사항을 절대 추정하지 마세요(NEVER assume requirements).** 불명확한 것은 무엇이든 → 물어보세요. 추측하고 진행하지 마세요.",
+      "mr_skills_lead": "**모든 코딩 행위 전에 skills 규칙을 확인하세요.**",
+      "mr_skills_yes": "코드를 작성하기 전에 관련 `skills/` 규칙이 적용되는지 다시 확인하세요. skills 규칙 위반은 허용되지 않습니다.",
+      "mr_skills_no": "(이 패키지에는 skills 규칙이 없습니다.)",
+      "mr_authority": "**`3_architecture.md` 가 최종 권위입니다.** 명세가 충돌할 때는 아키텍처가 이깁니다.",
+      "mr_reread": "**각 Phase 시작 시 관련 spec 파일을 다시 읽으세요** (↺). 긴 대화는 컨텍스트 드리프트를 일으킵니다 — 항상 원본에서 새로 고치세요. 파일 접근이 없으면 사용자에게 붙여넣어 달라고 요청하세요.",
+      "mr_completion_lead": "**완료 = Phase 6 감사 100%.**",
+      "mr_completion_checklist": "모든 `IMPLEMENTATION-CHECKLIST.md` 항목이 실제 파일 경로와 함께 `[x]` 로 체크됨.",
+      "mr_completion_inventory": "인벤토리에 잡힌 모든 spec 항목이 실제 코드와 대조 검증됨.",
+      "mr_completion_tail": "\"아마 동작할 것\"은 완료가 아닙니다 — 감사가 통과할 때까지 반복하세요.",
+      "mr_resume_lead": "**중단 후 재개하나요(Resuming after an interruption)?**",
+      "mr_resume_checklist": "`IMPLEMENTATION-CHECKLIST.md`",
+      "mr_resume_inventory": "당신의 Phase 6 인벤토리",
+      "mr_resume_tail": "와(과) 모든 `_workspace/` 노트를 먼저(FIRST) 읽어 이미 완료된 것을 확인한 뒤, 첫 번째 체크 안 된 항목부터 계속하세요 — 처음부터 다시 시작하지 마세요(do not start over).",
+      "h_files": "📂 받은 파일들 — 각각 뭐예요?",
+      "file_agents_title": "🤖 `AGENTS.md` · `CLAUDE.md` (자동 인식 파일 — 건드릴 필요 없음)",
+      "file_agents_desc": "AI 도구가 폴더를 열 때 **자동으로 읽는** 지시문입니다. 덕분에 긴 프롬프트를 붙여넣지 않아도 에이전트가 무엇을 할지 압니다. (Claude Code → `CLAUDE.md`, Cursor·Codex·Antigravity·Windsurf → `AGENTS.md`)",
+      "file_start_here_title": "📖 `0_START_HERE.md` (지금 보고 있는 이 파일)",
+      "file_start_here_desc": "**사람용 시작 가이드 + AI 에이전트 작업 지시**. 위 3단계 사용법과 Phase 순서·작업 규칙이 담겨 있습니다.",
+      "skill_section": "### 📦 `skills/` — 코딩 규칙 모음\n프로젝트에서 지켜야 할 **코딩 컨벤션** 입니다. 카테고리별 하위 폴더에 `.md` 규칙이 있으며, AI 에이전트는 코드를 작성할 때 이 규칙을 반드시 따릅니다.",
+      "file_spack_title": "📋 `1_spack.md` — SPACK (무엇을 만들 것인가)",
+      "file_spack_desc": "시스템이 제공할 **API, Entity(데이터 구조), Policy(비즈니스 규칙)** 명세입니다.\nPhase 4 API 구현의 기준이 됩니다.",
+      "file_ddd_title": "🧩 `2_ddd.md` — DDD (어떻게 동작하는가 — 도메인)",
+      "file_ddd_desc": "비즈니스 도메인의 **Aggregate(관련 Entity 묶음), Domain Event(상태 변화 이벤트), Service** 모델입니다.\nPhase 3 도메인 구현의 기준이 됩니다.",
+      "file_arch_title": "🏗️ `3_architecture.md` — Architecture (어떻게 배포할 것인가)",
+      "file_arch_desc": "코드를 어떤 **서비스 / 저장소** 로 쪼개서 배포할지의 청사진.\nPhase 2 골격 생성의 기준이 됩니다.",
+      "file_checklist_title": "✅ `IMPLEMENTATION-CHECKLIST.md` — 전수 대조 체크리스트",
+      "file_checklist_desc": "설계 그래프에서 **기계적으로 생성**된 구현 목록 (요약 과정의 누락 없음).\n마지막 Phase 6 에서 AI 에이전트가 이 목록의 **모든 항목을 코드와 대조**해 전부 ✅ 가 돼야 작업이 끝납니다.",
+      "final_start_phase0": "지금부터 **Phase 0 — 규칙 내재화** 부터 시작하세요.",
+      "final_start_phase1": "지금부터 **Phase 1 — 명세 이해** 를 시작하세요."
+    },
+    "skill_md": {
+      "instructions": "지시사항 (Instructions)",
+      "scope": "범위(Scope):",
+      "priority": "우선순위:",
+      "applies_when": "적용 조건:",
+      "tags": "태그"
+    }
+  }
+}

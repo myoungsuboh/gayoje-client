@@ -1,0 +1,191 @@
+{
+  "title": "コードを接続",
+  "subtitle": "GitHubリポジトリのURLを貼り付けると、コードを読み込んで確認できます。",
+  "explorer": {
+    "title": "Explorer",
+    "loading": "Loading repository...",
+    "empty": "GitHub URLを入力して<br />Loadを押してください",
+    "aria_folder": "フォルダ",
+    "aria_file": "ファイル",
+    "aria_node": "{kind}: {name}"
+  },
+  "url_input": {
+    "load": "Load",
+    "loading": "Loading...",
+    "retry": "再試行",
+    "retry_hint": "または下のライブラリから選択 ↓",
+    "my_repos_btn": "マイリポ",
+    "my_repos_search": "リポジトリを検索...",
+    "my_repos_empty": "リポジトリが見つかりません",
+    "my_repos_loading": "リポジトリを読み込み中...",
+    "my_repos_private": "プライベート",
+    "my_repos_connect_hint": "プロフィールで GitHub を連携すると、リポジトリを直接選択できます",
+    "invalid_url": "有効な GitHub URL を入力してください。(例: https://github.com/owner/repo)",
+    "truncated": "⚠️ ファイル数が多すぎるため、一部のみ表示しています。"
+  },
+  "mobile_toggle": {
+    "label": "Files",
+    "aria_open": "ファイルエクスプローラーを開く",
+    "aria_close": "ファイルエクスプローラーを閉じる"
+  },
+  "tabs": {
+    "aria_close": "{name} タブを閉じる"
+  },
+  "body": {
+    "empty": "ファイルを選択すると内容が表示されます"
+  },
+  "status": {
+    "lang_none": "—"
+  },
+  "next_step": {
+    "aria_label": "次のステップ案内",
+    "badge": "今度は何をすればいいですか？",
+    "intro": "設計まで完了しました。この仕様から<strong>実際のコードを作る3つの道</strong>です — コードの作成自体はHarnessではなく、以下の方法で進みます。",
+    "expand": "展開",
+    "collapse": "折りたたむ",
+    "self": {
+      "title": "自分で作ります",
+      "desc": "Cursor・Claude Code のようなAIコーディングツールを使えます",
+      "step1": "下から<strong>プロジェクトバンドル</strong>（CLAUDE.md・.cursorrules・仕様）をダウンロードします。",
+      "step2": "Cursor / Claude Code の新規プロジェクトに展開し、<em>開始プロンプト</em>を貼り付けます。",
+      "step3": "出来上がったGitHubリポジトリを<strong>下の入力欄</strong>に貼り付けて確認します。"
+    },
+    "outsource": {
+      "title": "開発者に任せます",
+      "desc": "外注先・チームの開発者がコードを作ります",
+      "step1": "<strong>PMパッケージ</strong>（PRD + 要約）をダウンロードします。",
+      "step2": "開発者・外注先にそのまま渡せば、作業指示書になります。",
+      "step3": "完成したリポジトリを受け取り、<strong>下の入力欄</strong>で確認・検収します。",
+      "soon": "非開発者向けの<strong>発注書テンプレート</strong>（予算・スケジュール・機能範囲）は準備中です。",
+      "cta": "PMパッケージを受け取りに行く"
+    },
+    "have": {
+      "title": "すでにコードがあります",
+      "desc": "確認・検収するだけです",
+      "body": "すぐ下の入力欄に<strong>GitHubリポジトリのURL</strong>を貼り付けると、コードを確認し、Lintステップで仕様への準拠状況を点検できます。"
+    }
+  },
+  "agent_export": {
+    "title": "AIコーディングツールへ引き渡す",
+    "desc": "設計仕様を、Cursor・Claude Code がそのまま読めるファイルに変換します。",
+    "download_btn": "プロジェクトバンドルを受け取る (.zip)",
+    "copy_prompt_btn": "開始プロンプトをコピー",
+    "includes": {
+      "rules": "<code>CLAUDE.md</code> · <code>AGENTS.md</code> · <code>.cursorrules</code> · <code>llms.txt</code> — AIが自動で読み込むルール",
+      "plan": "<code>BUILD_PLAN.md</code> — AIがまとめた「どう作るか」（スタック・順序・完了基準）",
+      "spec": "<code>spec/</code> — PRD · Architecture · DDD · SPACK の原本",
+      "prompt": "<code>START_PROMPT.txt</code> — 貼り付ければすぐに始められる最初の指示文"
+    },
+    "no_project_warn": "先にプロジェクトを選択すると、仕様がバンドルに含まれます。",
+    "default_project_name": "マイプロジェクト",
+    "toast": {
+      "copy_ok": "✓ 開始プロンプトをコピーしました — Cursor・Claude に貼り付けてください",
+      "copy_fail": "コピーがブロックされました — バンドル内の START_PROMPT.txt をご利用ください",
+      "no_project": "先にプロジェクトを選択してください",
+      "bundling": "仕様を集めてバンドルを作成中...",
+      "plan_generating": "AIビルドプランを生成中...",
+      "download_ok_plan": "✓ {filename} をダウンロードしました — AIビルドプランを含みます",
+      "download_ok": "✓ {filename} をダウンロードしました",
+      "download_ok_no_spec": "✓ {filename}（仕様なし — ルールテンプレートのみ）",
+      "bundle_fail": "バンドルの生成に失敗しました: {error}"
+    }
+  },
+  "bundle": {
+    "spec_readme_empty": "まだ仕様がありません。Harness の Plan・Design ステップを先に完了すると、このフォルダに PRD・Architecture・DDD・SPACK が追加されます。",
+    "work_rules": {
+      "r1_source_of_truth": "`spec/` のドキュメントを**単一の真実（source of truth）**としてください。仕様にない機能を勝手に追加しないでください。",
+      "r2_incremental": "一度に1つの機能ずつ、実際に動作する単位で段階的に実装してください。",
+      "r3_summarize_before": "大きな変更の前に、何をどう変えるかをまず要約して示してください。",
+      "r4_new_lib_consent": "新しいライブラリ・フレームワークを導入するときは、まず理由とともに提案して同意を得てください。(仕様で定められたスタックを優先)",
+      "r5_import_registry": "import・依存関係は、**実際に存在するパッケージか公式レジストリ（pypi・npm など）で確認**してください。関数・オプションを推測で作り出さないでください。",
+      "r6_undecided_stop": "spec ドキュメントに **⚠️ 미정** と記された項目（リクエスト・レスポンス仕様、データ属性、担当サービスなど）は、設計が空であることを意味します。**勝手に埋めず、止まってユーザーに質問**してください — 推測による実装が最もよくある事故の原因です。",
+      "r7_run_verify": "各機能は実際に実行して正常動作を確認してから完了とみなしてください。「動きそう」ではなく実行結果で判断します。",
+      "r8_ask_when_ambiguous": "曖昧な部分は推測せず、仕様のどこが不明確なのかを質問してください。",
+      "r9_assumptions_risks": "大きな作業を始める前に、この計画の**前提・リスク・不確実な点をそれぞれ2〜3個**まず書き出してください。",
+      "r10_small_commits": "コミットは小さく、一度に1つのことだけにしてください。"
+    },
+    "role_line": {
+      "with_stack": "あなたは **{stack}** に精通したシニア開発者です。以下の設計仕様に忠実に従ってください。",
+      "no_stack": "あなたは慎重なシニア開発者です。以下の設計仕様に忠実に従ってください。"
+    },
+    "context": {
+      "reader_agents": "Cursor · Codex · Windsurf などの AI コーディングツール",
+      "reader_claude": "Claude Code",
+      "coder_agents": "あなたの AI コーディングツール",
+      "coder_claude": "Claude Code",
+      "overview_more": " …(詳細は spec/prd.md)",
+      "overview_empty": "_以下の spec/ ドキュメントを参照してください。_",
+      "doc_status": "- `IMPLEMENTATION_STATUS.md` — すでに実装済み（✅）・未実装（⬜） ★ 最初に読む",
+      "doc_build_plan": "- `BUILD_PLAN.md` — どう作るか（推奨スタック・実装順序・完了基準） ★ 先に読む",
+      "doc_prd": "- `spec/prd.md` — 企画書（PRD）（何を・なぜ）",
+      "doc_architecture": "- `spec/architecture.md` — システム構造（どう分けるか）",
+      "doc_ddd": "- `spec/ddd.md` — ドメインモデル（中核概念・データ）",
+      "doc_spack": "- `spec/spack.md` — 詳細仕様",
+      "doc_empty": "- (まだ仕様なし — Harness の Plan・Design を先に完了してください)",
+      "enhance_note": "> ⚠️ **このプロジェクトは既存のコードベースを取り込んだものです（空のフォルダではありません）。**\n> 最初から作り直さず、`IMPLEMENTATION_STATUS.md` の ✅（実装済み）は尊重し、⬜（未実装）だけを\n> 既存コードの上に追加・補完してください。✅ も実際のコードで一度検証してください（マッピングは自動推定）。",
+      "autoload_note": "このファイルは {reader} がプロジェクトを開くときに自動で読み込むコンテキストです。",
+      "gen_note": "Harness 設計仕様ベース · 生成: {stamp}",
+      "h_role": "役割",
+      "h_what": "何を作るか",
+      "h_specs": "設計ドキュメント（単一の真実）",
+      "specs_lead": "コードを書く前に、`spec/` フォルダのドキュメントを先に読んでください。",
+      "h_rules": "作業ルール",
+      "footer": "🤖 Generated by Harness — 企画は Harness、コーディングは {coder}。"
+    },
+    "cursor": {
+      "header": "# {name} — Cursor Rules (Harness 生成)",
+      "spec_hint": "# 詳細仕様は ./spec/ フォルダを参照。",
+      "spec_first": "このプロジェクトの仕様は ./spec/ フォルダにある。コードを書く前に必ず先に読むこと。"
+    },
+    "plan": {
+      "empty_item": "(なし)",
+      "title": "{name} — ビルドプラン (Harness AI)",
+      "lead1": "AI が仕様を読んでまとめた「どう作るか」ガイドです。",
+      "lead2": "エージェントがこの順序・完了基準どおりに作業するよう、START_PROMPT.txt と一緒に使ってください。",
+      "h_stack": "推奨スタック",
+      "stack_infer": "_(仕様から推論が必要)_",
+      "h_scope_now": "第1次スコープ（今作るもの）",
+      "h_scope_later": "後回し（今回は外す）",
+      "h_milestones": "実装順序（マイルストーン）",
+      "h_acceptance": "完了基準 (Acceptance Criteria)",
+      "h_risks": "厄介な部分（注意）",
+      "footer": "🤖 Generated by Harness — 企画は Harness、コーディングはあなたの AI コーディングツール。"
+    },
+    "llms": {
+      "overview_empty": "Harness で生成した企画・設計バンドルです。",
+      "link_build_plan": "- [BUILD_PLAN.md](BUILD_PLAN.md): どう作るか — 推奨スタック・実装順序・完了基準",
+      "link_claude": "- [CLAUDE.md](CLAUDE.md): 役割・作業ルール (Claude Code 自動ロード)",
+      "link_agents": "- [AGENTS.md](AGENTS.md): 役割・作業ルール (Cursor·Codex·Windsurf 自動ロード)",
+      "link_prd": "- [PRD](spec/prd.md): 企画書（PRD）（何を・なぜ）",
+      "link_architecture": "- [Architecture](spec/architecture.md): システム構造",
+      "link_ddd": "- [DDD](spec/ddd.md): ドメインモデル（中核概念・データ）",
+      "link_spack": "- [SPACK](spec/spack.md): 詳細仕様（API・データ・ポリシー）",
+      "h_specs": "設計ドキュメント",
+      "h_rules": "作業ルール",
+      "rule_source_of_truth": "spec/ ドキュメントを単一の真実とし、仕様にない機能を勝手に追加しないでください。",
+      "rule_import_registry": "import・ライブラリは実際に存在するか公式レジストリで確認してください。",
+      "rule_undecided": "spec ドキュメントの **⚠️ 미정** 表示の項目は、勝手に埋めず、止まってユーザーに質問してください。"
+    },
+    "start": {
+      "greenfield": "私は「{name}」プロジェクトを作ろうとしています。設計仕様はこのプロジェクトの spec/ フォルダと CLAUDE.md に入っています（Harness バンドルを展開して入れました）。\n\n1) まず spec/ のドキュメントをすべて読み、何を作るのかを日本語で3〜5行で要約してください。\n2) どの技術スタックで作るか提案し、その理由を簡単に説明してください。(仕様でスタックが定められていればそれを優先)\n3) この計画の前提・リスク・不確実な点をそれぞれ2〜3個まず書き出してください。\n4) 最小の動作単位（MVP）から段階的な実装計画を立ててください。\n5) 私が確認したら、ステップ1からコードを書いてください。\n\nルール:\n- 仕様にない機能を勝手に追加しないでください。曖昧な部分は推測せず私に質問してください。\n- spec ドキュメントに ⚠️ 미정 と記された項目（リクエスト・レスポンス仕様、データ属性、担当サービスなど）は、勝手に埋めず、止まって私に質問してください。\n- import・ライブラリは実際に存在するか公式レジストリで確認してから使ってください。関数・オプションを作り出さないでください。\n- 各ステップは実際に実行して動作を確認してから次に進んでください。",
+      "enhance": "私は「{name}」プロジェクトを**すでに作られた既存コードの上で引き続き改善・拡張**しようとしています。最初から新しく作るのではありません。\n\nこのフォルダには一緒に受け取った `IMPLEMENTATION_STATUS.md` があります — 設計スペックのうち ✅ すでに実装済み / ⬜ まだ未実装 が整理されています。詳細設計は `spec/` フォルダにあります。\n\n‼️ **このバンドルは取り込んだそのリポジトリ（repo）の中で作業することを前提としています。** ✅ 項目のファイルはその repo の中に実際にあります。\n\n1) まず `IMPLEMENTATION_STATUS.md` と既存コードを読み、今何が実装されているかを日本語で3〜5行で要約してください。\n2) ⬜（未実装）項目のうち、今回何を追加・補完するか段階計画を立ててください。✅（実装済み）は既存コードを尊重し、むやみに書き直さないでください。\n3) この計画の前提・リスク・不確実な点をそれぞれ2〜3個まず書き出してください。\n4) 私が確認したら、⬜ 項目から既存コードのスタイルに合わせて実装してください。\n\nルール:\n- **最初から新しいプロジェクトを作らないでください。** 既存コードの構造・命名・技術スタックに従い、その上に加えてください。\n- ✅ と記された項目も実際のコードを一度確認してください。STATUS とコードが異なる場合はコードを信頼しつつ私に知らせてください。(マッチングは自動推定なので100%ではありません)\n- **STATUS は最後の分析時点が基準です。** `spec/` の現在の PRD を STATUS と照合し、STATUS の ✅/⬜ のどこにもない項目が PRD にあれば、それも ⬜（未実装）として追加してください。\n- 仕様にない既存コード（STATUS の drift）をむやみに消したり変えたりしないでください。\n- 仕様にない機能を勝手に追加しないでください。⚠️ 미정 項目は止まって質問してください。import・ライブラリは実際に存在するか確認してください。\n- 各ステップは実際に実行して動作を確認してから次に進んでください。"
+    },
+    "status": {
+      "file_unknown": "(ファイル不明)",
+      "not_found": "コードで見つかりませんでした",
+      "title": "実装状況 (IMPLEMENTATION STATUS)",
+      "lead1": "このプロジェクトは**既存のコードベースを取り込んだもの**です。以下は「設計スペック ↔ 実際のコード」の自動マッピング状況です。",
+      "lead2": "‼️ このバンドルを**取り込んだそのリポジトリ（repo）の中で**作業してください。✅ 項目のファイルはその repo の中にあります。",
+      "repo": "取り込んだリポジトリ: {repoUrl}",
+      "lead3": "生成: {stamp} · マッピングは自動推定なので100%ではありません — ✅ も実際のコードで一度確認してください。",
+      "lead4": "⚠️ この状況は**最後の分析時点が基準**です。その後 spec（会議録/PRD）を修正したなら、analyzeLineage（または Lint）を再実行してからバンドルを再生成してください。それ以前なら、`spec/` の現在の PRD に下のリストにない項目があるか確認し、あればそれも未実装（⬜）として扱ってください。",
+      "sec_done": "✅ すでに実装済み — 書き直し禁止（検証後の補完のみ）",
+      "sec_missing": "⬜ まだ未実装 — 今回追加するもの",
+      "sec_weak": "⚠️ 部分的/低信頼 — 実際のコードで検証が必要",
+      "sec_drift": "🔎 仕様にない既存コード（drift） — むやみに変えないこと",
+      "empty_none": "なし",
+      "empty_missing": "なし — 新しい要求を追加して再分析するとここに埋まります",
+      "footer": "🤖 Generated by Harness — 既存実装の上で強化してください（最初から作り直さないでください）。"
+    }
+  }
+}
