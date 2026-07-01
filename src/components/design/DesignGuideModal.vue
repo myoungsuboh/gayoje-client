@@ -64,7 +64,7 @@ const steps = computed(() => [
   <BaseGuideModal
     :model-value="modelValue"
     :steps="steps"
-    seen-key="harness_design_guide_seen_v1"
+    seen-key="gayoje_design_guide_seen_v1"
     pill="DESIGN GUIDE"
     :headline="$t('design.guide_modal.headline')"
     :sub="$t('design.guide_modal.sub')"

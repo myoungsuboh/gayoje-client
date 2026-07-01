@@ -19,7 +19,7 @@
  *   startVitals({ onMetric: (m) => console.log(m) })
  */
 
-const STORAGE_KEY = 'harness_web_vitals_v1'
+const STORAGE_KEY = 'gayoje_web_vitals_v1'
 const MAX_RECORDS = 200
 
 // 지표별 thresholds

@@ -131,7 +131,7 @@ export const useProjectStore = defineStore('project', () => {
   }
 }, {
   persist: {
-    key: 'harness_project_state_v1',
+    key: 'gayoje_project_state_v1',
     // [2026-05-18 보안] ownerEmail 도 함께 persist — hydration 시 격리.
     // [Phase F] activeTeamId/Name 도 persist — 새로고침 후 팀 컨텍스트 유지.
     pick: ['projectName', 'githubUrl', 'currentTab', 'selectedBenchmarkIndex', 'ownerEmail', 'activeTeamId', 'activeTeamName'],

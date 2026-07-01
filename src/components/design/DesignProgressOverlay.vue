@@ -27,7 +27,7 @@ const emit = defineEmits(['cancel'])
 const { t } = useI18n()
 
 // 가이드 영역 — 한 번 본 사용자는 "다시 안보기" 로 영구 dismiss (design.vue 원본과 동일 키).
-const GUIDE_DISMISS_KEY = 'harness_design_loading_guide_dismissed_v1'
+const GUIDE_DISMISS_KEY = 'gayoje_design_loading_guide_dismissed_v1'
 const showLoadingGuide = ref(true)
 try {
   if (localStorage.getItem(GUIDE_DISMISS_KEY)) showLoadingGuide.value = false

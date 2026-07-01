@@ -136,7 +136,7 @@ function goToPrdSection(item) {
 // [2026-05] 첫 방문 코치마크 — 'PRD 연결' 칩이 클릭 가능(완성도 상세 팝업)하다는
 // 걸 사용자가 몰라서, 최초 1회 말풍선으로 안내하고 닫으면 영구 dismiss.
 // key 는 전역(탭 무관) — SPACK/DDD/Arch 어느 탭에서든 한 번 보면 끝.
-const COACH_SEEN_KEY = 'harness_prd_trigger_coach_seen_v1'
+const COACH_SEEN_KEY = 'gayoje_prd_trigger_coach_seen_v1'
 const showCoach = ref(false)
 function dismissCoach() {
   if (!showCoach.value) return

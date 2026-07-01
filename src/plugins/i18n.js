@@ -7,7 +7,7 @@ import ja from '@/locales/ja/index.js'
 // 메시지 번들이 실제로 존재하는 로케일만 노출.
 export const SUPPORTED_LOCALES = ['ko', 'en', 'zh', 'ja']
 export const DEFAULT_LOCALE = 'ko'
-export const LOCALE_STORAGE_KEY = 'harness_locale'
+export const LOCALE_STORAGE_KEY = 'gayoje_locale'
 
 function detectLocale() {
   const stored = localStorage.getItem(LOCALE_STORAGE_KEY)

@@ -13,7 +13,7 @@ import { API_BASE } from './api'
 import { useProjectStore } from './project'
 import { T_DEFAULT_MS } from '@/utils/timeouts'
 
-const LINT_CACHE_KEY = 'harness_lint_cache_v1'
+const LINT_CACHE_KEY = 'gayoje_lint_cache_v1'
 
 const loadLintCacheFromStorage = () => {
   try {

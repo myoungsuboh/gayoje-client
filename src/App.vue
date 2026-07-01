@@ -46,14 +46,14 @@ const tabsDisabled = computed(() => {
 const isLoginPage = computed(() => {
   const path = route.path || (typeof window !== 'undefined' ? window.location.pathname : '')
   if (path === '/login' || path === '/signup' || path === '/auth/callback') return true
-  if (typeof window !== 'undefined' && !localStorage.getItem('harness_token')) return true
+  if (typeof window !== 'undefined' && !localStorage.getItem('gayoje_token')) return true
   return false
 })
 
 const showMyProjectsModal = ref(false)
 const myProjectsCount = ref(0)
 const refreshMyProjectsCount = async () => {
-  if (typeof window === 'undefined' || !localStorage.getItem('harness_token')) return
+  if (typeof window === 'undefined' || !localStorage.getItem('gayoje_token')) return
   const r = await fetchMyProjects()
   if (r.success) myProjectsCount.value = (r.projects || []).length
 }
@@ -81,7 +81,7 @@ watch(
   () => {
     if (typeof window === 'undefined') return
     currentUser.value = getCurrentUser() || {}
-    if (localStorage.getItem('harness_token')) {
+    if (localStorage.getItem('gayoje_token')) {
       refreshMyProjectsCount()
     } else {
       myProjectsCount.value = 0
@@ -93,7 +93,7 @@ onMounted(async () => {
   pricingStore.fetch()
   // 공개 한도(quota-config) — 업그레이드 모달 / 요금제 카드 perks 동적 표시용. 인증 불필요.
   quotaConfigStore.fetch()
-  if (typeof window === 'undefined' || !localStorage.getItem('harness_token')) return
+  if (typeof window === 'undefined' || !localStorage.getItem('gayoje_token')) return
   const r = await verifyToken()
   if (r.valid && r.user) {
     currentUser.value = r.user
@@ -183,12 +183,15 @@ watch(
       </template>
     </v-main>
 
-    <AppFooter />
+    <AppFooter v-if="!isLoginPage" />
 
     <ConfirmDialog />
-    <UpgradePromptDialog />
-    <MyProjectsModal v-model="showMyProjectsModal" />
-    <WebVitalsDialog v-model="webVitalsOpen" />
+    <!-- harness 전용 모달 — 공개 브라우즈(비로그인)에서는 렌더 안 함. -->
+    <template v-if="!isLoginPage">
+      <UpgradePromptDialog />
+      <MyProjectsModal v-model="showMyProjectsModal" />
+      <WebVitalsDialog v-model="webVitalsOpen" />
+    </template>
 
     <v-snackbar
       v-model="snackbarState.show"

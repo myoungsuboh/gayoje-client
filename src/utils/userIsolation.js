@@ -17,13 +17,13 @@
  */
 import { APP_CACHE_KEYS } from '@/utils/cacheKeys'
 
-const USER_KEY = 'harness_user'
+const USER_KEY = 'gayoje_user'
 
 // ownerEmail 을 영속화하는 user-scoped store 키들.
 // 신규 user-scoped persisted store 추가 시 여기에 반드시 등록.
 export const OWNER_SCOPED_STORE_KEYS = [
-  'harness_project_state_v1',
-  'harness_jobs_state_v1',
+  'gayoje_project_state_v1',
+  'gayoje_jobs_state_v1',
 ]
 
 const _currentEmail = () => {
@@ -56,7 +56,7 @@ const _storedOwner = (key) => {
  * 현재 로그인 사용자와 영속 상태의 소유자가 다르면 user-scoped 영속 키 + 앱 캐시를
  * localStorage 에서 즉시(동기) 제거한다.
  *
- * - 비로그인 상태(harness_user 없음)면 판단 불가 → no-op (logout 시 clearSession 이 정리).
+ * - 비로그인 상태(gayoje_user 없음)면 판단 불가 → no-op (logout 시 clearSession 이 정리).
  * - 소유자 미기록(legacy, ownerEmail='') 데이터는 mismatch 로 보지 않음
  *   (store 의 assertOwner 가 현재 사용자를 소유자로 채택하는 기존 동작과 일치).
  *

@@ -71,7 +71,7 @@ const switchGraphView = (v) => {
 }
 
 // 사용 가이드 — Plan 페이지와 동일 패턴. 계정당 최초 1회 자동 표시, 이후엔 헬프 버튼으로 수동.
-const DESIGN_GUIDE_SEEN_KEY = 'harness_design_guide_seen_v1'
+const DESIGN_GUIDE_SEEN_KEY = 'gayoje_design_guide_seen_v1'
 const showGuide = ref(false)
 const openGuide = () => { showGuide.value = true }
 
@@ -146,7 +146,7 @@ const impactExpanded = ref(false)
 const hasImpactDetail = computed(() => (designImpact.value?.changed_nodes?.length || 0) > 0)
 // [2026-06 리팩토링] impact 상세 렌더 + prdNodeLabelKo/summarizeCascade/tierLabel 은
 // DesignImpactDetail.vue 로 이동. designImpact/impactExpanded 상태와 fetchDesignImpact 는 여기 유지.
-const _designStaleSeenKey = () => `harness_design_stale_seen_${store.projectName || ''}`
+const _designStaleSeenKey = () => `gayoje_design_stale_seen_${store.projectName || ''}`
 const _markDesignStaleSeen = () => {
   try {
     if (designStaleAt.value != null) {
@@ -878,7 +878,7 @@ const handleLatestUpdate = async () => {
 
     <!-- Content -->
     <div v-else class="design-content">
-      <AiDraftNotice :label="$t('design.ai_draft_label')" dismissible storage-key="harness_aidraft_dismissed_design" />
+      <AiDraftNotice :label="$t('design.ai_draft_label')" dismissible storage-key="gayoje_aidraft_dismissed_design" />
       <SpackTab v-if="designTab === 'spack'" ref="spackRef" />
       <DddTab v-else-if="designTab === 'ddd'" ref="dddRef" />
       <ArchitectureTab v-else-if="designTab === 'architecture'" ref="archRef" />

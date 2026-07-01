@@ -28,7 +28,7 @@ import AgentExportPanel from '@/components/code/AgentExportPanel.vue'
 const router = useRouter()
 
 // 반복 사용자(매일 repo 브라우징)를 위해 접기 상태를 기억.
-const COLLAPSE_KEY = 'harness_nextstep_collapsed_v1'
+const COLLAPSE_KEY = 'gayoje_nextstep_collapsed_v1'
 const _initCollapsed = () => {
   try { return localStorage.getItem(COLLAPSE_KEY) === '1' } catch { return false }
 }
@@ -42,7 +42,7 @@ const active = ref(null) // 'self' | 'outsource' | 'have' | null
 
 const trackChoice = (id) => {
   try {
-    const key = 'harness_nextstep_choice'
+    const key = 'gayoje_nextstep_choice'
     const tally = JSON.parse(localStorage.getItem(key) || '{}')
     tally[id] = (tally[id] || 0) + 1
     tally._last = id

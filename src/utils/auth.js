@@ -8,9 +8,9 @@
  *   GET  /auth/me     → { id, email, name, created_at }
  *
  * 토큰 저장:
- *   - harness_token        : access_token (router guard 가 존재 여부만 체크)
- *   - harness_refresh_token: refresh_token (재발급용)
- *   - harness_user         : user profile JSON
+ *   - gayoje_token        : access_token (router guard 가 존재 여부만 체크)
+ *   - gayoje_refresh_token: refresh_token (재발급용)
+ *   - gayoje_user         : user profile JSON
  *
  * 모든 axios 호출은 공용 `@/utils/axios` 인스턴스를 사용:
  *   - request 인터셉터가 Bearer 헤더 자동 첨부 (login/signup 제외)
@@ -23,9 +23,9 @@ import axios from '@/utils/axios'
 // 로컬 dev: .env 에 VITE_API_BASE_URL=http://localhost:8000 설정.
 const AUTH_BASE = import.meta.env.VITE_API_BASE_URL ?? ''
 
-const TOKEN_KEY = 'harness_token'
-const REFRESH_KEY = 'harness_refresh_token'
-const USER_KEY = 'harness_user'
+const TOKEN_KEY = 'gayoje_token'
+const REFRESH_KEY = 'gayoje_refresh_token'
+const USER_KEY = 'gayoje_user'
 
 // 캐시 키 단일 정의는 utils/cacheKeys.js — 신규 키 추가 시 거기 1곳만 갱신.
 import { APP_CACHE_KEYS } from '@/utils/cacheKeys'

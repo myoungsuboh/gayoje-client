@@ -81,7 +81,7 @@ const mountDialog = (props = {}) =>
   })
 
 // 영속화 키 — 사용자(anon)::팀(personal)::프로젝트(__default__) 스코프.
-const PERSIST_KEY = 'harness_interview_v1::anon::personal::__default__'
+const PERSIST_KEY = 'gayoje_interview_v1::anon::personal::__default__'
 
 describe('InterviewDialog (AI 인터뷰 — 스트리밍)', () => {
   beforeEach(() => {
@@ -505,7 +505,7 @@ describe('InterviewDialog (AI 인터뷰 — 스트리밍)', () => {
     await flushPromises()
 
     // A의 대화는 A의 키에 저장되고, 화면은 B의 첫 질문으로 재시작
-    const savedA = JSON.parse(localStorage.getItem('harness_interview_v1::anon::personal::projA'))
+    const savedA = JSON.parse(localStorage.getItem('gayoje_interview_v1::anon::personal::projA'))
     expect(savedA.messages).toEqual([{ role: 'assistant', content: 'A의 질문?' }])
     expect(wrapper.text()).not.toContain('A의 질문?')
     expect(wrapper.text()).toContain('B의 질문?')
@@ -530,14 +530,14 @@ describe('InterviewDialog (AI 인터뷰 — 스트리밍)', () => {
 
     const body = JSON.parse(fetchMock.mock.calls[0][1].body)
     expect(body.team_id).toBe('team-42')
-    const saved = localStorage.getItem('harness_interview_v1::user@example.com::team-42::teamProj')
+    const saved = localStorage.getItem('gayoje_interview_v1::user@example.com::team-42::teamProj')
     expect(JSON.parse(saved).messages).toEqual([{ role: 'assistant', content: 'Q?' }])
   })
 
   it('[격리] 대화 없는 채로 전환해도 이전 프로젝트 저장본을 지우지 않는다', async () => {
     const projectStore = useProjectStore()
     // projA 에 기존 저장본이 있는 상태
-    localStorage.setItem('harness_interview_v1::anon::personal::projA', JSON.stringify({
+    localStorage.setItem('gayoje_interview_v1::anon::personal::projA', JSON.stringify({
       messages: [{ role: 'assistant', content: '예전 질문?' }],
       suggestions: [], coverage: [], readiness: 0, nextFocus: '', draft: '',
       savedAt: Date.now(),
@@ -549,7 +549,7 @@ describe('InterviewDialog (AI 인터뷰 — 스트리밍)', () => {
     await flushPromises()
 
     // projA 저장본은 그대로 (빈 메모리 persist 가 삭제로 이어지면 안 됨)
-    const savedA = JSON.parse(localStorage.getItem('harness_interview_v1::anon::personal::projA'))
+    const savedA = JSON.parse(localStorage.getItem('gayoje_interview_v1::anon::personal::projA'))
     expect(savedA.messages[0].content).toBe('예전 질문?')
     wrapper.unmount()
   })

@@ -78,7 +78,7 @@ const onFinish = () => router.push('/profile')
   <BaseGuideModal
     :model-value="modelValue"
     :steps="steps"
-    seen-key="harness_plan_mcp_guide_seen_v1"
+    seen-key="gayoje_plan_mcp_guide_seen_v1"
     pill="MCP — NEW"
     :headline="$t('rule.mcp_guide.headline')"
     :sub="$t('rule.mcp_guide.sub')"

@@ -15,23 +15,23 @@
  * 새 fetch 가 자연스럽게 채움.
  */
 export const APP_CACHE_KEYS = [
-  'harness_lint_cache_v1',
-  'harness_lineage_cache_v1',
-  'harness_lineage_truth_v1',
-  'harness_repo_meta_v1',
-  'harness_project_state_v1',
-  'harness_web_vitals_v1',
+  'gayoje_lint_cache_v1',
+  'gayoje_lineage_cache_v1',
+  'gayoje_lineage_truth_v1',
+  'gayoje_repo_meta_v1',
+  'gayoje_project_state_v1',
+  'gayoje_web_vitals_v1',
   // [2026-05-18 보안] jobs store 영속화 — 사용자 전환 시 다른 사용자의 batch 작업/
   // 미팅 제목이 그대로 노출되던 사고 대응. 반드시 logout 시 정리.
-  'harness_jobs_state_v1',
+  'gayoje_jobs_state_v1',
   // [2026-05] 80%/100% 사용량 마일스톤 토스트 플래그 — 사용자별로 1회 안내.
   // 공용 PC 에서 사용자 전환 시 누설 (이전 사용자가 본 안내가 새 사용자에게 안 떠서
   // 한도 초과를 모르고 사용 후 막힘) 방지. 사용자 마다 fresh 안내.
-  'harness_quota_milestone_tokens80',
-  'harness_quota_milestone_tokens100',
-  'harness_quota_milestone_meeting80',
-  'harness_quota_milestone_meeting100',
+  'gayoje_quota_milestone_tokens80',
+  'gayoje_quota_milestone_tokens100',
+  'gayoje_quota_milestone_meeting80',
+  'gayoje_quota_milestone_meeting100',
   // [2026-06-22] 미팅 로그 신규 작성 임시 초안 — 공용 PC 사용자 전환/로그아웃 시
   // 다른 사용자에게 작성 중이던 내용이 노출되지 않도록 정리.
-  'harness_meeting_draft_v1',
+  'gayoje_meeting_draft_v1',
 ]

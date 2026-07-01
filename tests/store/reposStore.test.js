@@ -138,7 +138,7 @@ describe('useReposStore', () => {
     expect(r2.fromCache).toBe(true)
     expect(enrichRepo).toHaveBeenCalledTimes(1)
     // localStorage 영속화 확인
-    const raw = localStorage.getItem('harness_repo_meta_v1')
+    const raw = localStorage.getItem('gayoje_repo_meta_v1')
     expect(raw).not.toBeNull()
     const parsed = JSON.parse(raw)
     expect(parsed['https://github.com/a/b']).toBeDefined()

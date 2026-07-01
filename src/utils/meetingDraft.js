@@ -14,7 +14,7 @@
  * - 비정상 크기(초대형) 보호를 위해 프로젝트 수 상한(MAX_PROJECTS) 적용 — 오래된 것부터 제거.
  */
 
-export const MEETING_DRAFT_KEY = 'harness_meeting_draft_v1'
+export const MEETING_DRAFT_KEY = 'gayoje_meeting_draft_v1'
 
 // 동시에 보관할 프로젝트 초안 수 상한 (오래된 순으로 제거).
 const MAX_PROJECTS = 12

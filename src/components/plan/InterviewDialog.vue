@@ -19,12 +19,12 @@ import { useSnackbar } from '@/composables/useSnackbar'
 import { useUpgradePrompt } from '@/composables/useUpgradePrompt'
 import { useConfirm } from '@/composables/useConfirm'
 
-const TOKEN_KEY = 'harness_token'
+const TOKEN_KEY = 'gayoje_token'
 // BE InterviewTurnRequest.existing_content 한도와 일치 — 초과 시 422 방지용 클라이언트 가드.
 const MAX_EXISTING_LEN = 20000
 // 대화 영속화 — 페이지 이동/모달 닫기로 컴포넌트가 언마운트돼도 대화를 기억하기 위해
 // localStorage 에 프로젝트 단위로 저장. 7일 지난 스냅샷은 폐기.
-const PERSIST_PREFIX = 'harness_interview_v1::'
+const PERSIST_PREFIX = 'gayoje_interview_v1::'
 const PERSIST_STALE_MS = 1000 * 60 * 60 * 24 * 7
 
 const props = defineProps({

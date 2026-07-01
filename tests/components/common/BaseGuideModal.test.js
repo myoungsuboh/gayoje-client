@@ -100,7 +100,7 @@ describe('BaseGuideModal — seen 저장 (계정당 최초 1회)', () => {
   })
 
   it('로그인 사용자 — email 스코프 키로 저장', () => {
-    localStorage.setItem('harness_user', JSON.stringify({ email: 'User@Example.com ' }))
+    localStorage.setItem('gayoje_user', JSON.stringify({ email: 'User@Example.com ' }))
     mountModal()
     expect(localStorage.getItem('test_guide_seen::user@example.com')).toBe('1')
     expect(localStorage.getItem('test_guide_seen::anon')).toBeNull()

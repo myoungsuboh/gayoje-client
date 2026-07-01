@@ -29,12 +29,12 @@ const CACHE_TTL_MS = 30_000  // 30 초
 // localStorage 키 — 80%/100% 마일스톤 토스트가 같은 세션 안에서 반복되지 않게.
 // 한도 카테고리(tokens/meeting)별 + 마일스톤(80/100) 별 단일 키.
 const MILESTONE_KEYS = {
-  tokens80: 'harness_quota_milestone_tokens80',
-  tokens100: 'harness_quota_milestone_tokens100',
-  meeting80: 'harness_quota_milestone_meeting80',
-  meeting100: 'harness_quota_milestone_meeting100',
+  tokens80: 'gayoje_quota_milestone_tokens80',
+  tokens100: 'gayoje_quota_milestone_tokens100',
+  meeting80: 'gayoje_quota_milestone_meeting80',
+  meeting100: 'gayoje_quota_milestone_meeting100',
   // [2026-06] 유료 등급이 메인 소진 → Lite 전환 시 1회 친절 안내 (한도 도달 경고 아님).
-  liteOverflow: 'harness_quota_milestone_lite_overflow',
+  liteOverflow: 'gayoje_quota_milestone_lite_overflow',
 }
 
 const safeGet = (key) => {

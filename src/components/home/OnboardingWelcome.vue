@@ -16,7 +16,7 @@ import { Sparkles, X } from 'lucide-vue-next'
 
 const emit = defineEmits(['start', 'try-sample'])
 
-const DISMISS_KEY = 'harness_onboarding_welcome_dismissed_v1'
+const DISMISS_KEY = 'gayoje_onboarding_welcome_dismissed_v1'
 
 const _initiallyDismissed = () => {
   try { return localStorage.getItem(DISMISS_KEY) === '1' } catch { return false }

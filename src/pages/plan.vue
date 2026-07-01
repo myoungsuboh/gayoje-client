@@ -137,7 +137,7 @@ const _consumeAnchorQuery = async () => {
 onMounted(_consumeAnchorQuery)
 watch(() => route.query, _consumeAnchorQuery)
 
-const GUIDE_SEEN_KEY = 'harness_plan_guide_seen_v1'
+const GUIDE_SEEN_KEY = 'gayoje_plan_guide_seen_v1'
 const showGuide = ref(false)
 const openGuide = () => { showGuide.value = true }
 const showMcpGuide = ref(false)
@@ -153,7 +153,7 @@ onMounted(() => {
   // store 가 즉시 reset 한 후 핸들러 wire. attachBatchHandlers 안에서 assertOwner.
   let currentEmail = ''
   try {
-    const u = JSON.parse(localStorage.getItem('harness_user') || '{}')
+    const u = JSON.parse(localStorage.getItem('gayoje_user') || '{}')
     currentEmail = u?.email || ''
   } catch {}
 
@@ -343,7 +343,7 @@ const enqueueMeetingPost = async (content, versionOverride, nextEntry = null) =>
       previous_cps_id: `doc_cps_${projectName}_${nv.replace('.', '_')}`,
     }
   }
-  const me = (() => { try { return JSON.parse(localStorage.getItem('harness_user') || '{}') } catch { return {} } })()
+  const me = (() => { try { return JSON.parse(localStorage.getItem('gayoje_user') || '{}') } catch { return {} } })()
   const autoProgress = me?.auto_progress !== false
   const endpoint = autoProgress ? '/postMeeting' : '/cps'
   const response = await axios.post(`${API_BASE}${endpoint}`, payload, { timeout: 300000 })
@@ -509,7 +509,7 @@ const onNotionDisconnected = () => {
 
 const autoProgressFlag = ref(true)
 const readAutoProgressFromStorage = () => {
-  try { const me = JSON.parse(localStorage.getItem('harness_user') || '{}'); autoProgressFlag.value = me?.auto_progress !== false }
+  try { const me = JSON.parse(localStorage.getItem('gayoje_user') || '{}'); autoProgressFlag.value = me?.auto_progress !== false }
   catch { autoProgressFlag.value = true }
 }
 readAutoProgressFromStorage()
@@ -530,7 +530,7 @@ const toggleReviewMode = async () => {
     const result = await updateMeApi({ auto_progress: next })
     if (result.success) {
       autoProgressFlag.value = next
-      try { const me = JSON.parse(localStorage.getItem('harness_user') || '{}'); me.auto_progress = next; localStorage.setItem('harness_user', JSON.stringify(me)) } catch {}
+      try { const me = JSON.parse(localStorage.getItem('gayoje_user') || '{}'); me.auto_progress = next; localStorage.setItem('gayoje_user', JSON.stringify(me)) } catch {}
       showSuccess(next ? t('plan.toast.auto_mode_on') : t('plan.toast.auto_mode_off'))
     } else {
       showError(result.error || t('plan.toast.mode_change_fail'))
@@ -929,7 +929,7 @@ const tabs = computed(() => [
           <VProgressLinear v-if="isCpsLoading" indeterminate color="accent" class="mb-4" />
           <VAlert v-else-if="cpsError" type="error" variant="tonal" class="mb-4">{{ cpsError }}</VAlert>
           <template v-else-if="currentCps">
-            <AiDraftNotice :label="$t('plan.cps_ai_label')" dismissible storage-key="harness_aidraft_dismissed_cps" :version="currentCps?.last_updated" />
+            <AiDraftNotice :label="$t('plan.cps_ai_label')" dismissible storage-key="gayoje_aidraft_dismissed_cps" :version="currentCps?.last_updated" />
             <CpsTab :cps="currentCps" :editable="isReviewMode" :project-name="store.projectName" :remote-busy="remoteBusy" @navigate="requestSubTab($event)" @saved="fetchCps(store.projectName)" @update:editing="cpsEditing = $event" />
           </template>
           <div v-else class="fill-height d-flex flex-column align-center justify-center mt-10 empty-cps">
@@ -986,7 +986,7 @@ const tabs = computed(() => [
           <VProgressLinear v-if="isPrdLoading" indeterminate color="accent" class="mb-4" />
           <VAlert v-else-if="prdError" type="error" variant="tonal" class="mb-4">{{ prdError }}</VAlert>
           <template v-else-if="prdSections && prdSections.length > 0">
-            <AiDraftNotice :label="$t('plan.prd_ai_label')" dismissible storage-key="harness_aidraft_dismissed_prd" :version="prdSections?.[0]?.last_updated" />
+            <AiDraftNotice :label="$t('plan.prd_ai_label')" dismissible storage-key="gayoje_aidraft_dismissed_prd" :version="prdSections?.[0]?.last_updated" />
             <PrdTab
               ref="prdTabRef"
               :prd-sections="prdSections" :editable="isReviewMode" :project-name="store.projectName"

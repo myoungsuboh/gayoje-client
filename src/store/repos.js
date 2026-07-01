@@ -10,7 +10,7 @@ import { API_BASE } from './api'
 import { useProjectStore } from './project'
 import { T_SHORT_MS } from '@/utils/timeouts'
 
-const REPO_META_CACHE_KEY = 'harness_repo_meta_v1'
+const REPO_META_CACHE_KEY = 'gayoje_repo_meta_v1'
 const REPO_META_TTL = 60 * 60 * 1000 // 1시간
 
 const loadRepoMetaCache = () => {

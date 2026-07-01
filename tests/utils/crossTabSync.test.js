@@ -31,7 +31,7 @@ describe('crossTabSync', () => {
   })
 
   it('logout — 다른 탭이 토큰을 삭제하면 /login 으로 push', () => {
-    fireStorage({ key: 'harness_token', newValue: null, oldValue: 'old-jwt' })
+    fireStorage({ key: 'gayoje_token', newValue: null, oldValue: 'old-jwt' })
     expect(router.push).toHaveBeenCalledWith({
       path: '/login',
       query: { reason: 'session_synced' },
@@ -40,18 +40,18 @@ describe('crossTabSync', () => {
 
   it('이미 /login 페이지면 redirect skip', () => {
     router.currentRoute.value.path = '/login'
-    fireStorage({ key: 'harness_token', newValue: null, oldValue: 'old-jwt' })
+    fireStorage({ key: 'gayoje_token', newValue: null, oldValue: 'old-jwt' })
     expect(router.push).not.toHaveBeenCalled()
   })
 
   it('/auth/callback 페이지에서도 redirect skip (OAuth 토큰 저장 직전)', () => {
     router.currentRoute.value.path = '/auth/callback'
-    fireStorage({ key: 'harness_token', newValue: null, oldValue: 'old-jwt' })
+    fireStorage({ key: 'gayoje_token', newValue: null, oldValue: 'old-jwt' })
     expect(router.push).not.toHaveBeenCalled()
   })
 
   it('oldValue 가 없으면 무시 (애초에 토큰 없던 상태)', () => {
-    fireStorage({ key: 'harness_token', newValue: null, oldValue: null })
+    fireStorage({ key: 'gayoje_token', newValue: null, oldValue: null })
     expect(router.push).not.toHaveBeenCalled()
   })
 
@@ -62,7 +62,7 @@ describe('crossTabSync', () => {
       value: { reload },
     })
     fireStorage({
-      key: 'harness_user',
+      key: 'gayoje_user',
       newValue: JSON.stringify({ email: 'b@x' }),
       oldValue: JSON.stringify({ email: 'a@x' }),
     })
@@ -76,7 +76,7 @@ describe('crossTabSync', () => {
       value: { reload },
     })
     fireStorage({
-      key: 'harness_user',
+      key: 'gayoje_user',
       newValue: JSON.stringify({ email: 'a@x' }),
       oldValue: JSON.stringify({ email: 'a@x' }),
     })
@@ -90,7 +90,7 @@ describe('crossTabSync', () => {
       value: { reload },
     })
     fireStorage({
-      key: 'harness_user',
+      key: 'gayoje_user',
       newValue: null,
       oldValue: JSON.stringify({ email: 'a@x' }),
     })
@@ -110,7 +110,7 @@ describe('crossTabSync', () => {
 
   it('refresh token 삭제 — 다른 탭이 logout 한 효과 → /login (Sprint 8 P2)', () => {
     fireStorage({
-      key: 'harness_refresh_token',
+      key: 'gayoje_refresh_token',
       newValue: null,
       oldValue: 'old-refresh-token',
     })
@@ -122,7 +122,7 @@ describe('crossTabSync', () => {
 
   it('refresh token 갱신 (newValue 존재) 은 무시 — silent rotation 정상', () => {
     fireStorage({
-      key: 'harness_refresh_token',
+      key: 'gayoje_refresh_token',
       newValue: 'new-refresh-token',
       oldValue: 'old-refresh-token',
     })

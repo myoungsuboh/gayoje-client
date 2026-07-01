@@ -21,9 +21,9 @@ import i18n from '@/plugins/i18n'
 // 비컴포넌트(util)에서 번역 — store/lint.js · composables 와 동일 패턴.
 const t = (key, params) => i18n.global.t(key, params)
 
-const TOKEN_KEY = 'harness_token'
-const REFRESH_KEY = 'harness_refresh_token'
-const USER_KEY = 'harness_user'
+const TOKEN_KEY = 'gayoje_token'
+const REFRESH_KEY = 'gayoje_refresh_token'
+const USER_KEY = 'gayoje_user'
 
 // 인증이 필요 없는 엔드포인트 (Bearer 첨부 안 함 + refresh/리다이렉트 대상 제외)
 const AUTH_FREE_PATHS = ['/auth/login', '/auth/signup', '/auth/refresh']

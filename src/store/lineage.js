@@ -15,8 +15,8 @@ import { API_BASE } from './api'
 import { useProjectStore } from './project'
 import { T_SHORT_MS, T_DEFAULT_MS, T_LONG_MS } from '@/utils/timeouts'
 
-const LINEAGE_CACHE_KEY = 'harness_lineage_cache_v1'
-const LINEAGE_TRUTH_KEY = 'harness_lineage_truth_v1'
+const LINEAGE_CACHE_KEY = 'gayoje_lineage_cache_v1'
+const LINEAGE_TRUTH_KEY = 'gayoje_lineage_truth_v1'
 
 // 분석 결과 캐시는 여전히 LS 사용 (큰 데이터 + 네트워크 비용). 사용자 전환 시 cleared.
 const AI_SUGGEST_ENABLED =
@@ -151,7 +151,7 @@ export const useLineageStore = defineStore('lineage', () => {
   // BE 경로: `/api/v2/lineage/truth*` (JWT + assert_owns). axios 인스턴스가 자동 Bearer.
   //
   // [LS mirror 정책 — Sprint 8 P2 명료화]
-  // localStorage 의 `harness_lineage_truth_v1` 는 *read-side cache* 일 뿐:
+  // localStorage 의 `gayoje_lineage_truth_v1` 는 *read-side cache* 일 뿐:
   //  - fetchLineageTruth 응답 → LS 에 mirror (다음 네트워크 실패 시 graceful 표시용)
   //  - save / delete → BE 호출 후 응답 그대로 LS 갱신 (다른 화면 즉시 동기화)
   //  - import → 직후 fetchLineageTruth 호출해 LS 전체 재동기화

@@ -82,14 +82,14 @@ describe('McpGuideModal — finish 시 /profile 이동 (특이 케이스)', () =
 })
 
 describe('가이드 모달 — 열림 시 seen 저장 (호출처 계약: 계정당 최초 1회 자동표시)', () => {
-  it('Design: 열림 → harness_design_guide_seen_v1::anon 저장 (부모 자동표시 차단 키와 일치)', () => {
+  it('Design: 열림 → gayoje_design_guide_seen_v1::anon 저장 (부모 자동표시 차단 키와 일치)', () => {
     mount(DesignGuideModal, { props: { modelValue: true } })
-    expect(localStorage.getItem('harness_design_guide_seen_v1::anon')).toBe('1')
+    expect(localStorage.getItem('gayoje_design_guide_seen_v1::anon')).toBe('1')
   })
 
-  it('Lint: 열림 → harness_lint_guide_seen_v1::anon 저장 + 마지막 step 시작하기 → 닫힘', async () => {
+  it('Lint: 열림 → gayoje_lint_guide_seen_v1::anon 저장 + 마지막 step 시작하기 → 닫힘', async () => {
     const wrapper = mount(LintGuideModal, { props: { modelValue: true } })
-    expect(localStorage.getItem('harness_lint_guide_seen_v1::anon')).toBe('1')
+    expect(localStorage.getItem('gayoje_lint_guide_seen_v1::anon')).toBe('1')
     const dots = wrapper.findAll('.dot')
     await dots[dots.length - 1].trigger('click')
     await flushPromises()

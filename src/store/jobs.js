@@ -538,7 +538,7 @@ export const useJobsStore = defineStore('jobs', () => {
   // 콜백 closure 는 persist 불가 — plan.vue 가 mount 시 attachBatchHandlers 로 재wire.
   // [2026-05-18 보안] ownerEmail 도 함께 persist — 사용자 전환 시 격리.
   persist: {
-    key: 'harness_jobs_state_v1',
+    key: 'gayoje_jobs_state_v1',
     pick: ['_jobs', 'batchState', 'ownerEmail'],
   },
 })

@@ -36,7 +36,7 @@ const myProjects = ref([])  // [{ name, owned_at }]
 const myTeams = ref([])     // [{ id, name, role, projects: [{ name, ... }] }]
 const isLoadingProjects = ref(false)
 const loadMyProjects = async () => {
-  if (!localStorage.getItem('harness_token')) return
+  if (!localStorage.getItem('gayoje_token')) return
   isLoadingProjects.value = true
   try {
     const r = await fetchMyProjects()
@@ -250,7 +250,7 @@ const goStep = (s) => { if (!s.locked) router.push(s.route) }
 //   2순위: BE 의 /auth/me/projects 응답 중 owned_at 가장 최근 프로젝트
 //   사용자: "마지막으로 작업했던 프로젝트를 자동으로 여기 보여 줬으면 해"
 const autoSelectLastProject = async () => {
-  if (!localStorage.getItem('harness_token')) return  // 미로그인
+  if (!localStorage.getItem('gayoje_token')) return  // 미로그인
   isAutoSelecting.value = true
   try {
     const r = await fetchMyProjects()

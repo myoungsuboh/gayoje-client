@@ -61,7 +61,7 @@ const ADMIN_PATHS = new Set([
 
 const isAdminFromStorage = () => {
   try {
-    const raw = localStorage.getItem('harness_user')
+    const raw = localStorage.getItem('gayoje_user')
     if (!raw) return false
     const u = JSON.parse(raw)
     return Boolean(u && u.is_admin)
@@ -96,13 +96,11 @@ router.beforeEach((to) => {
   // OAuth 단일 경로인 /login 으로 흡수. (페이지 자체가 삭제돼 라우트도 없음)
   if (REMOVED_AUTH_PATHS.has(to.path)) return '/login'
 
-  const token = localStorage.getItem('harness_token')
+  // [gayoje] 공개 브라우즈 — 가요제 목록('/')·상세('/events/:id')는 인증 불요.
+  // 인터뷰 데모용 공개 UI. 로그인 없이 실데이터를 보여준다.
+  if (to.path === '/' || to.path.startsWith('/events/')) return true
 
-  // [2026-05] 로그인 사용자가 '/' 인트로로 진입하면 /home 데시보드로 redirect.
-  //   - 비로그인: '/' 는 인트로 (마케팅) 그대로 노출.
-  //   - 로그인: 인트로 볼 이유 없음 → 데시보드로.
-  //   사용자: "로그인 후 / 주소로 들어가면 인트로가 나오는 버그 수정 부탁"
-  if (to.path === '/' && token) return '/home'
+  const token = localStorage.getItem('gayoje_token')
 
   if (!PUBLIC_PATHS.has(to.path) && !token) {
     // 원래 가려던 path 를 redirect query 로 보존 → login 성공 후 복원.
@@ -133,7 +131,7 @@ router.beforeEach((to) => {
 //
 // 무한 reload 방지: sessionStorage 에 마지막 reload 경로/시각 저장,
 // 5초 안에 같은 경로에서 두 번째 실패가 나면 reload 중단 (실제 버그일 수 있음).
-const RELOAD_KEY = 'harness_chunk_reload'
+const RELOAD_KEY = 'gayoje_chunk_reload'
 
 const isChunkLoadError = (err) => {
   const msg = err?.message || ''

@@ -145,7 +145,7 @@ const restoreLastResult = async () => {
 }
 
 // 사용 가이드 — Plan / Design 페이지와 동일 패턴. 계정당 최초 1회 자동 표시.
-const LINT_GUIDE_SEEN_KEY = 'harness_lint_guide_seen_v1'
+const LINT_GUIDE_SEEN_KEY = 'gayoje_lint_guide_seen_v1'
 const showGuide = ref(false)
 const openGuide = () => { showGuide.value = true }
 

@@ -10,8 +10,8 @@
  * [해결]
  * `window.addEventListener('storage', ...)` 는 *다른 탭* 에서 localStorage 가
  * 변경됐을 때만 발화한다 (같은 탭에선 발화 안 함 — 의도된 동작).
- *   - harness_token 삭제 → /login 으로 강제 이동
- *   - harness_user 변경 → hard reload (사용자 전환 — 모든 in-memory state 초기화)
+ *   - gayoje_token 삭제 → /login 으로 강제 이동
+ *   - gayoje_user 변경 → hard reload (사용자 전환 — 모든 in-memory state 초기화)
  *
  * [수동 정리 (해당 탭만 로컬 변경)]
  * router 에서 router.push 만으로는 다른 탭에 알릴 수 없음 → 위 키를
@@ -19,10 +19,10 @@
  * 자연스럽게 storage 이벤트를 발화.
  */
 
-const TOKEN_KEY = 'harness_token'
-const REFRESH_KEY = 'harness_refresh_token'
-const USER_KEY = 'harness_user'
-const PROJECT_KEY = 'harness_project_state_v1'
+const TOKEN_KEY = 'gayoje_token'
+const REFRESH_KEY = 'gayoje_refresh_token'
+const USER_KEY = 'gayoje_user'
+const PROJECT_KEY = 'gayoje_project_state_v1'
 
 let installed = false
 let _router = null   // listener 가 사용하는 router — install 마다 갱신 (테스트 재진입 안전).

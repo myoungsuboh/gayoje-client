@@ -187,7 +187,7 @@ const badgeMetrics = computed(() => {
 })
 
 // 사용 가이드 — Plan / Design / Lint 페이지와 동일 패턴. 계정당 최초 1회 자동 표시.
-const DELIVERABLES_GUIDE_SEEN_KEY = 'harness_deliverables_guide_seen_v1'
+const DELIVERABLES_GUIDE_SEEN_KEY = 'gayoje_deliverables_guide_seen_v1'
 const showGuide = ref(false)
 const openGuide = () => { showGuide.value = true }
 
