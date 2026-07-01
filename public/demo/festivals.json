@@ -1,0 +1,431 @@
+{
+  "list": {
+    "items": [
+      {
+        "id": 19,
+        "title": "제13회 노을동요제",
+        "regionName": "경기도 평택시 중앙로 277",
+        "venue": "평택남부문예회관(대공연장)",
+        "hostOrg": "평택시문화재단+평택시사신문+노을문화재단(준)+SKbroadband기남방송",
+        "startDate": "2026-09-12",
+        "endDate": "2026-09-12"
+      },
+      {
+        "id": 18,
+        "title": "제9회 창녕양파마늘가요제",
+        "regionName": "경상남도 창녕군 창녕읍 창녕대로 305",
+        "venue": "창녕공설운동장 특설무대",
+        "hostOrg": "MBC경남",
+        "startDate": "2026-09-11",
+        "endDate": "2026-09-11"
+      },
+      {
+        "id": 7,
+        "title": "통영가요제",
+        "regionName": "경상남도 통영시 항남동 309",
+        "venue": "강구안 문화마당",
+        "hostOrg": "통영연예예술인협회",
+        "startDate": "2026-09-05",
+        "endDate": "2026-10-05"
+      },
+      {
+        "id": 9,
+        "title": "직지사랑전국실버가요제",
+        "regionName": "충청북도 청주시 서원구 흥덕로 69",
+        "venue": "청주아트홀 공연장",
+        "hostOrg": "(사)한강문화복지회",
+        "startDate": "2026-08-28",
+        "endDate": "2026-08-28"
+      },
+      {
+        "id": 16,
+        "title": "현인가요제",
+        "regionName": "부산광역시 서구 송도해변로 100",
+        "venue": "송도해수욕장",
+        "hostOrg": "(사)한국연예예술인협회",
+        "startDate": "2026-08-01",
+        "endDate": "2026-08-02"
+      },
+      {
+        "id": 17,
+        "title": "제15회 산토끼와 따오기가 함께하는 창작동요제",
+        "regionName": "경상남도 창녕군 창녕읍 군청1길 35",
+        "venue": "창녕문화예술회관 대공연장",
+        "hostOrg": "㈜KNN",
+        "startDate": "2026-07-24",
+        "endDate": "2026-07-25"
+      },
+      {
+        "id": 10,
+        "title": "제18회 군산시 노사가요제",
+        "regionName": "전북특별자치도 군산시 백토로 203",
+        "venue": "군산예술의전당 소공연장",
+        "hostOrg": "군산예술의전당",
+        "startDate": "2026-04-24",
+        "endDate": "2026-04-24"
+      },
+      {
+        "id": 5,
+        "title": "제29회 노들가요제",
+        "regionName": "서울특별시 동작구 장승배기로10길 42",
+        "venue": "동작문화복지센터 대강당",
+        "hostOrg": "(사)동작문화원",
+        "startDate": "2026-03-28",
+        "endDate": "2026-03-28"
+      },
+      {
+        "id": 15,
+        "title": "한민족가수연합회 가요제",
+        "regionName": "전라남도 광양시 광양읍 향교길 9-30",
+        "venue": "광양문화예술회관",
+        "hostOrg": "한민족가수연합회",
+        "startDate": "2026-02-14",
+        "endDate": "2026-02-14"
+      },
+      {
+        "id": 4,
+        "title": "제6회두드림가요제",
+        "regionName": "경기도 동두천시 중앙로 141",
+        "venue": "시민평화공원 야외무대",
+        "hostOrg": "동두천연예협회",
+        "startDate": "2025-11-01",
+        "endDate": "2025-11-01"
+      },
+      {
+        "id": 21,
+        "title": "외국인 K-트롯 가요제",
+        "regionName": "충청남도 아산시 신정로 616",
+        "venue": "신정호야외음악당",
+        "hostOrg": "한국연예예술인총연합회 아산지회",
+        "startDate": "2025-10-18",
+        "endDate": "2025-10-18"
+      },
+      {
+        "id": 14,
+        "title": "서대문구민 가요제",
+        "regionName": "서울특별시 서대문구 북아현로 51",
+        "venue": "북아현아트홀",
+        "hostOrg": "대한민국 가수 희망시대 서대문구지회",
+        "startDate": "2025-09-27",
+        "endDate": "2025-09-27"
+      },
+      {
+        "id": 11,
+        "title": "박달가요제",
+        "regionName": "충청북도 제천시 고암동 1180",
+        "venue": "한방엑스포장 주무대",
+        "hostOrg": "(재)제천문화재단",
+        "startDate": "2025-09-21",
+        "endDate": "2025-09-21"
+      },
+      {
+        "id": 6,
+        "title": "T&U전국청소년가요제",
+        "regionName": "강원특별자치도 화천군 화천읍 산천어길 79",
+        "venue": "화천커뮤니티센터",
+        "hostOrg": "강원특별자치도 화천군",
+        "startDate": "2025-08-30",
+        "endDate": "2025-08-30"
+      },
+      {
+        "id": 8,
+        "title": "2025 제2회 영주 서천 강변가요제",
+        "regionName": "경상북도 영주시 한정로 126",
+        "venue": "영주시 문정둔치",
+        "hostOrg": "한국연예예술인총연합회영주지회",
+        "startDate": "2025-08-01",
+        "endDate": "2025-08-01"
+      },
+      {
+        "id": 2,
+        "title": "제1회봉화글로벌가요제(본선)",
+        "regionName": "경상북도 봉화군 봉화읍 내성리 506",
+        "venue": "내성천생활체육공원야외공연장",
+        "hostOrg": "세계유교문화재단",
+        "startDate": "2025-07-27",
+        "endDate": "2025-07-27"
+      },
+      {
+        "id": 1,
+        "title": "제1회봉화글로벌가요제(2차예선)",
+        "regionName": "경상북도 봉화군 봉화읍 내성로4길 6-44",
+        "venue": "봉화군민회관",
+        "hostOrg": "세계유교문화재단",
+        "startDate": "2025-07-12",
+        "endDate": "2025-07-12"
+      },
+      {
+        "id": 3,
+        "title": "2025 나루 동요제",
+        "regionName": "서울특별시 광진구 능동로 76",
+        "venue": "어린이대공원 열린무대",
+        "hostOrg": "(재)광진문화재단",
+        "startDate": "2025-05-24",
+        "endDate": "2025-05-24"
+      },
+      {
+        "id": 12,
+        "title": "2024 새봄맞이 콘서트「대학가요제 리턴즈」",
+        "regionName": "전라남도 장흥군 장흥읍 읍성로 96",
+        "venue": "장흥문화예술회관 대공연장",
+        "hostOrg": "전라남도 장흥군",
+        "startDate": "2024-02-29",
+        "endDate": "2024-02-29"
+      },
+      {
+        "id": 20,
+        "title": "해변가요제",
+        "regionName": "울릉군 울릉읍 저동리",
+        "venue": "울릉군 저동항",
+        "hostOrg": "울릉청년단",
+        "startDate": "2022-07-29",
+        "endDate": "2022-07-30"
+      },
+      {
+        "id": 13,
+        "title": "전국노래자랑<경기도 안산시편>",
+        "regionName": "경기도 안산시 상록구 용신로 422(본오동)",
+        "venue": "상록수체육관",
+        "hostOrg": "KBS",
+        "startDate": "2018-08-11",
+        "endDate": "2018-08-11"
+      }
+    ],
+    "total": 21,
+    "limit": 200,
+    "offset": 0
+  },
+  "detail": {
+    "19": {
+      "id": 19,
+      "title": "제13회 노을동요제",
+      "hostOrg": "평택시문화재단+평택시사신문+노을문화재단(준)+SKbroadband기남방송",
+      "regionName": "경기도 평택시 중앙로 277",
+      "venue": "평택남부문예회관(대공연장)",
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "sourceUrl": "http://www.noel.or.kr/",
+      "sourceSystem": "data_go_kr:nationwide_cultural_festival_std"
+    },
+    "18": {
+      "id": 18,
+      "title": "제9회 창녕양파마늘가요제",
+      "hostOrg": "MBC경남",
+      "regionName": "경상남도 창녕군 창녕읍 창녕대로 305",
+      "venue": "창녕공설운동장 특설무대",
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "sourceUrl": "https://www.cng.go.kr/01659/02141/03799.web",
+      "sourceSystem": "data_go_kr:nationwide_cultural_festival_std"
+    },
+    "7": {
+      "id": 7,
+      "title": "통영가요제",
+      "hostOrg": "통영연예예술인협회",
+      "regionName": "경상남도 통영시 항남동 309",
+      "venue": "강구안 문화마당",
+      "startDate": "2026-09-05",
+      "endDate": "2026-10-05",
+      "sourceUrl": null,
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "9": {
+      "id": 9,
+      "title": "직지사랑전국실버가요제",
+      "hostOrg": "(사)한강문화복지회",
+      "regionName": "충청북도 청주시 서원구 흥덕로 69",
+      "venue": "청주아트홀 공연장",
+      "startDate": "2026-08-28",
+      "endDate": "2026-08-28",
+      "sourceUrl": "https://www.cheongju.go.kr/ac/index.do",
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "16": {
+      "id": 16,
+      "title": "현인가요제",
+      "hostOrg": "(사)한국연예예술인협회",
+      "regionName": "부산광역시 서구 송도해변로 100",
+      "venue": "송도해수욕장",
+      "startDate": "2026-08-01",
+      "endDate": "2026-08-02",
+      "sourceUrl": "http://culture.bsseogu.go.kr",
+      "sourceSystem": "data_go_kr:nationwide_cultural_festival_std"
+    },
+    "17": {
+      "id": 17,
+      "title": "제15회 산토끼와 따오기가 함께하는 창작동요제",
+      "hostOrg": "㈜KNN",
+      "regionName": "경상남도 창녕군 창녕읍 군청1길 35",
+      "venue": "창녕문화예술회관 대공연장",
+      "startDate": "2026-07-24",
+      "endDate": "2026-07-25",
+      "sourceUrl": "https://www.cng.go.kr/01659/02143/03801.web",
+      "sourceSystem": "data_go_kr:nationwide_cultural_festival_std"
+    },
+    "10": {
+      "id": 10,
+      "title": "제18회 군산시 노사가요제",
+      "hostOrg": "군산예술의전당",
+      "regionName": "전북특별자치도 군산시 백토로 203",
+      "venue": "군산예술의전당 소공연장",
+      "startDate": "2026-04-24",
+      "endDate": "2026-04-24",
+      "sourceUrl": "https://www.gunsan.go.kr/arts",
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "5": {
+      "id": 5,
+      "title": "제29회 노들가요제",
+      "hostOrg": "(사)동작문화원",
+      "regionName": "서울특별시 동작구 장승배기로10길 42",
+      "venue": "동작문화복지센터 대강당",
+      "startDate": "2026-03-28",
+      "endDate": "2026-03-28",
+      "sourceUrl": "https://www.dongjak.go.kr/portal/bbs/B0000173/view.do?nttId=10736698&menuNo=201030&pageIndex=1",
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "15": {
+      "id": 15,
+      "title": "한민족가수연합회 가요제",
+      "hostOrg": "한민족가수연합회",
+      "regionName": "전라남도 광양시 광양읍 향교길 9-30",
+      "venue": "광양문화예술회관",
+      "startDate": "2026-02-14",
+      "endDate": "2026-02-14",
+      "sourceUrl": null,
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "4": {
+      "id": 4,
+      "title": "제6회두드림가요제",
+      "hostOrg": "동두천연예협회",
+      "regionName": "경기도 동두천시 중앙로 141",
+      "venue": "시민평화공원 야외무대",
+      "startDate": "2025-11-01",
+      "endDate": "2025-11-01",
+      "sourceUrl": null,
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "21": {
+      "id": 21,
+      "title": "외국인 K-트롯 가요제",
+      "hostOrg": "한국연예예술인총연합회 아산지회",
+      "regionName": "충청남도 아산시 신정로 616",
+      "venue": "신정호야외음악당",
+      "startDate": "2025-10-18",
+      "endDate": "2025-10-18",
+      "sourceUrl": null,
+      "sourceSystem": "data_go_kr:nationwide_cultural_festival_std"
+    },
+    "14": {
+      "id": 14,
+      "title": "서대문구민 가요제",
+      "hostOrg": "대한민국 가수 희망시대 서대문구지회",
+      "regionName": "서울특별시 서대문구 북아현로 51",
+      "venue": "북아현아트홀",
+      "startDate": "2025-09-27",
+      "endDate": "2025-09-27",
+      "sourceUrl": "https://cs.sscmc.or.kr/sdmcs/11?action=list&page=1",
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "11": {
+      "id": 11,
+      "title": "박달가요제",
+      "hostOrg": "(재)제천문화재단",
+      "regionName": "충청북도 제천시 고암동 1180",
+      "venue": "한방엑스포장 주무대",
+      "startDate": "2025-09-21",
+      "endDate": "2025-09-21",
+      "sourceUrl": null,
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "6": {
+      "id": 6,
+      "title": "T&U전국청소년가요제",
+      "hostOrg": "강원특별자치도 화천군",
+      "regionName": "강원특별자치도 화천군 화천읍 산천어길 79",
+      "venue": "화천커뮤니티센터",
+      "startDate": "2025-08-30",
+      "endDate": "2025-08-30",
+      "sourceUrl": "www.ihc.go.kr/hcyc",
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "8": {
+      "id": 8,
+      "title": "2025 제2회 영주 서천 강변가요제",
+      "hostOrg": "한국연예예술인총연합회영주지회",
+      "regionName": "경상북도 영주시 한정로 126",
+      "venue": "영주시 문정둔치",
+      "startDate": "2025-08-01",
+      "endDate": "2025-08-01",
+      "sourceUrl": null,
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "2": {
+      "id": 2,
+      "title": "제1회봉화글로벌가요제(본선)",
+      "hostOrg": "세계유교문화재단",
+      "regionName": "경상북도 봉화군 봉화읍 내성리 506",
+      "venue": "내성천생활체육공원야외공연장",
+      "startDate": "2025-07-27",
+      "endDate": "2025-07-27",
+      "sourceUrl": null,
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "1": {
+      "id": 1,
+      "title": "제1회봉화글로벌가요제(2차예선)",
+      "hostOrg": "세계유교문화재단",
+      "regionName": "경상북도 봉화군 봉화읍 내성로4길 6-44",
+      "venue": "봉화군민회관",
+      "startDate": "2025-07-12",
+      "endDate": "2025-07-12",
+      "sourceUrl": null,
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "3": {
+      "id": 3,
+      "title": "2025 나루 동요제",
+      "hostOrg": "(재)광진문화재단",
+      "regionName": "서울특별시 광진구 능동로 76",
+      "venue": "어린이대공원 열린무대",
+      "startDate": "2025-05-24",
+      "endDate": "2025-05-24",
+      "sourceUrl": null,
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "12": {
+      "id": 12,
+      "title": "2024 새봄맞이 콘서트「대학가요제 리턴즈」",
+      "hostOrg": "전라남도 장흥군",
+      "regionName": "전라남도 장흥군 장흥읍 읍성로 96",
+      "venue": "장흥문화예술회관 대공연장",
+      "startDate": "2024-02-29",
+      "endDate": "2024-02-29",
+      "sourceUrl": "http://art.jangheung.go.kr/",
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    },
+    "20": {
+      "id": 20,
+      "title": "해변가요제",
+      "hostOrg": "울릉청년단",
+      "regionName": "울릉군 울릉읍 저동리",
+      "venue": "울릉군 저동항",
+      "startDate": "2022-07-29",
+      "endDate": "2022-07-30",
+      "sourceUrl": "http://www.ulleung.go.kr/tour/page.htm?mnu_uid=1991&",
+      "sourceSystem": "data_go_kr:nationwide_cultural_festival_std"
+    },
+    "13": {
+      "id": 13,
+      "title": "전국노래자랑<경기도 안산시편>",
+      "hostOrg": "KBS",
+      "regionName": "경기도 안산시 상록구 용신로 422(본오동)",
+      "venue": "상록수체육관",
+      "startDate": "2018-08-11",
+      "endDate": "2018-08-11",
+      "sourceUrl": null,
+      "sourceSystem": "data_go_kr:nationwide_performance_event_std"
+    }
+  }
+}
